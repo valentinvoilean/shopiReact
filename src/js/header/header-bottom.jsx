@@ -22,7 +22,7 @@ export class HeaderBottom extends React.Component {
                 <div className="topInfo">
                     <div className="container">Info</div>
                 </div>
-                {this.props.children}
+                {children}
             </div>
         );
     }

@@ -31,9 +31,7 @@ export class HeaderTop extends React.Component {
         const children = this.props.children;
 
         if (children.length) {
-            children.map((child) => {
-               this._checkSide(child);
-            });
+            children.map(this._checkSide);
         }
         else {
             this._checkSide(children);

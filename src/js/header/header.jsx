@@ -15,7 +15,7 @@ export class Header extends React.Component {
             MyAccount: {
                 mobile: {position: 'top_left', order: 1},
                 tablet: {position: 'top_left', order: 1},
-                desktop: {position: 'top_center', order: 1}
+                desktop: {position: 'top_right', order: 1}
             },
             WishList: {
                 mobile: {position: 'top_left', order: 2},
