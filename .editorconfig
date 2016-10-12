@@ -10,7 +10,7 @@ insert_final_newline = true
 
 # Use 2 spaces for indentation in HTML, JavaScript, SCSS, and XML
 
-[*.{liquid,html,js,scss,xml}]
+[*.{scss}]
 indent_size = 2
 
 [*.scss]

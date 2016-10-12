@@ -3,9 +3,15 @@
   "plugins": [
     "react"
   ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
   "rules": {
-    "react/jsx-uses-vars": [2],
-    "indent": ["error", 2],
+    "react/jsx-uses-vars": "error",
+    "react/jsx-uses-react": "error",
+    "indent": ["error", 4],
     "no-console": [ "error", {"allow": ["warn", "error" ]}],
     "no-alert": ["error"],
     "no-dupe-args": "error",

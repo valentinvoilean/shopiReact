@@ -1,14 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class Hello extends React.Component {
-  render() {
-    return (
-      <div>
-          <h1>Test</h1>
-      </div>
-      );
-  }
-}
+import { Header } from './header';
+import { Footer } from './footer';
 
-ReactDOM.render(<Hello/>, document.body);
+ReactDOM.render(<Header/>, document.getElementsByTagName('header')[0]);
+ReactDOM.render(<Footer/>, document.getElementsByTagName('footer')[0]);
