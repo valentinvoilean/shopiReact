@@ -1,11 +1,9 @@
 import React from 'react';
 
 export class HeaderTop extends React.Component {
-    static get defaultProps() {
-        return {
-            displayName: 'HeaderTop'
-        };
-    }
+    static defaultProps = {
+        name: 'HeaderTop'
+    };
 
     constructor(props, defaultProps) {
         super(props, defaultProps);
@@ -17,7 +15,7 @@ export class HeaderTop extends React.Component {
 
     _checkSide(child) {
         const data = this.props.data;
-        const childName = child.props.displayName;
+        const childName = child.props.name;
         const mediaQuery = 'desktop';
 
         switch (data[childName][mediaQuery].position) {

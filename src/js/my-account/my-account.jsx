@@ -1,11 +1,9 @@
 import React from 'react';
 
 export class MyAccount extends React.Component {
-    static get defaultProps() {
-        return {
-            displayName: 'MyAccount'
-        };
-    }
+    static defaultProps = {
+        name: 'MyAccount'
+    };
 
     returnIconBasedOnCustomer() {
         const userLoggedIn = false;
