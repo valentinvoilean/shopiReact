@@ -1,0 +1,39 @@
+{
+  "name": "theme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack -d --watch",
+    "build": "webpack -p",
+    "watch": "scripts/watch.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "6.17.0",
+    "babel-eslint": "7.0.0",
+    "babel-loader": "6.2.5",
+    "babel-polyfill": "6.16.0",
+    "babel-preset-es2015": "6.16.0",
+    "eslint": "3.7.1",
+    "eslint-loader": "1.5.0",
+    "eslint-plugin-react": "^6.4.1",
+    "html-loader": "0.4.4",
+    "jquery.currencies.js": "github:carolineschnapp/currencies",
+    "node-normalize-scss": "1.3.2",
+    "picturefill": "3.0.2",
+    "run-sequence": "1.2.2",
+    "sass-module-importer": "1.2.1",
+    "svg-sprite-loader": "0.0.29",
+    "webpack": "1.13.2"
+  },
+  "dependencies": {
+    "babel-preset-react": "6.16.0",
+    "jquery": "3.1.1",
+    "modernizr": "3.3.1",
+    "modernizr-loader": "0.0.5",
+    "react": "15.3.2",
+    "react-dom": "15.3.2"
+  }
+}
