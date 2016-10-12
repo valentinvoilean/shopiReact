@@ -1,0 +1,73 @@
+.headerMain {
+  @include flexbox;
+  @include align-items(flex-start);
+  @include justify-content(space-between);
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  @include breakpoint($screen-md) {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  @include breakpoint($screen-lg) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .headerMain__items {
+    display: flex;
+    justify-content: center;
+
+    &:first-child {
+      justify-content: flex-start;
+    }
+
+    &:last-child {
+      justify-content: flex-end;
+    }
+  }
+
+  &.center .headerMain__items {
+    width: 100%;
+  }
+
+  .menuIcon {
+    margin-right: auto;
+  }
+
+  .logo {
+    display: block;
+    margin-left: 20px;
+    margin-right: 20px;
+
+    @include breakpoint($screen-sm-min) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  .logo__img {
+    max-width: $logoWidthMobile;
+    display: block;
+
+    @include breakpoint($screen-sm-min) {
+      max-width: $logoWidthTablet;
+    }
+
+    @include breakpoint($screen-lg) {
+      max-width: $logoWidthDesktop;
+    }
+  }
+
+  .cart {
+    width: 25px;
+    height: 25px;
+    fill: $header-main-cart-color;
+
+    @include breakpoint($screen-sm-min) {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}

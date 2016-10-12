@@ -1,0 +1,48 @@
+//
+// Utility classes
+// --------------------------------------------------
+
+
+// Floats
+// -------------------------
+
+.center-block {
+  @include center-block;
+}
+.pull-right {
+  float: right !important;
+}
+.pull-left {
+  float: left !important;
+}
+
+
+// Toggling content
+// -------------------------
+
+.show {
+  display: block !important;
+}
+.is-invisible {
+  visibility: hidden !important;
+}
+
+.is-visible {
+  visibility: visible !important;
+}
+
+.is-outside-viewport {
+  position: fixed;
+  top: -9999px;
+  left: -9999px;
+}
+
+.is-collapsed {
+  width: 0 !important;
+  border: 0 !important;
+  padding: 0 !important;
+}
+
+.hidden {
+  display: none !important;
+}

@@ -1,4 +1,4 @@
-require('./scripts/paths')(__dirname);
+require('./config/paths')(__dirname);
 
 const
   path = require('path'),
@@ -8,7 +8,7 @@ module.exports = {
   devtool: 'inline-source-map',
 
   entry: {
-    vendors: ['babel-polyfill', 'jquery', 'jquery.currencies.js', 'modernizr', 'picturefill'],
+    vendors: ['babel-polyfill', 'react', 'react-dom', 'jquery', 'jquery.currencies.js', 'modernizr', 'picturefill'],
     main: [`${__src.js}/main.jsx`]
   },
 
@@ -32,11 +32,19 @@ module.exports = {
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery'
-    })
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
+    /*new webpack.optimize.UglifyJsPlugin({
+      compress: { warnings: false }
+    })*/
   ],
 
   eslint: {
-    failOnError: true
+    failOnError: false
   },
 
   module: {
@@ -53,16 +61,16 @@ module.exports = {
     loaders: [
       {
         test: /\.svg$/,
-        loader: 'svg-sprite',
+        loader: 'svg-sprite'
       },
       {
         test: /\.modernizrrc$/,
-        loader: "modernizr"
+        loader: 'modernizr'
       },
       {
-        test : /\.jsx?/,
+        test: /\.jsx?$/,
         include : __src.js,
-        loader : 'babel'
+        loader: 'babel'
       }
     ]
   }

@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/js/main.jsx"],"names":["console","warn"],"mappings":";;;;;;;;;;;;;;;;;;;AAAAA,SAAQC,IAAR,CAAa,MAAb,E","file":"main.bundle.js","sourcesContent":["console.warn('test');\n\n\n\n/** WEBPACK FOOTER **\n ** ./src/js/main.jsx\n **/"],"sourceRoot":""}

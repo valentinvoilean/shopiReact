@@ -4,6 +4,7 @@
     "react"
   ],
   "rules": {
+    "react/jsx-uses-vars": [2],
     "indent": ["error", 2],
     "no-console": [ "error", {"allow": ["warn", "error" ]}],
     "no-alert": ["error"],

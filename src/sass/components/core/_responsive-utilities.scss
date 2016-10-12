@@ -1,0 +1,40 @@
+//
+// Responsive: Utility classes
+// --------------------------------------------------
+@mixin returnInitialStateClasses($mediaQueries){
+  @each $mq in $mediaQueries {
+    .visible-#{$mq}-min,
+    .visible-#{$mq}-min-inline,
+    .visible-#{$mq}-min-inline-block,
+    .visible-#{$mq}-min-flex,
+    .visible-#{$mq},
+    .visible-#{$mq}-inline,
+    .visible-#{$mq}-inline-block,
+    .visible-#{$mq}-flex,
+    .visible-#{$mq}-max,
+    .visible-#{$mq}-max-inline,
+    .visible-#{$mq}-max-inline-block,
+    .visible-#{$mq}-max-flex {
+      display: none !important;
+    }
+  }
+}
+
+@mixin returnResponsiveClasses($mq){
+  .visible-#{$mq} {display:block !important;}
+  .hidden-#{$mq} { display: none !important; }
+  .visible-#{$mq}-inline { display: inline !important; }
+  .visible-#{$mq}-inline-block { display: inline-block !important; }
+  .visible-#{$mq}-flex { display: flex !important; }
+}
+
+@include returnInitialStateClasses(('xs','sm','md','lg'));
+
+@include breakpoint($screen-xs)     { @include returnResponsiveClasses('xs'); }
+@include breakpoint($screen-sm)     { @include returnResponsiveClasses('sm'); }
+@include breakpoint($screen-sm-min) { @include returnResponsiveClasses('sm-min'); }
+@include breakpoint($screen-sm-max) { @include returnResponsiveClasses('sm-max'); }
+@include breakpoint($screen-md)     { @include returnResponsiveClasses('md'); }
+@include breakpoint($screen-md-min) { @include returnResponsiveClasses('md-min'); }
+@include breakpoint($screen-md-max) { @include returnResponsiveClasses('md-max'); }
+@include breakpoint($screen-lg)     { @include returnResponsiveClasses('lg'); }

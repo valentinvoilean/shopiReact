@@ -1,0 +1,24 @@
+/*================  Breakpoint mixin ================*/
+
+@mixin breakpoint($class) {
+  $minWidth: null;
+  $maxWidth: null;
+
+  @if length($class) == 2 {
+    $minWidth: nth($class, 1);
+    $maxWidth: nth($class, 2);
+  }
+  @else {
+    $minWidth: $class;
+  }
+
+  @if $minWidth != null and $maxWidth != null{
+    @media screen and (min-width: #{$minWidth}) and (max-width: #{$maxWidth}) { @content; }
+  }
+  @else if $minWidth != null {
+    @media screen and (min-width: #{$minWidth}) { @content; }
+  }
+  @else {
+    @warn "Please specify a breakpoint";
+  }
+}
