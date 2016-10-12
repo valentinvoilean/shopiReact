@@ -2,6 +2,7 @@ import React from 'react';
 
 import {HeaderTop, HeaderBottom, HeaderMain} from './';
 import {MyAccount} from '../my-account';
+import { MatchMedia } from 'react-match-media';
 
 export class Header extends React.Component {
     constructor(props) {
@@ -32,6 +33,9 @@ export class Header extends React.Component {
     render() {
         return (
             <div className="header">
+                <MatchMedia mediaQuery={'(min-width: 500px)'}>
+                    More than 500px
+                </MatchMedia>
                 <HeaderTop data={this.data}>
                     <MyAccount key="1">Hi,</MyAccount>
                 </HeaderTop>
