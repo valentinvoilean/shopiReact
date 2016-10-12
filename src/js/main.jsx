@@ -5,13 +5,10 @@ class Hello extends React.Component {
   render() {
     return (
       <div>
-        <header role="banner" className="mainHeader header">test</header>
-        <main role="main">test</main>
-        <footer role="contentinfo">test</footer>
+          <h1>Test</h1>
       </div>
       );
   }
 }
-console.log('bad');
 
 ReactDOM.render(<Hello/>, document.body);
