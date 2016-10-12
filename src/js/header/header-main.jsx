@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class extends React.Component {
+export class HeaderMain extends React.Component {
     render() {
         return (
             <div className="headerMain">

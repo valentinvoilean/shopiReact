@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class extends React.Component {
+export class HeaderBottom extends React.Component {
 
     _sortByPriority(a, b) {
         if (a.props.priority < b.props.priority) {
@@ -13,13 +13,9 @@ export default class extends React.Component {
     }
 
     render() {
-        console.warn(this.props.children);
-
         let children = this.props.children;
 
-        children.sort(this._sortByPriority);
-
-        console.warn(children);
+        //children.sort(this._sortByPriority);
 
         return (
             <div className="headerBottom">
