@@ -1,9 +1,14 @@
 import React from 'react';
 
 export class HeaderTop extends React.Component {
+    static get defaultProps() {
+        return {
+            displayName: 'HeaderTop'
+        };
+    }
 
-    constructor(props) {
-        super(props);
+    constructor(props, defaultProps) {
+        super(props, defaultProps);
 
         this.leftSideComponents = [];
         this.centerComponents = [];
@@ -12,7 +17,7 @@ export class HeaderTop extends React.Component {
 
     _checkSide(child) {
         const data = this.props.data;
-        const childName = child.type.name;
+        const childName = child.props.displayName;
         const mediaQuery = 'desktop';
 
         switch (data[childName][mediaQuery].position) {
@@ -29,7 +34,6 @@ export class HeaderTop extends React.Component {
 
     _sortCompoents() {
         const children = this.props.children;
-
         if (children.length) {
             children.map(this._checkSide);
         }
