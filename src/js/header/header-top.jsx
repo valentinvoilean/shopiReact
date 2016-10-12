@@ -1,12 +1,29 @@
 import React from 'react';
 
 export default class extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.leftSideComponents = [];
+        this.centerComponents = [];
+        this.rightSideComponents = [];
+    }
+
+    _sortCompoents() {
+        console.log(this.props.data);
+    }
+
     render() {
-        let classNames = `container ${this.props.className}`;
+        this._sortCompoents();
 
         return (
             <div className="headerTop">
-                <div className={classNames}>{this.props.children}</div>
+                <div className="container noClear">
+                    <div className="headerTop__items">{leftSideComponents}</div>
+                    <div className="headerTop__items">{centerComponents}</div>
+                    <div className="headerTop__items">{rightSideComponents}</div>
+                </div>
             </div>
         );
     }
