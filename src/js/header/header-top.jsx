@@ -7,25 +7,43 @@ export class HeaderTop extends React.Component {
     };
 
     render() {
-        console.log(this);
+        console.warn(this);
 
         return (
             <div className="headerTop">
                 <div className="container noClear">
                     <MatchMedia mediaQuery={'(max-width: 767px)'}>
-                        <div className="headerTop__items">{this.props.data.leftSide.mobile}</div>
-                        <div className="headerTop__items">{this.props.data.center.mobile}</div>
-                        <div className="headerTop__items">{this.props.data.rightSide.mobile}</div>
+                        <div className="headerTop__items">
+                            {this.props.data.TopLeft ? this.props.data.TopLeft.mobile : ''}
+                        </div>
+                        <div className="headerTop__items">
+                            {this.props.data.TopCenter ? this.props.data.TopCenter.mobile : ''}
+                        </div>
+                        <div className="headerTop__items">
+                            {this.props.data.TopRight ? this.props.data.TopRight.mobile : ''}
+                        </div>
                     </MatchMedia>
                     <MatchMedia mediaQuery={'(min-width: 768px) and (max-width: 1023px)'}>
-                        <div className="headerTop__items">{this.props.data.leftSide.tablet}</div>
-                        <div className="headerTop__items">{this.props.data.center.tablet}</div>
-                        <div className="headerTop__items">{this.props.data.rightSide.tablet}</div>
+                        <div className="headerTop__items">
+                            {this.props.data.TopLeft ? this.props.data.TopLeft.tablet : ''}
+                        </div>
+                        <div className="headerTop__items">
+                            {this.props.data.TopCenter ? this.props.data.TopCenter.tablet : ''}
+                        </div>
+                        <div className="headerTop__items">
+                            {this.props.data.TopRight ? this.props.data.TopRight.tablet : ''}
+                        </div>
                     </MatchMedia>
                     <MatchMedia mediaQuery={'(min-width: 1024px)'}>
-                        <div className="headerTop__items">{this.props.data.leftSide.desktop}</div>
-                        <div className="headerTop__items">{this.props.data.center.desktop}</div>
-                        <div className="headerTop__items">{this.props.data.rightSide.desktop}</div>
+                        <div className="headerTop__items">
+                            {this.props.data.TopLeft ? this.props.data.TopLeft.desktop : ''}
+                        </div>
+                        <div className="headerTop__items">
+                            {this.props.data.TopCenter ? this.props.data.TopCenter.desktop : ''}
+                        </div>
+                        <div className="headerTop__items">
+                            {this.props.data.TopRight ? this.props.data.TopRight.desktop : ''}
+                        </div>
                     </MatchMedia>
                 </div>
             </div>

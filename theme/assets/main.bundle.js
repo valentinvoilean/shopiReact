@@ -135,34 +135,16 @@ webpackJsonp([0],{
 	
 	        var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
 	
-	        _this.topHeaderData = {
-	            leftSide: {
-	                mobile: [],
-	                tablet: [],
-	                desktop: []
-	            },
-	            center: {
-	                mobile: [],
-	                tablet: [],
-	                desktop: []
-	            },
-	            rightSide: {
-	                mobile: [],
-	                tablet: [],
-	                desktop: []
-	            }
-	        };
-	
 	        _this.data = {
 	            MyAccount: {
-	                mobile: { position: 'top_left', order: 1 },
-	                tablet: { position: 'top_center', order: 0 },
-	                desktop: { position: 'top_right', order: 0 }
+	                mobile: { position: 'TopLeft', order: 1 },
+	                tablet: { position: 'TopCenter', order: 0 },
+	                desktop: { position: 'TopRight', order: 0 }
 	            },
 	            Wishlist: {
-	                mobile: { position: 'top_left', order: 0 },
-	                tablet: { position: 'top_left', order: 0 },
-	                desktop: { position: 'top_right', order: 1 }
+	                mobile: { position: 'TopLeft', order: 0 },
+	                tablet: { position: 'TopLeft', order: 0 },
+	                desktop: { position: 'TopRight', order: 1 }
 	            }
 	        };
 	        return _this;
@@ -186,16 +168,10 @@ webpackJsonp([0],{
 	                var childPosition = data[childName][mq].position;
 	                var childOrder = data[childName][mq].order;
 	
-	                switch (childPosition) {
-	                    case 'top_left':
-	                        _this2.topHeaderData.leftSide[mq][childOrder] = child;
-	                        break;
-	                    case 'top_center':
-	                        _this2.topHeaderData.center[mq][childOrder] = child;
-	                        break;
-	                    default:
-	                        _this2.topHeaderData.rightSide[mq][childOrder] = child;
-	                }
+	                _this2.HeaderData = _this2.HeaderData || {};
+	                _this2.HeaderData[childPosition] = _this2.HeaderData[childPosition] || {};
+	                _this2.HeaderData[childPosition][mq] = _this2.HeaderData[childPosition][mq] || [];
+	                _this2.HeaderData[childPosition][mq][childOrder] = child;
 	            });
 	        }
 	    }, {
@@ -216,7 +192,8 @@ webpackJsonp([0],{
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'header' },
-	                _react2.default.createElement(_.HeaderTop, { data: this.topHeaderData })
+	                _react2.default.createElement(_.HeaderTop, { data: this.HeaderData }),
+	                _react2.default.createElement(_.HeaderMain, { data: this.HeaderData })
 	            );
 	        }
 	    }]);
@@ -337,7 +314,7 @@ webpackJsonp([0],{
 	    _createClass(HeaderTop, [{
 	        key: 'render',
 	        value: function render() {
-	            console.log(this);
+	            console.warn(this);
 	
 	            return _react2.default.createElement(
 	                'div',
@@ -351,17 +328,17 @@ webpackJsonp([0],{
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerTop__items' },
-	                            this.props.data.leftSide.mobile
+	                            this.props.data.TopLeft ? this.props.data.TopLeft.mobile : ''
 	                        ),
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerTop__items' },
-	                            this.props.data.center.mobile
+	                            this.props.data.TopCenter ? this.props.data.TopCenter.mobile : ''
 	                        ),
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerTop__items' },
-	                            this.props.data.rightSide.mobile
+	                            this.props.data.TopRight ? this.props.data.TopRight.mobile : ''
 	                        )
 	                    ),
 	                    _react2.default.createElement(
@@ -370,17 +347,17 @@ webpackJsonp([0],{
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerTop__items' },
-	                            this.props.data.leftSide.tablet
+	                            this.props.data.TopLeft ? this.props.data.TopLeft.tablet : ''
 	                        ),
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerTop__items' },
-	                            this.props.data.center.tablet
+	                            this.props.data.TopCenter ? this.props.data.TopCenter.tablet : ''
 	                        ),
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerTop__items' },
-	                            this.props.data.rightSide.tablet
+	                            this.props.data.TopRight ? this.props.data.TopRight.tablet : ''
 	                        )
 	                    ),
 	                    _react2.default.createElement(
@@ -389,17 +366,17 @@ webpackJsonp([0],{
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerTop__items' },
-	                            this.props.data.leftSide.desktop
+	                            this.props.data.TopLeft ? this.props.data.TopLeft.desktop : ''
 	                        ),
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerTop__items' },
-	                            this.props.data.center.desktop
+	                            this.props.data.TopCenter ? this.props.data.TopCenter.desktop : ''
 	                        ),
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerTop__items' },
-	                            this.props.data.rightSide.desktop
+	                            this.props.data.TopRight ? this.props.data.TopRight.desktop : ''
 	                        )
 	                    )
 	                )
@@ -419,7 +396,7 @@ webpackJsonp([0],{
 /***/ 322:
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -431,6 +408,8 @@ webpackJsonp([0],{
 	var _react = __webpack_require__(2);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactMatchMedia = __webpack_require__(168);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -450,15 +429,71 @@ webpackJsonp([0],{
 	    }
 	
 	    _createClass(HeaderMain, [{
-	        key: "render",
+	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
-	                "div",
-	                { className: "headerMain" },
+	                'div',
+	                { className: 'headerMain' },
 	                _react2.default.createElement(
-	                    "div",
-	                    { className: "container" },
-	                    this.props.children
+	                    'div',
+	                    { className: 'container noClear' },
+	                    _react2.default.createElement(
+	                        _reactMatchMedia.MatchMedia,
+	                        { mediaQuery: '(max-width: 767px)' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'headerMain__items' },
+	                            this.props.data.MainLeft ? this.props.data.MainLeft.mobile : ''
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'headerMain__items' },
+	                            this.props.data.MainCenter ? this.props.data.MainCenter.mobile : ''
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'headerMain__items' },
+	                            this.props.data.MainRight ? this.props.data.MainRight.mobile : ''
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        _reactMatchMedia.MatchMedia,
+	                        { mediaQuery: '(min-width: 768px) and (max-width: 1023px)' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'headerMain__items' },
+	                            this.props.data.MainLeft ? this.props.data.MainLeft.tablet : ''
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'headerMain__items' },
+	                            this.props.data.MainCenter ? this.props.data.MainCenter.tablet : ''
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'headerMain__items' },
+	                            this.props.data.MainRight ? this.props.data.MainRight.tablet : ''
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        _reactMatchMedia.MatchMedia,
+	                        { mediaQuery: '(min-width: 1024px)' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'headerMain__items' },
+	                            this.props.data.MainLeft ? this.props.data.MainLeft.desktop : ''
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'headerMain__items' },
+	                            this.props.data.MainCenter ? this.props.data.MainCenter.desktop : ''
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'headerMain__items' },
+	                            this.props.data.MainRight ? this.props.data.MainRight.desktop : ''
+	                        )
+	                    )
 	                )
 	            );
 	        }
@@ -466,6 +501,10 @@ webpackJsonp([0],{
 	
 	    return HeaderMain;
 	}(_react2.default.Component);
+	
+	HeaderMain.defaultProps = {
+	    name: 'HeaderMain'
+	};
 
 /***/ },
 

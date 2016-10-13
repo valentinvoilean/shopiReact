@@ -6,34 +6,16 @@ export class Header extends React.Component {
     constructor(props) {
         super(props);
 
-        this.topHeaderData = {
-            leftSide: {
-                mobile: [],
-                tablet: [],
-                desktop: []
-            },
-            center: {
-                mobile: [],
-                tablet: [],
-                desktop: []
-            },
-            rightSide: {
-                mobile: [],
-                tablet: [],
-                desktop: []
-            }
-        };
-
         this.data = {
             MyAccount: {
-                mobile: {position: 'top_left', order: 1},
-                tablet: {position: 'top_center', order: 0},
-                desktop: {position: 'top_right', order: 0}
+                mobile: {position: 'TopLeft', order: 1},
+                tablet: {position: 'TopCenter', order: 0},
+                desktop: {position: 'TopRight', order: 0}
             },
             Wishlist: {
-                mobile: {position: 'top_left', order: 0},
-                tablet: {position: 'top_left', order: 0},
-                desktop: {position: 'top_right', order: 1}
+                mobile: {position: 'TopLeft', order: 0},
+                tablet: {position: 'TopLeft', order: 0},
+                desktop: {position: 'TopRight', order: 1}
             }
         };
     }
@@ -51,16 +33,10 @@ export class Header extends React.Component {
             let childPosition = data[childName][mq].position;
             let childOrder = data[childName][mq].order;
 
-            switch (childPosition) {
-                case 'top_left':
-                    this.topHeaderData.leftSide[mq][childOrder] = child;
-                    break;
-                case 'top_center':
-                    this.topHeaderData.center[mq][childOrder] = child;
-                    break;
-                default :
-                    this.topHeaderData.rightSide[mq][childOrder] = child;
-            }
+            this.HeaderData = this.HeaderData || {};
+            this.HeaderData[childPosition] = this.HeaderData[childPosition] || {};
+            this.HeaderData[childPosition][mq] = this.HeaderData[childPosition][mq] || [];
+            this.HeaderData[childPosition][mq][childOrder] = child;
         });
     }
 
@@ -79,7 +55,8 @@ export class Header extends React.Component {
         this._sortCompoents();
         return (
             <div className="header">
-                <HeaderTop data={this.topHeaderData}/>
+                <HeaderTop data={this.HeaderData}/>
+                <HeaderMain data={this.HeaderData}/>
             </div>
         );
     }
