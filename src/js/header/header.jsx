@@ -57,6 +57,7 @@ export class Header extends React.Component {
             <div className="header">
                 <HeaderTop data={this.HeaderData}/>
                 <HeaderMain data={this.HeaderData}/>
+                <HeaderBottom data={this.HeaderData}/>
             </div>
         );
     }
