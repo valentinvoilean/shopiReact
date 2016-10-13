@@ -1,54 +1,32 @@
 import React from 'react';
+import { MatchMedia } from 'react-match-media';
 
 export class HeaderTop extends React.Component {
     static defaultProps = {
         name: 'HeaderTop'
     };
 
-    constructor(props, defaultProps) {
-        super(props, defaultProps);
-
-        this.leftSideComponents = [];
-        this.centerComponents = [];
-        this.rightSideComponents = [];
-    }
-
-    _checkSide(child) {
-        const data = this.props.data;
-        const childName = child.props.name;
-        const mediaQuery = 'desktop';
-
-        switch (data[childName][mediaQuery].position) {
-            case 'top_left':
-                this.leftSideComponents.push(child);
-                break;
-            case 'top_center':
-                this.centerComponents.push(child);
-                break;
-            default :
-                this.rightSideComponents.push(child);
-        }
-    }
-
-    _sortCompoents() {
-        const children = this.props.children;
-        if (children.length) {
-            children.map(this._checkSide);
-        }
-        else {
-            this._checkSide(children);
-        }
-    }
-
     render() {
-        this._sortCompoents();
+        console.log(this);
 
         return (
             <div className="headerTop">
                 <div className="container noClear">
-                    <div className="headerTop__items">{this.leftSideComponents}</div>
-                    <div className="headerTop__items">{this.centerComponents}</div>
-                    <div className="headerTop__items">{this.rightSideComponents}</div>
+                    <MatchMedia mediaQuery={'(max-width: 767px)'}>
+                        <div className="headerTop__items">{this.props.data.leftSide.mobile}</div>
+                        <div className="headerTop__items">{this.props.data.center.mobile}</div>
+                        <div className="headerTop__items">{this.props.data.rightSide.mobile}</div>
+                    </MatchMedia>
+                    <MatchMedia mediaQuery={'(min-width: 768px) and (max-width: 1023px)'}>
+                        <div className="headerTop__items">{this.props.data.leftSide.tablet}</div>
+                        <div className="headerTop__items">{this.props.data.center.tablet}</div>
+                        <div className="headerTop__items">{this.props.data.rightSide.tablet}</div>
+                    </MatchMedia>
+                    <MatchMedia mediaQuery={'(min-width: 1024px)'}>
+                        <div className="headerTop__items">{this.props.data.leftSide.desktop}</div>
+                        <div className="headerTop__items">{this.props.data.center.desktop}</div>
+                        <div className="headerTop__items">{this.props.data.rightSide.desktop}</div>
+                    </MatchMedia>
                 </div>
             </div>
         );
