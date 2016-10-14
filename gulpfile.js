@@ -28,4 +28,4 @@ gulp.task('watch', ['watch:Theme', 'watch:CSS', 'watch:JS']);
 gulp.task('lint', require(`${__gulpTasks}/lint`)(gulp, plugins));
 gulp.task('createBundle', require(`${__gulpTasks}/createBundle`)(gulp, plugins));
 
-gulp.task('default', ['watch', 'createBundle']);
+gulp.task('default', ['watch', 'createBundle', 'compileSass']);
