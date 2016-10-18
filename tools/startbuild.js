@@ -1,6 +1,7 @@
 // This file configures the development web server
 // which supports hot reloading and synchronized testing.
 
+import browserSync from 'browser-sync';
 import webpack from 'webpack';
 import config from '../webpack.config';
 const compiler = webpack(config);
@@ -14,4 +15,23 @@ compiler.watch({ // watch options:
     chunks: false, // Makes the build much quieter
     colors: true
   }));
+});
+
+/**
+ * Reload all devices when bundle is complete
+ * or send a fullscreen error message to the browser instead
+ */
+
+browserSync.create();
+browserSync.init();
+
+compiler.plugin('done', function (stats) {
+    if (stats.hasErrors() || stats.hasWarnings()) {
+        return browserSync.sockets.emit('fullscreen:message', {
+            title: "Webpack Error:",
+            body:  stripAnsi(stats.toString()),
+            timeout: 100000
+        });
+    }
+    browserSync.reload();
 });

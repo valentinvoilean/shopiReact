@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
-    "start": "npm-run-all --parallel watch:theme watch:js watch:sass",
+    "start": "npm-run-all --parallel watch:js watch:sass",
     "watch:js": "babel-node tools/startBuild.js",
     "watch:theme": "browser-sync start",
     "watch:sass": "babel-node tools/watchSass",
@@ -28,6 +28,7 @@
     "babel-preset-es2015": "6.16.0",
     "babel-preset-react": "6.16.0",
     "bootstrap": "3.3.7",
+    "browser-sync": "2.17.3",
     "css-loader": "0.25.0",
     "eslint": "3.8.0",
     "eslint-loader": "1.5.0",
