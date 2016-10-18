@@ -1,20 +1,20 @@
 .background {
-  background: rgba(black, 0.5);
-  position: fixed;
-  z-index: 999;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
+    background: rgba(black, 0.5);
+    position: fixed;
+    z-index: 999;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
 }
 
 .base {
-  background: white;
-  padding: 20px;
-  position: relative;
-  top: 180px;
-  box-shadow: 0 0 0 5px rgba(white, 0.25);
-  border-radius: 5px;
+    background: white;
+    padding: 20px;
+    position: relative;
+    top: 180px;
+    box-shadow: 0 0 0 5px rgba(white, 0.25);
+    border-radius: 5px;
 }
 
 .tabs {
@@ -35,48 +35,45 @@
 }
 
 .h1 {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 24px;
-  font-weight: normal;
-  margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: normal;
+    margin: 30px 0;
 }
 
 .h2 {
-
+    background: #2F5A59;
+    color: white;
+    padding: 5px 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    display: inline-block;
 }
 
 .text {
-
 }
 
 .box {
-
 }
 
 .header {
-
 }
 
 .column {
-
 }
 
 .close {
-
 }
 
 .plus {
-
 }
 
 .copy {
-
 }
 
 .nav {
-
 }
 
 .tab {
-
 }

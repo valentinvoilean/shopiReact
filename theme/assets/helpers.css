@@ -38,7 +38,17 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 24px;
   font-weight: normal;
-  margin: 0;
+  margin: 30px 0;
+}
+
+.config-box__h2___GRwXZ {
+  background: #2F5A59;
+  color: white;
+  padding: 5px 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  display: inline-block;
 }
 
 

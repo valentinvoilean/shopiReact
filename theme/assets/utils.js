@@ -447,6 +447,24 @@ webpackJsonp([1],[
 	                                'h1',
 	                                { styleName: 'h1' },
 	                                'Mobile Header Configuration'
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'col-md-6' },
+	                                _react2.default.createElement(
+	                                    'h2',
+	                                    { styleName: 'h2' },
+	                                    '1. Available components to drag & drop'
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'col-md-6' },
+	                                _react2.default.createElement(
+	                                    'h2',
+	                                    { styleName: 'h2' },
+	                                    '3. Generated code to be copied'
+	                                )
 	                            )
 	                        ),
 	                        _react2.default.createElement(
@@ -456,6 +474,24 @@ webpackJsonp([1],[
 	                                'h1',
 	                                { styleName: 'h1' },
 	                                'Tablet Header Configuration'
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'col-md-6' },
+	                                _react2.default.createElement(
+	                                    'h2',
+	                                    { styleName: 'h2' },
+	                                    '1. Available components to drag & drop'
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'col-md-6' },
+	                                _react2.default.createElement(
+	                                    'h2',
+	                                    { styleName: 'h2' },
+	                                    '3. Generated code to be copied'
+	                                )
 	                            )
 	                        ),
 	                        _react2.default.createElement(
@@ -465,6 +501,24 @@ webpackJsonp([1],[
 	                                'h1',
 	                                { styleName: 'h1' },
 	                                'Desktop Header Configuration'
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'col-md-6' },
+	                                _react2.default.createElement(
+	                                    'h2',
+	                                    { styleName: 'h2' },
+	                                    '1. Available components to drag & drop'
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'col-md-6' },
+	                                _react2.default.createElement(
+	                                    'h2',
+	                                    { styleName: 'h2' },
+	                                    '3. Generated code to be copied'
+	                                )
 	                            )
 	                        )
 	                    )
@@ -483,7 +537,7 @@ webpackJsonp([1],[
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"background":"config-box__background___KwzXl","base":"config-box__base___1FPLj","tabs":"config-box__tabs___3MnJT","h1":"config-box__h1___NQo48"};
+	module.exports = {"background":"config-box__background___KwzXl","base":"config-box__base___1FPLj","tabs":"config-box__tabs___3MnJT","h1":"config-box__h1___NQo48","h2":"config-box__h2___GRwXZ"};
 
 /***/ },
 /* 343 */
