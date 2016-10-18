@@ -4,12 +4,12 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import './paths';
 
 const GLOBALS = {
-  'process.env.NODE_ENV': JSON.stringify('production'),
-  __DEV__: false
+  'process.env.NODE_ENV': JSON.stringify('development'),
+  __DEV__: true
 };
 
 export default {
-  //devtool: 'source-map',
+  devtool: 'source-map',
 
   entry: {
     vendors: ['babel-polyfill', 'react', 'react-dom', 'react-match-media',
@@ -49,13 +49,7 @@ export default {
       $: 'jquery',
       jQuery: 'jquery'
     }),
-    new ExtractTextPlugin('helpers.css', {allChunks: true}),
-
-    /*new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    })*/
+    new ExtractTextPlugin('helpers.css', {allChunks: false})
   ],
 
   eslint: {
