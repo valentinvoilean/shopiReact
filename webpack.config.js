@@ -12,8 +12,10 @@ export default {
   devtool: 'source-map',
 
   entry: {
-    vendors: ['babel-polyfill', 'react', 'react-dom', 'react-match-media',
-      'jquery', 'jquery.currencies.js', 'modernizr', 'picturefill'],
+    vendors: ['babel-polyfill', 'modernizr', 'picturefill',
+        'react', 'react-dom', 'react-match-media', 'react-redux',
+        'redux', 'redux-devtools-extension',
+        'jquery', 'jquery.currencies.js', ],
     utils: [`${__utils}/headerConfig.js`],
     main: [`${__base}/src/index.js`]
   },
