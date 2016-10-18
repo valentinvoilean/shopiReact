@@ -17,6 +17,23 @@
   border-radius: 5px;
 }
 
+.config-box__tabs___3MnJT {
+  margin-top: -58px;
+}
+
+.config-box__tabs___3MnJT > ul > li {
+  background: #F5F5F5;
+  margin-left: 5px;
+  border-radius: 5px 5px 0 0;
+  color: #0275D8;
+  vertical-align: bottom;
+}
+
+.config-box__tabs___3MnJT > ul > li[role=tab][aria-selected=true] {
+  padding: 10px 12px;
+  color: #373A3C;
+}
+
 .config-box__h1___NQo48 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 24px;

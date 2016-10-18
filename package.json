@@ -74,6 +74,7 @@
     "modernizr-loader": "0.0.5",
     "react": "15.3.2",
     "react-dom": "15.3.2",
+    "react-tabs": "0.8.0",
     "sortablejs": "1.4.2"
   }
 }

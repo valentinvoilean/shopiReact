@@ -26,12 +26,7 @@ browserSync.create();
 browserSync.init();
 
 compiler.plugin('done', function (stats) {
-    if (stats.hasErrors() || stats.hasWarnings()) {
-        return browserSync.sockets.emit('fullscreen:message', {
-            title: "Webpack Error:",
-            body:  stripAnsi(stats.toString()),
-            timeout: 100000
-        });
+    if (!(stats.hasErrors() || stats.hasWarnings())) {
+        browserSync.reload();
     }
-    browserSync.reload();
 });

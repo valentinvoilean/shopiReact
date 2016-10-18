@@ -17,6 +17,23 @@
   border-radius: 5px;
 }
 
+.tabs {
+    margin-top: -58px;
+
+    & > ul > li {
+        background: #F5F5F5;
+        margin-left: 5px;
+        border-radius: 5px 5px 0 0;
+        color: #0275D8;
+        vertical-align: bottom;
+
+        &[role=tab][aria-selected=true] {
+            padding: 10px 12px;
+            color: #373A3C;
+        }
+    }
+}
+
 .h1 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 24px;
