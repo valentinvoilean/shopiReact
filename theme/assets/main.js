@@ -29,13 +29,7 @@ webpackJsonp([0],{
 	
 	var _wishlist = __webpack_require__(339);
 	
-	var _configBox = __webpack_require__(340);
-	
-	var _configBox2 = _interopRequireDefault(_configBox);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	console.warn(_configBox2.default);
 	
 	_reactDom2.default.render(_react2.default.createElement(
 	    _header.Header,
@@ -159,7 +153,7 @@ webpackJsonp([0],{
 	    _createClass(Header, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            console.warn('mounted');
+	            //console.warn('mounted');
 	        }
 	    }, {
 	        key: '_checkSide',
@@ -728,14 +722,6 @@ webpackJsonp([0],{
 	Wishlist.defaultProps = {
 	    name: 'Wishlist'
 	};
-
-/***/ },
-
-/***/ 340:
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"background":"config-box__background___KwzXl","base":"config-box__base___1FPLj","h1":"config-box__h1___NQo48"};
 
 /***/ }
 

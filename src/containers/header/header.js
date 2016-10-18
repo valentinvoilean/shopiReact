@@ -21,7 +21,7 @@ export class Header extends React.Component {
     }
 
     componentDidMount() {
-        console.warn('mounted');
+        //console.warn('mounted');
     }
 
     _checkSide(child) {
