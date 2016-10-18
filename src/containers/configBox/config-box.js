@@ -1,14 +1,17 @@
 import React from 'react';
 import styles from 'styles/components/configBox/config-box.scss';
+import CSSModules from 'react-css-modules';
 
-export default class extends React.Component {
+class ConfigBox extends React.Component {
     render() {
         return (
-            <div className={styles.background}>
-                <div className={styles.base}>
-                    <h1 className={styles.h1}>Header Configuration</h1>
+            <div styleName='background'>
+                <div className='container' styleName='base'>
+                    <h1 styleName='h1'>Header Configuration</h1>
                 </div>
             </div>
         );
     }
 }
+
+export default CSSModules(ConfigBox, styles, {allowMultiple: true});
