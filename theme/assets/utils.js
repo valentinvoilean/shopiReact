@@ -358,13 +358,27 @@ webpackJsonp([1],[
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
+	var _reactRedux = __webpack_require__(824);
+	
+	var _redux = __webpack_require__(513);
+	
+	var _reduxDevtoolsExtension = __webpack_require__(525);
+	
+	var _reducers = __webpack_require__(838);
+	
 	var _headerConfigBox = __webpack_require__(836);
 	
 	var _headerConfigBox2 = _interopRequireDefault(_headerConfigBox);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_reactDom2.default.render(_react2.default.createElement(_headerConfigBox2.default, null), document.getElementById('configContainer'));
+	var headerConfigStore = (0, _redux.createStore)(_reducers.headerConfigApp, (0, _reduxDevtoolsExtension.composeWithDevTools)());
+	
+	_reactDom2.default.render(_react2.default.createElement(
+	    _reactRedux.Provider,
+	    { store: headerConfigStore },
+	    _react2.default.createElement(_headerConfigBox2.default, null)
+	), document.getElementById('configContainer'));
 
 /***/ },
 /* 341 */,
@@ -7160,6 +7174,60 @@ webpackJsonp([1],[
 	};
 	
 	exports.default = (0, _reactCssModules2.default)(HeaderConfigBox, _configBox2.default, { allowMultiple: true });
+
+/***/ },
+/* 838 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.headerConfigApp = undefined;
+	
+	var _redux = __webpack_require__(513);
+	
+	var _headerConfig = __webpack_require__(839);
+	
+	var _headerConfig2 = _interopRequireDefault(_headerConfig);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var headerConfigApp = (0, _redux.combineReducers)({
+	    headerConfig: _headerConfig2.default
+	});
+	
+	exports.headerConfigApp = headerConfigApp;
+
+/***/ },
+/* 839 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	var headerConfig = function headerConfig() {
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	    var action = arguments[1];
+	
+	    switch (action.type) {
+	        case 'saveHeaderSettings':
+	            return {
+	                data: { test: 2 }
+	            };
+	        case 'loadHeaderSettings':
+	            return {
+	                data: { test: 1 }
+	            };
+	        default:
+	            return state;
+	    }
+	};
+	
+	exports.default = headerConfig;
 
 /***/ }
 ]);
