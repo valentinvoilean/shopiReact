@@ -358,233 +358,16 @@ webpackJsonp([1],[
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _configBox = __webpack_require__(341);
+	var _headerConfigBox = __webpack_require__(836);
 	
-	var _configBox2 = _interopRequireDefault(_configBox);
-	
-	var _redux = __webpack_require__(513);
-	
-	var _reduxDevtoolsExtension = __webpack_require__(525);
+	var _headerConfigBox2 = _interopRequireDefault(_headerConfigBox);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	/**
-	 * This is a reducer, a pure function with (state, action) => state signature.
-	 * It describes how an action transforms the state into the next state.
-	 *
-	 * The shape of the state is up to you: it can be a primitive, an array, an object,
-	 * or even an Immutable.js data structure. The only important part is that you should
-	 * not mutate the state object, but return a new object if the state changes.
-	 *
-	 * In this example, we use a `switch` statement and strings, but you can use a helper that
-	 * follows a different convention (such as function maps) if it makes sense for your
-	 * project.
-	 */
-	function counter() {
-	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-	    var action = arguments[1];
-	
-	    switch (action.type) {
-	        case 'INCREMENT':
-	            return state + 1;
-	        case 'DECREMENT':
-	            return state - 1;
-	        default:
-	            return state;
-	    }
-	}
-	
-	// Create a Redux store holding the state of your app.
-	// Its API is { subscribe, dispatch, getState }.
-	var store = (0, _redux.createStore)(counter, (0, _reduxDevtoolsExtension.composeWithDevTools)());
-	
-	// You can use subscribe() to update the UI in response to state changes.
-	// Normally you'd use a view binding library (e.g. React Redux) rather than subscribe() directly.
-	// However it can also be handy to persist the current state in the localStorage.
-	
-	store.subscribe(function () {
-	    return console.warn(store.getState());
-	});
-	
-	// The only way to mutate the internal state is to dispatch an action.
-	// The actions can be serialized, logged or stored and later replayed.
-	store.dispatch({ type: 'INCREMENT' });
-	// 1
-	store.dispatch({ type: 'INCREMENT' });
-	// 2
-	store.dispatch({ type: 'DECREMENT' });
-	// 1
-	
-	
-	_reactDom2.default.render(_react2.default.createElement(_configBox2.default, null), document.getElementById('configContainer'));
+	_reactDom2.default.render(_react2.default.createElement(_headerConfigBox2.default, null), document.getElementById('configContainer'));
 
 /***/ },
-/* 341 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(2);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _configBox = __webpack_require__(342);
-	
-	var _configBox2 = _interopRequireDefault(_configBox);
-	
-	var _reactCssModules = __webpack_require__(346);
-	
-	var _reactCssModules2 = _interopRequireDefault(_reactCssModules);
-	
-	var _reactTabs = __webpack_require__(503);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var ConfigBox = function (_React$Component) {
-	    _inherits(ConfigBox, _React$Component);
-	
-	    function ConfigBox() {
-	        _classCallCheck(this, ConfigBox);
-	
-	        return _possibleConstructorReturn(this, (ConfigBox.__proto__ || Object.getPrototypeOf(ConfigBox)).apply(this, arguments));
-	    }
-	
-	    _createClass(ConfigBox, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { styleName: 'background' },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'container', styleName: 'base' },
-	                    _react2.default.createElement(
-	                        _reactTabs.Tabs,
-	                        { styleName: 'tabs' },
-	                        _react2.default.createElement(
-	                            _reactTabs.TabList,
-	                            null,
-	                            _react2.default.createElement(
-	                                _reactTabs.Tab,
-	                                null,
-	                                'Mobile'
-	                            ),
-	                            _react2.default.createElement(
-	                                _reactTabs.Tab,
-	                                null,
-	                                'Tablet'
-	                            ),
-	                            _react2.default.createElement(
-	                                _reactTabs.Tab,
-	                                null,
-	                                'Desktop'
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            _reactTabs.TabPanel,
-	                            null,
-	                            _react2.default.createElement(
-	                                'h1',
-	                                { styleName: 'h1' },
-	                                'Mobile Header Configuration'
-	                            ),
-	                            _react2.default.createElement(
-	                                'div',
-	                                { className: 'col-md-6' },
-	                                _react2.default.createElement(
-	                                    'h2',
-	                                    { styleName: 'h2' },
-	                                    '1. Available components to drag & drop'
-	                                )
-	                            ),
-	                            _react2.default.createElement(
-	                                'div',
-	                                { className: 'col-md-6' },
-	                                _react2.default.createElement(
-	                                    'h2',
-	                                    { styleName: 'h2' },
-	                                    '3. Generated code to be copied'
-	                                )
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            _reactTabs.TabPanel,
-	                            null,
-	                            _react2.default.createElement(
-	                                'h1',
-	                                { styleName: 'h1' },
-	                                'Tablet Header Configuration'
-	                            ),
-	                            _react2.default.createElement(
-	                                'div',
-	                                { className: 'col-md-6' },
-	                                _react2.default.createElement(
-	                                    'h2',
-	                                    { styleName: 'h2' },
-	                                    '1. Available components to drag & drop'
-	                                )
-	                            ),
-	                            _react2.default.createElement(
-	                                'div',
-	                                { className: 'col-md-6' },
-	                                _react2.default.createElement(
-	                                    'h2',
-	                                    { styleName: 'h2' },
-	                                    '3. Generated code to be copied'
-	                                )
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            _reactTabs.TabPanel,
-	                            null,
-	                            _react2.default.createElement(
-	                                'h1',
-	                                { styleName: 'h1' },
-	                                'Desktop Header Configuration'
-	                            ),
-	                            _react2.default.createElement(
-	                                'div',
-	                                { className: 'col-md-6' },
-	                                _react2.default.createElement(
-	                                    'h2',
-	                                    { styleName: 'h2' },
-	                                    '1. Available components to drag & drop'
-	                                )
-	                            ),
-	                            _react2.default.createElement(
-	                                'div',
-	                                { className: 'col-md-6' },
-	                                _react2.default.createElement(
-	                                    'h2',
-	                                    { styleName: 'h2' },
-	                                    '3. Generated code to be copied'
-	                                )
-	                            )
-	                        )
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-	
-	    return ConfigBox;
-	}(_react2.default.Component);
-	
-	exports.default = (0, _reactCssModules2.default)(ConfigBox, _configBox2.default, { allowMultiple: true });
-
-/***/ },
+/* 341 */,
 /* 342 */
 /***/ function(module, exports) {
 
@@ -6857,6 +6640,526 @@ webpackJsonp([1],[
 	    );
 	  }
 	});
+
+/***/ },
+/* 513 */,
+/* 514 */,
+/* 515 */,
+/* 516 */,
+/* 517 */,
+/* 518 */,
+/* 519 */,
+/* 520 */,
+/* 521 */,
+/* 522 */,
+/* 523 */,
+/* 524 */,
+/* 525 */,
+/* 526 */,
+/* 527 */,
+/* 528 */,
+/* 529 */,
+/* 530 */,
+/* 531 */,
+/* 532 */,
+/* 533 */,
+/* 534 */,
+/* 535 */,
+/* 536 */,
+/* 537 */,
+/* 538 */,
+/* 539 */,
+/* 540 */,
+/* 541 */,
+/* 542 */,
+/* 543 */,
+/* 544 */,
+/* 545 */,
+/* 546 */,
+/* 547 */,
+/* 548 */,
+/* 549 */,
+/* 550 */,
+/* 551 */,
+/* 552 */,
+/* 553 */,
+/* 554 */,
+/* 555 */,
+/* 556 */,
+/* 557 */,
+/* 558 */,
+/* 559 */,
+/* 560 */,
+/* 561 */,
+/* 562 */,
+/* 563 */,
+/* 564 */,
+/* 565 */,
+/* 566 */,
+/* 567 */,
+/* 568 */,
+/* 569 */,
+/* 570 */,
+/* 571 */,
+/* 572 */,
+/* 573 */,
+/* 574 */,
+/* 575 */,
+/* 576 */,
+/* 577 */,
+/* 578 */,
+/* 579 */,
+/* 580 */,
+/* 581 */,
+/* 582 */,
+/* 583 */,
+/* 584 */,
+/* 585 */,
+/* 586 */,
+/* 587 */,
+/* 588 */,
+/* 589 */,
+/* 590 */,
+/* 591 */,
+/* 592 */,
+/* 593 */,
+/* 594 */,
+/* 595 */,
+/* 596 */,
+/* 597 */,
+/* 598 */,
+/* 599 */,
+/* 600 */,
+/* 601 */,
+/* 602 */,
+/* 603 */,
+/* 604 */,
+/* 605 */,
+/* 606 */,
+/* 607 */,
+/* 608 */,
+/* 609 */,
+/* 610 */,
+/* 611 */,
+/* 612 */,
+/* 613 */,
+/* 614 */,
+/* 615 */,
+/* 616 */,
+/* 617 */,
+/* 618 */,
+/* 619 */,
+/* 620 */,
+/* 621 */,
+/* 622 */,
+/* 623 */,
+/* 624 */,
+/* 625 */,
+/* 626 */,
+/* 627 */,
+/* 628 */,
+/* 629 */,
+/* 630 */,
+/* 631 */,
+/* 632 */,
+/* 633 */,
+/* 634 */,
+/* 635 */,
+/* 636 */,
+/* 637 */,
+/* 638 */,
+/* 639 */,
+/* 640 */,
+/* 641 */,
+/* 642 */,
+/* 643 */,
+/* 644 */,
+/* 645 */,
+/* 646 */,
+/* 647 */,
+/* 648 */,
+/* 649 */,
+/* 650 */,
+/* 651 */,
+/* 652 */,
+/* 653 */,
+/* 654 */,
+/* 655 */,
+/* 656 */,
+/* 657 */,
+/* 658 */,
+/* 659 */,
+/* 660 */,
+/* 661 */,
+/* 662 */,
+/* 663 */,
+/* 664 */,
+/* 665 */,
+/* 666 */,
+/* 667 */,
+/* 668 */,
+/* 669 */,
+/* 670 */,
+/* 671 */,
+/* 672 */,
+/* 673 */,
+/* 674 */,
+/* 675 */,
+/* 676 */,
+/* 677 */,
+/* 678 */,
+/* 679 */,
+/* 680 */,
+/* 681 */,
+/* 682 */,
+/* 683 */,
+/* 684 */,
+/* 685 */,
+/* 686 */,
+/* 687 */,
+/* 688 */,
+/* 689 */,
+/* 690 */,
+/* 691 */,
+/* 692 */,
+/* 693 */,
+/* 694 */,
+/* 695 */,
+/* 696 */,
+/* 697 */,
+/* 698 */,
+/* 699 */,
+/* 700 */,
+/* 701 */,
+/* 702 */,
+/* 703 */,
+/* 704 */,
+/* 705 */,
+/* 706 */,
+/* 707 */,
+/* 708 */,
+/* 709 */,
+/* 710 */,
+/* 711 */,
+/* 712 */,
+/* 713 */,
+/* 714 */,
+/* 715 */,
+/* 716 */,
+/* 717 */,
+/* 718 */,
+/* 719 */,
+/* 720 */,
+/* 721 */,
+/* 722 */,
+/* 723 */,
+/* 724 */,
+/* 725 */,
+/* 726 */,
+/* 727 */,
+/* 728 */,
+/* 729 */,
+/* 730 */,
+/* 731 */,
+/* 732 */,
+/* 733 */,
+/* 734 */,
+/* 735 */,
+/* 736 */,
+/* 737 */,
+/* 738 */,
+/* 739 */,
+/* 740 */,
+/* 741 */,
+/* 742 */,
+/* 743 */,
+/* 744 */,
+/* 745 */,
+/* 746 */,
+/* 747 */,
+/* 748 */,
+/* 749 */,
+/* 750 */,
+/* 751 */,
+/* 752 */,
+/* 753 */,
+/* 754 */,
+/* 755 */,
+/* 756 */,
+/* 757 */,
+/* 758 */,
+/* 759 */,
+/* 760 */,
+/* 761 */,
+/* 762 */,
+/* 763 */,
+/* 764 */,
+/* 765 */,
+/* 766 */,
+/* 767 */,
+/* 768 */,
+/* 769 */,
+/* 770 */,
+/* 771 */,
+/* 772 */,
+/* 773 */,
+/* 774 */,
+/* 775 */,
+/* 776 */,
+/* 777 */,
+/* 778 */,
+/* 779 */,
+/* 780 */,
+/* 781 */,
+/* 782 */,
+/* 783 */,
+/* 784 */,
+/* 785 */,
+/* 786 */,
+/* 787 */,
+/* 788 */,
+/* 789 */,
+/* 790 */,
+/* 791 */,
+/* 792 */,
+/* 793 */,
+/* 794 */,
+/* 795 */,
+/* 796 */,
+/* 797 */,
+/* 798 */,
+/* 799 */,
+/* 800 */,
+/* 801 */,
+/* 802 */,
+/* 803 */,
+/* 804 */,
+/* 805 */,
+/* 806 */,
+/* 807 */,
+/* 808 */,
+/* 809 */,
+/* 810 */,
+/* 811 */,
+/* 812 */,
+/* 813 */,
+/* 814 */,
+/* 815 */,
+/* 816 */,
+/* 817 */,
+/* 818 */,
+/* 819 */,
+/* 820 */,
+/* 821 */,
+/* 822 */,
+/* 823 */,
+/* 824 */,
+/* 825 */,
+/* 826 */,
+/* 827 */,
+/* 828 */,
+/* 829 */,
+/* 830 */,
+/* 831 */,
+/* 832 */,
+/* 833 */,
+/* 834 */,
+/* 835 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _configBox = __webpack_require__(342);
+	
+	var _configBox2 = _interopRequireDefault(_configBox);
+	
+	var _reactCssModules = __webpack_require__(346);
+	
+	var _reactCssModules2 = _interopRequireDefault(_reactCssModules);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var HeaderConfigTabPanel = function HeaderConfigTabPanel(props) {
+	    return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	            'h1',
+	            { styleName: 'h1' },
+	            props.children
+	        ),
+	        _react2.default.createElement(
+	            'div',
+	            { className: 'col-md-6' },
+	            _react2.default.createElement(
+	                'h2',
+	                { styleName: 'h2' },
+	                '1. Available components to drag & drop'
+	            )
+	        ),
+	        _react2.default.createElement(
+	            'div',
+	            { className: 'col-md-6' },
+	            _react2.default.createElement(
+	                'h2',
+	                { styleName: 'h2' },
+	                '3. Generated code to be copied'
+	            )
+	        )
+	    );
+	};
+	
+	exports.default = (0, _reactCssModules2.default)(HeaderConfigTabPanel, _configBox2.default, { allowMultiple: true });
+
+/***/ },
+/* 836 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _headerConfigBox = __webpack_require__(837);
+	
+	var _headerConfigBox2 = _interopRequireDefault(_headerConfigBox);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var _class = function (_React$Component) {
+	    _inherits(_class, _React$Component);
+	
+	    function _class() {
+	        _classCallCheck(this, _class);
+	
+	        return _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).apply(this, arguments));
+	    }
+	
+	    _createClass(_class, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(_headerConfigBox2.default, null);
+	        }
+	    }]);
+	
+	    return _class;
+	}(_react2.default.Component);
+	
+	exports.default = _class;
+
+/***/ },
+/* 837 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _configBox = __webpack_require__(342);
+	
+	var _configBox2 = _interopRequireDefault(_configBox);
+	
+	var _reactCssModules = __webpack_require__(346);
+	
+	var _reactCssModules2 = _interopRequireDefault(_reactCssModules);
+	
+	var _reactTabs = __webpack_require__(503);
+	
+	var _headerConfigTabPanel = __webpack_require__(835);
+	
+	var _headerConfigTabPanel2 = _interopRequireDefault(_headerConfigTabPanel);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var HeaderConfigBox = function HeaderConfigBox() {
+	    return _react2.default.createElement(
+	        'div',
+	        { styleName: 'background' },
+	        _react2.default.createElement(
+	            'div',
+	            { className: 'container', styleName: 'base' },
+	            _react2.default.createElement(
+	                _reactTabs.Tabs,
+	                { styleName: 'tabs' },
+	                _react2.default.createElement(
+	                    _reactTabs.TabList,
+	                    null,
+	                    _react2.default.createElement(
+	                        _reactTabs.Tab,
+	                        null,
+	                        'Mobile'
+	                    ),
+	                    _react2.default.createElement(
+	                        _reactTabs.Tab,
+	                        null,
+	                        'Tablet'
+	                    ),
+	                    _react2.default.createElement(
+	                        _reactTabs.Tab,
+	                        null,
+	                        'Desktop'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    _reactTabs.TabPanel,
+	                    null,
+	                    _react2.default.createElement(
+	                        _headerConfigTabPanel2.default,
+	                        null,
+	                        'Mobile Header Configuration'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    _reactTabs.TabPanel,
+	                    null,
+	                    _react2.default.createElement(
+	                        _headerConfigTabPanel2.default,
+	                        null,
+	                        'Tablet Header Configuration'
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    _reactTabs.TabPanel,
+	                    null,
+	                    _react2.default.createElement(
+	                        _headerConfigTabPanel2.default,
+	                        null,
+	                        'Desktop Header Configuration'
+	                    )
+	                )
+	            )
+	        )
+	    );
+	};
+	
+	exports.default = (0, _reactCssModules2.default)(HeaderConfigBox, _configBox2.default, { allowMultiple: true });
 
 /***/ }
 ]);
