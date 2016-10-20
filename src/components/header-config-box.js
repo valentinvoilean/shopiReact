@@ -5,7 +5,7 @@ import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 
 import HeaderConfigTabPanel from 'components/header-config-tab-panel';
 
-const HeaderConfigBox = function() {
+const HeaderConfigBox = () => {
     return (
         <div styleName='background'>
             <div className='container' styleName='base'>

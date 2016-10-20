@@ -16,7 +16,7 @@ export default {
         'react', 'react-dom', 'react-match-media', 'react-redux',
         'redux', 'redux-devtools-extension',
         'jquery', 'jquery.currencies.js', ],
-    utils: [`${__utils}/headerConfig.js`],
+    config: [`${__base}/src/config.js`],
     main: [`${__base}/src/index.js`]
   },
 

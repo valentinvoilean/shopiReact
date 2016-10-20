@@ -1,13 +1,14 @@
-const headerConfig = (state = [], action) => {
+import {LOAD_HEADER_SETTINGS, SAVE_HEADER_SETTINGS} from 'constants/actionTypes';
+import initialState from './initialState';
+
+const headerConfig = (state = initialState.HeaderConfig, action) => {
     switch (action.type) {
-        case 'saveHeaderSettings':
-            return {
-                data: {test:2}
-            };
-        case 'loadHeaderSettings':
-            return {
-              data: {test:1}
-            };
+        case SAVE_HEADER_SETTINGS:
+            return Object.assign({}, state, action.data);
+
+        case LOAD_HEADER_SETTINGS:
+            return state;
+
         default:
             return state;
     }
