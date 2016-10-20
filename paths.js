@@ -13,3 +13,5 @@ global.__reducers = `${__base}/src/reducers`;
 global.__utils = `${__base}/src/utils`;
 global.__svg = `${__base}/src/svg`;
 global.__styles = `${__base}/src/styles`;
+global.__store = `${__base}/src/store`;
+global.__constants = `${__base}/src/constants`;

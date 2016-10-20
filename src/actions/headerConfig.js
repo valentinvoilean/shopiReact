@@ -1,5 +1,4 @@
-export const LOAD_HEADER_SETTINGS = 'LOAD_HEADER_SETTINGS';
-export const SAVE_HEADER_SETTINGS = 'SAVE_HEADER_SETTINGS';
+import {LOAD_HEADER_SETTINGS, SAVE_HEADER_SETTINGS} from 'constants/actionTypes';
 
 export const loadHeaderSettings = (data) => {
     return {

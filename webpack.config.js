@@ -36,6 +36,8 @@ export default {
       'actions': __actions,
       'reducers': __reducers,
       'containers': __containers,
+      'store': __store,
+      'constants': __constants,
       'styles': __styles,
       'jquery': `${__npm}/jquery/dist/jquery.min.js`, //don't import all the module; use only the minified version
       modernizr$: path.resolve(__dirname, '.modernizrrc')
