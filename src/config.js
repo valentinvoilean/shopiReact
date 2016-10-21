@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'store/configureStore';
 
-import HeaderConfigBox from 'components/header-config-box';
+import HeaderConfigContainer from 'containers/headerConfig';
 
 const headerConfigStore = configureStore();
 
 ReactDOM.render(
     <Provider store={headerConfigStore}>
-        <HeaderConfigBox/>
+        <HeaderConfigContainer/>
     </Provider>, document.getElementById('configContainer'));

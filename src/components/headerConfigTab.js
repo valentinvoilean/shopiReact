@@ -2,7 +2,12 @@ import React from 'react';
 import styles from 'styles/components/configBox/config-box.scss';
 import CSSModules from 'react-css-modules';
 
-const HeaderConfigTabPanel = function (props) {
+const HeaderConfigTab = function (props) {
+
+    for (let key in props.headerConfig) {
+        console.warn(props.headerConfig[key][props.filter]);
+    }
+
     return (
         <div>
             <h1 styleName='h1'>{props.children}</h1>
@@ -16,4 +21,4 @@ const HeaderConfigTabPanel = function (props) {
     );
 };
 
-export default CSSModules(HeaderConfigTabPanel, styles, {allowMultiple: true});
+export default CSSModules(HeaderConfigTab, styles, {allowMultiple: true});
