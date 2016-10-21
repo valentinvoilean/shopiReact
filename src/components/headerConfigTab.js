@@ -8,11 +8,20 @@ const HeaderConfigTab = function (props) {
         console.warn(props.headerConfig[key][props.filter]);
     }
 
+    const save = () => {
+        props.saveHeaderSettings({
+            MyAccount: {
+                mobile: {position: 'TopRight', order: 2}
+            }
+        });
+    };
+
     return (
         <div>
             <h1 styleName='h1'>{props.children}</h1>
             <div className="col-md-6">
-                <h2 styleName='h2'>1. Available components to drag & drop</h2>
+                <h2 styleName='h2' onClick={save}
+                >1. Available components to drag & drop</h2>
             </div>
             <div className="col-md-6">
                 <h2 styleName='h2'>3. Generated code to be copied</h2>
