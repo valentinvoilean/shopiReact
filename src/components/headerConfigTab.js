@@ -28,7 +28,7 @@ const HeaderConfigTab = function (props) {
             <div className="col-md-6">
                 <h2 styleName="h2">3. Generated code to be copied</h2>
                 <div styleName="codeContainer">
-                    <div styleName="code">{JSON.stringify(props.headerConfig)}</div>
+                    <code styleName="code">{JSON.stringify(props.headerConfig)}</code>
                     <div styleName="copy">Click to copy</div>
                 </div>
             </div>
