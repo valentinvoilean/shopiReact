@@ -3,19 +3,6 @@ import styles from 'styles/components/configBox/config-box.scss';
 import CSSModules from 'react-css-modules';
 
 const HeaderConfigTab = function (props) {
-    const buildConfig = (data) => {
-        const componentName = Object.keys(data)[0];
-        const properties = data[componentName];
-        let newSettings = {};
-
-        newSettings[componentName] = {
-            ...props.headerConfig[componentName],
-            ...properties
-        };
-
-        return {...props.headerConfig, ...newSettings};
-    };
-
     const save = () => {
         let data = {
             MyAccount: {
@@ -26,7 +13,7 @@ const HeaderConfigTab = function (props) {
             }
         };
 
-        props.saveHeaderSettings(buildConfig(data));
+        props.saveHeaderSettings(data);
     };
 
     return (
