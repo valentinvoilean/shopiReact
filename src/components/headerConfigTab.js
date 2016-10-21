@@ -3,17 +3,30 @@ import styles from 'styles/components/configBox/config-box.scss';
 import CSSModules from 'react-css-modules';
 
 const HeaderConfigTab = function (props) {
+    const buildConfig = (data) => {
+        const componentName = Object.keys(data)[0];
+        const properties = data[componentName];
+        let newSettings = {};
 
-    for (let key in props.headerConfig) {
-        console.warn(props.headerConfig[key][props.filter]);
-    }
+        newSettings[componentName] = {
+            ...props.headerConfig[componentName],
+            ...properties
+        };
+
+        return {...props.headerConfig, ...newSettings};
+    };
 
     const save = () => {
-        props.saveHeaderSettings({
+        let data = {
             MyAccount: {
-                mobile: {position: 'TopRight', order: 2}
+                mobile: {
+                    position: 'TopRight',
+                    order: 2
+                }
             }
-        });
+        };
+
+        props.saveHeaderSettings(buildConfig(data));
     };
 
     return (
