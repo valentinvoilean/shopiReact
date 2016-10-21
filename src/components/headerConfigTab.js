@@ -18,13 +18,50 @@ const HeaderConfigTab = function (props) {
 
     return (
         <div>
-            <h1 styleName='h1'>{props.children}</h1>
+            <h1 styleName="h1">{props.children}</h1>
+
             <div className="col-md-6">
-                <h2 styleName='h2' onClick={save}
-                >1. Available components to drag & drop</h2>
+                <h2 styleName="h2" onClick={save}>1. Available components to drag & drop</h2>
+                <div styleName="componentsContainer"></div>
             </div>
+
             <div className="col-md-6">
-                <h2 styleName='h2'>3. Generated code to be copied</h2>
+                <h2 styleName="h2">3. Generated code to be copied</h2>
+                <div styleName="codeContainer">
+                    <div styleName="code">{JSON.stringify(props.headerConfig)}</div>
+                    <div styleName="copy">Click to copy</div>
+                </div>
+            </div>
+
+            <div styleName="container">
+                <h2 styleName="h2">2. Header - Drag & drop components in these boxes</h2>
+
+                <p>
+                    Drag & drop the components into the next boxes. You can also sort them once they are inside the
+                    boxes.<br/>
+                    The center columns are optional. Can be removed it by pressing the <span styleName="plus">+</span>
+                    button and add it back by pressing the <span styleName="close">&#10005;</span> button.
+                </p>
+
+                <table styleName="header">
+                    <tbody>
+                    <tr>
+                        <td><span>Top Left</span></td>
+                        <td><span>Top Center</span></td>
+                        <td><span>Top Right</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>Main Left</span></td>
+                        <td><span>Main Center</span></td>
+                        <td><span>Main Right</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>Bottom Left</span></td>
+                        <td><span>Bottom Center</span></td>
+                        <td><span>Bottom Right</span></td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     );
