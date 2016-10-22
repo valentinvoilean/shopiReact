@@ -9,6 +9,7 @@ $c8: #6C6C6C;
 $c9: #BBBDC1;
 $c10: #CCCCCC;
 $c11: #c1c1c1;
+$c12: #1b8fb1;
 
 .background {
     background: rgba(black, 0.5);
@@ -89,6 +90,7 @@ $c11: #c1c1c1;
         padding: 0 10px;
         margin: 0 5px 5px 0;
         cursor: move;
+        transition: background .4s;
 
         .close {
             display: none;
@@ -264,4 +266,8 @@ $c11: #c1c1c1;
     vertical-align: middle;
     text-align: center;
     margin: 0 5px;
+}
+
+.sortableGhost {
+    opacity: 0.4;
 }

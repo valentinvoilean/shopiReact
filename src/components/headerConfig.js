@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from 'styles/components/configBox/config-box.scss';
+import styles from 'styles/modules/config-box.scss';
 import CSSModules from 'react-css-modules';
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 
