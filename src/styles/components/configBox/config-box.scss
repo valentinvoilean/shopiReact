@@ -182,6 +182,7 @@ $c11: #c1c1c1;
         list-style: none;
         margin: 5px;
         width: 100%;
+        z-index: 1;
 
         &:nth-child(2) {
             text-align: center;
@@ -189,6 +190,15 @@ $c11: #c1c1c1;
 
         &:last-child {
             text-align: right;
+        }
+
+        &:before {
+            position: absolute;
+            z-index: -1;
+            text-align: center;
+            width: 100%;
+            left: 0;
+            top: calc(50% - 7px);
         }
     }
 
@@ -203,6 +213,24 @@ $c11: #c1c1c1;
         padding: 0 10px;
         margin: 0 5px 5px 0;
         cursor: move;
+    }
+
+    &:first-child {
+        ul:first-child:before { content: 'TOP LEFT'; }
+        ul:nth-child(2):before { content: 'TOP CENTER'; }
+        ul:last-child:before { content: 'TOP RIGHT'; }
+    }
+
+    &:nth-child(2) {
+        ul:first-child:before { content: 'MAIN LEFT'; }
+        ul:nth-child(2):before { content: 'MAIN CENTER'; }
+        ul:last-child:before { content: 'MAIN RIGHT'; }
+    }
+
+    &:last-child {
+        ul:first-child:before { content: 'BOTTOM LEFT'; }
+        ul:nth-child(2):before { content: 'BOTTOM CENTER'; }
+        ul:last-child:before { content: 'BOTTOM RIGHT'; }
     }
 }
 
