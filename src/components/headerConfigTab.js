@@ -49,25 +49,23 @@ const HeaderConfigTab = function (props) {
                     button and add it back by pressing the <span styleName="close">&#10005;</span> button.
                 </p>
 
-                <table styleName="header">
-                    <tbody>
-                    <tr>
-                        <td><span>Top Left</span></td>
-                        <td><span>Top Center</span></td>
-                        <td><span>Top Right</span></td>
-                    </tr>
-                    <tr>
-                        <td><span>Main Left</span></td>
-                        <td><span>Main Center</span></td>
-                        <td><span>Main Right</span></td>
-                    </tr>
-                    <tr>
-                        <td><span>Bottom Left</span></td>
-                        <td><span>Bottom Center</span></td>
-                        <td><span>Bottom Right</span></td>
-                    </tr>
-                    </tbody>
-                </table>
+                <div styleName="header">
+                    <div styleName="headerArea">
+                        <HeaderCell/>
+                        <HeaderCell/>
+                        <HeaderCell/>
+                    </div>
+                    <div styleName="headerArea">
+                        <HeaderCell/>
+                        <HeaderCell/>
+                        <HeaderCell/>
+                    </div>
+                    <div styleName="headerArea">
+                        <HeaderCell/>
+                        <HeaderCell/>
+                        <HeaderCell/>
+                    </div>
+                </div>
             </div>
         </div>
     );

@@ -2,8 +2,8 @@ import React from 'react';
 import Sortable from 'react-sortablejs';
 
 // Functional Component
-const HeaderCell = ({ items }) => {
-    items = items.map((val, key) => (<li key={key} data-id={val}>{val}</li>));
+const HeaderCell = ({items}) => {
+    items = items ? items.map((val, key) => (<li key={key} data-id={val}>{val}</li>)) : '';
 
     return (
         <Sortable

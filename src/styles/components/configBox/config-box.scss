@@ -7,6 +7,8 @@ $c6: #D8D8D8;
 $c7: #F5F5F5;
 $c8: #6C6C6C;
 $c9: #BBBDC1;
+$c10: #CCCCCC;
+$c11: #c1c1c1;
 
 .background {
     background: rgba(black, 0.5);
@@ -72,6 +74,8 @@ $c9: #BBBDC1;
 
     ul {
         list-style: none;
+        height: 100%;
+        overflow: auto;
     }
 
     li {
@@ -116,7 +120,7 @@ $c9: #BBBDC1;
     height: 100%;
     overflow: auto;
     padding: 10px;
-    color: #c1c1c1;
+    color: $c11;
     font-size: 12px;
     transition: all .5s;
     user-select: all;
@@ -131,7 +135,7 @@ $c9: #BBBDC1;
     position: absolute;
     bottom: 0;
     right: 0;
-    background: #CCCCCC;
+    background: $c10;
     color: white;
     text-align: center;
     font-size: 16px;
@@ -161,16 +165,44 @@ $c9: #BBBDC1;
     padding: 10px;
     border-spacing: 10px;
     box-shadow: 2px 3px 2px 0 rgba(0,0,0,0.1);
+    display: table;
+}
 
-    td {
+.headerArea {
+    display: flex;
+
+    ul {
         background: $c7;
         border: 2px dashed $c2;
-        text-align: center;
         padding: 10px;
-        min-height: 50px;
+        min-height: 60px;
         font-weight: bold;
         color: $c9;
         position: relative;
+        list-style: none;
+        margin: 5px;
+        width: 100%;
+
+        &:nth-child(2) {
+            text-align: center;
+        }
+
+        &:last-child {
+            text-align: right;
+        }
+    }
+
+    li {
+        display: inline-block;
+        font-size: 14px;
+        color: white;
+        background: $c4;
+        border-radius: 2px;
+        line-height: 25px;
+        height: 25px;
+        padding: 0 10px;
+        margin: 0 5px 5px 0;
+        cursor: move;
     }
 }
 

@@ -69,6 +69,8 @@
 
 .config-box__componentsContainer___3oDJZ ul {
   list-style: none;
+  height: 100%;
+  overflow: auto;
 }
 
 .config-box__componentsContainer___3oDJZ li {
@@ -167,17 +169,47 @@
   padding: 10px;
   border-spacing: 10px;
   box-shadow: 2px 3px 2px 0 rgba(0, 0, 0, 0.1);
+  display: table;
 }
 
-.config-box__header___2oFr9 td {
+.config-box__headerArea___21VIS {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.config-box__headerArea___21VIS ul {
   background: #F5F5F5;
   border: 2px dashed #E0E0E0;
-  text-align: center;
   padding: 10px;
-  min-height: 50px;
+  min-height: 60px;
   font-weight: bold;
   color: #BBBDC1;
   position: relative;
+  list-style: none;
+  margin: 5px;
+  width: 100%;
+}
+
+.config-box__headerArea___21VIS ul:nth-child(2) {
+  text-align: center;
+}
+
+.config-box__headerArea___21VIS ul:last-child {
+  text-align: right;
+}
+
+.config-box__headerArea___21VIS li {
+  display: inline-block;
+  font-size: 14px;
+  color: white;
+  background: #1FADD6;
+  border-radius: 2px;
+  line-height: 25px;
+  height: 25px;
+  padding: 0 10px;
+  margin: 0 5px 5px 0;
+  cursor: move;
 }
 
 .config-box__close___kzXCz {
