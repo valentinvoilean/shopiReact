@@ -2,6 +2,8 @@ import React from 'react';
 import styles from 'styles/components/configBox/config-box.scss';
 import CSSModules from 'react-css-modules';
 
+import HeaderCell from 'components/headerConfigCell.js';
+
 const HeaderConfigTab = function (props) {
     const save = () => {
         let data = {
@@ -22,7 +24,11 @@ const HeaderConfigTab = function (props) {
 
             <div className="col-md-6">
                 <h2 styleName="h2" onClick={save}>1. Available components to drag & drop</h2>
-                <div styleName="componentsContainer"></div>
+                <div styleName="componentsContainer">
+                    <HeaderCell items={['My Account', 'Wishlist', 'Currency', 'Language', 'Welcome Message', 'Search',
+                        'Social Icons', 'Custom Link 1', 'Custom Link 2', 'Custom Link 3', 'Custom Link 4',
+                        'Custom Link 5']}/>
+                </div>
             </div>
 
             <div className="col-md-6">
