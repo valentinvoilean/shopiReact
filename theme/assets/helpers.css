@@ -62,7 +62,7 @@
 }
 
 .config-box__componentsContainer___3oDJZ {
-  height: 100px;
+  height: 150px;
   border: 1px solid #E1E1E1;
   padding: 10px;
 }
@@ -86,8 +86,12 @@
   cursor: move;
 }
 
+.config-box__componentsContainer___3oDJZ li .config-box__close___kzXCz {
+  display: none;
+}
+
 .config-box__codeContainer___1lTy2 {
-  height: 100px;
+  height: 150px;
   border: 1px solid #E1E1E1;
   position: relative;
   -webkit-transition: all .5s;
@@ -211,7 +215,8 @@
 
 .config-box__headerArea___21VIS li {
   display: inline-block;
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: normal;
   color: white;
   background: #1FADD6;
   border-radius: 2px;
@@ -261,14 +266,19 @@
 .config-box__close___kzXCz {
   display: inline-block;
   color: white;
-  background: #D8D8D8;
   font-size: 10px;
-  line-height: 15px;
-  width: 15px;
-  height: 15px;
-  vertical-align: middle;
-  text-align: center;
-  margin: 0 5px;
+  line-height: 25px;
+  margin-left: 5px;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+}
+
+.config-box__close___kzXCz:hover {
+  -webkit-transform: rotate(1turn);
+          transform: rotate(1turn);
 }
 
 .config-box__plus___36-rf {

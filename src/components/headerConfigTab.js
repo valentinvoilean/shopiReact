@@ -42,12 +42,8 @@ const HeaderConfigTab = function (props) {
             <div styleName="container">
                 <h2 styleName="h2">2. Header - Drag & drop components in these boxes</h2>
 
-                <p>
-                    Drag & drop the components into the next boxes. You can also sort them once they are inside the
-                    boxes.<br/>
-                    The center columns are optional. Can be removed it by pressing the <span styleName="plus">+</span>
-                    button and add it back by pressing the <span styleName="close">&#10005;</span> button.
-                </p>
+                <p> Drag & drop the components into the next boxes. You can also sort them once they are inside the
+                    boxes.</p>
 
                 <div styleName="header">
                     <div styleName="headerArea">
