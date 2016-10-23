@@ -31,7 +31,7 @@ export const validateState = state => {
                 condition = conditionArray[0],
                 position = conditionArray[1];
 
-            if (wantedState[mediaQuery][condition] === position) {
+            if (wantedState[mediaQuery][condition].position === position) {
                 newState[mediaQuery][component] = components[component];
                 return true;
             }
