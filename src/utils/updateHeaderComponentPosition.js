@@ -1,4 +1,4 @@
-export default function(initialState, newData) {
+export const updateHeaderComponentPosition = (initialState, newData) => {
     const componentName = Object.keys(newData)[0];
     const componentProperties = newData[componentName];
 
@@ -17,4 +17,4 @@ export default function(initialState, newData) {
         console.warn('Component\'s name or its properties are not defined.');
         return initialState;
     }
-}
+};
