@@ -1,7 +1,7 @@
 import {defaultState} from 'utils';
 
 export const getInitialState = () => {
-    const shopifySettings = '{"MyAccount":{"mobile":{"position":"Menu","order":1},"tablet":{"position":"MainCenter","order":0},"desktop":{"position":"BottomRight","order":0}},"Wishlist":{"mobile":{"position":"TopLeft","order":0},"tablet":{"position":"TopLeft","order":0},"desktop":{"position":"TopRight","order":1}}}';
+    const shopifySettings = '{"mobile":{"Logo":{"position":"MainLeft","order":1},"Menu":{"position":"MainLeft","order":0},"MyAccount":{"position":"MainRight","order":1},"Wishlist":{"position":"Menu","order":1}},"tablet":{"Logo":{"position":"MainLeft","order":0},"Menu":{"position":"MainCenter","order":0},"MyAccount":{"position":"TopRight","order":1},"Wishlist":{"position":"TopRight","order":1}},"desktop":{"Logo":{"position":"MainLeft","order":0},"Menu":{"position":"MainCenter","order":0},"MyAccount":{"position":"TopRight","order":1},"Wishlist":{"position":"TopRight","order":1}}}';
     let currentState;
 
     try {
@@ -9,7 +9,7 @@ export const getInitialState = () => {
     }
     catch (err) {
         console.warn('Data not valid ! The default settings will be used instead ');
-        currentState = defaultState.HeaderConfig;
+        currentState = {...defaultState.HeaderConfig};
     }
 
     return currentState;

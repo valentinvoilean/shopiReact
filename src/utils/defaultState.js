@@ -1,24 +1,22 @@
 export const defaultState = {
     HeaderConfig: {
-        Logo: {
-            mobile: {position: 'MainCenter', order: 0},
-            tablet: {position: 'MainLeft', order: 0},
-            desktop: {position: 'MainLeft', order: 0}
+        mobile: {
+            Logo: {position: 'MainCenter', order: 0},
+            Menu: {position: 'MainLeft', order: 0},
+            MyAccount: {position: 'MainRight', order: 1},
+            Wishlist: {position: 'MainRight', order: 1}
         },
-        Menu: {
-            mobile: {position: 'MainLeft', order: 0},
-            tablet: {position: 'MainCenter', order: 0},
-            desktop: {position: 'MainCenter', order: 0}
+        tablet: {
+            Logo: {position: 'MainLeft', order: 0},
+            Menu: {position: 'MainCenter', order: 0},
+            MyAccount: {position: 'TopRight', order: 1},
+            Wishlist: {position: 'TopRight', order: 1}
         },
-        MyAccount: {
-            mobile: {position: 'MainRight', order: 1},
-            tablet: {position: 'TopRight', order: 0},
-            desktop: {position: 'TopRight', order: 0}
-        },
-        Wishlist: {
-            mobile: {position: 'TopRight', order: 1},
-            tablet: {position: 'TopRight', order: 1},
-            desktop: {position: 'TopRight', order: 1}
+        desktop: {
+            Logo: {position: 'MainLeft', order: 0},
+            Menu: {position: 'MainCenter', order: 0},
+            MyAccount: {position: 'TopRight', order: 1},
+            Wishlist: {position: 'TopRight', order: 1}
         }
     }
 };
