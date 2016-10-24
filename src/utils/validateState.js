@@ -28,7 +28,7 @@ export const validateState = state => {
         _parseEachComponent = (mediaQuery) => {
             // Go trough each component
             for (let component in validComponents) {
-                if (components.hasOwnProperty(component)) {
+                if (validComponents.hasOwnProperty(component) && components.hasOwnProperty(component)) {
 
                     if (wantedState[mediaQuery].hasOwnProperty(component)) {
                         const wantedPosition = components[component].position,
@@ -70,7 +70,7 @@ export const validateState = state => {
     return (() => {
         // Go trough each media query
         for (let mediaQuery in validStates) {
-            if (wantedState.hasOwnProperty(mediaQuery)) {
+            if (validStates.hasOwnProperty(mediaQuery) && wantedState.hasOwnProperty(mediaQuery)) {
                 newState[mediaQuery] = newState[mediaQuery] ? newState[mediaQuery] : {};
                 components = {...wantedState[mediaQuery]};
                 validComponents = {...validStates[mediaQuery]};
