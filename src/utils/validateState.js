@@ -1,25 +1,4 @@
-import {defaultState} from 'utils';
-
-const validStates = {
-    mobile: {
-        Logo: ['MainLeft', 'MainCenter'],
-        Menu: ['MainLeft', 'MainRight'],
-        MyAccount: ['MainLeft|Logo-MainCenter', 'MainRight', 'Menu'],
-        Wishlist: ['MainLeft|Logo-MainCenter', 'MainRight', 'Menu']
-    },
-    tablet: {
-        Logo: ['MainLeft', 'MainCenter'],
-        Menu: ['MainCenter', 'BottomLeft', 'BottomCenter', 'BottomRight'],
-        MyAccount: ['TopLeft', 'TopRight', 'MainLeft|Logo-MainCenter', 'MainRight', 'BottomLeft', 'BottomRight'],
-        Wishlist: ['TopLeft', 'TopRight', 'MainLeft|Logo-MainCenter', 'MainRight', 'BottomLeft', 'BottomRight']
-    },
-    desktop: {
-        Logo: ['MainLeft', 'MainCenter'],
-        Menu: ['MainCenter', 'BottomLeft', 'BottomCenter', 'BottomRight'],
-        MyAccount: ['TopLeft', 'TopRight', 'MainLeft|Logo-MainCenter', 'MainRight', 'BottomLeft', 'BottomRight'],
-        Wishlist: ['TopLeft', 'TopRight', 'MainLeft|Logo-MainCenter', 'MainRight', 'BottomLeft', 'BottomRight']
-    }
-};
+import {defaultState, validStates} from 'constants/states';
 
 export const validateState = state => {
     let wantedState = {...state},
