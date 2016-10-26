@@ -12,7 +12,7 @@
  |
  |
  */
-module.exports = {
+export default {
     "ui": {
         "port": 3001,
         "weinre": {
@@ -21,9 +21,13 @@ module.exports = {
     },
     "files": ["theme/**/*.*"],
     "watchOptions": {},
-    "server": false,
+    "server": {
+        "baseDir": "./",
+        "index": "index.html"
+    },
+    "https": true,
     "proxy": false,
-    "port": 3000,
+    "port": 8081,
     "middleware": false,
     "serveStatic": [],
     "ghostMode": {

@@ -5,6 +5,7 @@ import browserSync from 'browser-sync';
 import webpack from 'webpack';
 import config from '../webpack.config';
 const compiler = webpack(config);
+import browserSyncConfig from '../bs-config';
 
 compiler.watch({ // watch options:
   aggregateTimeout: 300, // wait so long for more changes
@@ -23,7 +24,7 @@ compiler.watch({ // watch options:
  */
 
 browserSync.create();
-browserSync.init();
+browserSync.init(browserSyncConfig);
 
 compiler.plugin('done', function (stats) {
     if (!(stats.hasErrors() || stats.hasWarnings())) {
