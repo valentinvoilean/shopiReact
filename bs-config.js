@@ -25,7 +25,7 @@ export default {
         "baseDir": "./",
         "index": "index.html"
     },
-    "https": true,
+    "https": false,
     "proxy": false,
     "port": 8081,
     "middleware": false,
