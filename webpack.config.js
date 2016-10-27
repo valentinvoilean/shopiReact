@@ -4,82 +4,74 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import './paths';
 
 const GLOBALS = {
-  'process.env.NODE_ENV': JSON.stringify('development'),
-  __DEV__: true
+    'process.env.NODE_ENV': JSON.stringify('development'),
+    __DEV__: true
 };
 
 export default {
-  devtool: 'source-map',
+    devtool: 'source-map',
 
-  entry: {
-    vendors: ['babel-polyfill', 'modernizr', 'picturefill',
-        'react', 'react-dom', 'react-match-media', 'react-redux',
-        'redux', 'redux-devtools-extension',
-        'jquery', 'jquery.currencies.js', ],
-    config: [`${__base}/src/config.js`],
-    main: [`${__base}/src/index.js`]
-  },
+    entry: {
+        vendors: ['babel-polyfill', 'modernizr', 'picturefill', 'react', 'react-dom', 'react-match-media',
+            'react-redux', 'redux', 'redux-devtools-extension', 'jquery', 'jquery.currencies.js',],
+        config: ['config.js'],
+        main: ['index.js']
+    },
 
-  target: 'web', // necessary per https://webpack.github.io/docs/testing.html#compile-and-test
+    target: 'web', // necessary for https://webpack.github.io/docs/testing.html#compile-and-test
 
-  output: {
-    path: __assets,
-    filename: '[name].js'
-  },
+    output: {
+        path: __assets,
+        filename: '[name].js'
+    },
 
-  resolve: {
-    extensions: ['', '.js', '.svg'],
-    alias: {
-      'svg': __svg,
-      'components': __components,
-      'utils': __utils,
-      'actions': __actions,
-      'reducers': __reducers,
-      'containers': __containers,
-      'store': __store,
-      'constants': __constants,
-      'styles': __styles,
-      'jquery': `${__npm}/jquery/dist/jquery.min.js`, //don't import all the module; use only the minified version
-      modernizr$: path.resolve(__dirname, '.modernizrrc')
+    resolve: {
+        extensions: ['', '.js', '.svg'],
+        modulesDirectories: ['src', 'node_modules'],
+        alias: {
+            'jquery': 'jquery/dist/jquery.min.js', //don't import all the module; use only the minified version
+            modernizr$: path.resolve(__dirname, '.modernizrrc')
+        }
+    },
+
+    plugins: [
+        new webpack.DefinePlugin(GLOBALS),
+        new webpack.NoErrorsPlugin(),
+        //new webpack.HotModuleReplacementPlugin(),
+        new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js', Infinity),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
+        }),
+        new ExtractTextPlugin('helpers.css', {allChunks: false})
+    ],
+
+    eslint: {
+        failOnError: false
+    },
+
+    module: {
+        noParse: [
+            'jquery'
+        ],
+        preLoaders: [
+            {test: /\.js?$/, include: `${__dirname}/src`, loaders: ['eslint']}
+        ],
+        loaders: [
+            {test: /\.js?$/, include: `${__dirname}/src`, loader: 'babel-loader'},
+            {test: /\.svg$/, loader: 'svg-sprite'},
+            {test: /\.modernizrrc$/, loader: 'modernizr'},
+            {test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file'},
+            {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url?limit=10000&mimetype=application/font-woff'},
+            {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
+            {test: /\.(jpe?g|png|gif)$/i, loader: 'file?name=[name].[ext]'},
+            {test: /\.ico$/, loader: 'file?name=[name].[ext]'},
+            {test: /\.less$/, loader: ExtractTextPlugin.extract('style', 'css!autoprefixer!less')},
+            {
+                test: /\.scss$/, loader: ExtractTextPlugin.extract('style',
+                'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer!resolve-url!sass?sourceMap')
+            },
+            {test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css')}
+        ]
     }
-  },
-
-  plugins: [
-    new webpack.DefinePlugin(GLOBALS),
-    new webpack.NoErrorsPlugin(),
-    //new webpack.HotModuleReplacementPlugin(),
-    new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js', Infinity),
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery'
-    }),
-    new ExtractTextPlugin('helpers.css', {allChunks: false})
-  ],
-
-  eslint: {
-    failOnError: false
-  },
-
-  module: {
-    noParse: [
-      `${__npm}/jquery`
-    ],
-    preLoaders: [
-      {test: /\.js?$/, include: `${__base}/src`, loaders: ['eslint']}
-    ],
-    loaders: [
-      {test: /\.js?$/, include: `${__base}/src`, loader: 'babel-loader'},
-      {test: /\.svg$/, loader: 'svg-sprite'},
-      {test: /\.modernizrrc$/, loader: 'modernizr'},
-      {test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file'},
-      {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url?limit=10000&mimetype=application/font-woff'},
-      {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
-      {test: /\.(jpe?g|png|gif)$/i, loader: 'file?name=[name].[ext]'},
-      {test: /\.ico$/, loader: 'file?name=[name].[ext]'},
-      {test: /\.less$/, loader: ExtractTextPlugin.extract('style', 'css!autoprefixer!less')},
-      {test: /\.scss$/, loader: ExtractTextPlugin.extract('style',
-        'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer!resolve-url!sass?sourceMap')},
-      {test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css')}
-    ]
-  }
 };
