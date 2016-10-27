@@ -1,7 +1,6 @@
 import webpack from 'webpack';
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import './paths';
 
 const GLOBALS = {
     'process.env.NODE_ENV': JSON.stringify('development'),
@@ -13,7 +12,7 @@ export default {
 
     entry: {
         vendors: ['babel-polyfill', 'modernizr', 'picturefill', 'react', 'react-dom', 'react-match-media',
-            'react-redux', 'redux', 'redux-devtools-extension', 'jquery', 'jquery.currencies.js',],
+            'react-redux', 'redux', 'redux-devtools-extension', 'jquery', 'jquery.currencies.js'],
         config: ['config.js'],
         main: ['index.js']
     },
@@ -21,7 +20,7 @@ export default {
     target: 'web', // necessary for https://webpack.github.io/docs/testing.html#compile-and-test
 
     output: {
-        path: __assets,
+        path: path.resolve(__dirname, 'theme/assets'),
         filename: '[name].js'
     },
 
