@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prestart": "babel-node tools/startMessage.js",
     "start": "npm-run-all --parallel watch:js watch:sass",
     "watch:js": "babel-node tools/startBuild.js",
     "watch:theme": "browser-sync start",

@@ -11,8 +11,7 @@ export default {
     devtool: 'source-map',
 
     entry: {
-        vendors: ['babel-polyfill', 'modernizr', 'picturefill', 'react', 'react-dom', 'react-match-media',
-            'react-redux', 'redux', 'redux-devtools-extension', 'jquery', 'jquery.currencies.js'],
+        vendors: ['babel-polyfill', 'modernizr', 'picturefill', 'react', 'react-dom', 'react-match-media', 'react-redux', 'redux', 'redux-devtools-extension', 'jquery', 'jquery.currencies.js'],
         config: ['config.js'],
         main: ['index.js']
     },
@@ -27,10 +26,7 @@ export default {
     resolve: {
         extensions: ['', '.js', '.svg'],
         modulesDirectories: ['src', 'node_modules'],
-        alias: {
-            'jquery': 'jquery/dist/jquery.min.js', //don't import all the module; use only the minified version
-            modernizr$: path.resolve(__dirname, '.modernizrrc')
-        }
+        alias: { 'jquery': 'jquery/dist/jquery.min.js', modernizr$: path.resolve(__dirname, '.modernizrrc') }
     },
 
     plugins: [
@@ -50,12 +46,8 @@ export default {
     },
 
     module: {
-        noParse: [
-            'jquery'
-        ],
-        preLoaders: [
-            {test: /\.js?$/, include: `${__dirname}/src`, loaders: ['eslint']}
-        ],
+        noParse: ['jquery'],
+        preLoaders: [{test: /\.js?$/, include: `${__dirname}/src`, loaders: ['eslint']}],
         loaders: [
             {test: /\.js?$/, include: `${__dirname}/src`, loader: 'babel-loader'},
             {test: /\.svg$/, loader: 'svg-sprite'},
@@ -66,10 +58,7 @@ export default {
             {test: /\.(jpe?g|png|gif)$/i, loader: 'file?name=[name].[ext]'},
             {test: /\.ico$/, loader: 'file?name=[name].[ext]'},
             {test: /\.less$/, loader: ExtractTextPlugin.extract('style', 'css!autoprefixer!less')},
-            {
-                test: /\.scss$/, loader: ExtractTextPlugin.extract('style',
-                'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer!resolve-url!sass?sourceMap')
-            },
+            {test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer!resolve-url!sass?sourceMap')},
             {test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css')}
         ]
     }
