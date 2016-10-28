@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import {HeaderTop, HeaderBottom, HeaderMain} from './';
 
-export class Header extends React.Component {
+export class Header extends Component {
     constructor(props) {
         super(props);
 

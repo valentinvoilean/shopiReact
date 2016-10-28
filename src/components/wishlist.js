@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export class Wishlist extends React.Component {
+export class Wishlist extends Component {
     static defaultProps = {
         name: 'Wishlist'
     };

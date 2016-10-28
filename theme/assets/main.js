@@ -127,8 +127,8 @@ webpackJsonp([1],{
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var Header = exports.Header = function (_React$Component) {
-	    _inherits(Header, _React$Component);
+	var Header = exports.Header = function (_Component) {
+	    _inherits(Header, _Component);
 	
 	    function Header(props) {
 	        _classCallCheck(this, Header);
@@ -198,9 +198,9 @@ webpackJsonp([1],{
 	            );
 	        }
 	    }]);
-	
+
 	    return Header;
-	}(_react2.default.Component);
+	}(_react.Component);
 
 /***/ },
 
@@ -230,8 +230,8 @@ webpackJsonp([1],{
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var HeaderBottom = exports.HeaderBottom = function (_React$Component) {
-	    _inherits(HeaderBottom, _React$Component);
+	var HeaderBottom = exports.HeaderBottom = function (_Component) {
+	    _inherits(HeaderBottom, _Component);
 	
 	    function HeaderBottom() {
 	        _classCallCheck(this, HeaderBottom);
@@ -309,9 +309,9 @@ webpackJsonp([1],{
 	            );
 	        }
 	    }]);
-	
+
 	    return HeaderBottom;
-	}(_react2.default.Component);
+	}(_react.Component);
 
 /***/ },
 
@@ -341,8 +341,8 @@ webpackJsonp([1],{
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var HeaderTop = exports.HeaderTop = function (_React$Component) {
-	    _inherits(HeaderTop, _React$Component);
+	var HeaderTop = exports.HeaderTop = function (_Component) {
+	    _inherits(HeaderTop, _Component);
 	
 	    function HeaderTop() {
 	        _classCallCheck(this, HeaderTop);
@@ -424,7 +424,7 @@ webpackJsonp([1],{
 	    }]);
 	
 	    return HeaderTop;
-	}(_react2.default.Component);
+	}(_react.Component);
 	
 	HeaderTop.defaultProps = {
 	    name: 'HeaderTop'
@@ -458,8 +458,8 @@ webpackJsonp([1],{
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var HeaderMain = exports.HeaderMain = function (_React$Component) {
-	    _inherits(HeaderMain, _React$Component);
+	var HeaderMain = exports.HeaderMain = function (_Component) {
+	    _inherits(HeaderMain, _Component);
 	
 	    function HeaderMain() {
 	        _classCallCheck(this, HeaderMain);
@@ -539,7 +539,7 @@ webpackJsonp([1],{
 	    }]);
 	
 	    return HeaderMain;
-	}(_react2.default.Component);
+	}(_react.Component);
 	
 	HeaderMain.defaultProps = {
 	    name: 'HeaderMain'
@@ -571,8 +571,8 @@ webpackJsonp([1],{
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var Footer = exports.Footer = function (_React$Component) {
-	    _inherits(Footer, _React$Component);
+	var Footer = exports.Footer = function (_Component) {
+	    _inherits(Footer, _Component);
 	
 	    function Footer() {
 	        _classCallCheck(this, Footer);
@@ -590,9 +590,9 @@ webpackJsonp([1],{
 	            );
 	        }
 	    }]);
-	
+
 	    return Footer;
-	}(_react2.default.Component);
+	}(_react.Component);
 
 /***/ },
 
@@ -620,8 +620,8 @@ webpackJsonp([1],{
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var MyAccount = exports.MyAccount = function (_React$Component) {
-	    _inherits(MyAccount, _React$Component);
+	var MyAccount = exports.MyAccount = function (_Component) {
+	    _inherits(MyAccount, _Component);
 	
 	    function MyAccount() {
 	        _classCallCheck(this, MyAccount);
@@ -641,7 +641,7 @@ webpackJsonp([1],{
 	    }]);
 	
 	    return MyAccount;
-	}(_react2.default.Component);
+	}(_react.Component);
 	
 	MyAccount.defaultProps = {
 	    name: 'MyAccount'
@@ -673,8 +673,8 @@ webpackJsonp([1],{
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var Wishlist = exports.Wishlist = function (_React$Component) {
-	    _inherits(Wishlist, _React$Component);
+	var Wishlist = exports.Wishlist = function (_Component) {
+	    _inherits(Wishlist, _Component);
 	
 	    function Wishlist() {
 	        _classCallCheck(this, Wishlist);
@@ -694,7 +694,7 @@ webpackJsonp([1],{
 	    }]);
 	
 	    return Wishlist;
-	}(_react2.default.Component);
+	}(_react.Component);
 	
 	Wishlist.defaultProps = {
 	    name: 'Wishlist'

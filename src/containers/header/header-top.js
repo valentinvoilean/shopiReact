@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {MatchMedia} from 'react-match-media';
 
-export class HeaderTop extends React.Component {
+export class HeaderTop extends Component {
     static defaultProps = {
         name: 'HeaderTop'
     };

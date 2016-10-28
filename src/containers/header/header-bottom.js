@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { MatchMedia } from 'react-match-media';
 
-export class HeaderBottom extends React.Component {
+export class HeaderBottom extends Component {
 
     render() {
         return (
