@@ -4,12 +4,12 @@ import {bindActionCreators} from 'redux';
 import * as actions from 'actions/headerConfig';
 import HeaderConfigBox from 'components/headerConfig';
 
-export const HeaderConfigContainer = (props) => {
+export const HeaderConfigContainer = ({actions, headerConfig}) => {
     return (
         <HeaderConfigBox
-            saveHeaderSettings={props.actions.saveHeaderSettings}
-            loadHeaderSettings={props.actions.loadHeaderSettings}
-            headerConfig={props.headerConfig}
+            saveHeaderSettings={actions.saveHeaderSettings}
+            loadHeaderSettings={actions.loadHeaderSettings}
+            headerConfig={headerConfig}
         />
     );
 };

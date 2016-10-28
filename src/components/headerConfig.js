@@ -5,7 +5,7 @@ import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 
 import HeaderConfigTab from 'components/headerConfigTab';
 
-const HeaderConfigBox = (props) => {
+const HeaderConfigBox = ({headerConfig, saveHeaderSettings, loadHeaderSettings}) => {
 
     return (
         <div styleName='background'>
@@ -18,9 +18,9 @@ const HeaderConfigBox = (props) => {
                     </TabList>
                     <TabPanel>
                         <HeaderConfigTab
-                            headerConfig={props.headerConfig}
-                            saveHeaderSettings={props.saveHeaderSettings}
-                            loadHeaderSettings={props.loadHeaderSettings}
+                            headerConfig={headerConfig}
+                            saveHeaderSettings={saveHeaderSettings}
+                            loadHeaderSettings={loadHeaderSettings}
                             filter="mobile">
                             Mobile Header Configuration
                         </HeaderConfigTab>
@@ -28,9 +28,9 @@ const HeaderConfigBox = (props) => {
 
                     <TabPanel>
                         <HeaderConfigTab
-                            headerConfig={props.headerConfig}
-                            saveHeaderSettings={props.saveHeaderSettings}
-                            loadHeaderSettings={props.loadHeaderSettings}
+                            headerConfig={headerConfig}
+                            saveHeaderSettings={saveHeaderSettings}
+                            loadHeaderSettings={loadHeaderSettings}
                             filter="tablet">
                             Tablet Header Configuration
                         </HeaderConfigTab>
@@ -38,9 +38,9 @@ const HeaderConfigBox = (props) => {
 
                     <TabPanel>
                         <HeaderConfigTab
-                            headerConfig={props.headerConfig}
-                            saveHeaderSettings={props.saveHeaderSettings}
-                            loadHeaderSettings={props.loadHeaderSettings}
+                            headerConfig={headerConfig}
+                            saveHeaderSettings={saveHeaderSettings}
+                            loadHeaderSettings={loadHeaderSettings}
                             filter="desktop">
                             Desktop Header Configuration
                         </HeaderConfigTab>

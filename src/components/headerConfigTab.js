@@ -4,7 +4,7 @@ import CSSModules from 'react-css-modules';
 
 import HeaderCell from 'components/headerConfigCell.js';
 
-const HeaderConfigTab = function (props) {
+const HeaderConfigTab = function ({saveHeaderSettings, headerConfig, children}) {
     const save = () => {
         let data = {
             MyAccount: {
@@ -15,12 +15,12 @@ const HeaderConfigTab = function (props) {
             }
         };
 
-        props.saveHeaderSettings(data);
+        saveHeaderSettings(data);
     };
 
     return (
         <div>
-            <h1 styleName="h1">{props.children}</h1>
+            <h1 styleName="h1">{children}</h1>
 
             <div className="col-md-6">
                 <h2 styleName="h2" onClick={save}>1. Available components to drag & drop</h2>
@@ -34,7 +34,7 @@ const HeaderConfigTab = function (props) {
             <div className="col-md-6">
                 <h2 styleName="h2">3. Generated code to be copied</h2>
                 <div styleName="codeContainer">
-                    <code styleName="code">{JSON.stringify(props.headerConfig)}</code>
+                    <code styleName="code">{JSON.stringify(headerConfig)}</code>
                     <div styleName="copy">Click to copy</div>
                 </div>
             </div>

@@ -6,6 +6,7 @@ import styles from 'styles/modules/config-box.scss';
 
 // Functional Component
 const HeaderCell = ({items}) => {
+
     items = items ? items.map((val, key) => (<li key={key} data-id={val}>{val} <span styleName='close'>&#10005;</span></li>)) : '';
 
     return (
