@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import HeaderWrapper from 'react-header-configurator/components';
 
+import {HeaderWrapper} from 'react-header-configurator/components';
 import {loadHeaderSettings, saveHeaderSettings} from 'react-header-configurator/redux/modules/headerConfig';
 
 export const App = ({actions, headerConfig}) => {

@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './HeaderTab.scss';
 import CSSModules from 'react-css-modules';
 
-import HeaderCell from 'react-header-configurator/components';
+import {HeaderCell} from 'react-header-configurator/components';
+import styles from './HeaderTab.scss';
 
 const HeaderTab = function ({saveHeaderSettings, headerConfig, children}) {
     const save = () => {

@@ -25,10 +25,10 @@ export default {
 
     resolve: {
         extensions: ['', '.js', '.jsx', '.svg'],
-        modulesDirectories: ['src', 'node_modules'],
+        modulesDirectories: ['src/js', 'node_modules'],
         alias: {
-            'react-header-configurator': path.resolve(__dirname, 'src/js/react/HeaderConfigurator'),
-            'react-header': path.resolve(__dirname, 'src/js/react/Header'),
+            'react-header-configurator': 'reactApps/HeaderConfigurator',
+            'react-header': 'reactApps/Header',
             'jquery': 'jquery/dist/jquery.min.js',
             modernizr$: path.resolve(__dirname, '.modernizrrc') }
     },
@@ -52,12 +52,10 @@ export default {
     module: {
         noParse: ['jquery'],
         preLoaders: [
-            {test: /\.js?$/, include: `${__dirname}/src/js`, loaders: ['eslint']},
             {test: /\.jsx?$/, include: `${__dirname}/src/js`, loaders: ['eslint']},
         ],
         loaders: [
-            {test: /\.js?$/, include: `${__dirname}/src`, loader: 'babel-loader'},
-            {test: /\.jsx?$/, include: `${__dirname}/src`, loader: 'babel-loader'},
+            {test: /\.jsx?$/, include: `${__dirname}/src/js`, loader: 'babel-loader'},
             {test: /\.svg$/, loader: 'svg-sprite'},
             {test: /\.modernizrrc$/, loader: 'modernizr'},
             {test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file'},

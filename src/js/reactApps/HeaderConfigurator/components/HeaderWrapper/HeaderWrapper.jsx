@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './HeaderWrapper.scss';
 import CSSModules from 'react-css-modules';
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 
-import HeaderTab from 'react-header-configurator/components';
+import {HeaderTab} from 'react-header-configurator/components';
+import styles from './HeaderWrapper.scss';
 
 const HeaderWrapper = ({headerConfig, saveHeaderSettings, loadHeaderSettings}) => {
 
