@@ -1,10 +1,10 @@
 import {LOAD_HEADER_SETTINGS, SAVE_HEADER_SETTINGS} from 'constants/actionTypes';
 import {updateHeaderComponentPosition, getInitialState, validateState} from 'utils';
 
-const headerConfig = (state = getInitialState(), action) => {
+const HeaderConfigReducer = (state = getInitialState(), action) => {
     switch (action.type) {
         case SAVE_HEADER_SETTINGS:
-            return updateHeaderComponentPosition(state, action.headerConfig);
+            return updateHeaderComponentPosition(state, action.payload);
 
         case LOAD_HEADER_SETTINGS:
             return validateState(state);
@@ -14,4 +14,4 @@ const headerConfig = (state = getInitialState(), action) => {
     }
 };
 
-export default headerConfig;
+export default HeaderConfigReducer;
