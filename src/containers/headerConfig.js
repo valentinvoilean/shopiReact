@@ -1,8 +1,9 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as actions from 'actions/headerConfig';
 import HeaderConfigBox from 'components/headerConfig';
+
+import {loadHeaderSettings, saveHeaderSettings} from 'redux/modules/headerConfig';
 
 export const HeaderConfigContainer = ({actions, headerConfig}) => {
     return (
@@ -27,7 +28,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(actions, dispatch)
+        actions: bindActionCreators({loadHeaderSettings, saveHeaderSettings}, dispatch)
     };
 }
 
