@@ -1,16 +1,17 @@
 import React from 'react';
-import CSSModules from 'react-css-modules';
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 
 import {HeaderTab} from 'react-header-configurator/components';
 import styles from './HeaderWrapper.scss';
 
-const HeaderWrapper = ({headerConfig, saveHeaderSettings, loadHeaderSettings}) => {
+export default ({headerConfig, saveHeaderSettings, loadHeaderSettings}) => {
+
+    const containerClasses = `container ${styles.base}`;
 
     return (
-        <div styleName='background'>
-            <div className='container' styleName='base'>
-                <Tabs styleName="tabs">
+        <div className={styles.background}>
+            <div className={containerClasses}>
+                <Tabs className={styles.tabs}>
                     <TabList>
                         <Tab>Mobile</Tab>
                         <Tab>Tablet</Tab>
@@ -51,4 +52,3 @@ const HeaderWrapper = ({headerConfig, saveHeaderSettings, loadHeaderSettings}) =
     );
 };
 
-export default CSSModules(HeaderWrapper, styles, {allowMultiple: true});

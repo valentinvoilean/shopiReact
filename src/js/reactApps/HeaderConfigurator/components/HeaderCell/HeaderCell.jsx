@@ -1,13 +1,12 @@
 import React from 'react';
 import Sortable from 'react-sortablejs';
-import CSSModules from 'react-css-modules';
 
 import styles from './HeaderCell.scss';
 
 // Functional Component
-const HeaderCell = ({items}) => {
+export default ({items}) => {
 
-    items = items ? items.map((val, key) => (<li key={key} data-id={val}>{val} <span styleName='close'>&#10005;</span></li>)) : '';
+    items = items ? items.map((val, key) => (<li key={key} data-id={val}>{val} <span className={styles.close}>&#10005;</span></li>)) : '';
 
     return (
         <Sortable
@@ -50,4 +49,3 @@ const HeaderCell = ({items}) => {
     );
 };
 
-export default CSSModules(HeaderCell, styles, {allowMultiple: true});
