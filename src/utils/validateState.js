@@ -1,4 +1,4 @@
-import {defaultState, validStates} from 'constants/states';
+import {defaultState, validStates} from './headerStates';
 
 export const validateState = state => {
     let wantedState = {...state},
