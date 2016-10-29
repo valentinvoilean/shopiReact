@@ -1,4 +1,4 @@
-import * as UTILS from 'utils';
+import * as UTILS from 'react-header-configurator/utils';
 
 // Actions
 const LOAD = 'headerConfig/LOAD';

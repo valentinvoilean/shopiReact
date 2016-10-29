@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from 'styles/modules/config-box.scss';
+import styles from './HeaderTab.scss';
 import CSSModules from 'react-css-modules';
 
-import HeaderCell from 'components/headerConfigCell.js';
+import HeaderCell from 'react-header-configurator/components';
 
-const HeaderConfigTab = function ({saveHeaderSettings, headerConfig, children}) {
+const HeaderTab = function ({saveHeaderSettings, headerConfig, children}) {
     const save = () => {
         let data = {
             MyAccount: {
@@ -67,4 +67,4 @@ const HeaderConfigTab = function ({saveHeaderSettings, headerConfig, children}) 
     );
 };
 
-export default CSSModules(HeaderConfigTab, styles, {allowMultiple: true});
+export default CSSModules(HeaderTab, styles, {allowMultiple: true});

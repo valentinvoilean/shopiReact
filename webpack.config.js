@@ -12,8 +12,8 @@ export default {
 
     entry: {
         vendors: ['babel-polyfill', 'modernizr', 'picturefill', 'react', 'react-dom', 'react-match-media', 'react-redux', 'redux', 'redux-devtools-extension', 'jquery', 'jquery.currencies.js'],
-        config: ['config.js'],
-        main: ['index.js']
+        config: ['react-header-configurator/index.js'],
+        main: ['react-header/index.js']
     },
 
     target: 'web', // necessary for https://webpack.github.io/docs/testing.html#compile-and-test
@@ -24,9 +24,13 @@ export default {
     },
 
     resolve: {
-        extensions: ['', '.js', '.svg'],
+        extensions: ['', '.js', '.jsx', '.svg'],
         modulesDirectories: ['src', 'node_modules'],
-        alias: { 'jquery': 'jquery/dist/jquery.min.js', modernizr$: path.resolve(__dirname, '.modernizrrc') }
+        alias: {
+            'react-header-configurator': path.resolve(__dirname, 'src/js/react/HeaderConfigurator'),
+            'react-header': path.resolve(__dirname, 'src/js/react/Header'),
+            'jquery': 'jquery/dist/jquery.min.js',
+            modernizr$: path.resolve(__dirname, '.modernizrrc') }
     },
 
     plugins: [
@@ -47,9 +51,13 @@ export default {
 
     module: {
         noParse: ['jquery'],
-        preLoaders: [{test: /\.js?$/, include: `${__dirname}/src`, loaders: ['eslint']}],
+        preLoaders: [
+            {test: /\.js?$/, include: `${__dirname}/src/js`, loaders: ['eslint']},
+            {test: /\.jsx?$/, include: `${__dirname}/src/js`, loaders: ['eslint']},
+        ],
         loaders: [
             {test: /\.js?$/, include: `${__dirname}/src`, loader: 'babel-loader'},
+            {test: /\.jsx?$/, include: `${__dirname}/src`, loader: 'babel-loader'},
             {test: /\.svg$/, loader: 'svg-sprite'},
             {test: /\.modernizrrc$/, loader: 'modernizr'},
             {test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file'},

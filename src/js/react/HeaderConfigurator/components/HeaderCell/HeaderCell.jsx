@@ -2,7 +2,7 @@ import React from 'react';
 import Sortable from 'react-sortablejs';
 import CSSModules from 'react-css-modules';
 
-import styles from 'styles/modules/config-box.scss';
+import styles from './HeaderCell.scss';
 
 // Functional Component
 const HeaderCell = ({items}) => {

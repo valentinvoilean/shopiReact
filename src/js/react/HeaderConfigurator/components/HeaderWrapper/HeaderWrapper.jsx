@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from 'styles/modules/config-box.scss';
+import styles from './HeaderWrapper.scss';
 import CSSModules from 'react-css-modules';
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 
-import HeaderConfigTab from 'components/headerConfigTab';
+import HeaderTab from 'react-header-configurator/components';
 
-const HeaderConfigBox = ({headerConfig, saveHeaderSettings, loadHeaderSettings}) => {
+const HeaderWrapper = ({headerConfig, saveHeaderSettings, loadHeaderSettings}) => {
 
     return (
         <div styleName='background'>
@@ -17,33 +17,33 @@ const HeaderConfigBox = ({headerConfig, saveHeaderSettings, loadHeaderSettings})
                         <Tab>Desktop</Tab>
                     </TabList>
                     <TabPanel>
-                        <HeaderConfigTab
+                        <HeaderTab
                             headerConfig={headerConfig}
                             saveHeaderSettings={saveHeaderSettings}
                             loadHeaderSettings={loadHeaderSettings}
                             filter="mobile">
                             Mobile Header Configuration
-                        </HeaderConfigTab>
+                        </HeaderTab>
                     </TabPanel>
 
                     <TabPanel>
-                        <HeaderConfigTab
+                        <HeaderTab
                             headerConfig={headerConfig}
                             saveHeaderSettings={saveHeaderSettings}
                             loadHeaderSettings={loadHeaderSettings}
                             filter="tablet">
                             Tablet Header Configuration
-                        </HeaderConfigTab>
+                        </HeaderTab>
                     </TabPanel>
 
                     <TabPanel>
-                        <HeaderConfigTab
+                        <HeaderTab
                             headerConfig={headerConfig}
                             saveHeaderSettings={saveHeaderSettings}
                             loadHeaderSettings={loadHeaderSettings}
                             filter="desktop">
                             Desktop Header Configuration
-                        </HeaderConfigTab>
+                        </HeaderTab>
                     </TabPanel>
                 </Tabs>
             </div>
@@ -51,4 +51,4 @@ const HeaderConfigBox = ({headerConfig, saveHeaderSettings, loadHeaderSettings})
     );
 };
 
-export default CSSModules(HeaderConfigBox, styles, {allowMultiple: true});
+export default CSSModules(HeaderWrapper, styles, {allowMultiple: true});

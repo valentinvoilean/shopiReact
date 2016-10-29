@@ -1,13 +1,13 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import HeaderConfigBox from 'components/headerConfig';
+import HeaderWrapper from 'react-header-configurator/components';
 
-import {loadHeaderSettings, saveHeaderSettings} from 'redux/modules/headerConfig';
+import {loadHeaderSettings, saveHeaderSettings} from 'react-header-configurator/redux/modules/headerConfig';
 
-export const HeaderConfigContainer = ({actions, headerConfig}) => {
+export const App = ({actions, headerConfig}) => {
     return (
-        <HeaderConfigBox
+        <HeaderWrapper
             saveHeaderSettings={actions.saveHeaderSettings}
             loadHeaderSettings={actions.loadHeaderSettings}
             headerConfig={headerConfig}
@@ -15,7 +15,7 @@ export const HeaderConfigContainer = ({actions, headerConfig}) => {
     );
 };
 
-HeaderConfigContainer.propTypes = {
+App.propTypes = {
     actions: PropTypes.object.isRequired,
     headerConfig: PropTypes.object.isRequired
 };
@@ -35,4 +35,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(HeaderConfigContainer);
+)(App);
