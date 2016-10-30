@@ -1,17 +1,54 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 
-import {HeaderWrapper} from 'react-header-configurator/components';
+import {HeaderTab} from 'react-header-configurator/components';
+import styles from './App.scss';
 import {loadHeaderSettings, saveHeaderSettings} from 'react-header-configurator/redux/modules/headerConfig';
 
 export const App = ({actions, headerConfig}) => {
     return (
-        <HeaderWrapper
-            saveHeaderSettings={actions.saveHeaderSettings}
-            loadHeaderSettings={actions.loadHeaderSettings}
-            headerConfig={headerConfig}
-        />
+        <div className={styles.background}>
+            <div className={containerClasses}>
+                <Tabs className={styles.tabs}>
+                    <TabList>
+                        <Tab>Mobile</Tab>
+                        <Tab>Tablet</Tab>
+                        <Tab>Desktop</Tab>
+                    </TabList>
+                    <TabPanel>
+                        <HeaderTab
+                            headerConfig={headerConfig}
+                            saveHeaderSettings={actions.saveHeaderSettings}
+                            loadHeaderSettings={actions.loadHeaderSettings}
+                            mediaQuery="mobile">
+                            Mobile Header Configuration
+                        </HeaderTab>
+                    </TabPanel>
+
+                    <TabPanel>
+                        <HeaderTab
+                            headerConfig={headerConfig}
+                            saveHeaderSettings={actions.saveHeaderSettings}
+                            loadHeaderSettings={actions.loadHeaderSettings}
+                            mediaQuery="tablet">
+                            Tablet Header Configuration
+                        </HeaderTab>
+                    </TabPanel>
+
+                    <TabPanel>
+                        <HeaderTab
+                            headerConfig={headerConfig}
+                            saveHeaderSettings={actions.saveHeaderSettings}
+                            loadHeaderSettings={actions.loadHeaderSettings}
+                            mediaQuery="desktop">
+                            Desktop Header Configuration
+                        </HeaderTab>
+                    </TabPanel>
+                </Tabs>
+            </div>
+        </div>
     );
 };
 
