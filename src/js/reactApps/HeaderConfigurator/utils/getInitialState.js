@@ -1,4 +1,4 @@
-import {defaultState} from './headerStates';
+import {defaultState} from 'react-header-configurator/constants/states';
 
 export const getInitialState = () => {
     const shopifySettings = '{"mobile":{"Flyout":[],"Hidden":[],"MainLeft":["Menu"],"MainCenter":["Logo"],"MainRight":["MyAccount","Wishlist"],"BottomLeft":[],"BottomCenter":[],"BottomRight":[]},"tablet":{"Hidden":[],"TopLeft":[],"TopCenter":[],"TopRight":["MyAccount","Wishlist"],"MainLeft":["Logo"],"MainCenter":["Menu"],"MainRight":[],"BottomLeft":[],"BottomCenter":[],"BottomRight":[]},"desktop":{"Hidden":[],"TopLeft":[],"TopCenter":[],"TopRight":["MyAccount","Wishlist"],"MainLeft":["Logo"],"MainCenter":["Menu"],"MainRight":[],"BottomLeft":[],"BottomCenter":[],"BottomRight":[]}}';

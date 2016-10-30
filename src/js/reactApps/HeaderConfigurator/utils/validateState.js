@@ -1,4 +1,4 @@
-import {defaultState, validStates} from './headerStates';
+import {defaultState, validStates} from 'react-header-configurator/constants/states';
 
 export const validateState = state => {
     let wantedState = {...state},
