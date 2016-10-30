@@ -11,7 +11,7 @@
   "rules": {
     "react/jsx-uses-vars": "error",
     "react/jsx-uses-react": "error",
-    "no-console": [ "error", {"allow": ["warn", "error" ]}],
+    "no-console": [ "warn"],
     "no-alert": ["error"],
     "no-dupe-args": "error",
     "no-dupe-keys": "error",
@@ -47,7 +47,7 @@
     "keyword-spacing": ["error", {"before": true}],
     "max-statements-per-line": ["error", {"max": 2}],
     "no-multiple-empty-lines": ["error", {"max": 2}],
-    "no-trailing-spaces": "error",
+    "no-trailing-spaces": "warn",
     "quotes": ["error", "single", {"avoidEscape": true, "allowTemplateLiterals": true}],
     "arrow-spacing": "error",
     "no-spaced-func": "error",
