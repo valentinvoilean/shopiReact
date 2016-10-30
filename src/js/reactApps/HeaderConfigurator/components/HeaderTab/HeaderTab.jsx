@@ -2,8 +2,9 @@ import React from 'react';
 
 import {HeaderCell} from 'react-header-configurator/components';
 import styles from './HeaderTab.scss';
+import {distributeItemsByMQ} from './HeaderTab.util';
 
-export default ({saveHeaderSettings, headerConfig, children}) => {
+export default ({saveHeaderSettings, headerConfig, filter, children}) => {
     const save = () => {
         let data = {
             MyAccount: {
@@ -17,6 +18,20 @@ export default ({saveHeaderSettings, headerConfig, children}) => {
         saveHeaderSettings(data);
     };
 
+    let items = distributeItemsByMQ(headerConfig, filter);
+
+    let showTopHeader = () => {
+        if (filter !== 'mobile') {
+            return (
+                <div className={styles.headerArea}>
+                    <HeaderCell items={items.TopLeft}/>
+                    <HeaderCell items={items.TopCenter}/>
+                    <HeaderCell items={items.TopRight}/>
+                </div>
+            );
+        }
+    };
+
     return (
         <div>
             <h1 className={styles.h1}>{children}</h1>
@@ -24,9 +39,7 @@ export default ({saveHeaderSettings, headerConfig, children}) => {
             <div className="col-md-6">
                 <h2 className={styles.h2} onClick={save}>1. Available components to drag & drop</h2>
                 <div className={styles.componentsContainer}>
-                    <HeaderCell items={['My Account', 'Wishlist', 'Currency', 'Language', 'Welcome Message', 'Search',
-                        'Social Icons', 'Custom Link 1', 'Custom Link 2', 'Custom Link 3', 'Custom Link 4',
-                        'Custom Link 5']}/>
+                    <HeaderCell items={items.Menu}/>
                 </div>
             </div>
 
@@ -45,20 +58,16 @@ export default ({saveHeaderSettings, headerConfig, children}) => {
                     boxes.</p>
 
                 <div className={styles.header}>
+                    {showTopHeader()}
                     <div className={styles.headerArea}>
-                        <HeaderCell/>
-                        <HeaderCell/>
-                        <HeaderCell/>
+                        <HeaderCell items={items.MainLeft}/>
+                        <HeaderCell items={items.MainCenter}/>
+                        <HeaderCell items={items.MainRight}/>
                     </div>
                     <div className={styles.headerArea}>
-                        <HeaderCell/>
-                        <HeaderCell/>
-                        <HeaderCell/>
-                    </div>
-                    <div className={styles.headerArea}>
-                        <HeaderCell/>
-                        <HeaderCell/>
-                        <HeaderCell/>
+                        <HeaderCell items={items.BottomLeft}/>
+                        <HeaderCell items={items.BottomCenter}/>
+                        <HeaderCell items={items.BottomRight}/>
                     </div>
                 </div>
             </div>
