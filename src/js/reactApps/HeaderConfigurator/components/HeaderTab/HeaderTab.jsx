@@ -2,9 +2,8 @@ import React from 'react';
 
 import {HeaderCell} from 'react-header-configurator/components';
 import styles from './HeaderTab.scss';
-import {distributeItemsByMQ} from './HeaderTab.util';
 
-export default ({saveHeaderSettings, headerConfig, filter, children}) => {
+export default ({saveHeaderSettings, headerConfig, mediaQuery, children}) => {
     const save = () => {
         let data = {
             MyAccount: {
@@ -18,18 +17,18 @@ export default ({saveHeaderSettings, headerConfig, filter, children}) => {
         saveHeaderSettings(data);
     };
 
-    let items = distributeItemsByMQ(headerConfig, filter);
+    let items = headerConfig[mediaQuery];
 
     let onChange = (items, sortable, evt) => {
         console.log(items, sortable, evt);
     };
 
     let onEnd = () => {
-      console.log('ended');
+        console.log('ended');
     };
 
     let showTopHeader = () => {
-        if (filter !== 'mobile') {
+        if (mediaQuery !== 'mobile') {
             return (
                 <div className={styles.headerArea}>
                     <HeaderCell onChange={onChange} onEnd={onEnd} name="TopLeft" items={items.TopLeft}/>
@@ -74,8 +73,7 @@ export default ({saveHeaderSettings, headerConfig, filter, children}) => {
                     </div>
                     <div className={styles.headerArea}>
                         <HeaderCell onChange={onChange} onEnd={onEnd} name="BottomLeft" items={items.BottomLeft}/>
-                        <HeaderCell onChange={onChange} onEnd={onEnd} name="BottomCenter"
-                                    items={items.BottomCenter}/>
+                        <HeaderCell onChange={onChange} onEnd={onEnd} name="BottomCenter" items={items.BottomCenter}/>
                         <HeaderCell onChange={onChange} onEnd={onEnd} name="BottomRight" items={items.BottomRight}/>
                     </div>
                 </div>

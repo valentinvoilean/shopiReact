@@ -22,7 +22,7 @@ export default ({headerConfig, saveHeaderSettings, loadHeaderSettings}) => {
                             headerConfig={headerConfig}
                             saveHeaderSettings={saveHeaderSettings}
                             loadHeaderSettings={loadHeaderSettings}
-                            filter="mobile">
+                            mediaQuery="mobile">
                             Mobile Header Configuration
                         </HeaderTab>
                     </TabPanel>
@@ -32,7 +32,7 @@ export default ({headerConfig, saveHeaderSettings, loadHeaderSettings}) => {
                             headerConfig={headerConfig}
                             saveHeaderSettings={saveHeaderSettings}
                             loadHeaderSettings={loadHeaderSettings}
-                            filter="tablet">
+                            mediaQuery="tablet">
                             Tablet Header Configuration
                         </HeaderTab>
                     </TabPanel>
@@ -42,7 +42,7 @@ export default ({headerConfig, saveHeaderSettings, loadHeaderSettings}) => {
                             headerConfig={headerConfig}
                             saveHeaderSettings={saveHeaderSettings}
                             loadHeaderSettings={loadHeaderSettings}
-                            filter="desktop">
+                            mediaQuery="desktop">
                             Desktop Header Configuration
                         </HeaderTab>
                     </TabPanel>
