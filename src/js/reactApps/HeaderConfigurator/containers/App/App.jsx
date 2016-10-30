@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import {HeaderWrapper} from 'react-header-configurator/components';
-import {loadHeaderSettings, saveHeaderSettings} from 'react-header-configurator/redux/modules/headerConfig';
+import * as actions from 'react-header-configurator/actions/headerConfig';
 
 export const App = ({actions, headerConfig}) => {
     return (
@@ -28,7 +28,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators({loadHeaderSettings, saveHeaderSettings}, dispatch)
+        actions: bindActionCreators(actions, dispatch)
     };
 }
 

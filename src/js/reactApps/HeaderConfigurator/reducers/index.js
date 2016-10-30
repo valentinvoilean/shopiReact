@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import HeaderConfigReducer from './headerConfig';
 
-export default combineReducers({
+const rootReducer = combineReducers({
     headerConfig: HeaderConfigReducer
 });
+
+export default rootReducer;
