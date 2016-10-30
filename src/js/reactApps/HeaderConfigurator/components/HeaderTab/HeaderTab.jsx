@@ -24,9 +24,9 @@ export default ({saveHeaderSettings, headerConfig, filter, children}) => {
         if (filter !== 'mobile') {
             return (
                 <div className={styles.headerArea}>
-                    <HeaderCell items={items.TopLeft}/>
-                    <HeaderCell items={items.TopCenter}/>
-                    <HeaderCell items={items.TopRight}/>
+                    <HeaderCell name="TopLeft" items={items.TopLeft}/>
+                    <HeaderCell name="TopCenter" items={items.TopCenter}/>
+                    <HeaderCell name="TopRight" items={items.TopRight}/>
                 </div>
             );
         }
@@ -39,7 +39,7 @@ export default ({saveHeaderSettings, headerConfig, filter, children}) => {
             <div className="col-md-6">
                 <h2 className={styles.h2} onClick={save}>1. Available components to drag & drop</h2>
                 <div className={styles.componentsContainer}>
-                    <HeaderCell items={items.Menu}/>
+                    <HeaderCell name="Menu" items={items.Menu}/>
                 </div>
             </div>
 
@@ -60,14 +60,14 @@ export default ({saveHeaderSettings, headerConfig, filter, children}) => {
                 <div className={styles.header}>
                     {showTopHeader()}
                     <div className={styles.headerArea}>
-                        <HeaderCell items={items.MainLeft}/>
-                        <HeaderCell items={items.MainCenter}/>
-                        <HeaderCell items={items.MainRight}/>
+                        <HeaderCell name="MainLeft" items={items.MainLeft}/>
+                        <HeaderCell name="MainCenter" items={items.MainCenter}/>
+                        <HeaderCell name="MainRight" items={items.MainRight}/>
                     </div>
                     <div className={styles.headerArea}>
-                        <HeaderCell items={items.BottomLeft}/>
-                        <HeaderCell items={items.BottomCenter}/>
-                        <HeaderCell items={items.BottomRight}/>
+                        <HeaderCell name="BottomLeft" items={items.BottomLeft}/>
+                        <HeaderCell name="BottomCenter" items={items.BottomCenter}/>
+                        <HeaderCell name="BottomRight" items={items.BottomRight}/>
                     </div>
                 </div>
             </div>
