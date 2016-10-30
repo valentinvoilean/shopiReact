@@ -8,6 +8,8 @@ import styles from './App.scss';
 import {loadHeaderSettings, saveHeaderSettings} from 'react-header-configurator/redux/modules/headerConfig';
 
 export const App = ({actions, headerConfig}) => {
+    const containerClasses = `container ${styles.base}`;
+
     return (
         <div className={styles.background}>
             <div className={containerClasses}>
