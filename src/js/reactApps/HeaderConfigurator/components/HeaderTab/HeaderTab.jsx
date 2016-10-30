@@ -20,13 +20,21 @@ export default ({saveHeaderSettings, headerConfig, filter, children}) => {
 
     let items = distributeItemsByMQ(headerConfig, filter);
 
+    let onChange = (items, sortable, evt) => {
+        console.log(items, sortable, evt);
+    };
+
+    let onEnd = () => {
+      console.log('ended');
+    };
+
     let showTopHeader = () => {
         if (filter !== 'mobile') {
             return (
                 <div className={styles.headerArea}>
-                    <HeaderCell name="TopLeft" items={items.TopLeft}/>
-                    <HeaderCell name="TopCenter" items={items.TopCenter}/>
-                    <HeaderCell name="TopRight" items={items.TopRight}/>
+                    <HeaderCell onChange={onChange} onEnd={onEnd} name="TopLeft" items={items.TopLeft}/>
+                    <HeaderCell onChange={onChange} onEnd={onEnd} name="TopCenter" items={items.TopCenter}/>
+                    <HeaderCell onChange={onChange} onEnd={onEnd} name="TopRight" items={items.TopRight}/>
                 </div>
             );
         }
@@ -39,7 +47,7 @@ export default ({saveHeaderSettings, headerConfig, filter, children}) => {
             <div className="col-md-6">
                 <h2 className={styles.h2} onClick={save}>1. Available components to drag & drop</h2>
                 <div className={styles.componentsContainer}>
-                    <HeaderCell name="Menu" items={items.Menu}/>
+                    <HeaderCell onChange={onChange} onEnd={onEnd} name="Menu" items={items.Menu}/>
                 </div>
             </div>
 
@@ -60,14 +68,15 @@ export default ({saveHeaderSettings, headerConfig, filter, children}) => {
                 <div className={styles.header}>
                     {showTopHeader()}
                     <div className={styles.headerArea}>
-                        <HeaderCell name="MainLeft" items={items.MainLeft}/>
-                        <HeaderCell name="MainCenter" items={items.MainCenter}/>
-                        <HeaderCell name="MainRight" items={items.MainRight}/>
+                        <HeaderCell onChange={onChange} onEnd={onEnd} name="MainLeft" items={items.MainLeft}/>
+                        <HeaderCell onChange={onChange} onEnd={onEnd} name="MainCenter" items={items.MainCenter}/>
+                        <HeaderCell onChange={onChange} onEnd={onEnd} name="MainRight" items={items.MainRight}/>
                     </div>
                     <div className={styles.headerArea}>
-                        <HeaderCell name="BottomLeft" items={items.BottomLeft}/>
-                        <HeaderCell name="BottomCenter" items={items.BottomCenter}/>
-                        <HeaderCell name="BottomRight" items={items.BottomRight}/>
+                        <HeaderCell onChange={onChange} onEnd={onEnd} name="BottomLeft" items={items.BottomLeft}/>
+                        <HeaderCell onChange={onChange} onEnd={onEnd} name="BottomCenter"
+                                    items={items.BottomCenter}/>
+                        <HeaderCell onChange={onChange} onEnd={onEnd} name="BottomRight" items={items.BottomRight}/>
                     </div>
                 </div>
             </div>
