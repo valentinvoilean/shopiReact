@@ -1,24 +1,8 @@
-import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import {HeaderWrapper} from 'HeaderConfigApp/components';
 import * as actions from 'HeaderConfigApp/ducks/App.js';
-
-export const App = ({actions, headerConfig}) => {
-    return (
-        <HeaderWrapper
-            saveHeaderSettings={actions.saveHeaderSettings}
-            loadHeaderSettings={actions.loadHeaderSettings}
-            headerConfig={headerConfig}
-        />
-    );
-};
-
-App.propTypes = {
-    actions: PropTypes.object.isRequired,
-    headerConfig: PropTypes.object.isRequired
-};
 
 function mapStateToProps(state) {
     return {
@@ -35,4 +19,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(App);
+)(HeaderWrapper);

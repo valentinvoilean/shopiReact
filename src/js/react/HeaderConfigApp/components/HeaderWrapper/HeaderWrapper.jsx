@@ -4,7 +4,7 @@ import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 import {HeaderTab} from 'HeaderConfigApp/components';
 import styles from './HeaderWrapper.scss';
 
-export default ({headerConfig, saveHeaderSettings, loadHeaderSettings}) => {
+export default ({actions, headerConfig}) => {
 
     const containerClasses = `container ${styles.base}`;
 
@@ -20,8 +20,8 @@ export default ({headerConfig, saveHeaderSettings, loadHeaderSettings}) => {
                     <TabPanel>
                         <HeaderTab
                             headerConfig={headerConfig}
-                            saveHeaderSettings={saveHeaderSettings}
-                            loadHeaderSettings={loadHeaderSettings}
+                            saveHeaderSettings={actions.saveHeaderSettings}
+                            loadHeaderSettings={actions.loadHeaderSettings}
                             mediaQuery="mobile">
                             Mobile Header Configuration
                         </HeaderTab>
@@ -30,8 +30,8 @@ export default ({headerConfig, saveHeaderSettings, loadHeaderSettings}) => {
                     <TabPanel>
                         <HeaderTab
                             headerConfig={headerConfig}
-                            saveHeaderSettings={saveHeaderSettings}
-                            loadHeaderSettings={loadHeaderSettings}
+                            saveHeaderSettings={actions.saveHeaderSettings}
+                            loadHeaderSettings={actions.loadHeaderSettings}
                             mediaQuery="tablet">
                             Tablet Header Configuration
                         </HeaderTab>
@@ -40,8 +40,8 @@ export default ({headerConfig, saveHeaderSettings, loadHeaderSettings}) => {
                     <TabPanel>
                         <HeaderTab
                             headerConfig={headerConfig}
-                            saveHeaderSettings={saveHeaderSettings}
-                            loadHeaderSettings={loadHeaderSettings}
+                            saveHeaderSettings={actions.saveHeaderSettings}
+                            loadHeaderSettings={actions.loadHeaderSettings}
                             mediaQuery="desktop">
                             Desktop Header Configuration
                         </HeaderTab>
