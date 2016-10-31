@@ -4,36 +4,25 @@ import ModalCell from './modal-cell.component.jsx';
 import styles from './modal.scss';
 
 export default ({saveHeaderSettings, headerConfig, mediaQuery, children}) => {
-    const save = () => {
-        let data = {
-            MyAccount: {
-                mobile: {
-                    position: 'TopRight',
-                    order: 2
-                }
-            }
-        };
-
-        saveHeaderSettings(data);
-    };
-
     let items = headerConfig[mediaQuery];
 
-    let onChange = (items, sortable, evt) => {
-        console.log(items, sortable, evt);
-    };
+    let onChange = (items, sortable) => {
+        const item = sortable.el.className;
+        let newState = {};
 
-    let onEnd = () => {
-        console.log('ended');
+        newState[mediaQuery] = {};
+        newState[mediaQuery][item] = items;
+
+        saveHeaderSettings(newState);
     };
 
     let showTopHeader = () => {
         if (mediaQuery !== 'mobile') {
             return (
                 <div className={styles.headerArea}>
-                    <ModalCell onChange={onChange} onEnd={onEnd} name="TopLeft" items={items.TopLeft}/>
-                    <ModalCell onChange={onChange} onEnd={onEnd} name="TopCenter" items={items.TopCenter}/>
-                    <ModalCell onChange={onChange} onEnd={onEnd} name="TopRight" items={items.TopRight}/>
+                    <ModalCell onChange={onChange} name="TopLeft" items={items.TopLeft}/>
+                    <ModalCell onChange={onChange} name="TopCenter" items={items.TopCenter}/>
+                    <ModalCell onChange={onChange} name="TopRight" items={items.TopRight}/>
                 </div>
             );
         }
@@ -44,9 +33,9 @@ export default ({saveHeaderSettings, headerConfig, mediaQuery, children}) => {
             <h1 className={styles.h1}>{children}</h1>
 
             <div className="col-md-6">
-                <h2 className={styles.h2} onClick={save}>1. Available components to drag & drop</h2>
+                <h2 className={styles.h2}>1. Available components to drag & drop</h2>
                 <div className={styles.componentsContainer}>
-                    <ModalCell onChange={onChange} onEnd={onEnd} name="Menu" items={items.Menu}/>
+                    <ModalCell onChange={onChange} name="Menu" items={items.Menu}/>
                 </div>
             </div>
 
@@ -67,14 +56,14 @@ export default ({saveHeaderSettings, headerConfig, mediaQuery, children}) => {
                 <div className={styles.header}>
                     {showTopHeader()}
                     <div className={styles.headerArea}>
-                        <ModalCell onChange={onChange} onEnd={onEnd} name="MainLeft" items={items.MainLeft}/>
-                        <ModalCell onChange={onChange} onEnd={onEnd} name="MainCenter" items={items.MainCenter}/>
-                        <ModalCell onChange={onChange} onEnd={onEnd} name="MainRight" items={items.MainRight}/>
+                        <ModalCell onChange={onChange} name="MainLeft" items={items.MainLeft}/>
+                        <ModalCell onChange={onChange} name="MainCenter" items={items.MainCenter}/>
+                        <ModalCell onChange={onChange} name="MainRight" items={items.MainRight}/>
                     </div>
                     <div className={styles.headerArea}>
-                        <ModalCell onChange={onChange} onEnd={onEnd} name="BottomLeft" items={items.BottomLeft}/>
-                        <ModalCell onChange={onChange} onEnd={onEnd} name="BottomCenter" items={items.BottomCenter}/>
-                        <ModalCell onChange={onChange} onEnd={onEnd} name="BottomRight" items={items.BottomRight}/>
+                        <ModalCell onChange={onChange} name="BottomLeft" items={items.BottomLeft}/>
+                        <ModalCell onChange={onChange} name="BottomCenter" items={items.BottomCenter}/>
+                        <ModalCell onChange={onChange} name="BottomRight" items={items.BottomRight}/>
                     </div>
                 </div>
             </div>

@@ -77,7 +77,7 @@ export const validateState = state => {
  * @param newData
  * @returns {*}
  */
-export const updateHeaderComponentPosition = (initialState, newData) => {
+export const saveHeaderSettings = (initialState, newData) => {
     const componentName = Object.keys(newData)[0];
     const componentProperties = newData[componentName];
 

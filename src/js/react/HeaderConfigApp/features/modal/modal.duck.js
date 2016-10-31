@@ -8,7 +8,7 @@ const SAVE_HEADER_SETTINGS = 'SAVE_HEADER_SETTINGS';
 export default (state = UTILS.getInitialState(), action = {}) => {
     switch (action.type) {
         case SAVE_HEADER_SETTINGS:
-            return UTILS.updateHeaderComponentPosition(state, action.payload);
+            return UTILS.saveHeaderSettings(state, action.payload);
 
         case LOAD_HEADER_SETTINGS:
             return UTILS.validateState(state);
@@ -19,12 +19,12 @@ export default (state = UTILS.getInitialState(), action = {}) => {
 };
 
 // Action Creators
-export const LoadAction = headerSettings => ({
+export const loadHeaderSettings = headerSettings => ({
     type: LOAD_HEADER_SETTINGS,
     payload: headerSettings
 });
 
-export const SaveAction = headerSettings => ({
+export const saveHeaderSettings = headerSettings => ({
     type: SAVE_HEADER_SETTINGS,
     payload: headerSettings
 });
