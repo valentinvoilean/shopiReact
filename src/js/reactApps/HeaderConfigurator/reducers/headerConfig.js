@@ -1,5 +1,5 @@
-import {LOAD_HEADER_SETTINGS, SAVE_HEADER_SETTINGS} from 'react-header-configurator/constants/actionTypes';
-import * as UTILS from 'react-header-configurator/utils';
+import {LOAD_HEADER_SETTINGS, SAVE_HEADER_SETTINGS} from '../constants/actionTypes';
+import * as UTILS from '../utils';
 
 export default (state = UTILS.getInitialState(), action = {}) => {
     switch (action.type) {

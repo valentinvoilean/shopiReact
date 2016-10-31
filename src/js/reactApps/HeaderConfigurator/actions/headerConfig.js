@@ -1,4 +1,4 @@
-import {LOAD_HEADER_SETTINGS, SAVE_HEADER_SETTINGS} from 'react-header-configurator/constants/actionTypes';
+import {LOAD_HEADER_SETTINGS, SAVE_HEADER_SETTINGS} from '../constants/actionTypes';
 
 export const loadHeaderSettings = headerSettings => ({
     type: LOAD_HEADER_SETTINGS,
