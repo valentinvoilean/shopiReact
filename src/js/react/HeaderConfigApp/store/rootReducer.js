@@ -1,4 +1,4 @@
 import {combineReducers} from 'redux';
-import * as reducers from 'HeaderConfigApp/ducks';
+import {headerConfig} from 'HeaderConfigApp/features/modal';
 
-export default combineReducers(reducers);
+export default combineReducers({ headerConfig });

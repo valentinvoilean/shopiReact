@@ -1,7 +1,7 @@
 import React from 'react';
 
-import {HeaderCell} from 'HeaderConfigApp/components';
-import styles from './HeaderTab.scss';
+import ModalCell from './modal-cell.component.jsx';
+import styles from './modal.component.scss';
 
 export default ({saveHeaderSettings, headerConfig, mediaQuery, children}) => {
     const save = () => {
@@ -31,9 +31,9 @@ export default ({saveHeaderSettings, headerConfig, mediaQuery, children}) => {
         if (mediaQuery !== 'mobile') {
             return (
                 <div className={styles.headerArea}>
-                    <HeaderCell onChange={onChange} onEnd={onEnd} name="TopLeft" items={items.TopLeft}/>
-                    <HeaderCell onChange={onChange} onEnd={onEnd} name="TopCenter" items={items.TopCenter}/>
-                    <HeaderCell onChange={onChange} onEnd={onEnd} name="TopRight" items={items.TopRight}/>
+                    <ModalCell onChange={onChange} onEnd={onEnd} name="TopLeft" items={items.TopLeft}/>
+                    <ModalCell onChange={onChange} onEnd={onEnd} name="TopCenter" items={items.TopCenter}/>
+                    <ModalCell onChange={onChange} onEnd={onEnd} name="TopRight" items={items.TopRight}/>
                 </div>
             );
         }
@@ -46,7 +46,7 @@ export default ({saveHeaderSettings, headerConfig, mediaQuery, children}) => {
             <div className="col-md-6">
                 <h2 className={styles.h2} onClick={save}>1. Available components to drag & drop</h2>
                 <div className={styles.componentsContainer}>
-                    <HeaderCell onChange={onChange} onEnd={onEnd} name="Menu" items={items.Menu}/>
+                    <ModalCell onChange={onChange} onEnd={onEnd} name="Menu" items={items.Menu}/>
                 </div>
             </div>
 
@@ -67,14 +67,14 @@ export default ({saveHeaderSettings, headerConfig, mediaQuery, children}) => {
                 <div className={styles.header}>
                     {showTopHeader()}
                     <div className={styles.headerArea}>
-                        <HeaderCell onChange={onChange} onEnd={onEnd} name="MainLeft" items={items.MainLeft}/>
-                        <HeaderCell onChange={onChange} onEnd={onEnd} name="MainCenter" items={items.MainCenter}/>
-                        <HeaderCell onChange={onChange} onEnd={onEnd} name="MainRight" items={items.MainRight}/>
+                        <ModalCell onChange={onChange} onEnd={onEnd} name="MainLeft" items={items.MainLeft}/>
+                        <ModalCell onChange={onChange} onEnd={onEnd} name="MainCenter" items={items.MainCenter}/>
+                        <ModalCell onChange={onChange} onEnd={onEnd} name="MainRight" items={items.MainRight}/>
                     </div>
                     <div className={styles.headerArea}>
-                        <HeaderCell onChange={onChange} onEnd={onEnd} name="BottomLeft" items={items.BottomLeft}/>
-                        <HeaderCell onChange={onChange} onEnd={onEnd} name="BottomCenter" items={items.BottomCenter}/>
-                        <HeaderCell onChange={onChange} onEnd={onEnd} name="BottomRight" items={items.BottomRight}/>
+                        <ModalCell onChange={onChange} onEnd={onEnd} name="BottomLeft" items={items.BottomLeft}/>
+                        <ModalCell onChange={onChange} onEnd={onEnd} name="BottomCenter" items={items.BottomCenter}/>
+                        <ModalCell onChange={onChange} onEnd={onEnd} name="BottomRight" items={items.BottomRight}/>
                     </div>
                 </div>
             </div>

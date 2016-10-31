@@ -1,7 +1,7 @@
 import React from 'react';
 import Sortable from 'react-sortablejs';
 
-import styles from './HeaderCell.scss';
+import styles from './modal.component.scss';
 
 // Functional Component
 export default ({items, name, onChange, onEnd}) => {

@@ -1,8 +1,8 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {HeaderWrapper} from 'HeaderConfigApp/components';
-import * as actions from 'HeaderConfigApp/ducks/App.js';
+import Modal from './modal.component.jsx';
+import * as actions from './modal.duck';
 
 function mapStateToProps(state) {
     return {
@@ -19,4 +19,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(HeaderWrapper);
+)(Modal);

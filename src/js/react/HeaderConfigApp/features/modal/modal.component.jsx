@@ -1,8 +1,8 @@
 import React from 'react';
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 
-import {HeaderTab} from 'HeaderConfigApp/components';
-import styles from './HeaderWrapper.scss';
+import ModalTab from './modal-tab.component.jsx';
+import styles from './modal.component.scss';
 
 export default ({actions, headerConfig}) => {
 
@@ -18,33 +18,33 @@ export default ({actions, headerConfig}) => {
                         <Tab>Desktop</Tab>
                     </TabList>
                     <TabPanel>
-                        <HeaderTab
+                        <ModalTab
                             headerConfig={headerConfig}
                             saveHeaderSettings={actions.saveHeaderSettings}
                             loadHeaderSettings={actions.loadHeaderSettings}
                             mediaQuery="mobile">
                             Mobile Header Configuration
-                        </HeaderTab>
+                        </ModalTab>
                     </TabPanel>
 
                     <TabPanel>
-                        <HeaderTab
+                        <ModalTab
                             headerConfig={headerConfig}
                             saveHeaderSettings={actions.saveHeaderSettings}
                             loadHeaderSettings={actions.loadHeaderSettings}
                             mediaQuery="tablet">
                             Tablet Header Configuration
-                        </HeaderTab>
+                        </ModalTab>
                     </TabPanel>
 
                     <TabPanel>
-                        <HeaderTab
+                        <ModalTab
                             headerConfig={headerConfig}
                             saveHeaderSettings={actions.saveHeaderSettings}
                             loadHeaderSettings={actions.loadHeaderSettings}
                             mediaQuery="desktop">
                             Desktop Header Configuration
-                        </HeaderTab>
+                        </ModalTab>
                     </TabPanel>
                 </Tabs>
             </div>
