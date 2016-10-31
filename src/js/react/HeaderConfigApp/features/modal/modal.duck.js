@@ -1,4 +1,4 @@
-import * as UTILS from 'HeaderConfigApp/utils';
+import * as UTILS from './modal.util';
 
 // Actions
 const LOAD_HEADER_SETTINGS = 'LOAD_HEADER_SETTINGS';

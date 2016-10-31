@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ModalCell from './modal-cell.component.jsx';
-import styles from './modal.component.scss';
+import styles from './modal.scss';
 
 export default ({saveHeaderSettings, headerConfig, mediaQuery, children}) => {
     const save = () => {

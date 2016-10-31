@@ -1,4 +1,4 @@
-.modal-component__background___3zBb8 {
+.modal__background___3rMEy {
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
   z-index: 999;
@@ -8,7 +8,7 @@
   left: 0;
 }
 
-.modal-component__base___Foo95 {
+.modal__base___2Fm6d {
   background: white;
   padding: 20px;
   position: relative;
@@ -21,7 +21,7 @@
           user-select: none;
 }
 
-.modal-component__base___Foo95 * {
+.modal__base___2Fm6d * {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -29,11 +29,11 @@
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 }
 
-.modal-component__tabs___2X1gz {
+.modal__tabs___15gL8 {
   margin-top: -58px;
 }
 
-.modal-component__tabs___2X1gz > ul > li {
+.modal__tabs___15gL8 > ul > li {
   background: #F5F5F5;
   margin-left: 5px;
   border-radius: 5px 5px 0 0;
@@ -41,18 +41,18 @@
   vertical-align: bottom;
 }
 
-.modal-component__tabs___2X1gz > ul > li[role=tab][aria-selected=true] {
+.modal__tabs___15gL8 > ul > li[role=tab][aria-selected=true] {
   padding: 10px 12px;
   color: #373A3C;
 }
 
-.modal-component__h1___2qlO_ {
+.modal__h1___1NQh6 {
   font-size: 24px;
   font-weight: normal;
   margin: 30px 0;
 }
 
-.modal-component__h2___3vqf3 {
+.modal__h2___24TsN {
   background: #2F5A59;
   color: white;
   padding: 5px 10px;
@@ -61,19 +61,19 @@
   display: inline-block;
 }
 
-.modal-component__componentsContainer___iYCYB {
+.modal__componentsContainer___1PNuw {
   height: 150px;
   border: 1px solid #E1E1E1;
   padding: 10px;
 }
 
-.modal-component__componentsContainer___iYCYB ul {
+.modal__componentsContainer___1PNuw ul {
   list-style: none;
   height: 100%;
   overflow: auto;
 }
 
-.modal-component__componentsContainer___iYCYB li {
+.modal__componentsContainer___1PNuw li {
   display: inline-block;
   font-size: 14px;
   color: white;
@@ -88,11 +88,11 @@
   transition: background .4s;
 }
 
-.modal-component__componentsContainer___iYCYB li .modal-component__close___zu2jg {
+.modal__componentsContainer___1PNuw li .modal__close___1_sb7 {
   display: none;
 }
 
-.modal-component__codeContainer___xDdsi {
+.modal__codeContainer___2yOTo {
   height: 150px;
   border: 1px solid #E1E1E1;
   position: relative;
@@ -100,19 +100,19 @@
   transition: all .5s;
 }
 
-.modal-component__codeContainer___xDdsi:hover {
+.modal__codeContainer___2yOTo:hover {
   border-color: #343434;
 }
 
-.modal-component__codeContainer___xDdsi:hover .modal-component__copy___1LHeL {
+.modal__codeContainer___2yOTo:hover .modal__copy___AwV6L {
   background: #343434;
 }
 
-.modal-component__codeContainer___xDdsi:hover .modal-component__code___1HpGW {
+.modal__codeContainer___2yOTo:hover .modal__code___19UW2 {
   color: #343434;
 }
 
-.modal-component__code___1HpGW {
+.modal__code___19UW2 {
   position: absolute;
   top: 0;
   left: 0;
@@ -130,17 +130,17 @@
           user-select: all;
 }
 
-.modal-component__code___1HpGW::-moz-selection {
+.modal__code___19UW2::-moz-selection {
   background: #2F5A59;
   color: white;
 }
 
-.modal-component__code___1HpGW::selection {
+.modal__code___19UW2::selection {
   background: #2F5A59;
   color: white;
 }
 
-.modal-component__copy___1LHeL {
+.modal__copy___AwV6L {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -155,20 +155,20 @@
   transition: background .5s;
 }
 
-.modal-component__container___33CgX {
+.modal__container___3ST6- {
   margin-top: 30px;
   width: 100%;
   clear: both;
   float: left;
 }
 
-.modal-component__container___33CgX p {
+.modal__container___3ST6- p {
   color: #6C6C6C;
   font-size: 12px;
   line-height: 17px;
 }
 
-.modal-component__header___26cIe {
+.modal__header___rbHHr {
   float: left;
   width: 100%;
   border: 1px solid #E1E1E1;
@@ -178,13 +178,13 @@
   display: table;
 }
 
-.modal-component__headerArea___3tnFQ {
+.modal__headerArea___UNoPN {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.modal-component__headerArea___3tnFQ ul {
+.modal__headerArea___UNoPN ul {
   background: #F5F5F5;
   border: 2px dashed #E0E0E0;
   padding: 10px;
@@ -198,15 +198,15 @@
   z-index: 1;
 }
 
-.modal-component__headerArea___3tnFQ ul:nth-child(2) {
+.modal__headerArea___UNoPN ul:nth-child(2) {
   text-align: center;
 }
 
-.modal-component__headerArea___3tnFQ ul:last-child {
+.modal__headerArea___UNoPN ul:last-child {
   text-align: right;
 }
 
-.modal-component__headerArea___3tnFQ ul:before {
+.modal__headerArea___UNoPN ul:before {
   position: absolute;
   z-index: -1;
   text-align: center;
@@ -215,7 +215,7 @@
   top: calc(50% - 7px);
 }
 
-.modal-component__headerArea___3tnFQ li {
+.modal__headerArea___UNoPN li {
   display: inline-block;
   font-size: 12px;
   font-weight: normal;
@@ -229,43 +229,43 @@
   cursor: move;
 }
 
-.modal-component__headerArea___3tnFQ:first-child ul:first-child:before {
+.modal__headerArea___UNoPN:first-child ul:first-child:before {
   content: 'TOP LEFT';
 }
 
-.modal-component__headerArea___3tnFQ:first-child ul:nth-child(2):before {
+.modal__headerArea___UNoPN:first-child ul:nth-child(2):before {
   content: 'TOP CENTER';
 }
 
-.modal-component__headerArea___3tnFQ:first-child ul:last-child:before {
+.modal__headerArea___UNoPN:first-child ul:last-child:before {
   content: 'TOP RIGHT';
 }
 
-.modal-component__headerArea___3tnFQ:nth-child(2) ul:first-child:before {
+.modal__headerArea___UNoPN:nth-child(2) ul:first-child:before {
   content: 'MAIN LEFT';
 }
 
-.modal-component__headerArea___3tnFQ:nth-child(2) ul:nth-child(2):before {
+.modal__headerArea___UNoPN:nth-child(2) ul:nth-child(2):before {
   content: 'MAIN CENTER';
 }
 
-.modal-component__headerArea___3tnFQ:nth-child(2) ul:last-child:before {
+.modal__headerArea___UNoPN:nth-child(2) ul:last-child:before {
   content: 'MAIN RIGHT';
 }
 
-.modal-component__headerArea___3tnFQ:last-child ul:first-child:before {
+.modal__headerArea___UNoPN:last-child ul:first-child:before {
   content: 'BOTTOM LEFT';
 }
 
-.modal-component__headerArea___3tnFQ:last-child ul:nth-child(2):before {
+.modal__headerArea___UNoPN:last-child ul:nth-child(2):before {
   content: 'BOTTOM CENTER';
 }
 
-.modal-component__headerArea___3tnFQ:last-child ul:last-child:before {
+.modal__headerArea___UNoPN:last-child ul:last-child:before {
   content: 'BOTTOM RIGHT';
 }
 
-.modal-component__close___zu2jg {
+.modal__close___1_sb7 {
   display: inline-block;
   color: white;
   font-size: 10px;
@@ -278,12 +278,12 @@
   transition: transform .5s, -webkit-transform .5s;
 }
 
-.modal-component__close___zu2jg:hover {
+.modal__close___1_sb7:hover {
   -webkit-transform: rotate(1turn);
           transform: rotate(1turn);
 }
 
-.modal-component__sortableGhost___3VGTm {
+.modal__sortableGhost___3U_hp {
   opacity: 0.4;
 }
 

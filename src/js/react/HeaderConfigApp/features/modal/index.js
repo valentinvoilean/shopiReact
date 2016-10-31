@@ -1,2 +1,2 @@
-export Modal from './modal.container.jsx';
+export Modal from './modal.jsx';
 export headerConfig from './modal.duck';
