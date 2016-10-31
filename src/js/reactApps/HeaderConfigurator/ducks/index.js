@@ -1,0 +1,1 @@
+export headerConfig from './App';

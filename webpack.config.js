@@ -36,7 +36,6 @@ export default {
     plugins: [
         new webpack.DefinePlugin(GLOBALS),
         new webpack.NoErrorsPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
         new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js', Infinity),
         new webpack.ProvidePlugin({
             $: 'jquery',

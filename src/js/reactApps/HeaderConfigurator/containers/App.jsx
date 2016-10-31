@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import {HeaderWrapper} from 'react-header-configurator/components';
-import * as actions from 'react-header-configurator/actions/headerConfig';
+import * as actions from 'react-header-configurator/ducks/App.js';
 
 export const App = ({actions, headerConfig}) => {
     return (
