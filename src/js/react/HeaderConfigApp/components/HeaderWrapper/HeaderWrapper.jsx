@@ -1,7 +1,7 @@
 import React from 'react';
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 
-import {HeaderTab} from 'react-header-configurator/components';
+import {HeaderTab} from 'HeaderConfigApp/components';
 import styles from './HeaderWrapper.scss';
 
 export default ({headerConfig, saveHeaderSettings, loadHeaderSettings}) => {

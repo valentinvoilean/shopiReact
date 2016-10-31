@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {HeaderCell} from 'react-header-configurator/components';
+import {HeaderCell} from 'HeaderConfigApp/components';
 import styles from './HeaderTab.scss';
 
 export default ({saveHeaderSettings, headerConfig, mediaQuery, children}) => {

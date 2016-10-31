@@ -1,4 +1,4 @@
 import {combineReducers} from 'redux';
-import * as reducers from 'react-header-configurator/ducks';
+import * as reducers from 'HeaderConfigApp/ducks';
 
 export default combineReducers(reducers);

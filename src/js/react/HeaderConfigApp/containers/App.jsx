@@ -2,8 +2,8 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {HeaderWrapper} from 'react-header-configurator/components';
-import * as actions from 'react-header-configurator/ducks/App.js';
+import {HeaderWrapper} from 'HeaderConfigApp/components';
+import * as actions from 'HeaderConfigApp/ducks/App.js';
 
 export const App = ({actions, headerConfig}) => {
     return (

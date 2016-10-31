@@ -12,8 +12,8 @@ export default {
 
     entry: {
         vendors: ['babel-polyfill', 'modernizr', 'picturefill', 'react', 'react-dom', 'react-match-media', 'react-redux', 'redux', 'redux-devtools-extension', 'jquery', 'jquery.currencies.js'],
-        config: ['react-header-configurator/index.js'],
-        main: ['react-header/index.js']
+        config: ['HeaderConfigApp/index.js'],
+        main: ['HeaderApp/index.js']
     },
 
     target: 'web', // necessary for https://webpack.github.io/docs/testing.html#compile-and-test
@@ -27,8 +27,8 @@ export default {
         extensions: ['', '.js', '.jsx', '.svg'],
         modulesDirectories: ['src/js', 'node_modules'],
         alias: {
-            'react-header-configurator': 'reactApps/HeaderConfigurator',
-            'react-header': 'reactApps/Header',
+            'HeaderConfigApp': 'react/HeaderConfigApp',
+            'HeaderApp': 'react/HeaderApp',
             'jquery': 'jquery/dist/jquery.min.js',
             modernizr$: path.resolve(__dirname, '.modernizrrc') }
     },
