@@ -78,15 +78,16 @@ export const validateState = state => {
  * @returns {*}
  */
 export const saveHeaderSettings = (initialState, newData) => {
-    const componentName = Object.keys(newData)[0];
-    const componentProperties = newData[componentName];
+    const validMediaQueries = ['mobile', 'tablet', 'desktop'];
+    const mediaQuery = Object.keys(newData)[0];
+    const newPositions = newData[mediaQuery];
 
-    if (componentName && componentProperties) {
+    if (validMediaQueries.indexOf(mediaQuery) !== -1 && newPositions) {
         let newSettings = {};
 
-        newSettings[componentName] = {
-            ...initialState[componentName],
-            ...componentProperties
+        newSettings[mediaQuery] = {
+            ...initialState[mediaQuery],
+            ...newPositions
         };
 
         return {...initialState, ...newSettings};
