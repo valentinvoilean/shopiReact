@@ -4,7 +4,7 @@ import Sortable from 'react-sortablejs';
 import styles from './modal.scss';
 
 // Functional Component
-export default ({items, name, saveHeaderSettings, mediaQuery}) => {
+const ModalCell = ({items, name, saveHeaderSettings, mediaQuery}) => {
     const closeButton = <span className={styles.close}>&#10005;</span>;
     const sortableOptions = {
         group: { name: name, put: () => true },
@@ -29,3 +29,11 @@ export default ({items, name, saveHeaderSettings, mediaQuery}) => {
     );
 };
 
+ModalCell.propTypes = {
+    items: React.PropTypes.array,
+    name: React.PropTypes.string,
+    saveHeaderSettings: React.PropTypes.func,
+    mediaQuery: React.PropTypes.string
+};
+
+export default ModalCell;
