@@ -3,28 +3,30 @@ import React from 'react';
 import ModalCell from './modal-cell.component.jsx';
 import styles from './modal.scss';
 
-export default ({saveHeaderSettings, removeItem, headerConfig, mediaQuery, children}) => {
-    let items = headerConfig[mediaQuery];
+export default (props) => {
+    const {save, remove, headerConfig, mediaQuery, children} = props;
 
-    let showTopHeader = () => {
+    const items = headerConfig[mediaQuery];
+
+    const showTopHeader = () => {
         if (mediaQuery !== 'mobile') {
             return (
                 <div className={styles.headerArea}>
                     <ModalCell
-                        saveHeaderSettings={saveHeaderSettings}
-                        removeItem={removeItem}
+                        save={save}
+                        remove={remove}
                         mediaQuery={mediaQuery}
                         name="TopLeft"
                         items={items}/>
                     <ModalCell
-                        saveHeaderSettings={saveHeaderSettings}
-                        removeItem={removeItem}
+                        save={save}
+                        remove={remove}
                         mediaQuery={mediaQuery}
                         name="TopCenter"
                         items={items}/>
                     <ModalCell
-                        saveHeaderSettings={saveHeaderSettings}
-                        removeItem={removeItem}
+                        save={save}
+                        remove={remove}
                         mediaQuery={mediaQuery}
                         name="TopRight"
                         items={items}/>
@@ -41,8 +43,8 @@ export default ({saveHeaderSettings, removeItem, headerConfig, mediaQuery, child
                 <h2 className={styles.h2}>1. Available components to drag & drop</h2>
                 <div className={styles.componentsContainer}>
                     <ModalCell
-                        saveHeaderSettings={saveHeaderSettings}
-                        removeItem={removeItem}
+                        save={save}
+                        remove={remove}
                         mediaQuery={mediaQuery}
                         name="Hidden"
                         items={items}/>
@@ -67,40 +69,40 @@ export default ({saveHeaderSettings, removeItem, headerConfig, mediaQuery, child
                     {showTopHeader()}
                     <div className={styles.headerArea}>
                         <ModalCell
-                            saveHeaderSettings={saveHeaderSettings}
-                            removeItem={removeItem}
+                            save={save}
+                            remove={remove}
                             mediaQuery={mediaQuery}
                             name="MainLeft"
                             items={items}/>
                         <ModalCell
-                            saveHeaderSettings={saveHeaderSettings}
-                            removeItem={removeItem}
+                            save={save}
+                            remove={remove}
                             mediaQuery={mediaQuery}
                             name="MainCenter"
                             items={items}/>
                         <ModalCell
-                            saveHeaderSettings={saveHeaderSettings}
-                            removeItem={removeItem}
+                            save={save}
+                            remove={remove}
                             mediaQuery={mediaQuery}
                             name="MainRight"
                             items={items}/>
                     </div>
                     <div className={styles.headerArea}>
                         <ModalCell
-                            saveHeaderSettings={saveHeaderSettings}
-                            removeItem={removeItem}
+                            save={save}
+                            remove={remove}
                             mediaQuery={mediaQuery}
                             name="BottomLeft"
                             items={items}/>
                         <ModalCell
-                            saveHeaderSettings={saveHeaderSettings}
-                            removeItem={removeItem}
+                            save={save}
+                            remove={remove}
                             mediaQuery={mediaQuery}
                             name="BottomCenter"
                             items={items}/>
                         <ModalCell
-                            saveHeaderSettings={saveHeaderSettings}
-                            removeItem={removeItem}
+                            save={save}
+                            remove={remove}
                             mediaQuery={mediaQuery}
                             name="BottomRight"
                             items={items}/>
