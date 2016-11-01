@@ -24,6 +24,7 @@ export const ModalComponent = ({actions, headerConfig}) => {
                             headerConfig={headerConfig}
                             saveHeaderSettings={actions.saveHeaderSettings}
                             loadHeaderSettings={actions.loadHeaderSettings}
+                            removeItem={actions.removeItem}
                             mediaQuery="mobile">
                             Mobile Header Configuration
                         </ModalTab>
@@ -33,6 +34,7 @@ export const ModalComponent = ({actions, headerConfig}) => {
                             headerConfig={headerConfig}
                             saveHeaderSettings={actions.saveHeaderSettings}
                             loadHeaderSettings={actions.loadHeaderSettings}
+                            removeItem={actions.removeItem}
                             mediaQuery="tablet">
                             Tablet Header Configuration
                         </ModalTab>
@@ -42,6 +44,7 @@ export const ModalComponent = ({actions, headerConfig}) => {
                             headerConfig={headerConfig}
                             saveHeaderSettings={actions.saveHeaderSettings}
                             loadHeaderSettings={actions.loadHeaderSettings}
+                            removeItem={actions.removeItem}
                             mediaQuery="desktop">
                             Desktop Header Configuration
                         </ModalTab>

@@ -1,11 +1,10 @@
 import React from 'react';
 import Sortable from 'react-sortablejs';
-import _ from 'lodash';
 
 import styles from './modal.scss';
 
 // Functional Component
-const ModalCell = ({items, name, saveHeaderSettings, mediaQuery}) => {
+const ModalCell = ({items, name, saveHeaderSettings, removeItem, mediaQuery}) => {
     let sortable = null; // sortable instance
 
     const sortableOptions = {
@@ -22,25 +21,15 @@ const ModalCell = ({items, name, saveHeaderSettings, mediaQuery}) => {
         saveHeaderSettings(newState);
     };
 
-    const onClickCloseButton = (val) => {
-        let newState = {};
-        let newItems = [];
-        let htmlItems = sortable.el.children;
-
-        for (let i = 0, max = htmlItems.length; i < max; i++) {
-            newItems.push(htmlItems[i].dataset.id);
-        }
-
-        newState[mediaQuery] = {};
-        newState[mediaQuery][sortable.el.className] = _.pull(newItems, val);
-        newState[mediaQuery].Hidden = [...items.Hidden, val];
-
-        saveHeaderSettings(newState);
-    };
-
     let itemsHTML = items[name]
         ? items[name].map((val, key) => (
-            <li key={key} data-id={val}>{val} <span className={styles.close} onClick={() => onClickCloseButton(val)}>&#10005;</span></li>)
+            <li key={key} data-id={val}>{val} <span className={styles.close} onClick={() => removeItem({
+                items,
+                item: val,
+                positionLists: sortable.el.children,
+                position: sortable.el.className,
+                mediaQuery
+            })}>&#10005;</span></li>)
          ) : '';
 
     return (
