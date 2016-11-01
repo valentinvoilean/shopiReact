@@ -14,17 +14,17 @@ export default ({saveHeaderSettings, headerConfig, mediaQuery, children}) => {
                         saveHeaderSettings={saveHeaderSettings}
                         mediaQuery={mediaQuery}
                         name="TopLeft"
-                        items={items.TopLeft}/>
+                        items={items}/>
                     <ModalCell
                         saveHeaderSettings={saveHeaderSettings}
                         mediaQuery={mediaQuery}
                         name="TopCenter"
-                        items={items.TopCenter}/>
+                        items={items}/>
                     <ModalCell
                         saveHeaderSettings={saveHeaderSettings}
                         mediaQuery={mediaQuery}
                         name="TopRight"
-                        items={items.TopRight}/>
+                        items={items}/>
                 </div>
             );
         }
@@ -40,8 +40,8 @@ export default ({saveHeaderSettings, headerConfig, mediaQuery, children}) => {
                     <ModalCell
                         saveHeaderSettings={saveHeaderSettings}
                         mediaQuery={mediaQuery}
-                        name="Menu"
-                        items={items.Menu}/>
+                        name="Hidden"
+                        items={items}/>
                 </div>
             </div>
 
@@ -66,34 +66,34 @@ export default ({saveHeaderSettings, headerConfig, mediaQuery, children}) => {
                             saveHeaderSettings={saveHeaderSettings}
                             mediaQuery={mediaQuery}
                             name="MainLeft"
-                            items={items.MainLeft}/>
+                            items={items}/>
                         <ModalCell
                             saveHeaderSettings={saveHeaderSettings}
                             mediaQuery={mediaQuery}
                             name="MainCenter"
-                            items={items.MainCenter}/>
+                            items={items}/>
                         <ModalCell
                             saveHeaderSettings={saveHeaderSettings}
                             mediaQuery={mediaQuery}
                             name="MainRight"
-                            items={items.MainRight}/>
+                            items={items}/>
                     </div>
                     <div className={styles.headerArea}>
                         <ModalCell
                             saveHeaderSettings={saveHeaderSettings}
                             mediaQuery={mediaQuery}
                             name="BottomLeft"
-                            items={items.BottomLeft}/>
+                            items={items}/>
                         <ModalCell
                             saveHeaderSettings={saveHeaderSettings}
                             mediaQuery={mediaQuery}
                             name="BottomCenter"
-                            items={items.BottomCenter}/>
+                            items={items}/>
                         <ModalCell
                             saveHeaderSettings={saveHeaderSettings}
                             mediaQuery={mediaQuery}
                             name="BottomRight"
-                            items={items.BottomRight}/>
+                            items={items}/>
                     </div>
                 </div>
             </div>
