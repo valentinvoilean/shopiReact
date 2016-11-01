@@ -13,6 +13,7 @@ export const ModalComponent = ({actions, headerConfig}) => {
     return (
         <div className={styles.background}>
             <div className={containerClasses}>
+                <h1 className={styles.h1}>Header Configuration</h1>
                 <Tabs className={styles.tabs}>
                     <TabList>
                         <Tab>Mobile</Tab>
@@ -25,7 +26,6 @@ export const ModalComponent = ({actions, headerConfig}) => {
                             save={actions.save}
                             remove={actions.remove}
                             mediaQuery="mobile">
-                            Mobile Header Configuration
                         </ModalTab>
                     </TabPanel>
                     <TabPanel>
@@ -34,7 +34,6 @@ export const ModalComponent = ({actions, headerConfig}) => {
                             save={actions.save}
                             remove={actions.remove}
                             mediaQuery="tablet">
-                            Tablet Header Configuration
                         </ModalTab>
                     </TabPanel>
                     <TabPanel>
@@ -43,7 +42,6 @@ export const ModalComponent = ({actions, headerConfig}) => {
                             save={actions.save}
                             remove={actions.remove}
                             mediaQuery="desktop">
-                            Desktop Header Configuration
                         </ModalTab>
                     </TabPanel>
                 </Tabs>

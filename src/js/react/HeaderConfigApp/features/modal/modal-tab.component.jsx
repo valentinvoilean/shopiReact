@@ -4,7 +4,7 @@ import ModalCell from './modal-cell.component.jsx';
 import styles from './modal.scss';
 
 export default (props) => {
-    const {save, remove, headerConfig, mediaQuery, children} = props;
+    const {save, remove, headerConfig, mediaQuery} = props;
 
     const items = headerConfig[mediaQuery];
 
@@ -37,8 +37,6 @@ export default (props) => {
 
     return (
         <div>
-            <h1 className={styles.h1}>{children}</h1>
-
             <div className="col-md-6">
                 <h2 className={styles.h2}>1. Available components to drag & drop</h2>
                 <div className={styles.componentsContainer}>

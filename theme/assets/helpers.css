@@ -10,7 +10,7 @@
 
 .modal__base___2Fm6d {
   background: white;
-  padding: 20px;
+  padding: 0 0 20px;
   position: relative;
   top: 180px;
   box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.25);
@@ -30,26 +30,32 @@
 }
 
 .modal__tabs___15gL8 {
-  margin-top: -58px;
+  padding: 20px;
+}
+
+.modal__tabs___15gL8 > ul[role=tablist] {
+  border-bottom: 1px solid #e4e4e4;
+  margin-bottom: 20px;
 }
 
 .modal__tabs___15gL8 > ul > li {
-  background: #F5F5F5;
   margin-left: 5px;
   border-radius: 5px 5px 0 0;
-  color: #0275D8;
-  vertical-align: bottom;
+  color: #337ab7;
 }
 
 .modal__tabs___15gL8 > ul > li[role=tab][aria-selected=true] {
   padding: 10px 12px;
-  color: #373A3C;
+  color: #555;
+  border-color: #e4e4e4;
 }
 
 .modal__h1___1NQh6 {
   font-size: 24px;
-  font-weight: normal;
-  margin: 30px 0;
+  font-weight: bold;
+  padding: 20px;
+  border-bottom: 1px solid #f0f0f0;
+  margin: 0;
 }
 
 .modal__h2___24TsN {
