@@ -8,28 +8,21 @@ export default (props) => {
 
     const items = headerConfig[mediaQuery];
 
-    const showTopHeader = () => {
+    const getCells = (curPos) => {
+        const horizontalPositions = ['Left', 'Center', 'Right'];
+
+        return horizontalPositions.map(
+            (pos) => (
+                <ModalCell save={save} remove={remove} mediaQuery={mediaQuery} items={items} name={`${curPos}${pos}`}/>
+            )
+        );
+    };
+
+    const showTopCells = () => {
         if (mediaQuery !== 'mobile') {
             return (
                 <div className={styles.headerArea}>
-                    <ModalCell
-                        save={save}
-                        remove={remove}
-                        mediaQuery={mediaQuery}
-                        name="TopLeft"
-                        items={items}/>
-                    <ModalCell
-                        save={save}
-                        remove={remove}
-                        mediaQuery={mediaQuery}
-                        name="TopCenter"
-                        items={items}/>
-                    <ModalCell
-                        save={save}
-                        remove={remove}
-                        mediaQuery={mediaQuery}
-                        name="TopRight"
-                        items={items}/>
+                    { getCells('Top') }
                 </div>
             );
         }
@@ -40,12 +33,7 @@ export default (props) => {
             <div className="col-md-6">
                 <h2 className={styles.h2}>1. Available components to drag & drop</h2>
                 <div className={styles.componentsContainer}>
-                    <ModalCell
-                        save={save}
-                        remove={remove}
-                        mediaQuery={mediaQuery}
-                        name="Hidden"
-                        items={items}/>
+                    <ModalCell save={save} remove={remove} mediaQuery={mediaQuery} name="Hidden" items={items}/>
                 </div>
             </div>
 
@@ -64,47 +52,9 @@ export default (props) => {
                     boxes.</p>
 
                 <div className={styles.header}>
-                    {showTopHeader()}
-                    <div className={styles.headerArea}>
-                        <ModalCell
-                            save={save}
-                            remove={remove}
-                            mediaQuery={mediaQuery}
-                            name="MainLeft"
-                            items={items}/>
-                        <ModalCell
-                            save={save}
-                            remove={remove}
-                            mediaQuery={mediaQuery}
-                            name="MainCenter"
-                            items={items}/>
-                        <ModalCell
-                            save={save}
-                            remove={remove}
-                            mediaQuery={mediaQuery}
-                            name="MainRight"
-                            items={items}/>
-                    </div>
-                    <div className={styles.headerArea}>
-                        <ModalCell
-                            save={save}
-                            remove={remove}
-                            mediaQuery={mediaQuery}
-                            name="BottomLeft"
-                            items={items}/>
-                        <ModalCell
-                            save={save}
-                            remove={remove}
-                            mediaQuery={mediaQuery}
-                            name="BottomCenter"
-                            items={items}/>
-                        <ModalCell
-                            save={save}
-                            remove={remove}
-                            mediaQuery={mediaQuery}
-                            name="BottomRight"
-                            items={items}/>
-                    </div>
+                    { showTopCells() }
+                    <div className={styles.headerArea}> { getCells('Main') } </div>
+                    <div className={styles.headerArea}> { getCells('Bottom') } </div>
                 </div>
             </div>
         </div>
