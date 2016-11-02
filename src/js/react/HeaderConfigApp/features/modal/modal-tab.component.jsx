@@ -13,7 +13,8 @@ export default (props) => {
 
         return horizontalPositions.map(
             (pos) => (
-                <ModalCell save={save} remove={remove} mediaQuery={mediaQuery} items={items} name={`${curPos}${pos}`}/>
+                <ModalCell key={`${curPos}${pos}`} name={`${curPos}${pos}`}
+                           save={save} remove={remove} mediaQuery={mediaQuery} items={items}/>
             )
         );
     };
