@@ -42,6 +42,7 @@
   margin-left: 5px;
   border-radius: 5px 5px 0 0;
   color: #337ab7;
+  text-transform: capitalize;
 }
 
 .modal__tabs___15gL8 > ul > li[role=tab][aria-selected=true] {

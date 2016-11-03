@@ -9,6 +9,7 @@ import * as actions from './modal.duck';
 
 export const ModalComponent = ({actions, headerConfig}) => {
     const containerClasses = `container ${styles.base}`;
+    const mediaQueries = ['mobile', 'tablet', 'desktop'];
 
     return (
         <div className={styles.background}>
@@ -16,34 +17,15 @@ export const ModalComponent = ({actions, headerConfig}) => {
                 <h1 className={styles.h1}>Header Configuration</h1>
                 <Tabs className={styles.tabs}>
                     <TabList>
-                        <Tab>Mobile</Tab>
-                        <Tab>Tablet</Tab>
-                        <Tab>Desktop</Tab>
+                        {mediaQueries.map((mediaQuery) => (<Tab key={mediaQuery}>{mediaQuery}</Tab>))}
                     </TabList>
-                    <TabPanel>
-                        <ModalTab
-                            headerConfig={headerConfig}
-                            save={actions.save}
-                            remove={actions.remove}
-                            mediaQuery="mobile">
-                        </ModalTab>
-                    </TabPanel>
-                    <TabPanel>
-                        <ModalTab
-                            headerConfig={headerConfig}
-                            save={actions.save}
-                            remove={actions.remove}
-                            mediaQuery="tablet">
-                        </ModalTab>
-                    </TabPanel>
-                    <TabPanel>
-                        <ModalTab
-                            headerConfig={headerConfig}
-                            save={actions.save}
-                            remove={actions.remove}
-                            mediaQuery="desktop">
-                        </ModalTab>
-                    </TabPanel>
+                    { mediaQueries.map((mediaQuery) => (
+                        <TabPanel key={mediaQuery}>
+                            <ModalTab headerConfig={headerConfig} mediaQuery={mediaQuery}
+                                      save={actions.save} remove={actions.remove}>
+                            </ModalTab>
+                        </TabPanel>
+                    ))}
                 </Tabs>
             </div>
         </div>
