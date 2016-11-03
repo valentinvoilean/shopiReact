@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import { forOwn, pull, includes, has } from 'lodash';
 import { defaultState, validStates } from 'HeaderConfigApp/constants/states';
 
 /**
@@ -37,36 +37,31 @@ export const validateState = state => {
         },
 
         _parseEachHeaderArea = (mediaQuery) => {
-            for (let area in areas) {
-                if (areas.hasOwnProperty(area)) {
-
-                    areas[area].map((item) => {
-                        if (validAreas[area].indexOf(item) === -1) {
-                            _loadDefaultSettings(mediaQuery);
-                            return false;
-                        }
-                    });
-                }
-            }
+            forOwn(areas, (value, key) => {
+                value.map(item => {
+                    if (!includes(validAreas[key], item)) {
+                        _loadDefaultSettings(mediaQuery);
+                        return false;
+                    }
+                });
+            });
         };
 
     return (() => {
         // Go trough each media query
-        for (let mediaQuery in validStates) {
-
-            if (validStates.hasOwnProperty(mediaQuery) && wantedState.hasOwnProperty(mediaQuery)) {
-                newState[mediaQuery] = newState[mediaQuery] ? newState[mediaQuery] : {};
-
-                areas = {...wantedState[mediaQuery]};
-                validAreas = {...validStates[mediaQuery]};
-                newState[mediaQuery] = areas;
-
-                _parseEachHeaderArea(mediaQuery);
+        forOwn(validStates, (value, mediaQuery) => {
+            if (!has(wantedState, mediaQuery)) {
+                return _loadDefaultSettings(mediaQuery);
             }
-            else { // return default settings for the current media query
-                _loadDefaultSettings(mediaQuery);
-            }
-        }
+
+            newState[mediaQuery] = newState[mediaQuery] ? newState[mediaQuery] : {};
+
+            areas = {...wantedState[mediaQuery]};
+            validAreas = {...value};
+            newState[mediaQuery] = areas;
+
+            _parseEachHeaderArea(mediaQuery);
+        });
 
         return {...defaultState.HeaderConfig, ...newState};
     })();
@@ -78,7 +73,7 @@ export const removeItem = (settings) => {
 
     return {
         [mediaQuery]: {
-            [position]: _.pull(newItems, item),
+            [position]: pull(newItems, item),
             Hidden: [...items.Hidden, item]
         }
     };
