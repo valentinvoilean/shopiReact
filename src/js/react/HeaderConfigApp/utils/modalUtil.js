@@ -72,35 +72,6 @@ export const validateState = state => {
     })();
 };
 
-/**
- * Update Header Settings
- * @param initialState
- * @param newData
- * @returns {*}
- */
-export const saveHeaderSettings = (initialState, newData) => {
-    const validMediaQueries = ['mobile', 'tablet', 'desktop'];
-    const mediaQuery = Object.keys(newData)[0];
-    const newPositions = newData[mediaQuery];
-
-    if (validMediaQueries.indexOf(mediaQuery) !== -1 && newPositions) {
-        let newSettings = {};
-
-        newSettings[mediaQuery] = {
-            ...initialState[mediaQuery],
-            ...newPositions
-        };
-
-        return {...initialState, ...newSettings};
-    }
-
-    else {
-        console.warn('Component\'s name or its properties are not defined.');
-        return initialState;
-    }
-};
-
-
 export const removeItem = (settings) => {
     const {items, item, positionLists, position, mediaQuery} = settings;
     let newState = {};

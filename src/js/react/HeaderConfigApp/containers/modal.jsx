@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 
-import ModalTab from './modal-tab.component.jsx';
-import styles from './modal.scss';
-import * as actions from './modal.duck';
+import TabContent from 'HeaderConfigApp/components/tab.jsx';
+import styles from 'HeaderConfigApp/styles/modal.scss';
+import * as actions from 'HeaderConfigApp/actions/modalActions';
 
 export const ModalComponent = ({actions, headerConfig}) => {
     const containerClasses = `container ${styles.base}`;
@@ -21,9 +21,9 @@ export const ModalComponent = ({actions, headerConfig}) => {
                     </TabList>
                     { mediaQueries.map((mediaQuery) => (
                         <TabPanel key={mediaQuery}>
-                            <ModalTab headerConfig={headerConfig} mediaQuery={mediaQuery}
+                            <TabContent headerConfig={headerConfig} mediaQuery={mediaQuery}
                                       save={actions.save} remove={actions.remove}>
-                            </ModalTab>
+                            </TabContent>
                         </TabPanel>
                     ))}
                 </Tabs>

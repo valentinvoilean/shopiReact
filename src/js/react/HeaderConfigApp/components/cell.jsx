@@ -1,10 +1,10 @@
 import React from 'react';
 import Sortable from 'react-sortablejs';
 
-import styles from './modal.scss';
+import styles from 'HeaderConfigApp/styles/modal.scss';
 
 // Functional Component
-const ModalCell = (props) => {
+const Cell = (props) => {
     const {items, name, save, remove, mediaQuery} = props;
 
     let sortable = null; // sortable instance
@@ -45,11 +45,12 @@ const ModalCell = (props) => {
     );
 };
 
-ModalCell.propTypes = {
+Cell.propTypes = {
     items: React.PropTypes.object,
     name: React.PropTypes.string,
     save: React.PropTypes.func,
+    remove: React.PropTypes.func,
     mediaQuery: React.PropTypes.string
 };
 
-export default ModalCell;
+export default Cell;

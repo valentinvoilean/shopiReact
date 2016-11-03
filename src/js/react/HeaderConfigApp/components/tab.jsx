@@ -1,9 +1,9 @@
 import React from 'react';
 
-import ModalCell from './modal-cell.component.jsx';
-import styles from './modal.scss';
+import Cell from './cell.jsx';
+import styles from 'HeaderConfigApp/styles/modal.scss';
 
-export default (props) => {
+const TabContent = (props) => {
     const {save, remove, headerConfig, mediaQuery} = props;
 
     const items = headerConfig[mediaQuery];
@@ -13,7 +13,7 @@ export default (props) => {
 
         return horizontalPositions.map(
             (pos) => (
-                <ModalCell key={`${curPos}${pos}`} name={`${curPos}${pos}`}
+                <Cell key={`${curPos}${pos}`} name={`${curPos}${pos}`}
                            save={save} remove={remove} mediaQuery={mediaQuery} items={items}/>
             )
         );
@@ -34,7 +34,7 @@ export default (props) => {
             <div className="col-md-6">
                 <h2 className={styles.h2}>1. Available components to drag & drop</h2>
                 <div className={styles.componentsContainer}>
-                    <ModalCell save={save} remove={remove} mediaQuery={mediaQuery} name="Hidden" items={items}/>
+                    <Cell save={save} remove={remove} mediaQuery={mediaQuery} name="Hidden" items={items}/>
                 </div>
             </div>
 
@@ -61,3 +61,12 @@ export default (props) => {
         </div>
     );
 };
+
+TabContent.propTypes = {
+    save: React.PropTypes.func,
+    remove: React.PropTypes.func,
+    headerConfig: React.PropTypes.object,
+    mediaQuery: React.PropTypes.string
+};
+
+export default TabContent;
