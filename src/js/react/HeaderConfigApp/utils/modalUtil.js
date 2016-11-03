@@ -1,5 +1,5 @@
-import {defaultState, validStates} from 'HeaderConfigApp/constants/states';
 import _ from 'lodash';
+import { defaultState, validStates } from 'HeaderConfigApp/constants/states';
 
 /**
  * Get initial state from Shopify

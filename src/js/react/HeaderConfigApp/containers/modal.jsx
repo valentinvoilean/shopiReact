@@ -1,11 +1,11 @@
-import React, {PropTypes} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 import TabContent from 'HeaderConfigApp/components/tab.jsx';
-import styles from 'HeaderConfigApp/styles/modal.scss';
 import * as actions from 'HeaderConfigApp/actions/modalActions';
+import styles from 'HeaderConfigApp/styles/modal.scss';
 
 export const ModalComponent = ({actions, headerConfig}) => {
     const containerClasses = `container ${styles.base}`;

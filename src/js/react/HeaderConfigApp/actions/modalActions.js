@@ -1,5 +1,6 @@
-import {SAVE_HEADER_SETTINGS, REMOVE_HEADER_ITEM} from 'HeaderConfigApp/constants/actionTypes';
-import {removeItem} from 'HeaderConfigApp/utils/modalUtil';
+import { SAVE_HEADER_SETTINGS, REMOVE_HEADER_ITEM } from 'HeaderConfigApp/constants/actionTypes';
+
+import { removeItem } from 'HeaderConfigApp/utils/modalUtil';
 
 // Action Creators
 export const save = headerSettings => ({
