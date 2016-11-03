@@ -16,12 +16,11 @@ const Cell = (props) => {
     };
 
     const onChange = (newItems, sortable) => {
-        let newState = {};
-
-        newState[mediaQuery] = {};
-        newState[mediaQuery][sortable.el.className] = newItems;
-
-        save(newState);
+        save({
+            [mediaQuery]: {
+                [sortable.el.className]: newItems
+            }
+        });
     };
 
     const itemsHTML = items[name]

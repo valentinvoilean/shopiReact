@@ -12,14 +12,12 @@ export default (state = getInitialState(), action = {}) => {
             const newPositions = action.payload[mediaQuery];
 
             if (mediaQueries.indexOf(mediaQuery) !== -1 && newPositions) {
-                let newSettings = {};
-
-                newSettings[mediaQuery] = {
-                    ...state[mediaQuery],
-                    ...newPositions
-                };
-
-                return {...state, ...newSettings};
+                return Object.assign({}, state, {
+                    [mediaQuery]: {
+                        ...state[mediaQuery],
+                        ...newPositions
+                    }
+                });
             }
             else {
                 console.warn('Component\'s name or its properties are not defined.');
