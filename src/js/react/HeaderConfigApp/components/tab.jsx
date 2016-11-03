@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Cell from './cell.jsx';
+import {horizontalPositions, verticalPositions} from 'HeaderConfigApp/constants/positions';
 import styles from 'HeaderConfigApp/styles/modal.scss';
 
 const TabContent = (props) => {
@@ -9,8 +10,6 @@ const TabContent = (props) => {
     const items = headerConfig[mediaQuery];
 
     const getCells = (curPos) => {
-        const horizontalPositions = ['Left', 'Center', 'Right'];
-
         return horizontalPositions.map(
             (pos) => (
                 <Cell key={`${curPos}${pos}`} name={`${curPos}${pos}`}
@@ -23,7 +22,7 @@ const TabContent = (props) => {
         if (mediaQuery !== 'mobile') {
             return (
                 <div className={styles.headerArea}>
-                    { getCells('Top') }
+                    { getCells(verticalPositions[0]) }
                 </div>
             );
         }
@@ -54,8 +53,8 @@ const TabContent = (props) => {
 
                 <div className={styles.header}>
                     { showTopCells() }
-                    <div className={styles.headerArea}> { getCells('Main') } </div>
-                    <div className={styles.headerArea}> { getCells('Bottom') } </div>
+                    <div className={styles.headerArea}> { getCells(verticalPositions[1]) } </div>
+                    <div className={styles.headerArea}> { getCells(verticalPositions[2]) } </div>
                 </div>
             </div>
         </div>
