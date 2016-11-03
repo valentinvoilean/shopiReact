@@ -1,6 +1,5 @@
 import { mediaQueries } from 'HeaderConfigApp/constants/mediaQueries';
 import { SAVE_HEADER_SETTINGS, REMOVE_HEADER_ITEM } from 'HeaderConfigApp/constants/actionTypes';
-
 import { getInitialState, validateState } from 'HeaderConfigApp/utils/modalUtil';
 
 // Reducer
