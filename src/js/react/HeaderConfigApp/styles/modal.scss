@@ -185,13 +185,14 @@
         margin: 5px;
         width: 100%;
         z-index: 1;
+        display: flex;
 
         &:nth-child(2) {
-            text-align: center;
+            justify-content: center;
         }
 
         &:last-child {
-            text-align: right;
+            flex-direction: row-reverse;
         }
 
         &:before {

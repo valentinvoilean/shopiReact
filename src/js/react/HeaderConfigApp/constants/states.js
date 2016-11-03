@@ -1,75 +1,75 @@
 export const defaultState = {
     HeaderConfig: {
         mobile: {
-            Flyout: [],
-            Hidden: [],
+            Flyout: ['Search', 'Currency', 'Language', 'MyAccount', 'SocialIcons'],
+            Hidden: ['CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb'],
             MainLeft: ['Menu'],
             MainCenter: ['Logo'],
-            MainRight: ['MyAccount', 'Wishlist'],
+            MainRight: ['Cart', 'Wishlist'],
             BottomLeft: [],
-            BottomCenter: [],
+            BottomCenter: ['WelcomeMessage'],
             BottomRight: []
         },
         tablet: {
-            Hidden: [],
-            TopLeft: [],
+            Hidden: ['CustomLink3', 'CustomLink4'],
+            TopLeft: ['Currency', 'Language', 'CustomLink1', 'CustomLink2'],
             TopCenter: [],
             TopRight: ['MyAccount', 'Wishlist'],
             MainLeft: ['Logo'],
             MainCenter: ['Menu'],
-            MainRight: [],
-            BottomLeft: [],
+            MainRight: ['Cart', 'Search'],
+            BottomLeft: ['Breadcrumb'],
             BottomCenter: [],
-            BottomRight: []
+            BottomRight: ['SocialIcons', 'WelcomeMessage']
         },
         desktop: {
-            Hidden: [],
-            TopLeft: [],
+            Hidden: ['CustomLink3', 'CustomLink4'],
+            TopLeft: ['Currency', 'Language', 'CustomLink1', 'CustomLink2'],
             TopCenter: [],
             TopRight: ['MyAccount', 'Wishlist'],
             MainLeft: ['Logo'],
             MainCenter: ['Menu'],
-            MainRight: [],
-            BottomLeft: [],
+            MainRight: ['Cart', 'Search'],
+            BottomLeft: ['Breadcrumb'],
             BottomCenter: [],
-            BottomRight: []
+            BottomRight: ['SocialIcons', 'WelcomeMessage']
         }
     }
 };
 
 export const validStates = {
     mobile: {
-        Flyout: ['Menu', 'MyAccount', 'Wishlist'],
-        Hidden: ['Wishlist', 'MyAccount'],
+        Flyout: ['Menu', 'MyAccount', 'Wishlist', 'Search', 'Currency', 'Language', 'MyAccount', 'SocialIcons'],
+        Hidden: ['Wishlist', 'MyAccount', 'Currency', 'Language', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb', 'WelcomeMessage', 'SocialIcons'],
         MainLeft: ['Menu', 'Logo'],
         MainCenter: ['Logo'],
-        MainRight: ['MyAccount', 'Wishlist'],
-        BottomLeft: [],
-        BottomCenter: [],
-        BottomRight: []
+        MainRight: ['MyAccount', 'Wishlist', 'Cart'],
+        BottomLeft: ['WelcomeMessage'],
+        BottomCenter: ['WelcomeMessage'],
+        BottomRight: ['WelcomeMessage']
     },
     tablet: {
-        Hidden: ['MyAccount', 'Wishlist'],
-        TopLeft: ['MyAccount', 'Wishlist'],
-        TopCenter: [],
-        TopRight: ['MyAccount', 'Wishlist'],
-        MainLeft: ['Logo', 'MyAccount', 'Wishlist'],
+        Hidden: ['MyAccount', 'Wishlist', 'Currency', 'Language', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
+        TopLeft: ['MyAccount', 'Wishlist', 'Search', 'Currency', 'Language', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
+        TopCenter: [, 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
+        TopRight: ['MyAccount', 'Wishlist', 'Search', 'Currency', 'Language', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
+        MainLeft: ['MyAccount', 'Wishlist', 'Logo', 'Search', 'SocialIcons', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
         MainCenter: ['Logo', 'Menu'],
-        MainRight: ['MyAccount', 'Wishlist'],
-        BottomLeft: ['MyAccount', 'Wishlist'],
-        BottomCenter: ['Menu'],
-        BottomRight: ['MyAccount', 'Wishlist']
+        MainRight: ['MyAccount', 'Wishlist', 'Search', 'Cart', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
+        BottomLeft: ['MyAccount', 'Wishlist', 'Search', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb'],
+        BottomCenter: ['Menu', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
+        BottomRight: ['MyAccount', 'Wishlist', 'Search', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4']
     },
     desktop: {
-        Hidden: ['MyAccount', 'Wishlist'],
-        TopLeft: ['MyAccount', 'Wishlist'],
-        TopCenter: [],
-        TopRight: ['MyAccount', 'Wishlist'],
-        MainLeft: ['Logo', 'MyAccount', 'Wishlist'],
+        Hidden: ['MyAccount', 'Wishlist', 'Currency', 'Language', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
+        TopLeft: ['MyAccount', 'Wishlist', 'Search', 'Currency', 'Language', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
+        TopCenter: [, 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
+        TopRight: ['MyAccount', 'Wishlist', 'Search', 'Currency', 'Language', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
+        MainLeft: ['MyAccount', 'Wishlist', 'Logo', 'Search', 'SocialIcons', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
         MainCenter: ['Logo', 'Menu'],
-        MainRight: ['MyAccount', 'Wishlist'],
-        BottomLeft: ['MyAccount', 'Wishlist'],
-        BottomCenter: ['Menu'],
-        BottomRight: ['MyAccount', 'Wishlist']
+        MainRight: ['MyAccount', 'Wishlist', 'Search', 'Cart', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
+        BottomLeft: ['MyAccount', 'Wishlist', 'Search', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb'],
+        BottomCenter: ['Menu', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
+        BottomRight: ['MyAccount', 'Wishlist', 'Search', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4']
     }
 };
