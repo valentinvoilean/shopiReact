@@ -1,3 +1,5 @@
+import { includes } from 'lodash';
+
 import React from 'react';
 import Sortable from 'react-sortablejs';
 
@@ -13,13 +15,23 @@ const Cell = props => {
         group: { name: name, put: () => true },
         animation: 150,
         ghostClass: styles.sortableGhost,
-        onEnd: ({to, from}) => {
+        onEnd({to, from}) {
             actions.save({
                 [mediaQuery]: {
                     [to.className]: [...to.children].map(item => item.dataset.id),
                     [from.className]: [...from.children].map(item => item.dataset.id)
                 }
             });
+        },
+        onMove({to, dragged}) {
+            const newList = [...to.children].map((item) => item.dataset.id);
+            const draggedItem = dragged.dataset.id;
+
+            if (draggedItem === 'Logo' && newList.length > 0) {
+                return false;
+            }
+
+            return !includes(newList, 'Logo');
         }
     };
 
