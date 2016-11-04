@@ -2,11 +2,11 @@ import React from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import uuid from 'uuid';
 
-import TabContainer from 'HeaderConfigApp/containers/tab.jsx';
+import TabComponent from 'HeaderConfigApp/components/tab.jsx';
 import styles from 'HeaderConfigApp/styles/modal.scss';
 import {mediaQueries} from 'HeaderConfigApp/constants/mediaQueries';
 
-export default () => (
+export default ({headerConfig, actions}) => (
     <div className={styles.background}>
         <div className={`container ${styles.base}`}>
             <h1 className={styles.h1}>Header Configuration</h1>
@@ -16,7 +16,7 @@ export default () => (
                 </TabList>
                 { mediaQueries.map((mq) => (
                     <TabPanel key={uuid.v4()}>
-                        <TabContainer mediaQuery={mq}/>
+                        <TabComponent mediaQuery={mq} headerConfig={headerConfig} actions={actions}/>
                     </TabPanel>
                 ))}
             </Tabs>

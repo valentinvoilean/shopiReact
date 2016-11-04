@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import Tab from 'HeaderConfigApp/components/tab.jsx';
+import Modal from 'HeaderConfigApp/components/modal.jsx';
 import * as actions from 'HeaderConfigApp/actions/modalActions';
 
 function mapStateToProps(state) {
@@ -19,4 +19,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Tab);
+)(Modal);
