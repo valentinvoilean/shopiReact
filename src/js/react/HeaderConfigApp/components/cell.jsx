@@ -12,15 +12,15 @@ const Cell = (props) => {
     const sortableOptions = {
         group: { name: name, put: () => true },
         animation: 150,
-        ghostClass: styles.sortableGhost
-    };
-
-    const onChange = (newItems, sortable) => {
-        save({
-            [mediaQuery]: {
-                [sortable.el.className]: newItems
-            }
-        });
+        ghostClass: styles.sortableGhost,
+        onEnd: ({to, from}) => {
+            save({
+                [mediaQuery]: {
+                    [to.className]: [...to.children].map(item => item.dataset.id),
+                    [from.className]: [...from.children].map(item => item.dataset.id)
+                }
+            });
+        }
     };
 
     const itemsHTML = items[name]
@@ -34,7 +34,6 @@ const Cell = (props) => {
 
     return (
         <Sortable
-            onChange={onChange}
             className={name}
             tag="ul"
             options={sortableOptions}
