@@ -37,6 +37,7 @@ const TabComponent = props => {
 
 TabComponent.propTypes = {
     mediaQuery: React.PropTypes.string,
+    getCells: React.PropTypes.func,
     headerConfig: React.PropTypes.object
 };
 

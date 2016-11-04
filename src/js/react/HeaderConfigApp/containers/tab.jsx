@@ -27,10 +27,9 @@ export class TabContainer extends React.Component {
         if (curPos === void 0) {
             return (
                 <Cell name="Hidden"
-                      save={this.props.actions.save}
-                      remove={this.props.actions.remove}
+                      items={this.items}
                       mediaQuery={this.props.mediaQuery}
-                      items={this.items}/>
+                      actions={this.props.actions}/>
             );
         }
 
@@ -38,10 +37,9 @@ export class TabContainer extends React.Component {
             (pos) => (
                 <Cell key={uuid.v4()}
                       name={`${verticalPositions[curPos]}${pos}`}
-                      save={this.props.actions.save}
-                      remove={this.props.actions.remove}
+                      items={this.items}
                       mediaQuery={this.props.mediaQuery}
-                      items={this.items}/>
+                      actions={this.props.actions}/>
             )
         );
     };

@@ -5,7 +5,7 @@ import styles from 'HeaderConfigApp/styles/modal.scss';
 
 // Functional Component
 const Cell = props => {
-    const {items, name, save, remove, mediaQuery} = props;
+    const {items, name, actions, mediaQuery} = props;
 
     let sortable = null; // sortable instance
 
@@ -14,7 +14,7 @@ const Cell = props => {
         animation: 150,
         ghostClass: styles.sortableGhost,
         onEnd: ({to, from}) => {
-            save({
+            actions.save({
                 [mediaQuery]: {
                     [to.className]: [...to.children].map(item => item.dataset.id),
                     [from.className]: [...from.children].map(item => item.dataset.id)
@@ -25,7 +25,7 @@ const Cell = props => {
 
     const itemsHTML = items[name]
         ? items[name].map((item, key) => (
-            <li key={key} data-id={item}>{item} <span className={styles.close} onClick={() => remove({
+            <li key={key} data-id={item}>{item} <span className={styles.close} onClick={() => actions.remove({
                 items, item, mediaQuery,
                 positionLists: sortable.el.children,
                 position: sortable.el.className
@@ -46,7 +46,7 @@ const Cell = props => {
 Cell.propTypes = {
     items: React.PropTypes.object,
     name: React.PropTypes.string,
-    save: React.PropTypes.func,
+    actions: React.PropTypes.object,
     remove: React.PropTypes.func,
     mediaQuery: React.PropTypes.string
 };
