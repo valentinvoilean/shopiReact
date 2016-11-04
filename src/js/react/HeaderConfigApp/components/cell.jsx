@@ -4,7 +4,7 @@ import Sortable from 'react-sortablejs';
 import styles from 'HeaderConfigApp/styles/modal.scss';
 
 // Functional Component
-const Cell = (props) => {
+const Cell = props => {
     const {items, name, save, remove, mediaQuery} = props;
 
     let sortable = null; // sortable instance
