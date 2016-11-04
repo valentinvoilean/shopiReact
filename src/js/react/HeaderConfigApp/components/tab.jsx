@@ -1,8 +1,33 @@
 import React from 'react';
+import uuid from 'uuid';
+
+import Cell from 'HeaderConfigApp/components/cell.jsx';
+import {horizontalPositions, verticalPositions} from 'HeaderConfigApp/constants/positions';
 import styles from 'HeaderConfigApp/styles/modal.scss';
 
 const TabComponent = props => {
-    const {getCells, mediaQuery, headerConfig} = props;
+    const {mediaQuery, headerConfig, actions} = props;
+
+    const getCells = (curPos) => {
+        if (curPos === void 0) {
+            return (
+                <Cell name="Hidden"
+                      items={headerConfig[mediaQuery]}
+                      mediaQuery={mediaQuery}
+                      actions={actions}/>
+            );
+        }
+
+        return horizontalPositions.map(
+            (pos) => (
+                <Cell key={uuid.v4()}
+                      name={`${verticalPositions[curPos]}${pos}`}
+                      items={headerConfig[mediaQuery]}
+                      mediaQuery={mediaQuery}
+                      actions={actions}/>
+            )
+        );
+    };
 
     return (
         <div>
@@ -37,8 +62,9 @@ const TabComponent = props => {
 
 TabComponent.propTypes = {
     mediaQuery: React.PropTypes.string,
-    getCells: React.PropTypes.func,
-    headerConfig: React.PropTypes.object
+    headerConfig: React.PropTypes.object,
+    actions: React.PropTypes.object,
+    items: React.PropTypes.object
 };
 
 export default TabComponent;
