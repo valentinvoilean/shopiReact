@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {includes} from 'lodash';
 
 import Cell from 'HeaderConfigApp/components/cell.jsx';
 import styles from 'HeaderConfigApp/styles/modal.scss';
@@ -19,53 +18,34 @@ class CellContainer extends React.Component {
         hoverClass: ''
     };
 
-    onItemDropped({to, from}) {
-        const {actions, mediaQuery} = this.props;
-
-        actions.save({
-            [mediaQuery]: {
-                [to.className]: [...to.children].map(item => item.dataset.id),
-                [from.className]: [...from.children].map(item => item.dataset.id)
-            }
-        });
+    _addHoverClass() {
+        this.setState({hoverClass: ` ${styles.cellValid}`});
     }
 
-    onMove({to, dragged}) {
-        const newList = [...to.children].map((item) => item.dataset.id);
-        const draggedItem = dragged.dataset.id;
-
-        if (draggedItem === 'Logo' && newList.length > 0) {
-            return false;
-        }
-
-        return !includes(newList, 'Logo');
-    }
-
-    onClickCloseButton(item) {
-        const {items, actions, mediaQuery} = this.props;
-
-        actions.remove({
-            items, item, mediaQuery,
-            positionLists: this.sortable.el.children,
-            position: this.sortable.el.className
-        });
+    _removeHoverClass() {
+        this.setState({hoverClass: ''});
     }
 
     componentDidMount() {
         const el = ReactDOM.findDOMNode(this);
-        el.addEventListener('dragover', () => this.setState({hoverClass: ` ${styles.cellValid}`}));
-        el.addEventListener('dragleave', () => this.setState({hoverClass: ''}));
-        el.addEventListener('drop', () => this.setState({hoverClass: ''}));
+        el.addEventListener('dragover', this._addHoverClass.bind(this));
+        el.addEventListener('dragleave', this._removeHoverClass.bind(this));
+        el.addEventListener('drop', this._removeHoverClass.bind(this));
     }
 
+    componentWillUnmount() {
+        const el = ReactDOM.findDOMNode(this);
+        el.removeEventListener('dragover', this._addHoverClass.bind(this));
+        el.removeEventListener('dragleave', this._removeHoverClass.bind(this));
+        el.removeEventListener('drop', this._removeHoverClass.bind(this));
+    }
 
     render() {
         return (
             <Cell items={this.props.items}
                   name={this.props.name + this.state.hoverClass}
-                  onClick={this.onClickCloseButton.bind(this)}
-                  onMove={this.onMove.bind(this)}
-                  onEnd={this.onItemDropped.bind(this)}/>
+                  actions={this.props.actions}
+                  mediaQuery={this.props.mediaQuery}/>
         );
     }
 }
