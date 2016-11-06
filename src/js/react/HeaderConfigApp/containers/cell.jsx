@@ -27,7 +27,7 @@ class CellContainer extends React.Component {
     };
 
     state = {
-        hoverClass: ''
+        hoverClass: null
     };
 
     constructor(props) {
@@ -65,16 +65,16 @@ class CellContainer extends React.Component {
 
     render() {
         return (
-            <ul className={this.props.name + this.state.hoverClass}> {this.itemsHTML} </ul>
+            <ul data-id={this.props.name} className={this.state.hoverClass}> {this.itemsHTML} </ul>
         );
     }
 
     _addHoverClass() {
-        this.setState({hoverClass: ` ${styles.cellValid}`});
+        this.setState({hoverClass: styles.cellValid});
     }
 
     _removeHoverClass() {
-        this.setState({hoverClass: ''});
+        this.setState({hoverClass: null});
     }
 
     _onItemDropped({to, from}) {
@@ -82,8 +82,8 @@ class CellContainer extends React.Component {
 
         actions.save({
             [mediaQuery]: {
-                [to.className]: [...to.children].map(item => item.dataset.id),
-                [from.className]: [...from.children].map(item => item.dataset.id)
+                [to.dataset.id]: [...to.children].map(item => item.dataset.id),
+                [from.dataset.id]: [...from.children].map(item => item.dataset.id)
             }
         });
     }
@@ -105,7 +105,7 @@ class CellContainer extends React.Component {
         actions.remove({
             items, item, mediaQuery,
             positionLists: this.sortable.el.children,
-            position: this.sortable.el.className
+            position: this.sortable.el.dataset.id
         });
     }
 }
