@@ -8,7 +8,7 @@ import styles from 'HeaderConfigApp/styles/modal.scss';
 const TabComponent = props => {
     const {mediaQuery, headerConfig, actions} = props;
 
-    const getCells = (curPos) => {
+    const _getCells = (curPos) => {
         if (curPos === void 0) {
             return (
                 <Cell name="Hidden"
@@ -33,7 +33,7 @@ const TabComponent = props => {
         <div>
             <div className="col-md-6">
                 <h2 className={styles.h2}>1. Available components to drag & drop</h2>
-                <div className={styles.componentsContainer}> {getCells()} </div>
+                <div className={styles.componentsContainer}> {_getCells()} </div>
             </div>
 
             <div className="col-md-6">
@@ -51,9 +51,9 @@ const TabComponent = props => {
                     boxes.</p>
 
                 <div className={styles.header}>
-                { mediaQuery !== 'mobile' ? <div className={styles.headerArea}> { getCells(0) } </div> : ''}
-                    <div className={styles.headerArea}> { getCells(1) } </div>
-                    <div className={styles.headerArea}> { getCells(2) } </div>
+                { mediaQuery !== 'mobile' ? <div className={styles.headerArea}> { _getCells(0) } </div> : ''}
+                    <div className={styles.headerArea}> { _getCells(1) } </div>
+                    <div className={styles.headerArea}> { _getCells(2) } </div>
                 </div>
             </div>
         </div>

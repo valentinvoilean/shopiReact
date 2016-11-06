@@ -1,9 +1,10 @@
 import React from 'react';
+
 import CloseButton from './closeButton.jsx';
 
 // Functional Component
 const Cell = props => {
-    const {items, name, onClick} = props;
+    const {items, name, className, onClick} = props;
 
     const itemsHTML = items[name] ? items[name].map((item, key) => (
         <li key={key} data-id={item}>
@@ -13,13 +14,14 @@ const Cell = props => {
     ) : '';
 
     return (
-        <ul className={name}> {itemsHTML} </ul>
+        <ul data-id={name} className={className}> {itemsHTML} </ul>
     );
 };
 
 Cell.propTypes = {
     items: React.PropTypes.object,
     name: React.PropTypes.string,
+    className: React.PropTypes.string,
     onClick: React.PropTypes.func
 };
 

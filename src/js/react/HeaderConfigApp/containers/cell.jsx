@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Sortable from 'sortablejs';
 import {includes} from 'lodash';
+import Sortable from 'sortablejs';
 
-import CloseButton from 'HeaderConfigApp/components/closeButton.jsx';
+import Cell from 'HeaderConfigApp/components/cell.jsx';
 import styles from 'HeaderConfigApp/styles/modal.scss';
 
 // Functional Component
@@ -30,19 +30,6 @@ class CellContainer extends React.Component {
         hoverClass: null
     };
 
-    constructor(props) {
-        super(props);
-
-        const {items, name} = props;
-
-        this.itemsHTML = items[name] ? items[name].map((item, key) => (
-            <li key={key} data-id={item}>
-                <span>{item}</span>
-                <CloseButton item={item} onClick={this._removeItem.bind(this)}/>
-            </li>)
-        ) : '';
-    }
-
     componentDidMount() {
         const el = ReactDOM.findDOMNode(this);
         el.addEventListener('dragover', this._addHoverClass.bind(this));
@@ -64,9 +51,10 @@ class CellContainer extends React.Component {
     }
 
     render() {
-        return (
-            <ul data-id={this.props.name} className={this.state.hoverClass}> {this.itemsHTML} </ul>
-        );
+        return <Cell items={this.props.items}
+                     name={this.props.name}
+                     className={this.state.hoverClass}
+                     onClick={this._removeItem.bind(this)}/>;
     }
 
     _addHoverClass() {
