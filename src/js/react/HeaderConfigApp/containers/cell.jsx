@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Sortable from 'sortablejs';
+import {includes} from 'lodash';
 
-import Cell from 'HeaderConfigApp/components/cell.jsx';
+import CloseButton from 'HeaderConfigApp/components/closeButton.jsx';
 import styles from 'HeaderConfigApp/styles/modal.scss';
 
 // Functional Component
@@ -14,9 +16,58 @@ class CellContainer extends React.Component {
         mediaQuery: React.PropTypes.string
     };
 
+    sortable = null; // sortable instance
+
+    sortableOptions = {
+        group: {name: 'headerConfig'},
+        animation: 150,
+        ghostClass: styles.sortableGhost,
+        onEnd: this._onItemDropped.bind(this),
+        onMove: this._onItemMoved.bind(this)
+    };
+
     state = {
         hoverClass: ''
     };
+
+    constructor(props) {
+        super(props);
+
+        const {items, name} = props;
+
+        this.itemsHTML = items[name] ? items[name].map((item, key) => (
+            <li key={key} data-id={item}>
+                <span>{item}</span>
+                <CloseButton item={item} onClick={this._removeItem.bind(this)}/>
+            </li>)
+        ) : '';
+    }
+
+    componentDidMount() {
+        const el = ReactDOM.findDOMNode(this);
+        el.addEventListener('dragover', this._addHoverClass.bind(this));
+        el.addEventListener('dragleave', this._removeHoverClass.bind(this));
+        el.addEventListener('drop', this._removeHoverClass.bind(this));
+        this.sortable = Sortable.create(ReactDOM.findDOMNode(this), {...this.sortableOptions});
+    }
+
+    componentWillUnmount() {
+        const el = ReactDOM.findDOMNode(this);
+        el.removeEventListener('dragover', this._addHoverClass.bind(this));
+        el.removeEventListener('dragleave', this._removeHoverClass.bind(this));
+        el.removeEventListener('drop', this._removeHoverClass.bind(this));
+
+        if (this.sortable) {
+            this.sortable.destroy();
+            this.sortable = null;
+        }
+    }
+
+    render() {
+        return (
+            <ul className={this.props.name + this.state.hoverClass}> {this.itemsHTML} </ul>
+        );
+    }
 
     _addHoverClass() {
         this.setState({hoverClass: ` ${styles.cellValid}`});
@@ -26,27 +77,36 @@ class CellContainer extends React.Component {
         this.setState({hoverClass: ''});
     }
 
-    componentDidMount() {
-        const el = ReactDOM.findDOMNode(this);
-        el.addEventListener('dragover', this._addHoverClass.bind(this));
-        el.addEventListener('dragleave', this._removeHoverClass.bind(this));
-        el.addEventListener('drop', this._removeHoverClass.bind(this));
+    _onItemDropped({to, from}) {
+        const {actions, mediaQuery} = this.props;
+
+        actions.save({
+            [mediaQuery]: {
+                [to.className]: [...to.children].map(item => item.dataset.id),
+                [from.className]: [...from.children].map(item => item.dataset.id)
+            }
+        });
     }
 
-    componentWillUnmount() {
-        const el = ReactDOM.findDOMNode(this);
-        el.removeEventListener('dragover', this._addHoverClass.bind(this));
-        el.removeEventListener('dragleave', this._removeHoverClass.bind(this));
-        el.removeEventListener('drop', this._removeHoverClass.bind(this));
+    _onItemMoved({to, dragged}) {
+        const newList = [...to.children].map((item) => item.dataset.id);
+        const draggedItem = dragged.dataset.id;
+
+        if (draggedItem === 'Logo' && newList.length > 0) {
+            return false;
+        }
+
+        return !includes(newList, 'Logo');
     }
 
-    render() {
-        return (
-            <Cell items={this.props.items}
-                  name={this.props.name + this.state.hoverClass}
-                  actions={this.props.actions}
-                  mediaQuery={this.props.mediaQuery}/>
-        );
+    _removeItem(item) {
+        const {items, actions, mediaQuery} = this.props;
+
+        actions.remove({
+            items, item, mediaQuery,
+            positionLists: this.sortable.el.children,
+            position: this.sortable.el.className
+        });
     }
 }
 
