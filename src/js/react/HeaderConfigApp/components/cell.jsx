@@ -4,7 +4,7 @@ import CloseButton from './closeButton.jsx';
 
 // Functional Component
 const Cell = props => {
-    const {items, name, className, onClick} = props;
+    const {items, name, onClick} = props;
 
     const itemsHTML = items[name] ? items[name].map((item, key) => (
         <li key={key} data-id={item}>
@@ -14,7 +14,7 @@ const Cell = props => {
     ) : '';
 
     return (
-        <ul data-id={name} className={className}> {itemsHTML} </ul>
+        <ul data-id={name}> {itemsHTML} </ul>
     );
 };
 

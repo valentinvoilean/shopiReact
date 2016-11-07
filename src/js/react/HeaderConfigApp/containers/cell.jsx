@@ -26,24 +26,11 @@ class CellContainer extends React.Component {
         onMove: this._onItemMoved.bind(this)
     };
 
-    state = {
-        hoverClass: null
-    };
-
     componentDidMount() {
-        const el = ReactDOM.findDOMNode(this);
-        el.addEventListener('dragover', this._addHoverClass.bind(this));
-        el.addEventListener('dragleave', this._removeHoverClass.bind(this));
-        el.addEventListener('drop', this._removeHoverClass.bind(this));
         this.sortable = Sortable.create(ReactDOM.findDOMNode(this), {...this.sortableOptions});
     }
 
     componentWillUnmount() {
-        const el = ReactDOM.findDOMNode(this);
-        el.removeEventListener('dragover', this._addHoverClass.bind(this));
-        el.removeEventListener('dragleave', this._removeHoverClass.bind(this));
-        el.removeEventListener('drop', this._removeHoverClass.bind(this));
-
         if (this.sortable) {
             this.sortable.destroy();
             this.sortable = null;
@@ -53,7 +40,6 @@ class CellContainer extends React.Component {
     render() {
         return <Cell items={this.props.items}
                      name={this.props.name}
-                     className={this.state.hoverClass}
                      onClick={this._removeItem.bind(this)}/>;
     }
 
@@ -68,6 +54,9 @@ class CellContainer extends React.Component {
     _onItemDropped({to, from}) {
         const {actions, mediaQuery} = this.props;
 
+        to.className = styles.cellValid;
+        from.className = styles.cellValid;
+
         actions.save({
             [mediaQuery]: {
                 [to.dataset.id]: [...to.children].map(item => item.dataset.id),
@@ -81,9 +70,11 @@ class CellContainer extends React.Component {
         const draggedItem = dragged.dataset.id;
 
         if (draggedItem === 'Logo' && newList.length > 0) {
+            to.className = styles.cellInvalid;
             return false;
         }
 
+        to.className = includes(newList, 'Logo') ? styles.cellInvalid : styles.cellValid;
         return !includes(newList, 'Logo');
     }
 
