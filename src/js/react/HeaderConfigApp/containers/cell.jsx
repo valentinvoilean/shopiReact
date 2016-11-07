@@ -6,6 +6,8 @@ import Sortable from 'sortablejs';
 import Cell from 'HeaderConfigApp/components/cell.jsx';
 import styles from 'HeaderConfigApp/styles/modal.scss';
 
+import {validStates} from 'HeaderConfigApp/constants/states';
+
 // Functional Component
 class CellContainer extends React.Component {
     static propTypes = {
@@ -66,16 +68,7 @@ class CellContainer extends React.Component {
     }
 
     _onItemMoved({to, dragged}) {
-        const newList = [...to.children].map((item) => item.dataset.id);
-        const draggedItem = dragged.dataset.id;
-
-        if (draggedItem === 'Logo' && newList.length > 0) {
-            to.className = styles.cellInvalid;
-            return false;
-        }
-
-        to.className = includes(newList, 'Logo') ? styles.cellInvalid : styles.cellValid;
-        return !includes(newList, 'Logo');
+        return !!includes(validStates[this.props.mediaQuery][to.dataset.id], dragged.dataset.id);
     }
 
     _removeItem(item) {
