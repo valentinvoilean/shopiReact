@@ -45,14 +45,6 @@ class CellContainer extends React.Component {
                      onClick={this._removeItem.bind(this)}/>;
     }
 
-    _addHoverClass() {
-        this.setState({hoverClass: styles.cellValid});
-    }
-
-    _removeHoverClass() {
-        this.setState({hoverClass: null});
-    }
-
     _onItemDropped({to, from}) {
         const {actions, mediaQuery} = this.props;
 
