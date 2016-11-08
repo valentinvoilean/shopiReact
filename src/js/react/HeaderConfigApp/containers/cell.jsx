@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {includes} from 'lodash';
-import Sortable from 'sortablejs';
+import Sortable from './sortable';
 
 import Cell from 'HeaderConfigApp/components/cell.jsx';
 import styles from 'HeaderConfigApp/styles/modal.scss';
@@ -24,6 +24,8 @@ class CellContainer extends React.Component {
         group: {name: 'headerConfig'},
         animation: 150,
         ghostClass: styles.sortableGhost,
+        validClass: styles.cellValid,
+        invalidClass: styles.cellInvalid,
         onEnd: this._onItemDropped.bind(this),
         onMove: this._onItemMoved.bind(this)
     };
@@ -47,9 +49,6 @@ class CellContainer extends React.Component {
 
     _onItemDropped({to, from}) {
         const {actions, mediaQuery} = this.props;
-
-        to.className = styles.cellValid;
-        from.className = styles.cellValid;
 
         actions.save({
             [mediaQuery]: {
