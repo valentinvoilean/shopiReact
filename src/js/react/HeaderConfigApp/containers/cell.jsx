@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {includes} from 'lodash';
-import Sortable from './sortable';
+import Sortable from 'sortablejs';
 
 import Cell from 'HeaderConfigApp/components/cell.jsx';
 import styles from 'HeaderConfigApp/styles/modal.scss';
