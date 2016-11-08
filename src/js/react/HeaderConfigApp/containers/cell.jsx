@@ -21,13 +21,14 @@ class CellContainer extends React.Component {
     sortable = null; // sortable instance
 
     sortableOptions = {
-        group: {name: 'headerConfig'},
+        group: {name: 'headerConfig', put: (to, from, dragged) => {
+            return !!includes(validStates[this.props.mediaQuery][to.el.dataset.id], dragged.dataset.id);
+        }},
         animation: 150,
         ghostClass: styles.sortableGhost,
-        validClass: styles.cellValid,
-        invalidClass: styles.cellInvalid,
-        onEnd: this._onItemDropped.bind(this),
-        onMove: this._onItemMoved.bind(this)
+        validGroupClass: styles.cellValid,
+        invalidGroupClass: styles.cellInvalid,
+        onEnd: this._onItemDropped.bind(this)
     };
 
     componentDidMount() {
@@ -56,10 +57,6 @@ class CellContainer extends React.Component {
                 [from.dataset.id]: [...from.children].map(item => item.dataset.id)
             }
         });
-    }
-
-    _onItemMoved({to, dragged}) {
-        return !!includes(validStates[this.props.mediaQuery][to.dataset.id], dragged.dataset.id);
     }
 
     _removeItem(item) {
