@@ -45,6 +45,7 @@ class CellContainer extends React.Component {
     render() {
         return <Cell items={this.props.items}
                      name={this.props.name}
+                     mediaQuery={this.props.mediaQuery}
                      onClick={this._removeItem.bind(this)}/>;
     }
 
