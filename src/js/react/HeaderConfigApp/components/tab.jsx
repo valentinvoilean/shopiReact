@@ -1,4 +1,5 @@
 import React from 'react';
+import CopyToClipboard from 'react-copy-to-clipboard';
 import uuid from 'uuid';
 
 import Cell from 'HeaderConfigApp/containers/cell.jsx';
@@ -38,10 +39,12 @@ const TabComponent = props => {
 
             <div className="col-md-6">
                 <h2 className={styles.h2}>3. Generated code to be copied</h2>
-                <div className={styles.codeContainer}>
-                    <code className={styles.code}>{JSON.stringify(headerConfig)}</code>
-                    <div className={styles.copy}>Click to copy</div>
-                </div>
+                <CopyToClipboard text={JSON.stringify(headerConfig)}>
+                    <div className={styles.codeContainer}>
+                        <code className={styles.code}>{JSON.stringify(headerConfig)}</code>
+                        <div className={styles.copy}>Click to copy</div>
+                    </div>
+                </CopyToClipboard>
             </div>
 
             <div className={styles.container}>
