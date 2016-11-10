@@ -1,6 +1,6 @@
 import React from 'react';
 
-import GeneratedCode from 'HeaderConfigApp/components/generatedCode.jsx';
+import GeneratedCode from 'HeaderConfigApp/components/generatedCode';
 
 // Functional Component
 export default class CodeContainer extends React.Component {

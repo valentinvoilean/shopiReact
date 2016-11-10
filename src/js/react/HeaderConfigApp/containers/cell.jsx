@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {includes} from 'lodash';
 import Sortable from 'sortablejs';
 
-import Cell from 'HeaderConfigApp/components/cell.jsx';
+import Cell from 'HeaderConfigApp/components/cell';
 import styles from 'HeaderConfigApp/styles/modal.scss';
 
 import {validStates} from 'HeaderConfigApp/constants/states';

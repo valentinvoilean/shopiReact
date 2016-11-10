@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import configureStore from './store/configureStore';
-import ModalContainer from 'HeaderConfigApp/containers/modal.jsx';
+import ModalContainer from 'HeaderConfigApp/containers/modal';
 
 const headerConfigStore = configureStore();
 

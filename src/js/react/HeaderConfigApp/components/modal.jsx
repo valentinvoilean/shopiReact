@@ -2,7 +2,7 @@ import React from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import uuid from 'uuid';
 
-import TabComponent from 'HeaderConfigApp/components/tab.jsx';
+import TabComponent from 'HeaderConfigApp/components/tab';
 import styles from 'HeaderConfigApp/styles/modal.scss';
 import {mediaQueries} from 'HeaderConfigApp/constants/mediaQueries';
 
