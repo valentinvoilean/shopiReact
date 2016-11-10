@@ -116,6 +116,10 @@
   background: #343434;
 }
 
+.modal__codeContainer___33En6:hover .modal__copied___1J1Ra {
+  background: green;
+}
+
 .modal__codeContainer___33En6:hover .modal__code___16U3F {
   color: #343434;
 }

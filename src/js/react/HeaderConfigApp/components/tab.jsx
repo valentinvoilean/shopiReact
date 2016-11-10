@@ -1,8 +1,8 @@
 import React from 'react';
-import CopyToClipboard from 'react-copy-to-clipboard';
 import uuid from 'uuid';
 
 import Cell from 'HeaderConfigApp/containers/cell.jsx';
+import CodeContainer from 'HeaderConfigApp/containers/generatedCode.jsx';
 import {horizontalPositions, verticalPositions} from 'HeaderConfigApp/constants/positions';
 import styles from 'HeaderConfigApp/styles/modal.scss';
 
@@ -39,12 +39,9 @@ const TabComponent = props => {
 
             <div className="col-md-6">
                 <h2 className={styles.h2}>3. Generated code to be copied</h2>
-                <CopyToClipboard text={JSON.stringify(headerConfig)}>
-                    <div className={styles.codeContainer}>
-                        <code className={styles.code}>{JSON.stringify(headerConfig)}</code>
-                        <div className={styles.copy}>Click to copy</div>
-                    </div>
-                </CopyToClipboard>
+                <div className={styles.codeContainer}>
+                    <CodeContainer text={JSON.stringify(headerConfig)}/>
+                </div>
             </div>
 
             <div className={styles.container}>

@@ -9,7 +9,7 @@ import styles from 'HeaderConfigApp/styles/modal.scss';
 import {validStates} from 'HeaderConfigApp/constants/states';
 
 // Functional Component
-class CellContainer extends React.Component {
+export default class CellContainer extends React.Component {
     static propTypes = {
         items: React.PropTypes.object,
         name: React.PropTypes.string,
@@ -70,5 +70,3 @@ class CellContainer extends React.Component {
         });
     }
 }
-
-export default CellContainer;
