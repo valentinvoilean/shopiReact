@@ -116,8 +116,48 @@
   background: #343434;
 }
 
-.modal__codeContainer___33En6:hover .modal__copied___1J1Ra {
-  background: green;
+.modal__codeContainer___33En6:hover .modal__copied___1J1Ra:before {
+  display: inline-block;
+  text-decoration: none;
+  position: absolute;
+  z-index: 1000001;
+  width: 0;
+  height: 0;
+  color: rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+  content: "";
+  border: 5px solid transparent;
+  top: auto;
+  right: 50%;
+  bottom: -5px;
+  margin-right: -5px;
+  border-bottom-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal__codeContainer___33En6:hover .modal__copied___1J1Ra:after {
+  position: absolute;
+  z-index: 1000000;
+  padding: 5px 8px;
+  font: normal normal 11px/1.5 Helvetica,arial,sans-serif;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: break-word;
+  white-space: pre;
+  pointer-events: none;
+  content: "Copied !";
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 3px;
+  -webkit-font-smoothing: subpixel-antialiased;
+  display: inline-block;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+  top: 100%;
+  right: 50%;
+  margin-top: 5px;
 }
 
 .modal__codeContainer___33En6:hover .modal__code___16U3F {
