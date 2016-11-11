@@ -5,7 +5,7 @@ import GeneratedCode from 'HeaderConfigApp/components/generatedCode';
 // Functional Component
 export default class CodeContainer extends React.Component {
     static propTypes = {
-        text: React.PropTypes.string
+        text: React.PropTypes.string.isRequired
     };
 
     state = { copied: false };

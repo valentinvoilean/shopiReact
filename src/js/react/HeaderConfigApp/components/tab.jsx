@@ -61,10 +61,9 @@ const TabComponent = props => {
 };
 
 TabComponent.propTypes = {
-    mediaQuery: React.PropTypes.string,
-    headerConfig: React.PropTypes.object,
-    actions: React.PropTypes.object,
-    items: React.PropTypes.object
+    mediaQuery: React.PropTypes.string.isRequired,
+    headerConfig: React.PropTypes.object.isRequired,
+    actions: React.PropTypes.object.isRequired
 };
 
 export default TabComponent;

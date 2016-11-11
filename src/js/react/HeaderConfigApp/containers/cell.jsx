@@ -11,11 +11,10 @@ import {validStates} from 'HeaderConfigApp/constants/states';
 // Functional Component
 export default class CellContainer extends React.Component {
     static propTypes = {
-        items: React.PropTypes.object,
-        name: React.PropTypes.string,
-        actions: React.PropTypes.object,
-        remove: React.PropTypes.func,
-        mediaQuery: React.PropTypes.string
+        items: React.PropTypes.object.isRequired,
+        name: React.PropTypes.string.isRequired,
+        actions: React.PropTypes.object.isRequired,
+        mediaQuery: React.PropTypes.string.isRequired
     };
 
     sortable = null; // sortable instance

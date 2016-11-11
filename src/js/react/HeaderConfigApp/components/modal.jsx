@@ -6,7 +6,7 @@ import TabComponent from 'HeaderConfigApp/components/tab';
 import styles from 'HeaderConfigApp/styles/modal.scss';
 import {mediaQueries} from 'HeaderConfigApp/constants/mediaQueries';
 
-export default ({headerConfig, actions}) => (
+const ModalComponent = ({headerConfig, actions}) => (
     <div className={styles.background}>
         <div className={`container ${styles.base}`}>
             <h1 className={styles.h1}>Header Configuration</h1>
@@ -23,3 +23,10 @@ export default ({headerConfig, actions}) => (
         </div>
     </div>
 );
+
+ModalComponent.propTypes = {
+    headerConfig: React.PropTypes.object.isRequired,
+    actions: React.PropTypes.object.isRequired
+};
+
+export default ModalComponent;

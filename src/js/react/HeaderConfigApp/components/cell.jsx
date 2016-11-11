@@ -24,10 +24,10 @@ const Cell = props => {
 };
 
 Cell.propTypes = {
-    items: React.PropTypes.object,
-    name: React.PropTypes.string,
-    className: React.PropTypes.string,
-    onClick: React.PropTypes.func
+    items: React.PropTypes.object.isRequired,
+    name: React.PropTypes.string.isRequired,
+    mediaQuery: React.PropTypes.string.isRequired,
+    onClick: React.PropTypes.func.isRequired
 };
 
 export default Cell;

@@ -18,9 +18,9 @@ const GeneratedCode = props => {
 };
 
 GeneratedCode.propTypes = {
-    text: React.PropTypes.string,
-    copied: React.PropTypes.bool,
-    onCopy: React.PropTypes.func
+    text: React.PropTypes.string.isRequired,
+    copied: React.PropTypes.bool.isRequired,
+    onCopy: React.PropTypes.func.isRequired
 };
 
 export default GeneratedCode;
