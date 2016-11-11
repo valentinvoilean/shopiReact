@@ -52,7 +52,7 @@ export default {
     module: {
         noParse: ['jquery'],
         preLoaders: [
-            {test: /\.jsx?$/, include: `${__dirname}/src/js`, loaders: ['eslint']},
+            {test: /\.jsx?$/, include: `${__dirname}/src/js`, loaders: ['eslint']}
         ],
         loaders: [
             {test: /\.jsx?$/, include: `${__dirname}/src/js`, loader: 'babel-loader'},
