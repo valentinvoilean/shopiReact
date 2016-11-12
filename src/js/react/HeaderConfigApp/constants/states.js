@@ -43,8 +43,14 @@ export const validStates = {
         TopLeft: ['MenuIcon', 'Logo'],
         TopCenter: ['Logo'],
         TopRight: ['MyAccount', 'Wishlist', 'Cart', 'Search'],
-        Main: ['Menu', 'WelcomeMessage'],
-        Bottom: ['Menu', 'WelcomeMessage']
+        Main: {
+            items: ['Menu', 'WelcomeMessage'],
+            max: 1
+        },
+        Bottom: {
+            items: ['Menu', 'WelcomeMessage'],
+            max: 1
+        }
     },
     tablet: {
         Hidden: ['MyAccount', 'Wishlist', 'Currency', 'Language', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],

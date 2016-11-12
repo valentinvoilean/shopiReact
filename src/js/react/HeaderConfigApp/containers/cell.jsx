@@ -21,7 +21,15 @@ export default class CellContainer extends React.Component {
 
     sortableOptions = {
         group: {name: 'headerConfig', put: (to, from, dragged) => {
-            return !!includes(validStates[this.props.mediaQuery][to.el.dataset.id], dragged.dataset.id);
+            if (validStates[this.props.mediaQuery][to.el.dataset.id] instanceof Array) {
+                return !!includes(validStates[this.props.mediaQuery][to.el.dataset.id], dragged.dataset.id);
+            }
+            else {
+                const items = validStates[this.props.mediaQuery][to.el.dataset.id].items;
+                const maxItems = validStates[this.props.mediaQuery][to.el.dataset.id].max;
+
+                return to.el.children.length < maxItems && !!includes(items, dragged.dataset.id);
+            }
         }},
         animation: 150,
         ghostClass: styles.sortableGhost,

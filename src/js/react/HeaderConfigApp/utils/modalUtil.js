@@ -38,8 +38,10 @@ export const validateState = state => {
 
         _parseEachHeaderArea = (mediaQuery) => {
             forOwn(areas, (value, key) => {
+                const items = validAreas[key] instanceof Array ? validAreas[key] : validAreas[key].items;
+
                 value.map(item => {
-                    if (!includes(validAreas[key], item)) {
+                    if (!includes(items, item)) {
                         _loadDefaultSettings(mediaQuery);
                         return false;
                     }
@@ -53,8 +55,6 @@ export const validateState = state => {
             if (!has(wantedState, mediaQuery)) {
                 return _loadDefaultSettings(mediaQuery);
             }
-
-            newState[mediaQuery] = newState[mediaQuery] ? newState[mediaQuery] : {};
 
             areas = {...wantedState[mediaQuery]};
             validAreas = {...value};
