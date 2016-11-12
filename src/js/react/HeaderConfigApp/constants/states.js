@@ -2,7 +2,7 @@ export const defaultState = {
     HeaderConfig: {
         mobile: {
             Flyout: ['Search', 'Currency', 'Language', 'MyAccount', 'SocialIcons'],
-            Hidden: ['CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb'],
+            Hidden: ['CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb', 'Search', 'MyAccount'],
             MainLeft: ['Menu'],
             MainCenter: ['Logo'],
             MainRight: ['Cart', 'Wishlist'],
@@ -40,10 +40,10 @@ export const defaultState = {
 export const validStates = {
     mobile: {
         Flyout: ['Menu', 'MyAccount', 'Wishlist', 'Search', 'Currency', 'Language', 'MyAccount', 'SocialIcons'],
-        Hidden: ['Wishlist', 'MyAccount', 'Currency', 'Language', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb', 'WelcomeMessage', 'SocialIcons'],
+        Hidden: ['Wishlist', 'MyAccount', 'Currency', 'Language', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb', 'WelcomeMessage', 'SocialIcons', 'Search'],
         MainLeft: ['Menu', 'Logo'],
         MainCenter: ['Logo'],
-        MainRight: ['MyAccount', 'Wishlist', 'Cart'],
+        MainRight: ['MyAccount', 'Wishlist', 'Cart', 'Search'],
         BottomLeft: ['WelcomeMessage'],
         BottomCenter: ['WelcomeMessage'],
         BottomRight: ['WelcomeMessage']
