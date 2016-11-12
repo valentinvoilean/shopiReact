@@ -28,7 +28,17 @@ export default class CellContainer extends React.Component {
                 const items = validStates[this.props.mediaQuery][to.el.dataset.id].items;
                 const maxItems = validStates[this.props.mediaQuery][to.el.dataset.id].max;
 
-                return to.el.children.length < maxItems && !!includes(items, dragged.dataset.id);
+                if (to.el.children.length >= maxItems) {
+                    console.log(`Maximum number of items allowed is ${maxItems}`);
+                    return false;
+                }
+
+                if (!includes(items, dragged.dataset.id)) {
+                    console.log(`The item "${dragged.dataset.id}" is not allowed here!`);
+                    return false;
+                }
+
+                return true;
             }
         }},
         animation: 150,
