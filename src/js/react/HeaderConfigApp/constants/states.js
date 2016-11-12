@@ -3,12 +3,11 @@ export const defaultState = {
         mobile: {
             Flyout: ['Search', 'Currency', 'Language', 'MyAccount', 'SocialIcons'],
             Hidden: ['CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb', 'Search', 'MyAccount'],
-            MainLeft: ['Menu'],
-            MainCenter: ['Logo'],
-            MainRight: ['Cart', 'Wishlist'],
-            BottomLeft: [],
-            BottomCenter: ['WelcomeMessage'],
-            BottomRight: []
+            TopLeft: ['MenuIcon'],
+            TopCenter: ['Logo'],
+            TopRight: ['Cart', 'Wishlist'],
+            Main: ['Menu'],
+            Bottom: ['WelcomeMessage']
         },
         tablet: {
             Hidden: ['CustomLink3', 'CustomLink4'],
@@ -39,14 +38,13 @@ export const defaultState = {
 
 export const validStates = {
     mobile: {
-        Flyout: ['Menu', 'MyAccount', 'Wishlist', 'Search', 'Currency', 'Language', 'MyAccount', 'SocialIcons'],
-        Hidden: ['Wishlist', 'MyAccount', 'Currency', 'Language', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb', 'WelcomeMessage', 'SocialIcons', 'Search'],
-        MainLeft: ['Menu', 'Logo'],
-        MainCenter: ['Logo'],
-        MainRight: ['MyAccount', 'Wishlist', 'Cart', 'Search'],
-        BottomLeft: ['WelcomeMessage'],
-        BottomCenter: ['WelcomeMessage'],
-        BottomRight: ['WelcomeMessage']
+        Flyout: ['MenuIcon', 'MyAccount', 'Wishlist', 'Search', 'Currency', 'Language', 'MyAccount', 'SocialIcons'],
+        Hidden: ['Wishlist', 'MyAccount', 'Currency', 'Language', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb', 'WelcomeMessage', 'SocialIcons', 'Search', 'Menu'],
+        TopLeft: ['MenuIcon', 'Logo'],
+        TopCenter: ['Logo'],
+        TopRight: ['MyAccount', 'Wishlist', 'Cart', 'Search'],
+        Main: ['Menu', 'WelcomeMessage'],
+        Bottom: ['Menu', 'WelcomeMessage']
     },
     tablet: {
         Hidden: ['MyAccount', 'Wishlist', 'Currency', 'Language', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],

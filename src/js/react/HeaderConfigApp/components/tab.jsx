@@ -10,15 +10,6 @@ const TabComponent = props => {
     const {mediaQuery, headerConfig, actions} = props;
 
     const _getCells = (curPos) => {
-        if (curPos === void 0) {
-            return (
-                <Cell name="Hidden"
-                      items={headerConfig[mediaQuery]}
-                      mediaQuery={mediaQuery}
-                      actions={actions}/>
-            );
-        }
-
         return horizontalPositions.map(
             (pos) => (
                 <Cell key={uuid.v4()}
@@ -30,11 +21,21 @@ const TabComponent = props => {
         );
     };
 
+    const _getCell = (curPos) => {
+        return (
+            <Cell name={curPos === void 0 ? 'Hidden' : `${verticalPositions[curPos]}`}
+                  items={headerConfig[mediaQuery]}
+                  mediaQuery={mediaQuery}
+                  actions={actions}/>
+        );
+
+    };
+
     return (
         <div>
             <div className="col-md-6">
                 <h2 className={styles.h2}>1. Available components to drag & drop</h2>
-                <div className={styles.componentsContainer}> {_getCells()} </div>
+                <div className={styles.componentsContainer}> {_getCell()} </div>
             </div>
 
             <div className="col-md-6">
@@ -50,10 +51,10 @@ const TabComponent = props => {
                 <p> Drag & drop the components into the next boxes. You can also sort them once they are inside the
                     boxes.</p>
 
-                <div className={styles.header}>
-                { mediaQuery !== 'mobile' ? <div className={styles.headerArea}> { _getCells(0) } </div> : ''}
-                    <div className={styles.headerArea}> { _getCells(1) } </div>
-                    <div className={styles.headerArea}> { _getCells(2) } </div>
+                <div className={styles.header + ' ' + styles[mediaQuery]}>
+                    <div className={styles.headerArea}>{_getCells(0)}</div>
+                    <div className={styles.headerArea}>{mediaQuery !== 'mobile' ? _getCells(1) : _getCell(1)}</div>
+                    <div className={styles.headerArea}>{mediaQuery !== 'mobile' ? _getCells(2) : _getCell(2)}</div>
                 </div>
             </div>
         </div>

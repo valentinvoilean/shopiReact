@@ -230,14 +230,18 @@
         margin: 5px;
         width: 100%;
         z-index: 1;
-        display: flex;
+        overflow: hidden;
 
         &:nth-child(2) {
-            justify-content: center;
+            text-align: center;
         }
 
-        &:last-child {
-            flex-direction: row-reverse;
+        &:nth-child(3) {
+            text-align: right;
+
+            li {
+                float: right;
+            }
         }
 
         &:before {
@@ -264,22 +268,47 @@
         cursor: move;
     }
 
-    &:first-child {
-        ul:first-child:before { content: 'TOP LEFT'; }
-        ul:nth-child(2):before { content: 'TOP CENTER'; }
-        ul:last-child:before { content: 'TOP RIGHT'; }
+    .mobile > & {
+        &:first-child {
+            ul:first-child:before { content: 'TOP LEFT'; }
+            ul:nth-child(2):before { content: 'TOP CENTER'; }
+            ul:last-child:before { content: 'TOP RIGHT'; }
+        }
+
+        &:nth-child(2) {
+            ul {
+                text-align: center;
+                &:before { content: 'MAIN'; }
+            }
+        }
+
+        &:last-child {
+            ul {
+                text-align: center;
+                &:before { content: 'BOTTOM'; }
+            }
+        }
     }
 
-    &:nth-child(2) {
-        ul:first-child:before { content: 'MAIN LEFT'; }
-        ul:nth-child(2):before { content: 'MAIN CENTER'; }
-        ul:last-child:before { content: 'MAIN RIGHT'; }
-    }
+    .tablet > &,
+    .desktop > & {
+        &:first-child {
+            ul:first-child:before { content: 'TOP LEFT'; }
+            ul:nth-child(2):before { content: 'TOP CENTER'; }
+            ul:last-child:before { content: 'TOP RIGHT'; }
+        }
 
-    &:last-child {
-        ul:first-child:before { content: 'BOTTOM LEFT'; }
-        ul:nth-child(2):before { content: 'BOTTOM CENTER'; }
-        ul:last-child:before { content: 'BOTTOM RIGHT'; }
+        &:nth-child(2) {
+            ul:first-child:before { content: 'MAIN LEFT'; }
+            ul:nth-child(2):before { content: 'MAIN CENTER'; }
+            ul:last-child:before { content: 'MAIN RIGHT'; }
+        }
+
+        &:last-child {
+            ul:first-child:before { content: 'BOTTOM LEFT'; }
+            ul:nth-child(2):before { content: 'BOTTOM CENTER'; }
+            ul:last-child:before { content: 'BOTTOM RIGHT'; }
+        }
     }
 }
 
