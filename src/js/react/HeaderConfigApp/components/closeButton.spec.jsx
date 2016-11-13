@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactTestUtils from 'react-addons-test-utils';
-import Modal from './modal.jsx';
+import CloseButton from './closeButton.jsx';
 
 describe('root', function () {
-    var Modal = ReactTestUtils.renderIntoDocument(
-        <Modal/>
+    let close = ReactTestUtils.renderIntoDocument(
+        <CloseButton onClick={() => void 0} item="Menu"/>
     );
 
     it('should work out of the box', function () {
