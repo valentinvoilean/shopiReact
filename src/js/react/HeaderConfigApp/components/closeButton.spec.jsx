@@ -1,18 +1,27 @@
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+import jasmineEnzyme from 'jasmine-enzyme';
+import { shallow } from 'enzyme';
 
 import CloseButton from './closeButton.jsx';
 
-describe('root', function () {
+describe('root', () => {
 
-    it('renders without problems', function() {
-        expect(render(<CloseButton />).find('span').length).toBe(1);
+    beforeEach(() => {
+        jasmineEnzyme();
     });
 
-   /* it('it should call the spy method on click', function() {
-        const statelessComponent = TestUtils.findDOMNode(closeButton).children[0];
+    it('renders without problems', () => {
+        expect(shallow(<CloseButton onClick={() => void 0} item="Menu" />).find('span')).toBePresent();
+    });
 
-        TestUtils.Simulate.click(statelessComponent);
-        expect(spy).toHaveBeenCalled();
-    });*/
+    it('simulates click events', () => {
+        const onClick = jasmine.createSpy('onButtonClick');
+
+        const wrapper = shallow(
+            <CloseButton onClick={onClick} item="Menu" />
+        );
+
+        wrapper.find('span').simulate('click');
+        expect(onClick).toHaveBeenCalled();
+    });
 });
