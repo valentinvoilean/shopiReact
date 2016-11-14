@@ -1,12 +1,13 @@
 import webpack from 'webpack';
 import path from 'path';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+
+require('source-map-support').install();
 
 export default {
     browsers: ['Chrome'],
     autoWatch: true,
     singleRun: false,
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'source-map-support'],
     files: [
         'node_modules/jquery/dist/jquery.min.js',
         'tests/index.js'
@@ -29,8 +30,7 @@ export default {
             new webpack.ProvidePlugin({
                 $: 'jquery',
                 jQuery: 'jquery'
-            }),
-            new ExtractTextPlugin('helpers.css', {allChunks: false})
+            })
         ],
         module: {
             noParse: ['jquery'],
@@ -43,9 +43,8 @@ export default {
                 {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
                 {test: /\.(jpe?g|png|gif)$/i, loader: 'file?name=[name].[ext]'},
                 {test: /\.ico$/, loader: 'file?name=[name].[ext]'},
-                {test: /\.less$/, loader: ExtractTextPlugin.extract('style', 'css!autoprefixer!less')},
-                {test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer!resolve-url!sass')},
-                {test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css')}
+                {test: /\.scss$/, loader: 'style!css!autoprefixer!sass'},
+                {test: /\.css$/, loader: 'style!css'}
             ]
         }
     },

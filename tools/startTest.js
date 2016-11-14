@@ -5,4 +5,4 @@ import karmaConfigDebug from '../karma.conf.debug';
 const Server = karma.Server;
 const debugMode = process.argv.slice(2);
 
-new Server(debugMode === 'debugMode' ? karmaConfigDebug : karmaConfig).start();
+new Server(debugMode.indexOf('debugMode') !== -1 ? karmaConfigDebug : karmaConfig).start();
