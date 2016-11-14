@@ -1,4 +1,20 @@
-.modal__background___mDJI- {
+.closeButton__closeButton___2RMj3 {
+  display: inline-block;
+  color: white;
+  font-size: 10px;
+  line-height: 25px;
+  margin-left: 5px;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+}
+
+.closeButton__closeButton___2RMj3:hover {
+  -webkit-transform: rotate(1turn);
+          transform: rotate(1turn);
+}.modal__background___mDJI- {
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
   z-index: 999;
@@ -357,24 +373,6 @@
 .modal__tablet___2Q7gk > .modal__headerArea___kIgi-:last-child ul:last-child:before,
 .modal__desktop___1tViH > .modal__headerArea___kIgi-:last-child ul:last-child:before {
   content: 'BOTTOM RIGHT';
-}
-
-.modal__close___3_Fj5 {
-  display: inline-block;
-  color: white;
-  font-size: 10px;
-  line-height: 25px;
-  margin-left: 5px;
-  cursor: pointer;
-  -webkit-transition: -webkit-transform .5s;
-  transition: -webkit-transform .5s;
-  transition: transform .5s;
-  transition: transform .5s, -webkit-transform .5s;
-}
-
-.modal__close___3_Fj5:hover {
-  -webkit-transform: rotate(1turn);
-          transform: rotate(1turn);
 }
 
 .modal__sortableGhost___a1IfB {

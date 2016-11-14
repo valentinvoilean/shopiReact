@@ -1,0 +1,13 @@
+.closeButton {
+    display: inline-block;
+    color: white;
+    font-size: 10px;
+    line-height: 25px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: transform .5s;
+
+    &:hover {
+        transform: rotate(1turn);
+    }
+}

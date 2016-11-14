@@ -2,7 +2,7 @@ import React from 'react';
 import {includes} from 'lodash';
 import {validStates} from 'HeaderConfigApp/constants/states';
 
-import CloseButton from './closeButton';
+import {CloseButton} from './closeButton';
 
 // Functional Component
 const Cell = props => {

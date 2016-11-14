@@ -1,9 +1,9 @@
 import React from 'react';
 
-import styles from 'HeaderConfigApp/styles/modal.scss';
+import styles from './closeButton.scss';
 
 const CloseButton = ({onClick, item}) => (
-    <span className={styles.close} onClick={() => onClick(item)}>&#10005;</span>
+    <span className={styles.closeButton} onClick={() => onClick(item)}>&#10005;</span>
 );
 
 CloseButton.propTypes = {
