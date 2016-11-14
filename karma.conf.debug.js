@@ -44,8 +44,14 @@ export default {
                 {test: /\.(jpe?g|png|gif)$/i, loader: 'file?name=[name].[ext]'},
                 {test: /\.ico$/, loader: 'file?name=[name].[ext]'},
                 {test: /\.scss$/, loader: 'style!css!autoprefixer!sass'},
-                {test: /\.css$/, loader: 'style!css'}
+                {test: /\.css$/, loader: 'style!css'},
+                {test: /\.json$/, loader: 'json'}
             ]
+        },
+        externals: {
+            'react/addons': true,
+            'react/lib/ExecutionEnvironment': true,
+            'react/lib/ReactContext': true
         }
     },
     reporters: ['spec']
