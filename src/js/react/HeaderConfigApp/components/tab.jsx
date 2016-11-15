@@ -1,7 +1,7 @@
 import React from 'react';
 import uuid from 'uuid';
 
-import Cell from 'HeaderConfigApp/containers/cell';
+import Cell from 'HeaderConfigApp/components/cell';
 import CodeContainer from 'HeaderConfigApp/containers/generatedCode';
 import {horizontalPositions, verticalPositions} from 'HeaderConfigApp/constants/positions';
 import styles from 'HeaderConfigApp/styles/modal.scss';
