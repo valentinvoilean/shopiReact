@@ -1,12 +1,12 @@
 import React from 'react';
 import uuid from 'uuid';
 
-import Cell from 'HeaderConfigApp/components/cell';
-import CodeContainer from 'HeaderConfigApp/containers/generatedCode';
+import {Cell, GeneratedCode} from 'HeaderConfigApp/components';
+
 import {horizontalPositions, verticalPositions} from 'HeaderConfigApp/constants/positions';
 import styles from 'HeaderConfigApp/styles/modal.scss';
 
-const TabComponent = props => {
+const ModalTab = props => {
     const {mediaQuery, headerConfig, actions} = props;
 
     const _getCells = (curPos) => {
@@ -41,7 +41,7 @@ const TabComponent = props => {
             <div className="col-md-6">
                 <h2 className={styles.h2}>3. Generated code to be copied</h2>
                 <div className={styles.codeContainer}>
-                    <CodeContainer text={JSON.stringify(headerConfig)}/>
+                    <GeneratedCode text={JSON.stringify(headerConfig)}/>
                 </div>
             </div>
 
@@ -61,10 +61,10 @@ const TabComponent = props => {
     );
 };
 
-TabComponent.propTypes = {
+ModalTab.propTypes = {
     mediaQuery: React.PropTypes.string.isRequired,
     headerConfig: React.PropTypes.object.isRequired,
     actions: React.PropTypes.object.isRequired
 };
 
-export default TabComponent;
+export default ModalTab;

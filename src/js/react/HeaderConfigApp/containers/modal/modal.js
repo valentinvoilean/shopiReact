@@ -1,13 +1,13 @@
-import React, { Component, PropTypes } from 'react';
-import { Provider, connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import React, {Component, PropTypes} from 'react';
+import {Provider, connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 import uuid from 'uuid';
 
 import * as actions from 'HeaderConfigApp/actions/modalActions';
 
-import TabComponent from 'HeaderConfigApp/components/tab';
+import {ModalTab} from 'HeaderConfigApp/components';
 import styles from 'HeaderConfigApp/styles/modal.scss';
 import {mediaQueries} from 'HeaderConfigApp/constants/mediaQueries';
 
@@ -19,7 +19,7 @@ class Modal extends Component {
     };
 
     render() {
-        const { headerConfig, actions, store } = this.props;
+        const {headerConfig, actions, store} = this.props;
 
         return (
             <Provider store={ store }>
@@ -32,7 +32,7 @@ class Modal extends Component {
                             </TabList>
                             { mediaQueries.map((mq) => (
                                 <TabPanel key={uuid.v4()}>
-                                    <TabComponent mediaQuery={mq} headerConfig={headerConfig} actions={actions}/>
+                                    <ModalTab mediaQuery={mq} headerConfig={headerConfig} actions={actions}/>
                                 </TabPanel>
                             ))}
                         </Tabs>

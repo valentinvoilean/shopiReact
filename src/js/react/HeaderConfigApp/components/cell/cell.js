@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import {includes} from 'lodash';
 import Sortable from 'sortablejs';
 
-import {CloseButton} from './closeButton';
+import {CloseButton} from 'HeaderConfigApp/components';
 
 import styles from 'HeaderConfigApp/styles/modal.scss';
 import {validStates} from 'HeaderConfigApp/constants/states';
 
 // Functional Component
-export default class CellContainer extends Component {
+class Cell extends Component {
     static propTypes = {
         items: PropTypes.object.isRequired,
         name: PropTypes.string.isRequired,
@@ -96,3 +96,5 @@ export default class CellContainer extends Component {
         });
     }
 }
+
+export default Cell;
