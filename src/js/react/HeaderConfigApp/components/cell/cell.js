@@ -70,6 +70,10 @@ class Cell extends Component {
     }
 
     _showCloseButton(item) {
+        if (this.props.name === 'Hidden') {
+            return false;
+        }
+
         if (includes(validStates[this.props.mediaQuery].Hidden, item)) {
             return <CloseButton item={item} onClick={this._removeItem.bind(this)}/>;
         }
