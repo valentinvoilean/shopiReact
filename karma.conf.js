@@ -60,7 +60,6 @@ export default {
     },
     reporters: ['coverage', 'spec'],
     coverageReporter: {
-        dir: 'coverage/',
-        reporters: [{type: 'html'}]
+        reporters: [{type: 'text'}, {type: 'html'}]
     }
 };
