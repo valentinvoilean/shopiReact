@@ -47,7 +47,7 @@ export default {
                 {test: /\.json$/, loader: 'json'}
             ],
             postLoaders: [{ //delays coverage til after tests are run, fixing transpiled source coverage error
-                test: /\.js?$/,
+                test: /^((?!spec).)*\.js$/,
                 include: `${__dirname}/src/js`,
                 loader: 'istanbul-instrumenter'
             }]
