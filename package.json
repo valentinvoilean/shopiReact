@@ -9,8 +9,8 @@
     "watch:theme": "browser-sync start",
     "watch:sass": "babel-node tools/watchSass",
     "lint": "eslint ./src/js/** ./tests/**",
-    "test": "babel-node tools/startTest.js",
-    "test:debug": "babel-node tools/startTest.js debugMode"
+    "test": "karma start",
+    "test:debug": "karma start karma.conf.debug.js"
   },
   "author": "",
   "license": "ISC",

@@ -16,7 +16,7 @@ compiler.watch({
     console.log(stats.toString({
         chunks: false,
         colors: true
-    }))
+    }));
 });
 
 compiler.plugin('done', (stats) => {
