@@ -39,8 +39,7 @@ const Row = props => {
 
 Row.propTypes = {
     tabProps: React.PropTypes.object.isRequired,
-    currentPosition: React.PropTypes.number,
-    multiCells: React.PropTypes.bool
+    currentPosition: React.PropTypes.number
 };
 
 export default Row;

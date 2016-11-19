@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, {PropTypes} from 'react';
 import {Provider, connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
@@ -11,39 +11,35 @@ import {ModalTab} from 'HeaderConfigApp/components';
 import styles from 'HeaderConfigApp/styles/modal.scss';
 import {mediaQueries} from 'HeaderConfigApp/constants/mediaQueries';
 
-class Modal extends Component {
-    static propTypes = {
-        headerConfig: PropTypes.object.isRequired,
-        actions: PropTypes.object.isRequired,
-        store: PropTypes.object.isRequired
-    };
-
-    render() {
-        const {headerConfig, actions, store} = this.props;
-
-        /* eslint-disable react/forbid-component-props  */
-        return (
-            <Provider store={ store }>
-                <div className={styles.background}>
-                    <div className={`container ${styles.base}`}>
-                        <h1 className={styles.h1}>Header Configuration</h1>
-                        <Tabs className={styles.tabs}>
-                            <TabList>
-                                {mediaQueries.map((mediaQuery) => (<Tab key={uuid.v4()}>{mediaQuery}</Tab>))}
-                            </TabList>
-                            { mediaQueries.map((mq) => (
-                                <TabPanel key={uuid.v4()}>
-                                    <ModalTab mediaQuery={mq} headerConfig={headerConfig} actions={actions}/>
-                                </TabPanel>
-                            ))}
-                        </Tabs>
-                    </div>
+const Modal = ({headerConfig, actions, store}) => {
+    /* eslint-disable react/forbid-component-props  */
+    return (
+        <Provider store={ store }>
+            <div className={styles.background}>
+                <div className={`container ${styles.base}`}>
+                    <h1 className={styles.h1}>Header Configuration</h1>
+                    <Tabs className={styles.tabs}>
+                        <TabList>
+                            {mediaQueries.map((mediaQuery) => (<Tab key={uuid.v4()}>{mediaQuery}</Tab>))}
+                        </TabList>
+                        { mediaQueries.map((mq) => (
+                            <TabPanel key={uuid.v4()}>
+                                <ModalTab mediaQuery={mq} headerConfig={headerConfig} actions={actions}/>
+                            </TabPanel>
+                        ))}
+                    </Tabs>
                 </div>
-            </Provider>
-        );
-        /* eslint-enable */
-    }
-}
+            </div>
+        </Provider>
+    );
+    /* eslint-enable */
+};
+
+Modal.propTypes = {
+    headerConfig: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired,
+    store: PropTypes.object.isRequired
+};
 
 function mapStateToProps(state) {
     return {

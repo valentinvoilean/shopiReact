@@ -5,6 +5,10 @@ export class MyAccount extends Component {
         name: 'MyAccount'
     };
 
+    shouldComponentUpdate() {
+        return true;
+    }
+
     render() {
         return (
             <div className="myAccount"> My Account </div>

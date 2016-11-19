@@ -12,6 +12,10 @@ class GeneratedCode extends React.Component {
 
     state = { copied: false };
 
+    shouldComponentUpdate() {
+        return true;
+    }
+
     _onCopy() {
         this.setState({copied: true});
     }

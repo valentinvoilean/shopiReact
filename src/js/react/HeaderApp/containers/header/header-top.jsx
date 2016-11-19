@@ -10,6 +10,10 @@ export default class HeaderTop extends Component {
         data: React.PropTypes.object.isRequired
     };
 
+    shouldComponentUpdate() {
+        return true;
+    }
+
     render() {
         console.warn(this);
 

@@ -16,6 +16,17 @@ class Cell extends Component {
         mediaQuery: PropTypes.string.isRequired
     };
 
+    componentDidMount() {
+        this.sortable = Sortable.create(this.node, {...this.sortableOptions});
+    }
+
+    componentWillUnmount() {
+        if (this.sortable) {
+            this.sortable.destroy();
+            this.sortable = null;
+        }
+    }
+
     sortable = null; // sortable instance
 
     sortableOptions = {
@@ -47,27 +58,6 @@ class Cell extends Component {
         onEnd: this._onItemDropped.bind(this)
     };
 
-    componentDidMount() {
-        this.sortable = Sortable.create(this.node, {...this.sortableOptions});
-    }
-
-    componentWillUnmount() {
-        if (this.sortable) {
-            this.sortable.destroy();
-            this.sortable = null;
-        }
-    }
-
-    render() {
-        const {items, name} = this.props;
-
-        const itemsHTML = items[name] ? items[name].map((item, key) => (
-            <li key={key} data-id={item}><span>{item}</span> {this._showCloseButton(item)} </li>)
-        ) : '';
-
-        return <ul ref={node => this.node = node} data-id={name}> {itemsHTML} </ul>;
-    }
-
     _showCloseButton(item) {
         if (this.props.name === 'Hidden') {
             return false;
@@ -97,6 +87,16 @@ class Cell extends Component {
             positionLists: this.sortable.el.children,
             position: this.sortable.el.dataset.id
         });
+    }
+
+    render() {
+        const {items, name} = this.props;
+
+        const itemsHTML = items[name] ? items[name].map((item, key) => (
+            <li key={key} data-id={item}><span>{item}</span> {this._showCloseButton(item)} </li>)
+        ) : '';
+
+        return <ul ref={node => this.node = node} data-id={name}> {itemsHTML} </ul>;
     }
 }
 

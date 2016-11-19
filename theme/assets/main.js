@@ -3,12 +3,12 @@ webpackJsonp([1],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(252);
+	module.exports = __webpack_require__(256);
 
 
 /***/ },
 
-/***/ 252:
+/***/ 256:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21,13 +21,13 @@ webpackJsonp([1],{
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _header = __webpack_require__(253);
+	var _header = __webpack_require__(257);
 	
-	var _footer = __webpack_require__(416);
+	var _footer = __webpack_require__(420);
 	
-	var _MyAccount = __webpack_require__(418);
+	var _MyAccount = __webpack_require__(422);
 	
-	var _Wishlist = __webpack_require__(419);
+	var _Wishlist = __webpack_require__(423);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -42,7 +42,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 253:
+/***/ 257:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52,19 +52,19 @@ webpackJsonp([1],{
 	});
 	exports.HeaderMain = exports.HeaderTop = exports.HeaderBottom = exports.Header = undefined;
 	
-	var _header = __webpack_require__(254);
+	var _header = __webpack_require__(258);
 	
 	var _header2 = _interopRequireDefault(_header);
 	
-	var _headerBottom = __webpack_require__(255);
+	var _headerBottom = __webpack_require__(259);
 	
 	var _headerBottom2 = _interopRequireDefault(_headerBottom);
 	
-	var _headerTop = __webpack_require__(414);
+	var _headerTop = __webpack_require__(418);
 	
 	var _headerTop2 = _interopRequireDefault(_headerTop);
 	
-	var _headerMain = __webpack_require__(415);
+	var _headerMain = __webpack_require__(419);
 	
 	var _headerMain2 = _interopRequireDefault(_headerMain);
 	
@@ -77,7 +77,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 254:
+/***/ 258:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -92,7 +92,7 @@ webpackJsonp([1],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _ = __webpack_require__(253);
+	var _ = __webpack_require__(257);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -184,7 +184,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 255:
+/***/ 259:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -193,113 +193,94 @@ webpackJsonp([1],{
 	    value: true
 	});
 	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
 	var _react = __webpack_require__(2);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactMatchMedia = __webpack_require__(256);
+	var _reactMatchMedia = __webpack_require__(260);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var HeaderBottom = function HeaderBottom(_ref) {
+	    var data = _ref.data;
 	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var HeaderBottom = function (_Component) {
-	    _inherits(HeaderBottom, _Component);
-	
-	    function HeaderBottom() {
-	        _classCallCheck(this, HeaderBottom);
-	
-	        return _possibleConstructorReturn(this, (HeaderBottom.__proto__ || Object.getPrototypeOf(HeaderBottom)).apply(this, arguments));
-	    }
-	
-	    _createClass(HeaderBottom, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'headerBottom' },
+	    return _react2.default.createElement(
+	        'div',
+	        { className: 'headerBottom' },
+	        _react2.default.createElement(
+	            'div',
+	            { className: 'container' },
+	            _react2.default.createElement(
+	                _reactMatchMedia.MatchMedia,
+	                { mediaQuery: '(max-width: 767px)' },
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'container' },
-	                    _react2.default.createElement(
-	                        _reactMatchMedia.MatchMedia,
-	                        { mediaQuery: '(max-width: 767px)' },
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'headerBottom__items' },
-	                            this.props.data.BottomLeft ? this.props.data.BottomLeft.mobile : ''
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'headerBottom__items' },
-	                            this.props.data.BottomCenter ? this.props.data.BottomCenter.mobile : ''
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'headerBottom__items' },
-	                            this.props.data.BottomRight ? this.props.data.BottomRight.mobile : ''
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        _reactMatchMedia.MatchMedia,
-	                        { mediaQuery: '(min-width: 768px) and (max-width: 1023px)' },
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'headerBottom__items' },
-	                            this.props.data.BottomLeft ? this.props.data.BottomLeft.tablet : ''
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'headerBottom__items' },
-	                            this.props.data.BottomCenter ? this.props.data.BottomCenter.tablet : ''
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'headerBottom__items' },
-	                            this.props.data.BottomRight ? this.props.data.BottomRight.tablet : ''
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        _reactMatchMedia.MatchMedia,
-	                        { mediaQuery: '(min-width: 1024px)' },
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'headerBottom__items' },
-	                            this.props.data.BottomLeft ? this.props.data.BottomLeft.desktop : ''
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'headerBottom__items' },
-	                            this.props.data.BottomCenter ? this.props.data.BottomCenter.desktop : ''
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'headerBottom__items' },
-	                            this.props.data.BottomRight ? this.props.data.BottomRight.desktop : ''
-	                        )
-	                    )
+	                    { className: 'headerBottom__items' },
+	                    data.BottomLeft ? data.BottomLeft.mobile : ''
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'headerBottom__items' },
+	                    data.BottomCenter ? data.BottomCenter.mobile : ''
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'headerBottom__items' },
+	                    data.BottomRight ? data.BottomRight.mobile : ''
 	                )
-	            );
-	        }
-	    }]);
-	
-	    return HeaderBottom;
-	}(_react.Component);
+	            ),
+	            _react2.default.createElement(
+	                _reactMatchMedia.MatchMedia,
+	                { mediaQuery: '(min-width: 768px) and (max-width: 1023px)' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'headerBottom__items' },
+	                    data.BottomLeft ? data.BottomLeft.tablet : ''
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'headerBottom__items' },
+	                    data.BottomCenter ? data.BottomCenter.tablet : ''
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'headerBottom__items' },
+	                    data.BottomRight ? data.BottomRight.tablet : ''
+	                )
+	            ),
+	            _react2.default.createElement(
+	                _reactMatchMedia.MatchMedia,
+	                { mediaQuery: '(min-width: 1024px)' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'headerBottom__items' },
+	                    data.BottomLeft ? data.BottomLeft.desktop : ''
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'headerBottom__items' },
+	                    data.BottomCenter ? data.BottomCenter.desktop : ''
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'headerBottom__items' },
+	                    data.BottomRight ? data.BottomRight.desktop : ''
+	                )
+	            )
+	        )
+	    );
+	};
 	
 	HeaderBottom.propTypes = {
 	    data: _react2.default.PropTypes.object.isRequired
 	};
+	
 	exports.default = HeaderBottom;
 
 /***/ },
 
-/***/ 414:
+/***/ 418:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -314,7 +295,7 @@ webpackJsonp([1],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactMatchMedia = __webpack_require__(256);
+	var _reactMatchMedia = __webpack_require__(260);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -334,6 +315,11 @@ webpackJsonp([1],{
 	    }
 	
 	    _createClass(HeaderTop, [{
+	        key: 'shouldComponentUpdate',
+	        value: function shouldComponentUpdate() {
+	            return true;
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            console.warn(this);
@@ -419,7 +405,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 415:
+/***/ 419:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -434,7 +420,7 @@ webpackJsonp([1],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactMatchMedia = __webpack_require__(256);
+	var _reactMatchMedia = __webpack_require__(260);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -454,6 +440,11 @@ webpackJsonp([1],{
 	    }
 	
 	    _createClass(HeaderMain, [{
+	        key: 'shouldComponentUpdate',
+	        value: function shouldComponentUpdate() {
+	            return true;
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -537,7 +528,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 416:
+/***/ 420:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -547,7 +538,7 @@ webpackJsonp([1],{
 	});
 	exports.Footer = undefined;
 	
-	var _footer = __webpack_require__(417);
+	var _footer = __webpack_require__(421);
 	
 	var _footer2 = _interopRequireDefault(_footer);
 	
@@ -557,7 +548,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 417:
+/***/ 421:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -585,7 +576,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 418:
+/***/ 422:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -619,6 +610,11 @@ webpackJsonp([1],{
 	    }
 	
 	    _createClass(MyAccount, [{
+	        key: 'shouldComponentUpdate',
+	        value: function shouldComponentUpdate() {
+	            return true;
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -638,7 +634,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 419:
+/***/ 423:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -672,6 +668,11 @@ webpackJsonp([1],{
 	    }
 	
 	    _createClass(Wishlist, [{
+	        key: 'shouldComponentUpdate',
+	        value: function shouldComponentUpdate() {
+	            return true;
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(

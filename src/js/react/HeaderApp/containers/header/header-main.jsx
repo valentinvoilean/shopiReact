@@ -10,6 +10,10 @@ export default class HeaderMain extends Component {
         data: React.PropTypes.object.isRequired
     };
 
+    shouldComponentUpdate() {
+        return true;
+    }
+
     render() {
         return (
             <div className="headerMain">
