@@ -16,14 +16,14 @@ const ModalTab = props => {
             <div className="col-md-6">
                 <h2 className={styles.h2}>1. Available components to drag & drop</h2>
                 <div className={styles.componentsContainer}>
-                    <Cell name='Hidden' items={headerConfig[mediaQuery]} mediaQuery={mediaQuery} actions={actions}/>
+                    <Cell name='Hidden' items={headerConfig[mediaQuery]} mediaQuery={mediaQuery} actions={actions} />
                 </div>
             </div>
 
             <div className="col-md-6">
                 <h2 className={styles.h2}>3. Generated code to be copied</h2>
                 <div className={styles.codeContainer}>
-                    <GeneratedCode text={JSON.stringify(headerConfig)} onCopy={_onCopy}/>
+                    <GeneratedCode text={JSON.stringify(headerConfig)} onCopy={_onCopy} />
                 </div>
             </div>
 
@@ -34,9 +34,9 @@ const ModalTab = props => {
                     boxes.</p>
 
                 <div className={styles.header + ' ' + styles[mediaQuery]}>
-                    <Row tabProps={props} currentPosition={0}/>
-                    <Row tabProps={props} currentPosition={1}/>
-                    <Row tabProps={props} currentPosition={2}/>
+                    <Row tabProps={props} currentPosition={0} />
+                    <Row tabProps={props} currentPosition={1} />
+                    <Row tabProps={props} currentPosition={2} />
                 </div>
             </div>
         </div>

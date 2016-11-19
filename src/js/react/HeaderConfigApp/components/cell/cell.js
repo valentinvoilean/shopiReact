@@ -16,6 +16,12 @@ class Cell extends Component {
         mediaQuery: PropTypes.string.isRequired
     };
 
+    constructor(props) {
+        super(props);
+
+        this._removeItem.bind(this);
+    }
+
     componentDidMount() {
         this.sortable = Sortable.create(this.node, {...this.sortableOptions});
     }
@@ -64,7 +70,7 @@ class Cell extends Component {
         }
 
         if (includes(validStates[this.props.mediaQuery].Hidden, item)) {
-            return <CloseButton item={item} onClick={this._removeItem.bind(this)}/>;
+            return <CloseButton item={item} onClick={this._removeItem} />;
         }
     }
 

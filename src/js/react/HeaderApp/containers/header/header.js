@@ -59,9 +59,9 @@ export default class Header extends Component {
         this._sortCompoents();
         return (
             <div className="header">
-                <HeaderTop data={this.HeaderData}/>
-                <HeaderMain data={this.HeaderData}/>
-                <HeaderBottom data={this.HeaderData}/>
+                <HeaderTop data={this.HeaderData} />
+                <HeaderMain data={this.HeaderData} />
+                <HeaderBottom data={this.HeaderData} />
             </div>
         );
     }

@@ -24,7 +24,7 @@ const Modal = ({headerConfig, actions, store}) => {
                         </TabList>
                         { mediaQueries.map((mq) => (
                             <TabPanel key={uuid.v4()}>
-                                <ModalTab mediaQuery={mq} headerConfig={headerConfig} actions={actions}/>
+                                <ModalTab mediaQuery={mq} headerConfig={headerConfig} actions={actions} />
                             </TabPanel>
                         ))}
                     </Tabs>

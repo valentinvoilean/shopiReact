@@ -2,9 +2,15 @@ import React from 'react';
 
 import styles from './closeButton.scss';
 
-const CloseButton = ({onClick, item}) => (
-    <span className={styles.closeButton} onClick={() => onClick(item)}>&#10005;</span>
-);
+const CloseButton = ({onClick, item}) => {
+    const _handleClick = () => {
+        onClick(item);
+    };
+
+    return (
+        <span className={styles.closeButton} onClick={_handleClick}>&#10005;</span>
+    );
+};
 
 CloseButton.propTypes = {
     item: React.PropTypes.string.isRequired,

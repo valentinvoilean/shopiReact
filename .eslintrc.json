@@ -79,7 +79,15 @@
     "react/jsx-closing-bracket-location": "error",
     "react/jsx-curly-spacing": "error",
     "react/jsx-equals-spacing": "error",
-    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"]}]
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"]}],
+    "react/jsx-key": "error",
+    "react/jsx-no-bind": ["error", { "ignoreRefs": true }],
+    "react/jsx-no-comment-textnodes": "error",
+    "react/jsx-no-target-blank": "error",
+    "react/jsx-pascal-case": "error",
+    "react/jsx-space-before-closing": "error",
+    "react/jsx-tag-spacing": "error",
+    "react/jsx-wrap-multilines": "error"
   },
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "env": {
