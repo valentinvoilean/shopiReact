@@ -57,7 +57,12 @@
     "no-duplicate-imports": "error",
     "no-useless-constructor": "error",
     "no-var": "error",
-    "semi": ["error","always"]
+    "semi": ["error","always"],
+    "react/forbid-component-props": "error",
+    "react/forbid-prop-types": ["error", { "forbid": ["any"] }],
+    "react/no-children-prop": "error",
+    "react/no-danger": "error",
+    "react/no-deprecated": "error"
   },
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "env": {

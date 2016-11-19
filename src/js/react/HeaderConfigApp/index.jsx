@@ -6,4 +6,4 @@ import {Modal} from 'HeaderConfigApp/containers';
 
 const headerConfigStore = configureStore();
 
-ReactDOM.render(<Modal store={ headerConfigStore }/>, document.getElementById('configContainer'));
+ReactDOM.render(<Modal store={headerConfigStore} />, document.getElementById('configContainer'));

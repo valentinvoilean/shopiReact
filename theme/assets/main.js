@@ -3,12 +3,12 @@ webpackJsonp([1],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(251);
+	module.exports = __webpack_require__(255);
 
 
 /***/ },
 
-/***/ 251:
+/***/ 255:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21,13 +21,13 @@ webpackJsonp([1],{
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _header = __webpack_require__(252);
+	var _header = __webpack_require__(256);
 	
-	var _footer = __webpack_require__(415);
+	var _footer = __webpack_require__(419);
 	
-	var _MyAccount = __webpack_require__(416);
+	var _MyAccount = __webpack_require__(421);
 	
-	var _Wishlist = __webpack_require__(417);
+	var _Wishlist = __webpack_require__(422);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -42,7 +42,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 252:
+/***/ 256:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50,58 +50,34 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.HeaderMain = exports.HeaderTop = exports.HeaderBottom = exports.Header = undefined;
 	
-	var _header = __webpack_require__(253);
+	var _header = __webpack_require__(257);
 	
-	Object.keys(_header).forEach(function (key) {
-	  if (key === "default" || key === "__esModule") return;
-	  Object.defineProperty(exports, key, {
-	    enumerable: true,
-	    get: function get() {
-	      return _header[key];
-	    }
-	  });
-	});
+	var _header2 = _interopRequireDefault(_header);
 	
-	var _headerBottom = __webpack_require__(254);
+	var _headerBottom = __webpack_require__(258);
 	
-	Object.keys(_headerBottom).forEach(function (key) {
-	  if (key === "default" || key === "__esModule") return;
-	  Object.defineProperty(exports, key, {
-	    enumerable: true,
-	    get: function get() {
-	      return _headerBottom[key];
-	    }
-	  });
-	});
+	var _headerBottom2 = _interopRequireDefault(_headerBottom);
 	
-	var _headerTop = __webpack_require__(413);
+	var _headerTop = __webpack_require__(417);
 	
-	Object.keys(_headerTop).forEach(function (key) {
-	  if (key === "default" || key === "__esModule") return;
-	  Object.defineProperty(exports, key, {
-	    enumerable: true,
-	    get: function get() {
-	      return _headerTop[key];
-	    }
-	  });
-	});
+	var _headerTop2 = _interopRequireDefault(_headerTop);
 	
-	var _headerMain = __webpack_require__(414);
+	var _headerMain = __webpack_require__(418);
 	
-	Object.keys(_headerMain).forEach(function (key) {
-	  if (key === "default" || key === "__esModule") return;
-	  Object.defineProperty(exports, key, {
-	    enumerable: true,
-	    get: function get() {
-	      return _headerMain[key];
-	    }
-	  });
-	});
+	var _headerMain2 = _interopRequireDefault(_headerMain);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.Header = _header2.default;
+	exports.HeaderBottom = _headerBottom2.default;
+	exports.HeaderTop = _headerTop2.default;
+	exports.HeaderMain = _headerMain2.default;
 
 /***/ },
 
-/***/ 253:
+/***/ 257:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -109,7 +85,6 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.Header = undefined;
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -117,7 +92,7 @@ webpackJsonp([1],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _ = __webpack_require__(252);
+	var _ = __webpack_require__(256);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -127,7 +102,7 @@ webpackJsonp([1],{
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var Header = exports.Header = function (_Component) {
+	var Header = function (_Component) {
 	    _inherits(Header, _Component);
 	
 	    function Header(props) {
@@ -203,12 +178,13 @@ webpackJsonp([1],{
 	}(_react.Component);
 	
 	Header.propTypes = {
-	    children: _react2.default.PropTypes.element.isRequired
+	    children: _react2.default.PropTypes.array.isRequired
 	};
+	exports.default = Header;
 
 /***/ },
 
-/***/ 254:
+/***/ 258:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -216,7 +192,6 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.HeaderBottom = undefined;
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -224,7 +199,7 @@ webpackJsonp([1],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactMatchMedia = __webpack_require__(255);
+	var _reactMatchMedia = __webpack_require__(259);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -234,7 +209,7 @@ webpackJsonp([1],{
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var HeaderBottom = exports.HeaderBottom = function (_Component) {
+	var HeaderBottom = function (_Component) {
 	    _inherits(HeaderBottom, _Component);
 	
 	    function HeaderBottom() {
@@ -320,10 +295,11 @@ webpackJsonp([1],{
 	HeaderBottom.propTypes = {
 	    data: _react2.default.PropTypes.object.isRequired
 	};
+	exports.default = HeaderBottom;
 
 /***/ },
 
-/***/ 413:
+/***/ 417:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -331,7 +307,6 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.HeaderTop = undefined;
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -339,7 +314,7 @@ webpackJsonp([1],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactMatchMedia = __webpack_require__(255);
+	var _reactMatchMedia = __webpack_require__(259);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -349,7 +324,7 @@ webpackJsonp([1],{
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var HeaderTop = exports.HeaderTop = function (_Component) {
+	var HeaderTop = function (_Component) {
 	    _inherits(HeaderTop, _Component);
 	
 	    function HeaderTop() {
@@ -440,10 +415,11 @@ webpackJsonp([1],{
 	HeaderTop.propTypes = {
 	    data: _react2.default.PropTypes.object.isRequired
 	};
+	exports.default = HeaderTop;
 
 /***/ },
 
-/***/ 414:
+/***/ 418:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -451,7 +427,6 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.HeaderMain = undefined;
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -459,7 +434,7 @@ webpackJsonp([1],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactMatchMedia = __webpack_require__(255);
+	var _reactMatchMedia = __webpack_require__(259);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -469,7 +444,7 @@ webpackJsonp([1],{
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var HeaderMain = exports.HeaderMain = function (_Component) {
+	var HeaderMain = function (_Component) {
 	    _inherits(HeaderMain, _Component);
 	
 	    function HeaderMain() {
@@ -558,10 +533,31 @@ webpackJsonp([1],{
 	HeaderMain.propTypes = {
 	    data: _react2.default.PropTypes.object.isRequired
 	};
+	exports.default = HeaderMain;
 
 /***/ },
 
-/***/ 415:
+/***/ 419:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Footer = undefined;
+	
+	var _footer = __webpack_require__(420);
+	
+	var _footer2 = _interopRequireDefault(_footer);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.Footer = _footer2.default;
+
+/***/ },
+
+/***/ 420:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -569,9 +565,7 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.Footer = undefined;
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	exports.default = Footer;
 	
 	var _react = __webpack_require__(2);
 	
@@ -579,38 +573,19 @@ webpackJsonp([1],{
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	function Footer() {
+	    return _react2.default.createElement(
+	        'div',
+	        null,
+	        ' I am the footer!! '
+	    );
+	}
 	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Footer = exports.Footer = function (_Component) {
-	    _inherits(Footer, _Component);
-	
-	    function Footer() {
-	        _classCallCheck(this, Footer);
-	
-	        return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).apply(this, arguments));
-	    }
-	
-	    _createClass(Footer, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                'I am the footer!!'
-	            );
-	        }
-	    }]);
-
-	    return Footer;
-	}(_react.Component);
+	Footer.displayName = 'Footer';
 
 /***/ },
 
-/***/ 416:
+/***/ 421:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -663,7 +638,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 417:
+/***/ 422:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

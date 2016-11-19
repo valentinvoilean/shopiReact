@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 import {HeaderTop, HeaderBottom, HeaderMain} from './';
 
-export class Header extends Component {
+export default class Header extends Component {
     static propTypes = {
-        children: React.PropTypes.element.isRequired
+        children: React.PropTypes.array.isRequired
     };
 
     constructor(props) {

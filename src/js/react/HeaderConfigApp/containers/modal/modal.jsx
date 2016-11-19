@@ -21,6 +21,7 @@ class Modal extends Component {
     render() {
         const {headerConfig, actions, store} = this.props;
 
+        /* eslint-disable react/forbid-component-props  */
         return (
             <Provider store={ store }>
                 <div className={styles.background}>
@@ -40,6 +41,7 @@ class Modal extends Component {
                 </div>
             </Provider>
         );
+        /* eslint-enable */
     }
 }
 

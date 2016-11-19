@@ -18,7 +18,7 @@ module.exports = function (config) {
         webpack: { //kind of a copy of your webpack config
             devtool: 'inline-source-map', //just do inline source maps instead of the default
             resolve: {
-                extensions: ['', '.js', '.svg'],
+                extensions: ['', '.js', '.jsx', '.svg'],
                 modulesDirectories: ['src/js', 'node_modules'],
                 alias: {
                     'HeaderConfigApp': 'react/HeaderConfigApp',
@@ -36,7 +36,7 @@ module.exports = function (config) {
             module: {
                 noParse: ['jquery'],
                 loaders: [
-                    {test: /\.js?$/, include: `${__dirname}/src/js`, loader: 'babel-loader'},
+                    {test: /\.jsx?$/, include: `${__dirname}/src/js`, loader: 'babel-loader'},
                     {test: /\.svg$/, loader: 'svg-sprite'},
                     {test: /\.modernizrrc$/, loader: 'modernizr'},
                     {test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file'},
@@ -52,7 +52,7 @@ module.exports = function (config) {
                     {test: /\.json$/, loader: 'json'}
                 ],
                 postLoaders: [{ //delays coverage til after tests are run, fixing transpiled source coverage error
-                    test: /^((?!spec).)*\.js$/,
+                    test: /^((?!spec).)*\.jsx?$/,
                     include: `${__dirname}/src/js`,
                     loader: 'istanbul-instrumenter'
                 }]
