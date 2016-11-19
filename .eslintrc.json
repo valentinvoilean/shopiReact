@@ -1,8 +1,6 @@
 {
   "parser": "babel-eslint",
-  "plugins": [
-    "react"
-  ],
+  "plugins": ["react", "jsx-a11y"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -89,7 +87,7 @@
     "react/jsx-tag-spacing": "error",
     "react/jsx-wrap-multilines": "error"
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:jsx-a11y/recommended"],
   "env": {
     "browser": true,
     "node": true,

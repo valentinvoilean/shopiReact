@@ -8,7 +8,7 @@ const CloseButton = ({onClick, item}) => {
     };
 
     return (
-        <span className={styles.closeButton} onClick={_handleClick}>&#10005;</span>
+        <button className={styles.closeButton} onClick={_handleClick}>&#10005;</button>
     );
 };
 
