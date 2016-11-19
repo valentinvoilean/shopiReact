@@ -19,7 +19,7 @@ class Cell extends Component {
     constructor(props) {
         super(props);
 
-        this._removeItem.bind(this);
+        this._removeItem = this._removeItem.bind(this);
     }
 
     componentDidMount() {
