@@ -3,12 +3,12 @@ webpackJsonp([1],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(249);
+	module.exports = __webpack_require__(251);
 
 
 /***/ },
 
-/***/ 249:
+/***/ 251:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17,17 +17,17 @@ webpackJsonp([1],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactDom = __webpack_require__(35);
+	var _reactDom = __webpack_require__(33);
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _header = __webpack_require__(250);
+	var _header = __webpack_require__(252);
 	
-	var _footer = __webpack_require__(413);
+	var _footer = __webpack_require__(415);
 	
-	var _MyAccount = __webpack_require__(414);
+	var _MyAccount = __webpack_require__(416);
 	
-	var _Wishlist = __webpack_require__(415);
+	var _Wishlist = __webpack_require__(417);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -42,7 +42,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 250:
+/***/ 252:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51,7 +51,7 @@ webpackJsonp([1],{
 	  value: true
 	});
 	
-	var _header = __webpack_require__(251);
+	var _header = __webpack_require__(253);
 	
 	Object.keys(_header).forEach(function (key) {
 	  if (key === "default" || key === "__esModule") return;
@@ -63,7 +63,7 @@ webpackJsonp([1],{
 	  });
 	});
 	
-	var _headerBottom = __webpack_require__(252);
+	var _headerBottom = __webpack_require__(254);
 	
 	Object.keys(_headerBottom).forEach(function (key) {
 	  if (key === "default" || key === "__esModule") return;
@@ -75,7 +75,7 @@ webpackJsonp([1],{
 	  });
 	});
 	
-	var _headerTop = __webpack_require__(411);
+	var _headerTop = __webpack_require__(413);
 	
 	Object.keys(_headerTop).forEach(function (key) {
 	  if (key === "default" || key === "__esModule") return;
@@ -87,7 +87,7 @@ webpackJsonp([1],{
 	  });
 	});
 	
-	var _headerMain = __webpack_require__(412);
+	var _headerMain = __webpack_require__(414);
 	
 	Object.keys(_headerMain).forEach(function (key) {
 	  if (key === "default" || key === "__esModule") return;
@@ -101,7 +101,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 251:
+/***/ 253:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -117,7 +117,7 @@ webpackJsonp([1],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _ = __webpack_require__(250);
+	var _ = __webpack_require__(252);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -198,13 +198,17 @@ webpackJsonp([1],{
 	            );
 	        }
 	    }]);
-
+	
 	    return Header;
 	}(_react.Component);
+	
+	Header.propTypes = {
+	    children: _react2.default.PropTypes.element.isRequired
+	};
 
 /***/ },
 
-/***/ 252:
+/***/ 254:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -220,7 +224,7 @@ webpackJsonp([1],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactMatchMedia = __webpack_require__(253);
+	var _reactMatchMedia = __webpack_require__(255);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -309,13 +313,17 @@ webpackJsonp([1],{
 	            );
 	        }
 	    }]);
-
+	
 	    return HeaderBottom;
 	}(_react.Component);
+	
+	HeaderBottom.propTypes = {
+	    data: _react2.default.PropTypes.object.isRequired
+	};
 
 /***/ },
 
-/***/ 411:
+/***/ 413:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -331,7 +339,7 @@ webpackJsonp([1],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactMatchMedia = __webpack_require__(253);
+	var _reactMatchMedia = __webpack_require__(255);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -429,10 +437,13 @@ webpackJsonp([1],{
 	HeaderTop.defaultProps = {
 	    name: 'HeaderTop'
 	};
+	HeaderTop.propTypes = {
+	    data: _react2.default.PropTypes.object.isRequired
+	};
 
 /***/ },
 
-/***/ 412:
+/***/ 414:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -448,7 +459,7 @@ webpackJsonp([1],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactMatchMedia = __webpack_require__(253);
+	var _reactMatchMedia = __webpack_require__(255);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -544,10 +555,13 @@ webpackJsonp([1],{
 	HeaderMain.defaultProps = {
 	    name: 'HeaderMain'
 	};
+	HeaderMain.propTypes = {
+	    data: _react2.default.PropTypes.object.isRequired
+	};
 
 /***/ },
 
-/***/ 413:
+/***/ 415:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -596,7 +610,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 414:
+/***/ 416:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -649,7 +663,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 415:
+/***/ 417:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

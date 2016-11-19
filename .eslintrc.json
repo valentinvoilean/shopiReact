@@ -9,8 +9,6 @@
     }
   },
   "rules": {
-    "react/jsx-uses-vars": "error",
-    "react/jsx-uses-react": "error",
     "no-console": [ "warn"],
     "no-alert": ["error"],
     "no-dupe-args": "error",
@@ -61,6 +59,7 @@
     "no-var": "error",
     "semi": ["error","always"]
   },
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
   "env": {
     "browser": true,
     "node": true,

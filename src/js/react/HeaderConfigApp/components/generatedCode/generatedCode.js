@@ -5,7 +5,9 @@ import styles from 'HeaderConfigApp/styles/modal.scss';
 
 class GeneratedCode extends React.Component {
     static propTypes = {
-        text: React.PropTypes.string.isRequired
+        text: React.PropTypes.string.isRequired,
+        onCopy: React.PropTypes.func.isRequired,
+        copied: React.PropTypes.string
     };
 
     state = { copied: false };

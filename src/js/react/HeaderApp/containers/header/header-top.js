@@ -6,6 +6,10 @@ export class HeaderTop extends Component {
         name: 'HeaderTop'
     };
 
+    static propTypes = {
+        data: React.PropTypes.object.isRequired
+    };
+
     render() {
         console.warn(this);
 

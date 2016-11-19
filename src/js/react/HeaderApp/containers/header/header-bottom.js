@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { MatchMedia } from 'react-match-media';
 
 export class HeaderBottom extends Component {
+    static propTypes = {
+        data: React.PropTypes.object.isRequired
+    };
 
     render() {
         return (

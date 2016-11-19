@@ -6,6 +6,10 @@ export class HeaderMain extends Component {
         name: 'HeaderMain'
     };
 
+    static propTypes = {
+        data: React.PropTypes.object.isRequired
+    };
+
     render() {
         return (
             <div className="headerMain">

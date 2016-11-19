@@ -3,6 +3,10 @@ import React, { Component } from 'react';
 import {HeaderTop, HeaderBottom, HeaderMain} from './';
 
 export class Header extends Component {
+    static propTypes = {
+        children: React.PropTypes.element.isRequired
+    };
+
     constructor(props) {
         super(props);
 

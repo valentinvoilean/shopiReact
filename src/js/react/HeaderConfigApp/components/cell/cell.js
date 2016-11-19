@@ -1,5 +1,4 @@
 import React, {Component, PropTypes} from 'react';
-import ReactDOM from 'react-dom';
 import {includes} from 'lodash';
 import Sortable from 'sortablejs';
 
@@ -49,7 +48,7 @@ class Cell extends Component {
     };
 
     componentDidMount() {
-        this.sortable = Sortable.create(ReactDOM.findDOMNode(this), {...this.sortableOptions});
+        this.sortable = Sortable.create(this.node, {...this.sortableOptions});
     }
 
     componentWillUnmount() {
@@ -66,7 +65,7 @@ class Cell extends Component {
             <li key={key} data-id={item}><span>{item}</span> {this._showCloseButton(item)} </li>)
         ) : '';
 
-        return <ul data-id={name}> {itemsHTML} </ul>;
+        return <ul ref={node => this.node = node} data-id={name}> {itemsHTML} </ul>;
     }
 
     _showCloseButton(item) {
@@ -77,7 +76,7 @@ class Cell extends Component {
         if (includes(validStates[this.props.mediaQuery].Hidden, item)) {
             return <CloseButton item={item} onClick={this._removeItem.bind(this)}/>;
         }
-    };
+    }
 
     _onItemDropped({to, from}) {
         const {actions, mediaQuery} = this.props;
