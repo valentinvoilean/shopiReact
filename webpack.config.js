@@ -13,8 +13,8 @@ export default {
     entry: {
         vendors: ['babel-polyfill', 'modernizr', 'picturefill', 'react', 'react-dom', 'react-match-media',
             'react-redux', 'redux', 'redux-devtools-extension', 'jquery', 'jquery.currencies.js'],
-        config: ['HeaderConfigApp/index.jsx'],
-        main: ['HeaderApp/index.jsx']
+        config: ['HeaderConfigApp/index.js'],
+        main: ['HeaderApp/index.js']
     },
 
     target: 'web', // necessary for https://webpack.github.io/docs/testing.html#compile-and-test

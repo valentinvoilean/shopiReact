@@ -14,7 +14,7 @@ import {mediaQueries} from 'HeaderConfigApp/constants/mediaQueries';
 const Modal = ({headerConfig, actions, store}) => {
     /* eslint-disable react/forbid-component-props  */
     return (
-        <Provider store={ store }>
+        <Provider store={store}>
             <div className={styles.background}>
                 <div className={`container ${styles.base}`}>
                     <h1 className={styles.h1}>Header Configuration</h1>

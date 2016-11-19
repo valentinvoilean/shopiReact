@@ -19,7 +19,8 @@ const Row = props => {
                               name={`${verticalPositions[currentPosition]}${pos}`}
                               items={headerConfig[mediaQuery]}
                               mediaQuery={mediaQuery}
-                              actions={actions}/>
+                              actions={actions}
+                        />
                     )
                 )
             }
@@ -32,7 +33,8 @@ const Row = props => {
             <Cell name={verticalPositions[currentPosition]}
                   items={headerConfig[mediaQuery]}
                   mediaQuery={mediaQuery}
-                  actions={actions}/>
+                  actions={actions}
+            />
         </div>
     );
 };
