@@ -1,35 +1,11 @@
 import React from 'react';
-import uuid from 'uuid';
 
-import {Cell, GeneratedCode} from 'HeaderConfigApp/components';
+import {Row, Cell, GeneratedCode} from 'HeaderConfigApp/components';
 
-import {horizontalPositions, verticalPositions} from 'HeaderConfigApp/constants/positions';
 import styles from 'HeaderConfigApp/styles/modal.scss';
 
 const ModalTab = props => {
     const {mediaQuery, headerConfig, actions} = props;
-
-    const _getCells = (curPos) => {
-        return horizontalPositions.map(
-            (pos) => (
-                <Cell key={uuid.v4()}
-                      name={`${verticalPositions[curPos]}${pos}`}
-                      items={headerConfig[mediaQuery]}
-                      mediaQuery={mediaQuery}
-                      actions={actions}/>
-            )
-        );
-    };
-
-    const _getCell = (curPos) => {
-        return (
-            <Cell name={curPos === void 0 ? 'Hidden' : `${verticalPositions[curPos]}`}
-                  items={headerConfig[mediaQuery]}
-                  mediaQuery={mediaQuery}
-                  actions={actions}/>
-        );
-
-    };
 
     const _onCopy = () => {
       console.log('on Copy');
@@ -39,7 +15,9 @@ const ModalTab = props => {
         <div>
             <div className="col-md-6">
                 <h2 className={styles.h2}>1. Available components to drag & drop</h2>
-                <div className={styles.componentsContainer}> {_getCell()} </div>
+                <div className={styles.componentsContainer}>
+                    <Cell name='Hidden' items={headerConfig[mediaQuery]} mediaQuery={mediaQuery} actions={actions}/>
+                </div>
             </div>
 
             <div className="col-md-6">
@@ -56,9 +34,9 @@ const ModalTab = props => {
                     boxes.</p>
 
                 <div className={styles.header + ' ' + styles[mediaQuery]}>
-                    <div className={styles.headerArea}>{_getCells(0)}</div>
-                    <div className={styles.headerArea}>{mediaQuery !== 'mobile' ? _getCells(1) : _getCell(1)}</div>
-                    <div className={styles.headerArea}>{mediaQuery !== 'mobile' ? _getCells(2) : _getCell(2)}</div>
+                    <Row tabProps={props} currentPosition={0}/>
+                    <Row tabProps={props} currentPosition={1}/>
+                    <Row tabProps={props} currentPosition={2}/>
                 </div>
             </div>
         </div>
