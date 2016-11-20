@@ -1,20 +1,31 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
+import {includes} from 'lodash';
 
 import styles from './closeButton.scss';
+import {validStates} from 'HeaderConfigApp/constants/states';
 
-const CloseButton = ({onClick, item}) => {
+const CloseButton = ({onClick, item, mediaQuery, cellName}) => {
     const _handleClick = () => {
         onClick(item);
     };
 
-    return (
-        <button className={styles.closeButton} onClick={_handleClick}>&#10005;</button>
-    );
+    if (cellName === 'Hidden') {
+        return null;
+    }
+
+    if (includes(validStates[mediaQuery].Hidden, item)) {
+        return (<button className={styles.closeButton} onClick={_handleClick}>&#10005;</button>);
+    }
+    else {
+        return null;
+    }
 };
 
 CloseButton.propTypes = {
-    item: React.PropTypes.string.isRequired,
-    onClick: React.PropTypes.func.isRequired
+    item: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
+    mediaQuery: PropTypes.string.isRequired,
+    cellName: PropTypes.string.isRequired
 };
 
 export default CloseButton;

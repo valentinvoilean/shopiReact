@@ -2,8 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {includes} from 'lodash';
 import Sortable from 'sortablejs';
 
-import {CloseButton} from 'HeaderConfigApp/components';
-
+import CellView from './cell.view';
 import styles from 'HeaderConfigApp/styles/modal.scss';
 import {validStates} from 'HeaderConfigApp/constants/states';
 
@@ -19,11 +18,12 @@ class CellContainer extends Component {
     constructor(props) {
         super(props);
 
-        this._removeItem = this._removeItem.bind(this);
+        this._handleCloseButton = this._handleCloseButton.bind(this);
+        this._handleCellRef = this._handleCellRef.bind(this);
     }
 
     componentDidMount() {
-        this.sortable = Sortable.create(this.node, {...this.sortableOptions});
+        this.sortable = Sortable.create(this.cellRef, {...this.sortableOptions});
     }
 
     componentWillUnmount() {
@@ -64,16 +64,6 @@ class CellContainer extends Component {
         onEnd: this._onItemDropped.bind(this)
     };
 
-    _showCloseButton(item) {
-        if (this.props.name === 'Hidden') {
-            return false;
-        }
-
-        if (includes(validStates[this.props.mediaQuery].Hidden, item)) {
-            return <CloseButton item={item} onClick={this._removeItem} />;
-        }
-    }
-
     _onItemDropped({to, from}) {
         const {actions, mediaQuery} = this.props;
 
@@ -85,7 +75,7 @@ class CellContainer extends Component {
         });
     }
 
-    _removeItem(item) {
+    _handleCloseButton(item) {
         const {items, actions, mediaQuery} = this.props;
 
         actions.remove({
@@ -95,14 +85,21 @@ class CellContainer extends Component {
         });
     }
 
+    _handleCellRef(cellRef) {
+        this.cellRef = cellRef;
+    }
+
     render() {
-        const {items, name} = this.props;
+        const {items, name, mediaQuery} = this.props;
 
-        const itemsHTML = items[name] ? items[name].map((item, key) => (
-            <li key={key} data-id={item}><span>{item}</span> {this._showCloseButton(item)} </li>)
-        ) : '';
-
-        return <ul ref={node => this.node = node} data-id={name}> {itemsHTML} </ul>;
+        return (
+            <CellView cellRef={this._handleCellRef}
+                      items={items}
+                      name={name}
+                      onClickCloseButton={this._handleCloseButton}
+                      mediaQuery={mediaQuery}
+            />
+        );
     }
 }
 
