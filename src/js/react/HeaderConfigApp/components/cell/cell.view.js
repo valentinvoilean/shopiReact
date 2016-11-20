@@ -1,12 +1,12 @@
 import React, {PropTypes} from 'react';
 
-import {CloseButton} from 'HeaderConfigApp/components';
+import {CloseButtonView} from 'HeaderConfigApp/components';
 
 const CellView = ({items, name, onClickCloseButton, mediaQuery, cellRef}) => {
 
     const itemsHTML = items[name] ? items[name].map((item, key) => (
         <li key={key} data-id={item}><span>{item}</span>
-            <CloseButton cellName={name}
+            <CloseButtonView cellName={name}
                          item={item}
                          onClick={onClickCloseButton}
                          mediaQuery={mediaQuery}

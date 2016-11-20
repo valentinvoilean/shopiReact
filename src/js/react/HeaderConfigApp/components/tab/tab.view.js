@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {RowView, CellContainer, GeneratedCode} from 'HeaderConfigApp/components';
+import {RowView, CellContainer, CodeContainer} from 'HeaderConfigApp/components';
 
 import styles from 'HeaderConfigApp/styles/modal.scss';
 
@@ -23,7 +23,7 @@ const TabView = props => {
             <div className="col-md-6">
                 <h2 className={styles.h2}>3. Generated code to be copied</h2>
                 <div className={styles.codeContainer}>
-                    <GeneratedCode text={JSON.stringify(headerConfig)} />
+                    <CodeContainer text={JSON.stringify(headerConfig)} />
                 </div>
             </div>
 
