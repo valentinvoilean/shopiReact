@@ -1,21 +1,37 @@
 import React, {Component, PropTypes} from 'react';
-import ReactDOM from 'react-dom';
 import {includes} from 'lodash';
 import Sortable from 'sortablejs';
 
-import {CloseButton} from 'HeaderConfigApp/components';
-
+import CellView from './cell.view';
 import styles from 'HeaderConfigApp/styles/modal.scss';
 import {validStates} from 'HeaderConfigApp/constants/states';
 
 // Functional Component
-class Cell extends Component {
+class CellContainer extends Component {
     static propTypes = {
         items: PropTypes.object.isRequired,
         name: PropTypes.string.isRequired,
         actions: PropTypes.object.isRequired,
         mediaQuery: PropTypes.string.isRequired
     };
+
+    constructor(props) {
+        super(props);
+
+        this._handleCloseButton = this._handleCloseButton.bind(this);
+        this._handleCellRef = this._handleCellRef.bind(this);
+    }
+
+    componentDidMount() {
+        this.sortable = Sortable.create(this.cellRef, {...this.sortableOptions});
+    }
+
+    componentWillUnmount() {
+        if (this.sortable) {
+            this.sortable.destroy();
+            this.sortable = null;
+        }
+    }
 
     sortable = null; // sortable instance
 
@@ -48,37 +64,6 @@ class Cell extends Component {
         onEnd: this._onItemDropped.bind(this)
     };
 
-    componentDidMount() {
-        this.sortable = Sortable.create(ReactDOM.findDOMNode(this), {...this.sortableOptions});
-    }
-
-    componentWillUnmount() {
-        if (this.sortable) {
-            this.sortable.destroy();
-            this.sortable = null;
-        }
-    }
-
-    render() {
-        const {items, name} = this.props;
-
-        const itemsHTML = items[name] ? items[name].map((item, key) => (
-            <li key={key} data-id={item}><span>{item}</span> {this._showCloseButton(item)} </li>)
-        ) : '';
-
-        return <ul data-id={name}> {itemsHTML} </ul>;
-    }
-
-    _showCloseButton(item) {
-        if (this.props.name === 'Hidden') {
-            return false;
-        }
-
-        if (includes(validStates[this.props.mediaQuery].Hidden, item)) {
-            return <CloseButton item={item} onClick={this._removeItem.bind(this)}/>;
-        }
-    };
-
     _onItemDropped({to, from}) {
         const {actions, mediaQuery} = this.props;
 
@@ -90,7 +75,7 @@ class Cell extends Component {
         });
     }
 
-    _removeItem(item) {
+    _handleCloseButton(item) {
         const {items, actions, mediaQuery} = this.props;
 
         actions.remove({
@@ -99,6 +84,23 @@ class Cell extends Component {
             position: this.sortable.el.dataset.id
         });
     }
+
+    _handleCellRef(cellRef) {
+        this.cellRef = cellRef;
+    }
+
+    render() {
+        const {items, name, mediaQuery} = this.props;
+
+        return (
+            <CellView cellRef={this._handleCellRef}
+                      items={items}
+                      name={name}
+                      onClickCloseButton={this._handleCloseButton}
+                      mediaQuery={mediaQuery}
+            />
+        );
+    }
 }
 
-export default Cell;
+export default CellContainer;

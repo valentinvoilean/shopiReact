@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 
 import {HeaderTop, HeaderBottom, HeaderMain} from './';
 
-export class Header extends Component {
+export default class Header extends Component {
+    static propTypes = {
+        children: React.PropTypes.array.isRequired
+    };
+
     constructor(props) {
         super(props);
 
@@ -55,9 +59,9 @@ export class Header extends Component {
         this._sortCompoents();
         return (
             <div className="header">
-                <HeaderTop data={this.HeaderData}/>
-                <HeaderMain data={this.HeaderData}/>
-                <HeaderBottom data={this.HeaderData}/>
+                <HeaderTop data={this.HeaderData} />
+                <HeaderMain data={this.HeaderData} />
+                <HeaderBottom data={this.HeaderData} />
             </div>
         );
     }

@@ -5,6 +5,10 @@ export class Wishlist extends Component {
         name: 'Wishlist'
     };
 
+    shouldComponentUpdate() {
+        return true;
+    }
+
     render() {
         return (
             <div> Wishlist </div>

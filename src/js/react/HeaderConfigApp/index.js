@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
 import configureStore from './store/configureStore';
-import {Modal} from 'HeaderConfigApp/containers';
+import {ModalContainer} from 'HeaderConfigApp/components';
 
 const headerConfigStore = configureStore();
 
-ReactDOM.render(<Modal store={ headerConfigStore }/>, document.getElementById('configContainer'));
+ReactDOM.render(
+    <Provider store={headerConfigStore}>
+        <ModalContainer />
+    </Provider>, document.getElementById('configContainer'));

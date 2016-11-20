@@ -8,7 +8,7 @@ import { getInitialState, validateState } from 'HeaderConfigApp/utils/modalUtil'
 export default (state = getInitialState(), action) => {
     switch (action.type) {
         case SAVE_HEADER_SETTINGS:
-        case REMOVE_HEADER_ITEM:
+        case REMOVE_HEADER_ITEM: {
             const mediaQuery = Object.keys(action.payload)[0];
             const newPositions = action.payload[mediaQuery];
 
@@ -19,10 +19,10 @@ export default (state = getInitialState(), action) => {
                 console.warn('Component\'s name or its properties are not defined.');
                 return validateState(state);
             }
+        }
 
-            break;
-
-        default:
+        default: {
             return validateState(state);
+        }
     }
 };

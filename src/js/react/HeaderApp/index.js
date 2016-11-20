@@ -8,9 +8,9 @@ import { Wishlist } from './components/Wishlist/Wishlist';
 
 ReactDOM.render(
     <Header>
-        <MyAccount/>
-        <Wishlist/>
+        <MyAccount />
+        <Wishlist />
     </Header>
     , document.getElementsByTagName('header')[0]);
 
-ReactDOM.render(<Footer/>, document.getElementsByTagName('footer')[0]);
+ReactDOM.render(<Footer />, document.getElementsByTagName('footer')[0]);

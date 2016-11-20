@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import {MatchMedia} from 'react-match-media';
 
-export class HeaderMain extends Component {
+export default class HeaderMain extends Component {
     static defaultProps = {
         name: 'HeaderMain'
     };
+
+    static propTypes = {
+        data: React.PropTypes.object.isRequired
+    };
+
+    shouldComponentUpdate() {
+        return true;
+    }
 
     render() {
         return (

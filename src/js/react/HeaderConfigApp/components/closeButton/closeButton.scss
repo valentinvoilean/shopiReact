@@ -2,12 +2,19 @@
     display: inline-block;
     color: white;
     font-size: 10px;
-    line-height: 25px;
+    line-height: 10px;
     margin-left: 5px;
     cursor: pointer;
     transition: transform .5s;
+    padding: 0;
+    background: none;
+    border: 0;
 
     &:hover {
         transform: rotate(1turn);
+    }
+
+    &:focus {
+        outline: 1px solid darkblue;
     }
 }
