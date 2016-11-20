@@ -8,7 +8,7 @@ import styles from 'HeaderConfigApp/styles/modal.scss';
 import {validStates} from 'HeaderConfigApp/constants/states';
 
 // Functional Component
-class Cell extends Component {
+class CellContainer extends Component {
     static propTypes = {
         items: PropTypes.object.isRequired,
         name: PropTypes.string.isRequired,
@@ -106,4 +106,4 @@ class Cell extends Component {
     }
 }
 
-export default Cell;
+export default CellContainer;

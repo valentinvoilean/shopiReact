@@ -1,10 +1,10 @@
 import React from 'react';
 import uuid from 'uuid';
-import {Cell} from 'HeaderConfigApp/components';
+import {CellContainer} from 'HeaderConfigApp/components';
 import {horizontalPositions, verticalPositions} from 'HeaderConfigApp/constants/positions';
 import styles from 'HeaderConfigApp/styles/modal.scss';
 
-const Row = props => {
+const RowView = props => {
     const {tabProps, currentPosition} = props;
     const {mediaQuery, headerConfig, actions} = tabProps;
     const multiCells = mediaQuery !== 'mobile' || currentPosition === 0;
@@ -15,7 +15,7 @@ const Row = props => {
             {
                 horizontalPositions.map(
                     (pos) => (
-                        <Cell key={uuid.v4()}
+                        <CellContainer key={uuid.v4()}
                               name={`${verticalPositions[currentPosition]}${pos}`}
                               items={headerConfig[mediaQuery]}
                               mediaQuery={mediaQuery}
@@ -30,7 +30,7 @@ const Row = props => {
 
     return (
         <div className={styles.headerArea}>
-            <Cell name={verticalPositions[currentPosition]}
+            <CellContainer name={verticalPositions[currentPosition]}
                   items={headerConfig[mediaQuery]}
                   mediaQuery={mediaQuery}
                   actions={actions}
@@ -39,9 +39,9 @@ const Row = props => {
     );
 };
 
-Row.propTypes = {
+RowView.propTypes = {
     tabProps: React.PropTypes.object.isRequired,
     currentPosition: React.PropTypes.number
 };
 
-export default Row;
+export default RowView;

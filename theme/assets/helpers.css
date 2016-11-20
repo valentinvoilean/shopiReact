@@ -1,4 +1,4 @@
-.modal__background___mDJI- {
+.modal__background___1zrUM {
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
   z-index: 999;
@@ -9,7 +9,7 @@
   left: 0;
 }
 
-.modal__base___2BPmY {
+.modal__base___1Jp10 {
   background: white;
   padding: 0 0 20px;
   position: relative;
@@ -22,7 +22,7 @@
           user-select: none;
 }
 
-.modal__base___2BPmY * {
+.modal__base___1Jp10 * {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -30,29 +30,7 @@
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 }
 
-.modal__tabs___311oU {
-  padding: 20px;
-}
-
-.modal__tabs___311oU > ul[role=tablist] {
-  border-bottom: 1px solid #e4e4e4;
-  margin-bottom: 20px;
-}
-
-.modal__tabs___311oU > ul > li {
-  margin-left: 5px;
-  border-radius: 5px 5px 0 0;
-  color: #337ab7;
-  text-transform: capitalize;
-}
-
-.modal__tabs___311oU > ul > li[role=tab][aria-selected=true] {
-  padding: 10px 12px;
-  color: #555;
-  border-color: #e4e4e4;
-}
-
-.modal__h1___3fear {
+.modal__h1___1cKTD {
   font-size: 24px;
   font-weight: bold;
   padding: 20px;
@@ -60,7 +38,27 @@
   margin: 0;
 }
 
-.modal__h2___zz4eu {
+.modal__tabs___1SyxV {
+  padding: 20px;
+}
+
+.modal__tabs___1SyxV > ul[role=tablist] {
+  border-bottom: 1px solid #e4e4e4;
+  margin-bottom: 20px;
+}
+
+.modal__tabs___1SyxV > ul > li {
+  margin-left: 5px;
+  border-radius: 5px 5px 0 0;
+  color: #337ab7;
+  text-transform: capitalize;
+}
+
+.modal__tabs___1SyxV > ul > li[role=tab][aria-selected=true] {
+  padding: 10px 12px;
+  color: #555;
+  border-color: #e4e4e4;
+}.modal__h2___zz4eu {
   background: #2F5A59;
   color: white;
   padding: 5px 10px;

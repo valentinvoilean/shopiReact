@@ -1,10 +1,10 @@
 import React from 'react';
 
-import {Row, Cell, GeneratedCode} from 'HeaderConfigApp/components';
+import {RowView, CellContainer, GeneratedCode} from 'HeaderConfigApp/components';
 
 import styles from 'HeaderConfigApp/styles/modal.scss';
 
-const ModalTab = props => {
+const TabView = props => {
     const {mediaQuery, headerConfig, actions} = props;
 
     return (
@@ -12,7 +12,11 @@ const ModalTab = props => {
             <div className="col-md-6">
                 <h2 className={styles.h2}>1. Available components to drag & drop</h2>
                 <div className={styles.componentsContainer}>
-                    <Cell name='Hidden' items={headerConfig[mediaQuery]} mediaQuery={mediaQuery} actions={actions} />
+                    <CellContainer name='Hidden'
+                                   items={headerConfig[mediaQuery]}
+                                   mediaQuery={mediaQuery}
+                                   actions={actions}
+                    />
                 </div>
             </div>
 
@@ -30,19 +34,19 @@ const ModalTab = props => {
                     boxes.</p>
 
                 <div className={styles.header + ' ' + styles[mediaQuery]}>
-                    <Row tabProps={props} currentPosition={0} />
-                    <Row tabProps={props} currentPosition={1} />
-                    <Row tabProps={props} currentPosition={2} />
+                    <RowView tabProps={props} currentPosition={0} />
+                    <RowView tabProps={props} currentPosition={1} />
+                    <RowView tabProps={props} currentPosition={2} />
                 </div>
             </div>
         </div>
     );
 };
 
-ModalTab.propTypes = {
+TabView.propTypes = {
     mediaQuery: React.PropTypes.string.isRequired,
     headerConfig: React.PropTypes.object.isRequired,
     actions: React.PropTypes.object.isRequired
 };
 
-export default ModalTab;
+export default TabView;
