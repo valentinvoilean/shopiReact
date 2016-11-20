@@ -3,12 +3,12 @@ webpackJsonp([1],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(255);
+	module.exports = __webpack_require__(260);
 
 
 /***/ },
 
-/***/ 255:
+/***/ 260:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21,13 +21,13 @@ webpackJsonp([1],{
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _header = __webpack_require__(256);
+	var _header = __webpack_require__(261);
 	
-	var _footer = __webpack_require__(419);
+	var _footer = __webpack_require__(424);
 	
-	var _MyAccount = __webpack_require__(420);
+	var _MyAccount = __webpack_require__(426);
 	
-	var _Wishlist = __webpack_require__(421);
+	var _Wishlist = __webpack_require__(427);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -42,7 +42,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 256:
+/***/ 261:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50,58 +50,34 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.HeaderMain = exports.HeaderTop = exports.HeaderBottom = exports.Header = undefined;
 	
-	var _header = __webpack_require__(257);
+	var _header = __webpack_require__(262);
 	
-	Object.keys(_header).forEach(function (key) {
-	  if (key === "default" || key === "__esModule") return;
-	  Object.defineProperty(exports, key, {
-	    enumerable: true,
-	    get: function get() {
-	      return _header[key];
-	    }
-	  });
-	});
+	var _header2 = _interopRequireDefault(_header);
 	
-	var _headerBottom = __webpack_require__(258);
+	var _headerBottom = __webpack_require__(263);
 	
-	Object.keys(_headerBottom).forEach(function (key) {
-	  if (key === "default" || key === "__esModule") return;
-	  Object.defineProperty(exports, key, {
-	    enumerable: true,
-	    get: function get() {
-	      return _headerBottom[key];
-	    }
-	  });
-	});
+	var _headerBottom2 = _interopRequireDefault(_headerBottom);
 	
-	var _headerTop = __webpack_require__(417);
+	var _headerTop = __webpack_require__(422);
 	
-	Object.keys(_headerTop).forEach(function (key) {
-	  if (key === "default" || key === "__esModule") return;
-	  Object.defineProperty(exports, key, {
-	    enumerable: true,
-	    get: function get() {
-	      return _headerTop[key];
-	    }
-	  });
-	});
+	var _headerTop2 = _interopRequireDefault(_headerTop);
 	
-	var _headerMain = __webpack_require__(418);
+	var _headerMain = __webpack_require__(423);
 	
-	Object.keys(_headerMain).forEach(function (key) {
-	  if (key === "default" || key === "__esModule") return;
-	  Object.defineProperty(exports, key, {
-	    enumerable: true,
-	    get: function get() {
-	      return _headerMain[key];
-	    }
-	  });
-	});
+	var _headerMain2 = _interopRequireDefault(_headerMain);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.Header = _header2.default;
+	exports.HeaderBottom = _headerBottom2.default;
+	exports.HeaderTop = _headerTop2.default;
+	exports.HeaderMain = _headerMain2.default;
 
 /***/ },
 
-/***/ 257:
+/***/ 262:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -109,7 +85,6 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.Header = undefined;
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -117,7 +92,7 @@ webpackJsonp([1],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _ = __webpack_require__(256);
+	var _ = __webpack_require__(261);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -127,7 +102,7 @@ webpackJsonp([1],{
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var Header = exports.Header = function (_Component) {
+	var Header = function (_Component) {
 	    _inherits(Header, _Component);
 	
 	    function Header(props) {
@@ -198,13 +173,18 @@ webpackJsonp([1],{
 	            );
 	        }
 	    }]);
-
+	
 	    return Header;
 	}(_react.Component);
+	
+	Header.propTypes = {
+	    children: _react2.default.PropTypes.array.isRequired
+	};
+	exports.default = Header;
 
 /***/ },
 
-/***/ 258:
+/***/ 263:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -212,110 +192,95 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.HeaderBottom = undefined;
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(2);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactMatchMedia = __webpack_require__(259);
+	var _reactMatchMedia = __webpack_require__(264);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var HeaderBottom = function HeaderBottom(_ref) {
+	    var data = _ref.data;
 	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var HeaderBottom = exports.HeaderBottom = function (_Component) {
-	    _inherits(HeaderBottom, _Component);
-	
-	    function HeaderBottom() {
-	        _classCallCheck(this, HeaderBottom);
-	
-	        return _possibleConstructorReturn(this, (HeaderBottom.__proto__ || Object.getPrototypeOf(HeaderBottom)).apply(this, arguments));
-	    }
-	
-	    _createClass(HeaderBottom, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'headerBottom' },
+	    return _react2.default.createElement(
+	        'div',
+	        { className: 'headerBottom' },
+	        _react2.default.createElement(
+	            'div',
+	            { className: 'container' },
+	            _react2.default.createElement(
+	                _reactMatchMedia.MatchMedia,
+	                { mediaQuery: '(max-width: 767px)' },
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'container' },
-	                    _react2.default.createElement(
-	                        _reactMatchMedia.MatchMedia,
-	                        { mediaQuery: '(max-width: 767px)' },
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'headerBottom__items' },
-	                            this.props.data.BottomLeft ? this.props.data.BottomLeft.mobile : ''
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'headerBottom__items' },
-	                            this.props.data.BottomCenter ? this.props.data.BottomCenter.mobile : ''
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'headerBottom__items' },
-	                            this.props.data.BottomRight ? this.props.data.BottomRight.mobile : ''
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        _reactMatchMedia.MatchMedia,
-	                        { mediaQuery: '(min-width: 768px) and (max-width: 1023px)' },
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'headerBottom__items' },
-	                            this.props.data.BottomLeft ? this.props.data.BottomLeft.tablet : ''
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'headerBottom__items' },
-	                            this.props.data.BottomCenter ? this.props.data.BottomCenter.tablet : ''
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'headerBottom__items' },
-	                            this.props.data.BottomRight ? this.props.data.BottomRight.tablet : ''
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        _reactMatchMedia.MatchMedia,
-	                        { mediaQuery: '(min-width: 1024px)' },
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'headerBottom__items' },
-	                            this.props.data.BottomLeft ? this.props.data.BottomLeft.desktop : ''
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'headerBottom__items' },
-	                            this.props.data.BottomCenter ? this.props.data.BottomCenter.desktop : ''
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'headerBottom__items' },
-	                            this.props.data.BottomRight ? this.props.data.BottomRight.desktop : ''
-	                        )
-	                    )
+	                    { className: 'headerBottom__items' },
+	                    data.BottomLeft ? data.BottomLeft.mobile : ''
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'headerBottom__items' },
+	                    data.BottomCenter ? data.BottomCenter.mobile : ''
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'headerBottom__items' },
+	                    data.BottomRight ? data.BottomRight.mobile : ''
 	                )
-	            );
-	        }
-	    }]);
-
-	    return HeaderBottom;
-	}(_react.Component);
+	            ),
+	            _react2.default.createElement(
+	                _reactMatchMedia.MatchMedia,
+	                { mediaQuery: '(min-width: 768px) and (max-width: 1023px)' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'headerBottom__items' },
+	                    data.BottomLeft ? data.BottomLeft.tablet : ''
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'headerBottom__items' },
+	                    data.BottomCenter ? data.BottomCenter.tablet : ''
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'headerBottom__items' },
+	                    data.BottomRight ? data.BottomRight.tablet : ''
+	                )
+	            ),
+	            _react2.default.createElement(
+	                _reactMatchMedia.MatchMedia,
+	                { mediaQuery: '(min-width: 1024px)' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'headerBottom__items' },
+	                    data.BottomLeft ? data.BottomLeft.desktop : ''
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'headerBottom__items' },
+	                    data.BottomCenter ? data.BottomCenter.desktop : ''
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'headerBottom__items' },
+	                    data.BottomRight ? data.BottomRight.desktop : ''
+	                )
+	            )
+	        )
+	    );
+	};
+	
+	HeaderBottom.propTypes = {
+	    data: _react2.default.PropTypes.object.isRequired
+	};
+	
+	exports.default = HeaderBottom;
 
 /***/ },
 
-/***/ 417:
+/***/ 422:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -323,7 +288,6 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.HeaderTop = undefined;
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -331,7 +295,7 @@ webpackJsonp([1],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactMatchMedia = __webpack_require__(259);
+	var _reactMatchMedia = __webpack_require__(264);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -341,7 +305,7 @@ webpackJsonp([1],{
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var HeaderTop = exports.HeaderTop = function (_Component) {
+	var HeaderTop = function (_Component) {
 	    _inherits(HeaderTop, _Component);
 	
 	    function HeaderTop() {
@@ -351,6 +315,11 @@ webpackJsonp([1],{
 	    }
 	
 	    _createClass(HeaderTop, [{
+	        key: 'shouldComponentUpdate',
+	        value: function shouldComponentUpdate() {
+	            return true;
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            console.warn(this);
@@ -429,10 +398,14 @@ webpackJsonp([1],{
 	HeaderTop.defaultProps = {
 	    name: 'HeaderTop'
 	};
+	HeaderTop.propTypes = {
+	    data: _react2.default.PropTypes.object.isRequired
+	};
+	exports.default = HeaderTop;
 
 /***/ },
 
-/***/ 418:
+/***/ 423:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -440,7 +413,6 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.HeaderMain = undefined;
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -448,7 +420,7 @@ webpackJsonp([1],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactMatchMedia = __webpack_require__(259);
+	var _reactMatchMedia = __webpack_require__(264);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -458,7 +430,7 @@ webpackJsonp([1],{
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var HeaderMain = exports.HeaderMain = function (_Component) {
+	var HeaderMain = function (_Component) {
 	    _inherits(HeaderMain, _Component);
 	
 	    function HeaderMain() {
@@ -468,6 +440,11 @@ webpackJsonp([1],{
 	    }
 	
 	    _createClass(HeaderMain, [{
+	        key: 'shouldComponentUpdate',
+	        value: function shouldComponentUpdate() {
+	            return true;
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -544,10 +521,34 @@ webpackJsonp([1],{
 	HeaderMain.defaultProps = {
 	    name: 'HeaderMain'
 	};
+	HeaderMain.propTypes = {
+	    data: _react2.default.PropTypes.object.isRequired
+	};
+	exports.default = HeaderMain;
 
 /***/ },
 
-/***/ 419:
+/***/ 424:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Footer = undefined;
+	
+	var _footer = __webpack_require__(425);
+	
+	var _footer2 = _interopRequireDefault(_footer);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.Footer = _footer2.default;
+
+/***/ },
+
+/***/ 425:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -555,9 +556,7 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.Footer = undefined;
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	exports.default = Footer;
 	
 	var _react = __webpack_require__(2);
 	
@@ -565,38 +564,19 @@ webpackJsonp([1],{
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	function Footer() {
+	    return _react2.default.createElement(
+	        'div',
+	        null,
+	        ' I am the footer!! '
+	    );
+	}
 	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Footer = exports.Footer = function (_Component) {
-	    _inherits(Footer, _Component);
-	
-	    function Footer() {
-	        _classCallCheck(this, Footer);
-	
-	        return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).apply(this, arguments));
-	    }
-	
-	    _createClass(Footer, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                'I am the footer!!'
-	            );
-	        }
-	    }]);
-
-	    return Footer;
-	}(_react.Component);
+	Footer.displayName = 'Footer';
 
 /***/ },
 
-/***/ 420:
+/***/ 426:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -630,6 +610,11 @@ webpackJsonp([1],{
 	    }
 	
 	    _createClass(MyAccount, [{
+	        key: 'shouldComponentUpdate',
+	        value: function shouldComponentUpdate() {
+	            return true;
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -649,7 +634,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 421:
+/***/ 427:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -683,6 +668,11 @@ webpackJsonp([1],{
 	    }
 	
 	    _createClass(Wishlist, [{
+	        key: 'shouldComponentUpdate',
+	        value: function shouldComponentUpdate() {
+	            return true;
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(

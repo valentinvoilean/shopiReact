@@ -1,14 +1,9 @@
 import React from 'react';
-import jasmineEnzyme from 'jasmine-enzyme';
 import {shallow} from 'enzyme';
 
 import CloseButtonView from './closeButton.view';
 
 describe('Close button', () => {
-
-    beforeEach(() => {
-        jasmineEnzyme();
-    });
 
     it('doesn\'t appear if is inside the Hidden cell', () => {
         expect(shallow(

@@ -13,13 +13,15 @@
   },
   "jest": {
     "setupTestFrameworkScriptFile": "node_modules/jest-enzyme/lib/index.js",
-    "testPathDirs": [
-      "src/js/react"
-    ],
+    "testPathDirs": ["src/js/react"],
+
     "moduleFileExtensions": ["js", "jsx"],
     "moduleDirectories": ["node_modules"],
 
     "moduleNameMapper": {
+      "^HeaderConfigApp(.*)$": "<rootDir>/src/js/react/HeaderConfigApp$1",
+      "^HeaderApp(.*)$": "<rootDir>/src/js/react/HeaderApp$1",
+
       "\\.(css|scss|less)$": "<rootDir>/tests/__mocks__/styleMock.js",
       "\\.(gif|ttf|eot|svg)$": "<rootDir>/tests/__mocks__/fileMock.js"
     },
