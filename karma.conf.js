@@ -1,19 +1,17 @@
 const webpack = require('webpack');
 const path = require('path');
 
-require('source-map-support').install();
-
 module.exports = function (config) {
     config.set({
         browsers: ['PhantomJS'],
         singleRun: true,
-        frameworks: ['jasmine', 'source-map-support'],
+        frameworks: ['jasmine'],
         files: [
             'node_modules/jquery/dist/jquery.min.js',
             'tests/index.js'
         ],
         preprocessors: {
-            'tests/index.js': ['webpack', 'sourcemap']
+            'tests/index.js': ['webpack']
         },
         webpack: { //kind of a copy of your webpack config
             devtool: 'inline-source-map', //just do inline source maps instead of the default

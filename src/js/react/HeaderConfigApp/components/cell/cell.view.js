@@ -22,7 +22,7 @@ CellView.propTypes = {
     name: PropTypes.string.isRequired,
     onClickCloseButton: PropTypes.func.isRequired,
     mediaQuery: PropTypes.string.isRequired,
-    cellRef: PropTypes.string
+    cellRef: PropTypes.func.isRequired
 };
 
 export default CellView;
