@@ -65,7 +65,7 @@ module.exports = function (config) {
             noInfo: true //please don't spam the console when running in karma!
         },
         coverageReporter: {
-            instrumenters: { 'istanbul-react' : require('istanbul-react') }
+            reporters: [{type: 'text'}, {type: 'html'}]
         }
     });
 };
