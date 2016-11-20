@@ -7,12 +7,12 @@ module.exports = function (config) {
         singleRun: true,
         frameworks: ['jasmine'],
         files: [
-            'node_modules/jquery/dist/jquery.min.js',
             'tests/index.js'
         ],
         preprocessors: {
-            'tests/index.js': ['webpack']
+            'tests/index.js': ['webpack', 'sourcemap']
         },
+        reporters: ['coverage', 'spec'],
         webpack: { //kind of a copy of your webpack config
             devtool: 'inline-source-map', //just do inline source maps instead of the default
             resolve: {
@@ -61,9 +61,11 @@ module.exports = function (config) {
                 'react/lib/ReactContext': true
             }
         },
-        reporters: ['coverage', 'spec'],
+        webpackServer: {
+            noInfo: true //please don't spam the console when running in karma!
+        },
         coverageReporter: {
-            reporters: [{type: 'text'}, {type: 'html'}]
+            instrumenters: { 'istanbul-react' : require('istanbul-react') }
         }
     });
 };
