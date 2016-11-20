@@ -1,8 +1,10 @@
 import { includes } from 'lodash';
 
 import { mediaQueries } from 'HeaderConfigApp/constants/mediaQueries';
-import { SAVE_HEADER_SETTINGS, REMOVE_HEADER_ITEM } from 'HeaderConfigApp/constants/actionTypes';
-import { getInitialState, validateState } from 'HeaderConfigApp/utils/modalUtil';
+import { getInitialState, validateState, removeItem } from 'HeaderConfigApp/utils/modalUtil';
+
+const SAVE_HEADER_SETTINGS = 'HeaderConfigApp/modal/SAVE_HEADER_SETTINGS';
+const REMOVE_HEADER_ITEM = 'HeaderConfigApp/modal/REMOVE_HEADER_ITEM';
 
 // Reducer
 export default (state = getInitialState(), action) => {
@@ -25,4 +27,17 @@ export default (state = getInitialState(), action) => {
             return validateState(state);
         }
     }
+};
+
+// Action Creators
+export const save = headerSettings => ({
+    type: SAVE_HEADER_SETTINGS,
+    payload: headerSettings
+});
+
+export const remove = (headerSettings) => {
+    return {
+        type: REMOVE_HEADER_ITEM,
+        payload: removeItem(headerSettings)
+    };
 };
