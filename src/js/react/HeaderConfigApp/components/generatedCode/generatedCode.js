@@ -20,6 +20,10 @@ class GeneratedCode extends React.Component {
         return true;
     }
 
+    componentWillUnmount() {
+        this.setState({copied: false});
+    }
+
     _onCopy() {
         this.setState({copied: true});
     }
