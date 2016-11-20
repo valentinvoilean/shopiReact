@@ -5,10 +5,14 @@ import styles from 'HeaderConfigApp/styles/modal.scss';
 
 class GeneratedCode extends React.Component {
     static propTypes = {
-        text: React.PropTypes.string.isRequired,
-        onCopy: React.PropTypes.func.isRequired,
-        copied: React.PropTypes.string
+        text: React.PropTypes.string.isRequired
     };
+
+    constructor(props) {
+        super(props);
+
+        this._onCopy = this._onCopy.bind(this);
+    }
 
     state = { copied: false };
 
@@ -21,13 +25,12 @@ class GeneratedCode extends React.Component {
     }
 
     render() {
-        const {text, onCopy, copied} = this.props;
-        const buttonClass = `${styles.copy} ${copied ? styles.copied : ''}`;
+        const buttonClass = `${styles.copy} ${this.state.copied ? styles.copied : ''}`;
 
         return (
             <div className={styles.codeContainer}>
-                <code className={styles.code}>{text}</code>
-                <CopyToClipboard text={text} onCopy={onCopy}>
+                <code className={styles.code}>{this.props.text}</code>
+                <CopyToClipboard text={this.props.text} onCopy={this._onCopy}>
                     <div className={buttonClass}>Click to copy</div>
                 </CopyToClipboard>
             </div>

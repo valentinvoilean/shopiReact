@@ -7,10 +7,6 @@ import styles from 'HeaderConfigApp/styles/modal.scss';
 const ModalTab = props => {
     const {mediaQuery, headerConfig, actions} = props;
 
-    const _onCopy = () => {
-      console.log('on Copy');
-    };
-
     return (
         <div>
             <div className="col-md-6">
@@ -23,7 +19,7 @@ const ModalTab = props => {
             <div className="col-md-6">
                 <h2 className={styles.h2}>3. Generated code to be copied</h2>
                 <div className={styles.codeContainer}>
-                    <GeneratedCode text={JSON.stringify(headerConfig)} onCopy={_onCopy} />
+                    <GeneratedCode text={JSON.stringify(headerConfig)} />
                 </div>
             </div>
 
