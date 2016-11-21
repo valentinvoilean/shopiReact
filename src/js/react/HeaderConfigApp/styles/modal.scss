@@ -265,4 +265,6 @@
 
 .cellInvalid {
     background: #ffa3a3 !important;
+
+     * { pointer-events: none; }
 }

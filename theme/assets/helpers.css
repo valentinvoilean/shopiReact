@@ -367,6 +367,10 @@
 
 .modal__cellInvalid___2hYOc {
   background: #ffa3a3 !important;
+}
+
+.modal__cellInvalid___2hYOc * {
+  pointer-events: none;
 }.closeButton__closeButton___2RMj3 {
   display: inline-block;
   color: white;

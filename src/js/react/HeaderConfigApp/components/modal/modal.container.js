@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import ModalView from './modal.view';
-import * as actions from 'HeaderConfigApp/store/modules/modal';
+import * as actions from 'HeaderConfigApp/redux/modules/modal';
 
 function mapStateToProps(state) {
     return {
