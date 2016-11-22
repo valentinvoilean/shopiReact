@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 
-import CellView from './cell.view';
+import {ItemView} from 'HeaderConfigApp/components';
 
 // Functional Component
 class CellContainer extends Component {
@@ -14,7 +14,7 @@ class CellContainer extends Component {
     constructor(props) {
         super(props);
 
-        this._handleCellRef = this._handleCellRef.bind(this);
+        this._handleCloseButton = this._handleCloseButton.bind(this);
     }
 
     shouldComponentUpdate() {
@@ -31,21 +31,18 @@ class CellContainer extends Component {
         });
     }
 
-    _handleCellRef(cellRef) {
-        this.cellRef = cellRef;
-    }
-
     render() {
         const {items, name, mediaQuery} = this.props;
 
-        return (
-            <CellView cellRef={this._handleCellRef}
-                      items={items}
-                      name={name}
-                      onClickCloseButton={this._handleCloseButton}
+        const itemsHTML = items[name] ? items[name].map((item, key) => (
+            <ItemView key={key} item={item}
+                      onClick={this._handleCloseButton}
                       mediaQuery={mediaQuery}
+                      name={name}
             />
-        );
+        )) : '';
+
+        return (<ul> {itemsHTML} </ul>);
     }
 }
 
