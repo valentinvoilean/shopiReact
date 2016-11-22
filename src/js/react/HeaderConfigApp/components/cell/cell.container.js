@@ -1,7 +1,22 @@
 import React, {Component, PropTypes} from 'react';
+import {DropTarget} from 'react-dnd';
 
 import CellView from './cell.view';
 import {ItemView} from 'HeaderConfigApp/components';
+import {ItemTypes} from 'HeaderConfigApp/constants/itemTypes';
+
+const cellTarget = {
+    drop(props) {
+        console.log(props);
+    }
+};
+
+function collect(connect, monitor) {
+    return {
+        connectDropTarget: connect.dropTarget(),
+        isOver: monitor.isOver()
+    };
+}
 
 // Functional Component
 class CellContainer extends Component {
@@ -9,7 +24,9 @@ class CellContainer extends Component {
         items: PropTypes.object.isRequired,
         name: PropTypes.string.isRequired,
         actions: PropTypes.object.isRequired,
-        mediaQuery: PropTypes.string.isRequired
+        mediaQuery: PropTypes.string.isRequired,
+        connectDropTarget: PropTypes.func.isRequired,
+        isOver: PropTypes.bool.isRequired
     };
 
     constructor(props) {
@@ -33,7 +50,9 @@ class CellContainer extends Component {
     }
 
     render() {
-        const {items, name, mediaQuery} = this.props;
+        const {items, name, mediaQuery, connectDropTarget, isOver} = this.props;
+
+        console.log('Is Over: ', isOver);
 
         const itemsHTML = items[name] ? items[name].map((item, key) => (
             <ItemView key={key} item={item}
@@ -43,8 +62,25 @@ class CellContainer extends Component {
             />
         )) : '';
 
-        return (<CellView> {itemsHTML} </CellView>);
+        return connectDropTarget(
+            <ul>
+                <CellView> {itemsHTML} </CellView>
+                {isOver &&
+                    <div style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            height: '100%',
+                            width: '100%',
+                            zIndex: 1,
+                            opacity: 0.5,
+                            backgroundColor: 'yellow'
+                        }}
+                    />
+                }
+            </ul>
+        );
     }
 }
 
-export default CellContainer;
+export default DropTarget(ItemTypes.COMPONENT, cellTarget, collect)(CellContainer);
