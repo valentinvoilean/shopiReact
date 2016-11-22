@@ -2,9 +2,10 @@ import React, {Component, PropTypes} from 'react';
 import {DropTarget} from 'react-dnd';
 import {includes, pull} from 'lodash';
 
-import CellView from './cell.view';
 import {ItemView} from 'HeaderConfigApp/components';
 import {ItemTypes} from 'HeaderConfigApp/constants/itemTypes';
+
+import styles from 'HeaderConfigApp/styles/modal.scss';
 
 import {validStates} from 'HeaderConfigApp/constants/states';
 
@@ -97,39 +98,23 @@ class CellContainer extends Component {
         });
     }
 
-    _renderOverlay(color) {
-        return (
-            <div style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                height: '100%',
-                width: '100%',
-                zIndex: 1,
-                opacity: 0.5,
-                backgroundColor: color
-            }}
-            />
-        );
-    }
-
     render() {
         const {items, name, mediaQuery, connectDropTarget, isOver, canDrop} = this.props;
 
         const itemsHTML = items[name] ? items[name].map((item, key) => (
-            <ItemView key={key} item={item}
+            <ItemView key={key}
+                      item={item}
                       onClick={this._handleCloseButton}
                       mediaQuery={mediaQuery}
                       name={name}
             />
         )) : '';
 
-        return connectDropTarget(
-            <ul>
-                <CellView> {itemsHTML} </CellView>
+        let cellClass = isOver ? canDrop ? styles.cellValid : styles.cellInvalid : '';
 
-                {isOver && canDrop && this._renderOverlay('green')}
-                {isOver && !canDrop && this._renderOverlay('red')}
+        return connectDropTarget(
+            <ul className={cellClass}>
+                {itemsHTML}
             </ul>
         );
     }
