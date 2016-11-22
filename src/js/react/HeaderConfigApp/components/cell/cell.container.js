@@ -49,6 +49,22 @@ class CellContainer extends Component {
         });
     }
 
+    _renderOverlay(color) {
+        return (
+            <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                height: '100%',
+                width: '100%',
+                zIndex: 1,
+                opacity: 0.5,
+                backgroundColor: color
+            }}
+            />
+        );
+    }
+
     render() {
         const {items, name, mediaQuery, connectDropTarget, isOver} = this.props;
 
@@ -65,19 +81,7 @@ class CellContainer extends Component {
         return connectDropTarget(
             <ul>
                 <CellView> {itemsHTML} </CellView>
-                {isOver &&
-                    <div style={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            height: '100%',
-                            width: '100%',
-                            zIndex: 1,
-                            opacity: 0.5,
-                            backgroundColor: 'yellow'
-                        }}
-                    />
-                }
+                {isOver && this._renderOverlay('yellow')}
             </ul>
         );
     }
