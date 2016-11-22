@@ -6,15 +6,21 @@ import {ItemView} from 'HeaderConfigApp/components';
 import {ItemTypes} from 'HeaderConfigApp/constants/itemTypes';
 
 const cellTarget = {
+    canDrop(props) {
+        console.log(props.name);
+        return true;
+    },
+
     drop(props) {
-        console.log(props);
+        console.log(props.name);
     }
 };
 
 function collect(connect, monitor) {
     return {
         connectDropTarget: connect.dropTarget(),
-        isOver: monitor.isOver()
+        isOver: monitor.isOver(),
+        canDrop: monitor.canDrop()
     };
 }
 
@@ -26,7 +32,8 @@ class CellContainer extends Component {
         actions: PropTypes.object.isRequired,
         mediaQuery: PropTypes.string.isRequired,
         connectDropTarget: PropTypes.func.isRequired,
-        isOver: PropTypes.bool.isRequired
+        isOver: PropTypes.bool.isRequired,
+        canDrop: PropTypes.bool.isRequired
     };
 
     constructor(props) {
@@ -66,9 +73,10 @@ class CellContainer extends Component {
     }
 
     render() {
-        const {items, name, mediaQuery, connectDropTarget, isOver} = this.props;
+        const {items, name, mediaQuery, connectDropTarget, isOver, canDrop} = this.props;
 
         console.log('Is Over: ', isOver);
+        console.log('Can drop value: ', canDrop);
 
         const itemsHTML = items[name] ? items[name].map((item, key) => (
             <ItemView key={key} item={item}
@@ -81,7 +89,9 @@ class CellContainer extends Component {
         return connectDropTarget(
             <ul>
                 <CellView> {itemsHTML} </CellView>
-                {isOver && this._renderOverlay('yellow')}
+
+                {isOver && canDrop && this._renderOverlay('green')}
+                {isOver && !canDrop && this._renderOverlay('red')}
             </ul>
         );
     }

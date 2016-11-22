@@ -21,8 +21,6 @@ const collect = (connect, monitor) => {
 const ItemVIew = (props) => {
     const {connectDragSource, isDragging, item, name, onClick, mediaQuery} = props;
 
-    console.log(isDragging);
-
     return connectDragSource(
         <li style={{
             opacity: isDragging ? 0.5 : 1,
