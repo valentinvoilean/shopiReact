@@ -68,12 +68,11 @@ export const validateState = state => {
 };
 
 export const removeItem = (settings) => {
-    const {items, item, positionLists, position, mediaQuery} = settings;
-    const newItems = [...positionLists].map(curPos => curPos.dataset.id);
+    const {items, item, mediaQuery, name} = settings;
 
     return {
         [mediaQuery]: {
-            [position]: pull(newItems, item),
+            [name]: pull([...items[name]], item),
             Hidden: [...items.Hidden, item]
         }
     };

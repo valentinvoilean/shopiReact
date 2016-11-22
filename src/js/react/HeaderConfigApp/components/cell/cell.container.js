@@ -89,13 +89,8 @@ class CellContainer extends Component {
     }
 
     _handleCloseButton(item) {
-        const {items, actions, mediaQuery} = this.props;
-
-        actions.remove({
-            items, item, mediaQuery,
-            positionLists: this.sortable.el.children,
-            position: this.sortable.el.dataset.id
-        });
+        const {items, actions, mediaQuery, name} = this.props;
+        actions.remove({ items, item, mediaQuery, name });
     }
 
     render() {
