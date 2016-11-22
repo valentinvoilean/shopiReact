@@ -261,7 +261,7 @@
 }
 
 .cellValid {
-    background: #e8fde7 !important;
+    background: #c4fdbb !important;
 }
 
 .cellInvalid {
@@ -269,3 +269,7 @@
 
      * { pointer-events: none; }
 }
+
+.cellAvailable {
+     background: #fffdab !important;
+ }

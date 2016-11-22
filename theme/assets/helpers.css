@@ -303,7 +303,7 @@
 }
 
 .modal__cellValid___TCmdD {
-  background: #e8fde7 !important;
+  background: #c4fdbb !important;
 }
 
 .modal__cellInvalid___2hYOc {
@@ -312,6 +312,10 @@
 
 .modal__cellInvalid___2hYOc * {
   pointer-events: none;
+}
+
+.modal__cellAvailable___2N58V {
+  background: #fffdab !important;
 }.modal__background___1zrUM {
   background: rgba(0, 0, 0, 0.5);
   position: fixed;

@@ -110,7 +110,7 @@ class CellContainer extends Component {
             />
         )) : '';
 
-        let cellClass = isOver ? canDrop ? styles.cellValid : styles.cellInvalid : '';
+        const cellClass = isOver ? canDrop ? styles.cellValid : styles.cellInvalid : canDrop ? styles.cellAvailable : '';
 
         return connectDropTarget(
             <ul className={cellClass}>
