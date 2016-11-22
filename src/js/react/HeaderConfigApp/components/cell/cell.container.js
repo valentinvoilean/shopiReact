@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import {DropTarget} from 'react-dnd';
-import {includes} from 'lodash';
+import {includes, pull} from 'lodash';
 
 import CellView from './cell.view';
 import {ItemView} from 'HeaderConfigApp/components';
@@ -36,8 +36,24 @@ const cellTarget = {
         }
     },
 
-    drop(props) {
-        console.log(props.name);
+    drop(props, monitor) {
+        const to = props.name;
+        const from = monitor.getItem().name;
+        const save = props.actions.save;
+        const mediaQuery = props.mediaQuery;
+        const items = props.items;
+        const dragged = monitor.getItem().item;
+
+        if (to === from) {
+            return;
+        }
+
+        save({
+            [mediaQuery]: {
+                [from]: pull([...items[from]], dragged),
+                [to]: [...items[to], dragged]
+            }
+        });
     }
 };
 
@@ -99,9 +115,6 @@ class CellContainer extends Component {
 
     render() {
         const {items, name, mediaQuery, connectDropTarget, isOver, canDrop} = this.props;
-
-        console.log('Is Over: ', isOver);
-        console.log('Can drop value: ', canDrop);
 
         const itemsHTML = items[name] ? items[name].map((item, key) => (
             <ItemView key={key} item={item}

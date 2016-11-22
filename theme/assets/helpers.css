@@ -11,6 +11,7 @@
   height: 150px;
   border: 1px solid #E1E1E1;
   padding: 10px;
+  position: relative;
 }
 
 .modal__componentsContainer___Ktsdd ul {
