@@ -1,14 +1,39 @@
 import React, {Component, PropTypes} from 'react';
 import {DropTarget} from 'react-dnd';
+import {includes} from 'lodash';
 
 import CellView from './cell.view';
 import {ItemView} from 'HeaderConfigApp/components';
 import {ItemTypes} from 'HeaderConfigApp/constants/itemTypes';
 
+import {validStates} from 'HeaderConfigApp/constants/states';
+
 const cellTarget = {
-    canDrop(props) {
-        console.log(props.name);
-        return true;
+    canDrop(props, monitor) {
+        const to = props.name;
+        const mediaQuery = props.mediaQuery;
+        const dragged = monitor.getItem().item;
+
+
+        if (validStates[mediaQuery][to] instanceof Array) {
+            return !!includes(validStates[mediaQuery][to], dragged);
+        }
+        else {
+            const items = validStates[mediaQuery][to].items;
+            const maxItems = validStates[mediaQuery][to].max;
+
+            if (props.items[to].length >= maxItems) {
+                console.log(`Maximum number of items allowed is ${maxItems}`);
+                return false;
+            }
+
+            if (!includes(items, dragged)) {
+                console.log(`The item "${dragged}" is not allowed here!`);
+                return false;
+            }
+
+            return true;
+        }
     },
 
     drop(props) {

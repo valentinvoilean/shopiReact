@@ -6,8 +6,7 @@ import {CloseButtonView} from 'HeaderConfigApp/components';
 
 const itemSource = {
     beginDrag(props) {
-        console.log(props);
-        return {};
+        return props;
     }
 };
 
@@ -39,7 +38,6 @@ const ItemVIew = (props) => {
 ItemVIew.propTypes = {
     item: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
-    mediaQuery: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     connectDragSource: PropTypes.func.isRequired,
     isDragging: PropTypes.bool.isRequired
