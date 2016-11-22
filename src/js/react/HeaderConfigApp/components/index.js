@@ -1,4 +1,4 @@
-export ModalContainer from './modal/modal.container';
+export TabContainer from './tab/tab.container';
 export CellContainer from './cell/cell.container';
 export CodeContainer from './code/code.container';
 

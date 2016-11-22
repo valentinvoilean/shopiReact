@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import ModalView from './modal.view';
+import TabView from './tab.view';
 import * as actions from 'HeaderConfigApp/redux/modules/modal';
 
 function mapStateToProps(state) {
@@ -19,4 +19,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(ModalView);
+)(TabView);
