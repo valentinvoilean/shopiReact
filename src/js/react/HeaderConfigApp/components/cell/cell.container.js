@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 
+import CellView from './cell.view';
 import {ItemView} from 'HeaderConfigApp/components';
 
 // Functional Component
@@ -42,7 +43,7 @@ class CellContainer extends Component {
             />
         )) : '';
 
-        return (<ul> {itemsHTML} </ul>);
+        return (<CellView> {itemsHTML} </CellView>);
     }
 }
 
