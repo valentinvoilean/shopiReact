@@ -1,32 +1,18 @@
 import React, {PropTypes, Component} from 'react';
-import {findDOMNode} from 'react-dom';
 import {ItemTypes} from 'HeaderConfigApp/constants/itemTypes';
 import {DragSource, DropTarget} from 'react-dnd';
 
 import {CloseButtonView} from 'HeaderConfigApp/components';
 
 const itemTarget = {
-    hover(props, monitor, component) {
+    hover(targetProps, monitor) {
         const dragItem = monitor.getItem().item;
-        const hoverItem = props.item;
-
-        console.log(dragItem, hoverItem);
+        const hoverItem = targetProps.item;
 
         // Don't replace items with themselves
-        if (dragItem === hoverItem) {
-            return;
+        if (dragItem !== hoverItem) {
+            targetProps.onMove({dragItem, hoverItem});
         }
-
-        // Determine rectangle on screen
-        const hoverBoundingRect = findDOMNode(component).getBoundingClientRect(); // eslint-disable-line
-
-        console.log(hoverBoundingRect);
-
-        // Determine mouse position
-        const clientOffset = monitor.getClientOffset();
-
-        console.log(clientOffset);
-
     }
 };
 
@@ -41,8 +27,9 @@ const collectSource = (connect, monitor) => ({
     isDragging: monitor.isDragging()
 });
 
-const collectTarget = connect => ({
-    connectDropTarget: connect.dropTarget()
+const collectTarget = (connect, monitor) => ({
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver()
 });
 
 @DropTarget(ItemTypes.COMPONENT, itemTarget, collectTarget)
@@ -56,6 +43,7 @@ export default class ItemContainer extends Component {
         connectDropTarget: PropTypes.func.isRequired,
         index: PropTypes.number.isRequired,
         isDragging: PropTypes.bool.isRequired,
+        isOver: PropTypes.bool.isRequired,
         mediaQuery: PropTypes.string.isRequired
     };
 
@@ -64,10 +52,10 @@ export default class ItemContainer extends Component {
     }
 
     render() {
-        const {connectDragSource, connectDropTarget, isDragging, item, name, onClick, mediaQuery} = this.props;
+        const {connectDragSource, connectDropTarget, isDragging, isOver, item, name, onClick, mediaQuery} = this.props;
 
         return connectDragSource(connectDropTarget(
-            <li style={{ opacity: isDragging ? 0.5 : 1, cursor: 'move'}}>
+            <li style={{ opacity: isDragging || isOver ? 0.5 : 1, cursor: 'move'}}>
                 <span>{item}</span>
                 <CloseButtonView cellName={name} item={item} onClick={onClick} mediaQuery={mediaQuery} />
             </li>
