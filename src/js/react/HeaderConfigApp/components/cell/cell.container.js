@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {DropTarget} from 'react-dnd';
 import {includes, pull} from 'lodash';
 
-import {ItemView} from 'HeaderConfigApp/components';
+import {ItemContainer} from 'HeaderConfigApp/components';
 import {ItemTypes} from 'HeaderConfigApp/constants/itemTypes';
 
 import styles from 'HeaderConfigApp/styles/modal.scss';
@@ -66,8 +66,8 @@ function collect(connect, monitor) {
     };
 }
 
-// Functional Component
-class CellContainer extends Component {
+@DropTarget(ItemTypes.COMPONENT, cellTarget, collect)
+export default class CellContainer extends Component {
     static propTypes = {
         items: PropTypes.object.isRequired,
         name: PropTypes.string.isRequired,
@@ -97,7 +97,7 @@ class CellContainer extends Component {
         const {items, name, mediaQuery, connectDropTarget, isOver, canDrop} = this.props;
 
         const itemsHTML = items[name] ? items[name].map((item, key) => (
-            <ItemView key={key}
+            <ItemContainer key={key}
                       item={item}
                       onClick={this._handleCloseButton}
                       mediaQuery={mediaQuery}
@@ -115,4 +115,3 @@ class CellContainer extends Component {
     }
 }
 
-export default DropTarget(ItemTypes.COMPONENT, cellTarget, collect)(CellContainer);
