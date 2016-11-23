@@ -8,10 +8,11 @@ const itemTarget = {
     hover(targetProps, monitor) {
         const dragItem = monitor.getItem().item;
         const hoverItem = targetProps.item;
+        const mediaQuery = targetProps.mediaQuery;
 
         // Don't replace items with themselves
         if (dragItem !== hoverItem) {
-            targetProps.onMove({dragItem, hoverItem});
+            targetProps.onMove({dragItem, hoverItem, mediaQuery});
         }
     }
 };

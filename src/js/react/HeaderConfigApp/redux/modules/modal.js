@@ -5,6 +5,7 @@ import { getInitialState, validateState, removeItem } from 'HeaderConfigApp/util
 
 const SAVE_HEADER_SETTINGS = 'HeaderConfigApp/modal/SAVE_HEADER_SETTINGS';
 const REMOVE_HEADER_ITEM = 'HeaderConfigApp/modal/REMOVE_HEADER_ITEM';
+const MOVE_ITEM = 'HeaderConfigApp/modal/MOVE_ITEM';
 
 // Reducer
 export default (state = getInitialState(), action) => {
@@ -23,6 +24,11 @@ export default (state = getInitialState(), action) => {
             }
         }
 
+        case MOVE_ITEM: {
+            console.log(action.payload);
+            return state;
+        }
+
         default: {
             return validateState(state);
         }
@@ -39,5 +45,14 @@ export const remove = (headerSettings) => {
     return {
         type: REMOVE_HEADER_ITEM,
         payload: removeItem(headerSettings)
+    };
+};
+
+export const move = ({dragItem, hoverItem, mediaQuery}) => {
+    console.log(dragItem, hoverItem);
+
+    return {
+        type: MOVE_ITEM,
+        payload: {dragItem, hoverItem, mediaQuery}
     };
 };

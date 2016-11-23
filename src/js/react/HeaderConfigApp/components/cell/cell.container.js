@@ -93,19 +93,15 @@ export default class CellContainer extends Component {
         actions.remove({ items, item, mediaQuery, name });
     }
 
-    _onMove({dragItem, hoverItem}) {
-        console.log(dragItem, hoverItem);
-    }
-
     render() {
-        const {items, name, mediaQuery, connectDropTarget, isOver, canDrop} = this.props;
+        const {items, name, mediaQuery, connectDropTarget, isOver, canDrop, actions} = this.props;
 
         const itemsHTML = items[name] ? items[name].map((item, key) => (
             <ItemContainer key={key}
                            index={key}
                            item={item}
                            onClick={this._handleCloseButton}
-                           onMove={this._onMove}
+                           onMove={actions.move}
                            mediaQuery={mediaQuery}
                            name={name}
             />
