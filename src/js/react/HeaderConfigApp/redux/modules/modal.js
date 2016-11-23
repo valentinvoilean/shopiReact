@@ -1,4 +1,5 @@
-import { includes } from 'lodash';
+import { includes, forOwn } from 'lodash';
+import update from 'react-addons-update';
 
 import { mediaQueries } from 'HeaderConfigApp/constants/mediaQueries';
 import { getInitialState, validateState, removeItem } from 'HeaderConfigApp/utils/modalUtil';
@@ -25,8 +26,52 @@ export default (state = getInitialState(), action) => {
         }
 
         case MOVE_ITEM: {
-            console.log(action.payload);
-            return state;
+            const {dragItem, hoverItem, mediaQuery} = action.payload;
+            const cells = state[mediaQuery];
+            let sourceCellName;
+            let sourceCell;
+            let targetCellName;
+            let targetCell;
+
+            forOwn(cells, (value, key) => {
+                if (value.includes(dragItem)) {
+                    sourceCell = value;
+                    sourceCellName = key;
+                }
+            });
+
+            forOwn(cells, (value, key) => {
+                if (value.includes(hoverItem)) {
+                    targetCell = value;
+                    targetCellName = key;
+                }
+            });
+
+            const sourceNoteIndex = sourceCell.indexOf(dragItem);
+            const targetNoteIndex = targetCell.indexOf(hoverItem);
+
+            if (sourceCell === targetCell) {
+                sourceCell = update(sourceCell, {
+                    $splice: [
+                        [sourceNoteIndex, 1],
+                        [targetNoteIndex, 0, dragItem]
+                    ]
+                });
+            }
+            else {
+                // get rid of the source
+                sourceCell.splice(sourceNoteIndex, 1);
+
+                // and move it to target
+                targetCell.splice(targetNoteIndex, 0, dragItem);
+            }
+
+            const newPositions = {
+                [sourceCellName]: [...sourceCell],
+                [targetCellName]: [...targetCell]
+            };
+
+            return {...state, ...{[mediaQuery]: {...state[mediaQuery], ...newPositions}}};
         }
 
         default: {
@@ -49,7 +94,6 @@ export const remove = (headerSettings) => {
 };
 
 export const move = ({dragItem, hoverItem, mediaQuery}) => {
-    console.log(dragItem, hoverItem);
 
     return {
         type: MOVE_ITEM,
