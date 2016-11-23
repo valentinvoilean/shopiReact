@@ -98,10 +98,11 @@ export default class CellContainer extends Component {
 
         const itemsHTML = items[name] ? items[name].map((item, key) => (
             <ItemContainer key={key}
-                      item={item}
-                      onClick={this._handleCloseButton}
-                      mediaQuery={mediaQuery}
-                      name={name}
+                           index={key}
+                           item={item}
+                           onClick={this._handleCloseButton}
+                           mediaQuery={mediaQuery}
+                           name={name}
             />
         )) : '';
 

@@ -1,4 +1,5 @@
 import React, {PropTypes, Component} from 'react';
+import {findDOMNode} from 'react-dom';
 import {ItemTypes} from 'HeaderConfigApp/constants/itemTypes';
 import {DragSource, DropTarget} from 'react-dnd';
 
@@ -6,7 +7,26 @@ import {CloseButtonView} from 'HeaderConfigApp/components';
 
 const itemTarget = {
     hover(props, monitor, component) {
-        console.log(props, monitor, component);
+        const dragItem = monitor.getItem().item;
+        const hoverItem = props.item;
+
+        console.log(dragItem, hoverItem);
+
+        // Don't replace items with themselves
+        if (dragItem === hoverItem) {
+            return;
+        }
+
+        // Determine rectangle on screen
+        const hoverBoundingRect = findDOMNode(component).getBoundingClientRect(); // eslint-disable-line
+
+        console.log(hoverBoundingRect);
+
+        // Determine mouse position
+        const clientOffset = monitor.getClientOffset();
+
+        console.log(clientOffset);
+
     }
 };
 
@@ -34,6 +54,7 @@ export default class ItemContainer extends Component {
         name: PropTypes.string.isRequired,
         connectDragSource: PropTypes.func.isRequired,
         connectDropTarget: PropTypes.func.isRequired,
+        index: PropTypes.number.isRequired,
         isDragging: PropTypes.bool.isRequired,
         mediaQuery: PropTypes.string.isRequired
     };
