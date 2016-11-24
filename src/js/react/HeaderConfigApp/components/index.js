@@ -8,3 +8,4 @@ export RowView from './row/row.view';
 export CloseButtonView from './closeButton/closeButton.view';
 export CodeView from './code/code.view';
 export ItemContainer from './item/item.container';
+export ItemsView from './items/items.view';

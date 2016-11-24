@@ -2,10 +2,9 @@ import React, {Component, PropTypes} from 'react';
 import {DropTarget} from 'react-dnd';
 import {includes, pull} from 'lodash';
 
-import {ItemContainer} from 'HeaderConfigApp/components';
-import {ItemTypes} from 'HeaderConfigApp/constants/itemTypes';
+import {ItemsView} from 'HeaderConfigApp/components';
 
-import styles from 'HeaderConfigApp/styles/modal.scss';
+import {ItemTypes} from 'HeaderConfigApp/constants/itemTypes';
 
 import {validStates} from 'HeaderConfigApp/constants/states';
 
@@ -37,24 +36,23 @@ const cellTarget = {
         }
     },
 
-    drop(props, monitor) {
-        const to = props.name;
+    hover(targetProps, monitor) {
+        const to = targetProps.name;
         const from = monitor.getItem().name;
-        const save = props.actions.save;
-        const mediaQuery = props.mediaQuery;
-        const items = props.items;
+        const save = targetProps.actions.save;
+        const mediaQuery = targetProps.mediaQuery;
+        const items = targetProps.items;
         const dragged = monitor.getItem().item;
+        const targetCell = targetProps.items[to];
 
-        if (to === from) {
-            return;
+        if (!targetCell.length) {
+            save({
+                [mediaQuery]: {
+                    [to]: [...items[to], dragged],
+                    [from]: pull([...items[from]], dragged)
+                }
+            });
         }
-
-        save({
-            [mediaQuery]: {
-                [from]: pull([...items[from]], dragged),
-                [to]: [...items[to], dragged]
-            }
-        });
     }
 };
 
@@ -94,25 +92,12 @@ export default class CellContainer extends Component {
     }
 
     render() {
-        const {items, name, mediaQuery, connectDropTarget, isOver, canDrop, actions} = this.props;
-
-        const itemsHTML = items[name] ? items[name].map((item, key) => (
-            <ItemContainer key={key}
-                           index={key}
-                           item={item}
-                           onClick={this._handleCloseButton}
-                           onMove={actions.move}
-                           mediaQuery={mediaQuery}
-                           name={name}
-            />
-        )) : '';
-
-        const cellClass = isOver ? canDrop ? styles.cellValid : styles.cellInvalid : canDrop ? styles.cellAvailable : '';
+        const {connectDropTarget} = this.props;
 
         return connectDropTarget(
-            <ul className={cellClass}>
-                {itemsHTML}
-            </ul>
+            <div>
+                <ItemsView {...this.props} onCloseButton={this._handleCloseButton} />
+            </div>
         );
     }
 }

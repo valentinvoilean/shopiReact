@@ -175,40 +175,44 @@
   display: flex;
 }
 
-.modal__headerArea___kIgi- ul {
+.modal__headerArea___kIgi- > div {
   background: #F5F5F5;
   border: 2px dashed #E0E0E0;
+  width: 100%;
+  margin: 5px;
+}
+
+.modal__headerArea___kIgi- > div > ul {
   padding: 10px;
   min-height: 60px;
   font-weight: bold;
   color: #BBBDC1;
   position: relative;
   list-style: none;
-  margin: 5px;
   width: 100%;
   z-index: 1;
   overflow: hidden;
 }
 
-.modal__headerArea___kIgi- ul:nth-child(2) {
-  text-align: center;
-}
-
-.modal__headerArea___kIgi- ul:nth-child(3) {
-  text-align: right;
-}
-
-.modal__headerArea___kIgi- ul:nth-child(3) li {
-  float: right;
-}
-
-.modal__headerArea___kIgi- ul:before {
+.modal__headerArea___kIgi- > div > ul:before {
   position: absolute;
   z-index: -1;
   text-align: center;
   width: 100%;
   left: 0;
   top: calc(50% - 7px);
+}
+
+.modal__headerArea___kIgi- > div:nth-child(2) > ul {
+  text-align: center;
+}
+
+.modal__headerArea___kIgi- > div:nth-child(3) > ul {
+  text-align: right;
+}
+
+.modal__headerArea___kIgi- > div:nth-child(3) > ul li {
+  float: right;
 }
 
 .modal__headerArea___kIgi- li {
