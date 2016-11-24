@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {includes} from 'lodash';
 import Sortable from 'sortablejs';
 
-import CellView from './cell.view';
+import {ItemsView} from 'HeaderConfigApp/components';
 import styles from 'HeaderConfigApp/styles/modal.scss';
 import {validStates} from 'HeaderConfigApp/constants/states';
 
@@ -82,7 +82,7 @@ class CellContainer extends Component {
         const {items, name, mediaQuery} = this.props;
 
         return (
-            <CellView cellRef={this._handleCellRef}
+            <ItemsView cellRef={this._handleCellRef}
                       items={items}
                       name={name}
                       onClickCloseButton={this._handleCloseButton}
