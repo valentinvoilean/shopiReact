@@ -36,7 +36,7 @@ const cellTarget = {
         }
     },
 
-    hover(targetProps, monitor) {
+    drop(targetProps, monitor) {
         const to = targetProps.name;
         const from = monitor.getItem().name;
         const save = targetProps.actions.save;
@@ -45,7 +45,7 @@ const cellTarget = {
         const dragged = monitor.getItem().item;
         const targetCell = targetProps.items[to];
 
-        if (!targetCell.length) {
+        if (!includes(targetCell, dragged)) {
             save({
                 [mediaQuery]: {
                     [to]: [...items[to], dragged],
