@@ -4,37 +4,33 @@ import {DragSource, DropTarget} from 'react-dnd';
 
 import {CloseButtonView} from 'HeaderConfigApp/components';
 
-const itemTarget = {
-    hover(targetProps, monitor) {
+const target = {
+    hover(props, monitor) {
         const dragItem = monitor.getItem().item;
-        const hoverItem = targetProps.item;
-        const mediaQuery = targetProps.mediaQuery;
+        const hoverItem = props.item;
+        const mediaQuery = props.mediaQuery;
 
         // Don't replace items with themselves
         if (dragItem !== hoverItem) {
-            targetProps.onMove({dragItem, hoverItem, mediaQuery});
+            props.onMove({dragItem, hoverItem, mediaQuery});
         }
     }
 };
 
-const itemSource = {
+const source = {
     beginDrag(props) {
         return props;
     }
 };
 
-const collectSource = (connect, monitor) => ({
-    connectDragSource: connect.dragSource(),
-    isDragging: monitor.isDragging()
-});
-
-const collectTarget = (connect, monitor) => ({
+@DropTarget(ItemTypes.COMPONENT, target, (connect, monitor) => ({
     connectDropTarget: connect.dropTarget(),
     isOver: monitor.isOver()
-});
-
-@DropTarget(ItemTypes.COMPONENT, itemTarget, collectTarget)
-@DragSource(ItemTypes.COMPONENT, itemSource, collectSource)
+}))
+@DragSource(ItemTypes.COMPONENT, source, (connect, monitor) => ({
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging()
+}))
 export default class ItemContainer extends Component {
     static propTypes = {
         item: PropTypes.string.isRequired,

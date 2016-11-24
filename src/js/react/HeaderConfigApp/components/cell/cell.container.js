@@ -8,7 +8,7 @@ import {ItemTypes} from 'HeaderConfigApp/constants/itemTypes';
 
 import {validStates} from 'HeaderConfigApp/constants/states';
 
-const cellTarget = {
+const target = {
     canDrop(props, monitor) {
         const to = props.name;
         const mediaQuery = props.mediaQuery;
@@ -56,15 +56,11 @@ const cellTarget = {
     }
 };
 
-function collect(connect, monitor) {
-    return {
-        connectDropTarget: connect.dropTarget(),
-        isOver: monitor.isOver(),
-        canDrop: monitor.canDrop()
-    };
-}
-
-@DropTarget(ItemTypes.COMPONENT, cellTarget, collect)
+@DropTarget(ItemTypes.COMPONENT, target, (connect, monitor) => ({
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver(),
+    canDrop: monitor.canDrop()
+}))
 export default class CellContainer extends Component {
     static propTypes = {
         items: PropTypes.object.isRequired,
