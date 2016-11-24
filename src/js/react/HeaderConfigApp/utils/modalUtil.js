@@ -1,5 +1,8 @@
-import { forOwn, includes, has } from 'lodash';
-import { defaultState, validStates } from 'HeaderConfigApp/constants/states';
+import {forOwn, includes, has, pull} from 'lodash';
+import update from 'react-addons-update';
+
+import {defaultState, validStates} from 'HeaderConfigApp/constants/states';
+import {mediaQueries} from 'HeaderConfigApp/constants/mediaQueries';
 
 /**
  * Get initial state from Shopify
@@ -67,3 +70,36 @@ export const validateState = state => {
     })();
 };
 
+export const removeItem = (state, action) => {
+    const {item, mediaQuery, oldPosition} = action;
+    const cells = state[mediaQuery];
+    const oldCell = [...cells[oldPosition]];
+
+    return update(state, {
+        [mediaQuery]: {
+            $merge: {
+                [oldPosition]: pull(oldCell, item),
+                Hidden: [...cells.Hidden, item]
+            }
+        }
+    });
+};
+
+export const saveItem = (state, action) => {
+    const {mediaQuery, to, from} = action;
+
+    if (includes(mediaQueries, mediaQuery)) {
+        return update(state, {
+            [mediaQuery]: {
+                $merge: {
+                    [to.dataset.id]: [...to.children].map(item => item.dataset.id),
+                    [from.dataset.id]: [...from.children].map(item => item.dataset.id)
+                }
+            }
+        });
+    }
+    else {
+        console.warn('Component\'s name or its properties are not defined.');
+        return validateState(state);
+    }
+};
