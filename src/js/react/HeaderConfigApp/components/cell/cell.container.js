@@ -66,23 +66,12 @@ class CellContainer extends Component {
 
     _onItemDropped({to, from}) {
         const {actions, mediaQuery} = this.props;
-
-        actions.save({
-            [mediaQuery]: {
-                [to.dataset.id]: [...to.children].map(item => item.dataset.id),
-                [from.dataset.id]: [...from.children].map(item => item.dataset.id)
-            }
-        });
+        actions.save({mediaQuery, to, from});
     }
 
     _handleCloseButton(item) {
-        const {items, actions, mediaQuery} = this.props;
-
-        actions.remove({
-            items, item, mediaQuery,
-            positionLists: this.sortable.el.children,
-            position: this.sortable.el.dataset.id
-        });
+        const {actions, mediaQuery} = this.props;
+        actions.remove({item, mediaQuery, oldPosition: this.sortable.el.dataset.id});
     }
 
     _handleCellRef(cellRef) {

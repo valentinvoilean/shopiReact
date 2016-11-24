@@ -1,4 +1,4 @@
-import { forOwn, pull, includes, has } from 'lodash';
+import { forOwn, includes, has } from 'lodash';
 import { defaultState, validStates } from 'HeaderConfigApp/constants/states';
 
 /**
@@ -67,14 +67,3 @@ export const validateState = state => {
     })();
 };
 
-export const removeItem = (settings) => {
-    const {items, item, positionLists, position, mediaQuery} = settings;
-    const newItems = [...positionLists].map(curPos => curPos.dataset.id);
-
-    return {
-        [mediaQuery]: {
-            [position]: pull(newItems, item),
-            Hidden: [...items.Hidden, item]
-        }
-    };
-};
