@@ -36,7 +36,6 @@ export default {
 
     plugins: [
         new webpack.DefinePlugin(GLOBALS),
-        new webpack.NoErrorsPlugin(),
         new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js', Infinity),
         new webpack.ProvidePlugin({
             $: 'jquery',
@@ -46,7 +45,8 @@ export default {
     ],
 
     eslint: {
-        failOnError: false
+        failOnError: false,
+        failOnWarnings: false
     },
 
     module: {
