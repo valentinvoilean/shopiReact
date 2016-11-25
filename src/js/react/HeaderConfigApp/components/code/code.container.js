@@ -1,6 +1,7 @@
 import React from 'react';
+import CopyToClipboard from 'react-copy-to-clipboard';
 
-import CodeView from './code.view';
+import styles from 'HeaderConfigApp/styles/modal.scss';
 
 class CodeContainer extends React.Component {
     static propTypes = {
@@ -28,7 +29,16 @@ class CodeContainer extends React.Component {
     }
 
     render() {
-        return (<CodeView text={this.props.text} copied={this.state.copied} handleCopy={this._handleCopy} />);
+        const buttonClass = `${styles.copy} ${this.state.copied ? styles.copied : ''}`;
+
+        return (
+            <div className={styles.codeContainer}>
+                <code className={styles.code}>{this.props.text}</code>
+                <CopyToClipboard text={this.props.text} onCopy={this._handleCopy}>
+                    <div className={buttonClass}>Click to copy</div>
+                </CopyToClipboard>
+            </div>
+        );
     }
 }
 
