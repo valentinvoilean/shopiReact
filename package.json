@@ -106,7 +106,7 @@
     "redux-devtools-extension": "1.0.0",
     "redux-immutable-state-invariant": "1.2.4",
     "redux-thunk": "2.1.0",
-    "sortablejs": "github:valentinvoilean/Sortable",
+    "sortablejs": "1.5.0-rc1",
     "uuid": "3.0.0"
   }
 }

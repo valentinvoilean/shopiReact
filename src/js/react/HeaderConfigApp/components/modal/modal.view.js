@@ -1,12 +1,12 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 import uuid from 'uuid';
 
-import {TabView} from 'HeaderConfigApp/components';
+import {TabContainer} from 'HeaderConfigApp/components';
 import styles from './modal.scss';
 import {mediaQueries} from 'HeaderConfigApp/constants/mediaQueries';
 
-const ModalView = ({headerConfig, actions}) => {
+const ModalView = () => {
     /* eslint-disable react/forbid-component-props  */
     return (
         <div className={styles.background}>
@@ -18,7 +18,7 @@ const ModalView = ({headerConfig, actions}) => {
                     </TabList>
                     { mediaQueries.map((mq) => (
                         <TabPanel key={uuid.v4()}>
-                            <TabView mediaQuery={mq} headerConfig={headerConfig} actions={actions} />
+                            <TabContainer mediaQuery={mq} />
                         </TabPanel>
                     ))}
                 </Tabs>
@@ -26,11 +26,6 @@ const ModalView = ({headerConfig, actions}) => {
         </div>
     );
     /* eslint-enable */
-};
-
-ModalView.propTypes = {
-    headerConfig: PropTypes.object.isRequired,
-    actions: PropTypes.object.isRequired
 };
 
 export default ModalView;

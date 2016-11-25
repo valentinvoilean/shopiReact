@@ -61,7 +61,7 @@ class CellContainer extends Component {
         ghostClass: styles.sortableGhost,
         validGroupClass: styles.cellValid,
         invalidGroupClass: styles.cellInvalid,
-        onEnd: this._onItemDropped.bind(this)
+        onSort: this._onItemDropped.bind(this)
     };
 
     _onItemDropped({to, from}) {
