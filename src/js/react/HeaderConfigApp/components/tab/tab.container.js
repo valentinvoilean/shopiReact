@@ -27,7 +27,7 @@ export default class TabContainer extends React.Component {
         return false;
     }
 
-    _updatePositions(to) {
+    _updatePositions(to, from) {
         const {updateGlobalState, mediaQuery} = this.props;
 
         this.setState(prevState => {
@@ -35,15 +35,13 @@ export default class TabContainer extends React.Component {
                 items: {
                     ...prevState.items,
                     [to.dataset.id]: [...to.children].map(item => item.dataset.id)
-                }
+                },
+                modified: to.dataset.id === from.dataset.id
             };
         });
 
         if (this.state.modified) {
             updateGlobalState(this.state.items, mediaQuery);
-        }
-        else {
-            this.setState({modified: true});
         }
     }
 

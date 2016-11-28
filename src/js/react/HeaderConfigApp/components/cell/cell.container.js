@@ -64,8 +64,8 @@ class CellContainer extends Component {
         onSort: this._handleSort.bind(this)
     };
 
-    _handleSort({to}) {
-        this.props.save(to);
+    _handleSort({to, from}) {
+        this.props.save(to, from);
     }
 
     _handleCloseButton(item) {
