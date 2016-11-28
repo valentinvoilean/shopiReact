@@ -1,5 +1,4 @@
-import {forOwn, includes, has, pull} from 'lodash';
-import update from 'react-addons-update';
+import {forOwn, includes, has} from 'lodash';
 
 import {defaultState, validStates} from 'HeaderConfigApp/constants/states';
 import {mediaQueries} from 'HeaderConfigApp/constants/mediaQueries';
@@ -70,22 +69,7 @@ export const validateState = state => {
     })();
 };
 
-export const removeItem = (state, action) => {
-    const {item, mediaQuery, oldPosition} = action;
-    const cells = state[mediaQuery];
-    const oldCell = [...cells[oldPosition]];
-
-    return update(state, {
-        [mediaQuery]: {
-            $merge: {
-                [oldPosition]: pull(oldCell, item),
-                Hidden: [...cells.Hidden, item]
-            }
-        }
-    });
-};
-
-export const saveItem = (state, action) => {
+export const updateState = (state, action) => {
     const {items, mediaQuery} = action;
 
     if (includes(mediaQueries, mediaQuery)) {

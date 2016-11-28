@@ -8,10 +8,9 @@ import styles from 'HeaderConfigApp/styles/modal.scss';
 export default class TabContainer extends React.Component {
 
     static propTypes = {
-        items: PropTypes.object.isRequired,
         globalState: PropTypes.object.isRequired,
-        mediaQuery: PropTypes.string.isRequired,
-        updateGlobalState: PropTypes.func.isRequired
+        actions: PropTypes.object.isRequired,
+        mediaQuery: PropTypes.string.isRequired
     };
 
     constructor(props) {
@@ -22,7 +21,7 @@ export default class TabContainer extends React.Component {
     }
 
     state = {
-        items: this.props.items
+        items: this.props.globalState[this.props.mediaQuery]
     };
 
     shouldComponentUpdate() {
@@ -30,7 +29,7 @@ export default class TabContainer extends React.Component {
     }
 
     _updatePositions(to, from) {
-        const {updateGlobalState, mediaQuery} = this.props;
+        const {actions, mediaQuery} = this.props;
 
         this.setState(prevState => {
             return {
@@ -42,13 +41,13 @@ export default class TabContainer extends React.Component {
             };
         }, () => {
             if (this.state.modified) {
-                updateGlobalState({items: this.state.items, mediaQuery});
+                actions.save({items: this.state.items, mediaQuery});
             }
         });
     }
 
     _remove(item, from) {
-        const {updateGlobalState, mediaQuery} = this.props;
+        const {actions, mediaQuery} = this.props;
 
         this.setState(prevState => {
             return {
@@ -58,11 +57,11 @@ export default class TabContainer extends React.Component {
                     Hidden: [...prevState.items.Hidden, item]
                 }
             };
-        }, () => updateGlobalState({items: this.state.items, mediaQuery}));
+        }, () => actions.remove({items: this.state.items, mediaQuery}));
     }
 
     render() {
-        const {items, globalState, mediaQuery} = this.props;
+        const {globalState, mediaQuery} = this.props;
 
         return (
             <div>
@@ -70,7 +69,7 @@ export default class TabContainer extends React.Component {
                     <h2 className={styles.h2}>1. Available components to drag & drop</h2>
                     <div className={styles.componentsContainer}>
                         <CellContainer name='Hidden'
-                                       items={items}
+                                       items={globalState[mediaQuery]}
                                        mediaQuery={mediaQuery}
                                        save={this._updatePositions}
                                        remove={this._remove}
@@ -92,9 +91,24 @@ export default class TabContainer extends React.Component {
                         boxes.</p>
 
                     <div className={styles.header + ' ' + styles[mediaQuery]}>
-                        <RowView {...this.props} currentPosition={0} save={this._updatePositions} remove={this._remove} />
-                        <RowView {...this.props} currentPosition={1} save={this._updatePositions} remove={this._remove} />
-                        <RowView {...this.props} currentPosition={2} save={this._updatePositions} remove={this._remove} />
+                        <RowView {...this.props}
+                                 items={globalState[mediaQuery]}
+                                 currentPosition={0}
+                                 save={this._updatePositions}
+                                 remove={this._remove}
+                        />
+                        <RowView {...this.props}
+                                 items={globalState[mediaQuery]}
+                                 currentPosition={1}
+                                 save={this._updatePositions}
+                                 remove={this._remove}
+                        />
+                        <RowView {...this.props}
+                                 items={globalState[mediaQuery]}
+                                 currentPosition={2}
+                                 save={this._updatePositions}
+                                 remove={this._remove}
+                        />
                     </div>
                 </div>
             </div>

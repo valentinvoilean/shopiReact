@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
@@ -25,12 +25,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 class ModalContainer extends React.Component {
-
-    static propTypes = {
-        actions: PropTypes.object.isRequired,
-        globalState: PropTypes.object.isRequired
-    };
-
     state = getInitialState();
 
     shouldComponentUpdate() {
@@ -38,7 +32,6 @@ class ModalContainer extends React.Component {
     }
 
     render() {
-        const {globalState, actions} = this.props;
 
         return (
             <div className={styles.background}>
@@ -49,14 +42,9 @@ class ModalContainer extends React.Component {
                         <TabList>
                             {mediaQueries.map((mediaQuery) => (<Tab key={uuid.v4()}>{mediaQuery}</Tab>))}
                         </TabList>
-                        { mediaQueries.map((mq) => (
+                        { mediaQueries.map((mediaQuery) => (
                             <TabPanel key={uuid.v4()}>
-                                <TabContainer
-                                    mediaQuery={mq}
-                                    items={globalState[mq]}
-                                    globalState={globalState}
-                                    updateGlobalState={actions.save}
-                                />
+                                <TabContainer {...this.props} mediaQuery={mediaQuery} />
                             </TabPanel>
                         ))}
                     </Tabs>
