@@ -16,8 +16,32 @@ export default class TabContainer extends React.Component {
         items: this.props.items
     };
 
+    constructor(props) {
+        super(props);
+
+        this._updatePositions = this._updatePositions.bind(this);
+    }
+
     shouldComponentUpdate() {
         return false;
+    }
+
+    _updatePositions(to) {
+        this.setState(prevState => {
+            return {
+                items: {
+                    ...prevState.items,
+                    [to.dataset.id]: [...to.children].map(item => item.dataset.id)
+                }
+            };
+        });
+
+        if (this.state.modified) {
+            console.log('modified, update store', this.state.items);
+        }
+        else {
+            this.setState({modified: true});
+        }
     }
 
     render() {
@@ -31,6 +55,7 @@ export default class TabContainer extends React.Component {
                         <CellContainer name='Hidden'
                                        items={items}
                                        mediaQuery={mediaQuery}
+                                       save={this._updatePositions}
                         />
                     </div>
                 </div>
@@ -49,9 +74,9 @@ export default class TabContainer extends React.Component {
                         boxes.</p>
 
                     <div className={styles.header + ' ' + styles[mediaQuery]}>
-                        <RowView {...this.props} currentPosition={0} />
-                        <RowView {...this.props} currentPosition={1} />
-                        <RowView {...this.props} currentPosition={2} />
+                        <RowView {...this.props} currentPosition={0} save={this._updatePositions} />
+                        <RowView {...this.props} currentPosition={1} save={this._updatePositions} />
+                        <RowView {...this.props} currentPosition={2} save={this._updatePositions} />
                     </div>
                 </div>
             </div>

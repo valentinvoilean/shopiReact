@@ -11,7 +11,7 @@ class CellContainer extends Component {
     static propTypes = {
         items: PropTypes.object.isRequired,
         name: PropTypes.string.isRequired,
-        //actions: PropTypes.object.isRequired,
+        save: PropTypes.func.isRequired,
         mediaQuery: PropTypes.string.isRequired
     };
 
@@ -61,12 +61,11 @@ class CellContainer extends Component {
         ghostClass: styles.sortableGhost,
         validGroupClass: styles.cellValid,
         invalidGroupClass: styles.cellInvalid,
-        onSort: this._onItemDropped.bind(this)
+        onSort: this._handleSort.bind(this)
     };
 
-    _onItemDropped({to, from}) {
-        /*const {actions, mediaQuery} = this.props;
-        actions.save({mediaQuery, to, from});*/
+    _handleSort({to}) {
+        this.props.save(to);
     }
 
     _handleCloseButton(item) {

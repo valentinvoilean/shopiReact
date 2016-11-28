@@ -5,24 +5,24 @@ import {horizontalPositions, verticalPositions} from 'HeaderConfigApp/constants/
 import styles from 'HeaderConfigApp/styles/modal.scss';
 
 const RowView = props => {
-    const {mediaQuery, items, currentPosition} = props;
+    const {mediaQuery, items, currentPosition, save} = props;
     const multiCells = mediaQuery !== 'mobile' || currentPosition === 0;
 
     if (multiCells) {
         return (
             <div className={styles.headerArea}>
-            {
-                horizontalPositions.map(
-                    (pos) => (
-                        <CellContainer key={uuid.v4()}
-                              name={`${verticalPositions[currentPosition]}${pos}`}
-                              items={items}
-                              mediaQuery={mediaQuery}
-                              //actions={actions}
-                        />
+                {
+                    horizontalPositions.map(
+                        (pos) => (
+                            <CellContainer key={uuid.v4()}
+                                           name={`${verticalPositions[currentPosition]}${pos}`}
+                                           items={items}
+                                           mediaQuery={mediaQuery}
+                                           save={save}
+                            />
+                        )
                     )
-                )
-            }
+                }
             </div>
         );
     }
@@ -30,9 +30,9 @@ const RowView = props => {
     return (
         <div className={styles.headerArea}>
             <CellContainer name={verticalPositions[currentPosition]}
-                  items={items}
-                  mediaQuery={mediaQuery}
-                  //actions={actions}
+                           items={items}
+                           mediaQuery={mediaQuery}
+                           save={save}
             />
         </div>
     );
@@ -41,7 +41,8 @@ const RowView = props => {
 RowView.propTypes = {
     items: PropTypes.object.isRequired,
     mediaQuery: PropTypes.string.isRequired,
-    currentPosition: PropTypes.number
+    currentPosition: PropTypes.number,
+    save: PropTypes.func.isRequired
 };
 
 export default RowView;
