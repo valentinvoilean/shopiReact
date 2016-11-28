@@ -86,17 +86,13 @@ export const removeItem = (state, action) => {
 };
 
 export const saveItem = (state, action) => {
-    const {mediaQuery, to, from} = action;
+    const {items, mediaQuery} = action;
 
     if (includes(mediaQueries, mediaQuery)) {
-        return update(state, {
-            [mediaQuery]: {
-                $merge: {
-                    [to.dataset.id]: [...to.children].map(item => item.dataset.id),
-                    [from.dataset.id]: [...from.children].map(item => item.dataset.id)
-                }
-            }
-        });
+        return {
+            ...state,
+            [mediaQuery]: items
+        };
     }
     else {
         console.warn('Component\'s name or its properties are not defined.');
