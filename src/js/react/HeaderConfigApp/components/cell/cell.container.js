@@ -12,6 +12,7 @@ class CellContainer extends Component {
         items: PropTypes.object.isRequired,
         name: PropTypes.string.isRequired,
         save: PropTypes.func.isRequired,
+        remove: PropTypes.func.isRequired,
         mediaQuery: PropTypes.string.isRequired
     };
 
@@ -69,8 +70,7 @@ class CellContainer extends Component {
     }
 
     _handleCloseButton(item) {
-        /*const {actions, mediaQuery} = this.props;
-        actions.remove({item, mediaQuery, oldPosition: this.sortable.el.dataset.id});*/
+        this.props.remove(item, this.sortable.el.dataset.id);
     }
 
     _handleCellRef(cellRef) {

@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import {pull} from 'lodash';
 
 import {RowView, CellContainer, CodeContainer} from 'HeaderConfigApp/components';
 
@@ -17,6 +18,7 @@ export default class TabContainer extends React.Component {
         super(props);
 
         this._updatePositions = this._updatePositions.bind(this);
+        this._remove = this._remove.bind(this);
     }
 
     state = {
@@ -38,11 +40,25 @@ export default class TabContainer extends React.Component {
                 },
                 modified: to.dataset.id === from.dataset.id
             };
+        }, () => {
+            if (this.state.modified) {
+                updateGlobalState(this.state.items, mediaQuery);
+            }
         });
+    }
 
-        if (this.state.modified) {
-            updateGlobalState(this.state.items, mediaQuery);
-        }
+    _remove(item, from) {
+        const {updateGlobalState, mediaQuery} = this.props;
+
+        this.setState(prevState => {
+            return {
+                items: {
+                    ...prevState.items,
+                    [from]: pull(prevState.items[from], item),
+                    Hidden: [...prevState.items.Hidden, item]
+                }
+            };
+        }, () => updateGlobalState(this.state.items, mediaQuery));
     }
 
     render() {
@@ -57,6 +73,7 @@ export default class TabContainer extends React.Component {
                                        items={items}
                                        mediaQuery={mediaQuery}
                                        save={this._updatePositions}
+                                       remove={this._remove}
                         />
                     </div>
                 </div>
@@ -75,9 +92,9 @@ export default class TabContainer extends React.Component {
                         boxes.</p>
 
                     <div className={styles.header + ' ' + styles[mediaQuery]}>
-                        <RowView {...this.props} currentPosition={0} save={this._updatePositions} />
-                        <RowView {...this.props} currentPosition={1} save={this._updatePositions} />
-                        <RowView {...this.props} currentPosition={2} save={this._updatePositions} />
+                        <RowView {...this.props} currentPosition={0} save={this._updatePositions} remove={this._remove} />
+                        <RowView {...this.props} currentPosition={1} save={this._updatePositions} remove={this._remove} />
+                        <RowView {...this.props} currentPosition={2} save={this._updatePositions} remove={this._remove} />
                     </div>
                 </div>
             </div>
