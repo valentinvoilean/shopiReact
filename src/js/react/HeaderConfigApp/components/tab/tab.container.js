@@ -53,7 +53,7 @@ export default class TabContainer extends React.Component {
             return {
                 items: {
                     ...prevState.items,
-                    [from]: pull(prevState.items[from], item),
+                    [from]: pull([...prevState.items[from]], item),
                     Hidden: [...prevState.items.Hidden, item]
                 }
             };

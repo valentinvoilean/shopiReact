@@ -1,7 +1,7 @@
 import {getInitialState, validateState, updateState} from 'HeaderConfigApp/utils/modalUtil';
 
-const SAVE_HEADER_SETTINGS = 'HeaderConfigApp/modal/SAVE_HEADER_SETTINGS';
-const REMOVE_HEADER_ITEM = 'HeaderConfigApp/modal/REMOVE_HEADER_ITEM';
+const SAVE_HEADER_SETTINGS = 'SAVE_HEADER_SETTINGS';
+const REMOVE_HEADER_ITEM = 'REMOVE_HEADER_ITEM';
 
 // Reducer
 export default (state = getInitialState(), action) => {
