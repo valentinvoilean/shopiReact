@@ -9,11 +9,8 @@ export default class TabContainer extends React.Component {
     static propTypes = {
         items: PropTypes.object.isRequired,
         globalState: PropTypes.object.isRequired,
-        mediaQuery: PropTypes.string.isRequired
-    };
-
-    state = {
-        items: this.props.items
+        mediaQuery: PropTypes.string.isRequired,
+        updateGlobalState: PropTypes.func.isRequired
     };
 
     constructor(props) {
@@ -22,11 +19,17 @@ export default class TabContainer extends React.Component {
         this._updatePositions = this._updatePositions.bind(this);
     }
 
+    state = {
+        items: this.props.items
+    };
+
     shouldComponentUpdate() {
         return false;
     }
 
     _updatePositions(to) {
+        const {updateGlobalState, mediaQuery} = this.props;
+
         this.setState(prevState => {
             return {
                 items: {
@@ -37,7 +40,7 @@ export default class TabContainer extends React.Component {
         });
 
         if (this.state.modified) {
-            console.log('modified, update store', this.state.items);
+            updateGlobalState(this.state.items, mediaQuery);
         }
         else {
             this.setState({modified: true});
