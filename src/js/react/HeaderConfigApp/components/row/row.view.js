@@ -5,7 +5,7 @@ import {horizontalPositions, verticalPositions} from 'HeaderConfigApp/constants/
 import styles from 'HeaderConfigApp/styles/modal.scss';
 
 const RowView = props => {
-    const {mediaQuery, currentPosition, forceUpdate} = props;
+    const {mediaQuery, items, currentPosition, save, remove} = props;
     const multiCells = mediaQuery !== 'mobile' || currentPosition === 0;
 
     if (multiCells) {
@@ -16,8 +16,10 @@ const RowView = props => {
                         (pos) => (
                             <CellContainer key={uuid.v4()}
                                            name={`${verticalPositions[currentPosition]}${pos}`}
+                                           items={items}
                                            mediaQuery={mediaQuery}
-                                           forceUpdateTab={forceUpdate}
+                                           save={save}
+                                           remove={remove}
                             />
                         )
                     )
@@ -28,19 +30,22 @@ const RowView = props => {
 
     return (
         <div className={styles.headerArea}>
-            <CellContainer key={uuid.v4()}
-                           name={verticalPositions[currentPosition]}
+            <CellContainer name={verticalPositions[currentPosition]}
+                           items={items}
                            mediaQuery={mediaQuery}
-                           forceUpdateTab={forceUpdate}
+                           save={save}
+                           remove={remove}
             />
         </div>
     );
 };
 
 RowView.propTypes = {
+    items: PropTypes.object.isRequired,
     mediaQuery: PropTypes.string.isRequired,
     currentPosition: PropTypes.number,
-    forceUpdate: PropTypes.func.isRequired
+    save: PropTypes.func.isRequired,
+    remove: PropTypes.func.isRequired
 };
 
 export default RowView;

@@ -1,12 +1,10 @@
-import React, {PropTypes} from 'react';
-import {connect} from 'react-redux';
+import React from 'react';
 
 import CodeView from './code.view';
 
-@connect(state => ({globalState: state.headerConfig}))
 class CodeContainer extends React.Component {
     static propTypes = {
-        globalState: PropTypes.object.isRequired
+        text: React.PropTypes.string.isRequired
     };
 
     constructor(props) {
@@ -30,8 +28,7 @@ class CodeContainer extends React.Component {
     }
 
     render() {
-        const text = JSON.stringify(this.props.globalState);
-        return (<CodeView text={text} copied={this.state.copied} handleCopy={this._handleCopy} />);
+        return (<CodeView text={this.props.text} copied={this.state.copied} handleCopy={this._handleCopy} />);
     }
 }
 

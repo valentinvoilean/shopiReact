@@ -1,6 +1,5 @@
-import {getInitialState, validateState} from 'HeaderConfigApp/utils/modalUtil';
+import {getInitialState, validateState, updateState} from 'HeaderConfigApp/utils/modalUtil';
 import {pull, includes} from 'lodash';
-import update from 'react-addons-update';
 
 import {mediaQueries} from 'HeaderConfigApp/constants/mediaQueries';
 
@@ -11,14 +10,20 @@ const REMOVE_HEADER_ITEM = 'REMOVE_HEADER_ITEM';
 export default (state = getInitialState(), action) => {
     switch (action.type) {
         case SAVE_HEADER_SETTINGS: {
-            const {to, children, mediaQuery} = action;
+            const {to, children, shouldComponentUpdate, mediaQuery} = action;
 
             if (includes(mediaQueries, mediaQuery)) {
-                return update(state, {
-                    [mediaQuery]: {$merge: {
-                        [to]: children
-                    }}
-                });
+                return {
+                    ...state,
+                    data: {
+                        ...state.data,
+                        [mediaQuery]: {
+                            ...state.data[mediaQuery],
+                            [to]: children
+                        }
+                    },
+                    shouldComponentUpdate
+                };
             }
             else {
                 console.warn('Component\'s name or its properties are not defined.');
@@ -29,12 +34,18 @@ export default (state = getInitialState(), action) => {
         case REMOVE_HEADER_ITEM: {
             const {item, from, mediaQuery} = action;
 
-            return update(state, {
-                [mediaQuery]: {$merge: {
-                    [from]: pull([...state[mediaQuery][from]], item),
-                    Hidden: [...state[mediaQuery].Hidden, item]
-                }}
-            });
+            return {
+                ...state,
+                data: {
+                    ...state.data,
+                    [mediaQuery]: {
+                        ...state.data[mediaQuery],
+                        [from]: pull([...state.data[mediaQuery][from]], item),
+                        Hidden: [...state.data[mediaQuery].Hidden, item]
+                    }
+                },
+                shouldComponentUpdate: true
+            };
         }
 
         default:

@@ -1,27 +1,19 @@
 import React, {Component, PropTypes} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import {includes} from 'lodash';
 import Sortable from 'sortablejs';
-
-import * as actions from 'HeaderConfigApp/redux/modules/modal';
 
 import {CloseButtonView} from 'HeaderConfigApp/components';
 import styles from 'HeaderConfigApp/styles/modal.scss';
 import {validStates} from 'HeaderConfigApp/constants/states';
 
 // Functional Component
-@connect(
-    state => ({globalState: state.headerConfig}),
-    dispatch => ({actions: bindActionCreators(actions, dispatch)})
-)
-export default class CellContainer extends Component {
+class CellContainer extends Component {
     static propTypes = {
+        items: PropTypes.object.isRequired,
         name: PropTypes.string.isRequired,
-        mediaQuery: PropTypes.string.isRequired,
-        actions: PropTypes.object.isRequired,
-        globalState: PropTypes.object.isRequired,
-        forceUpdateTab: PropTypes.func
+        save: PropTypes.func.isRequired,
+        remove: PropTypes.func.isRequired,
+        mediaQuery: PropTypes.string.isRequired
     };
 
     constructor(props) {
@@ -33,10 +25,6 @@ export default class CellContainer extends Component {
 
     componentDidMount() {
         this.sortable = Sortable.create(this.cellRef, {...this.sortableOptions});
-    }
-
-    shouldComponentUpdate() {
-        return false;
     }
 
     componentWillUnmount() {
@@ -77,19 +65,12 @@ export default class CellContainer extends Component {
         onSort: this._handleSort.bind(this)
     };
 
-    _handleSort({to}) {
-        const {actions, mediaQuery} = this.props;
-
-        actions.save({
-            to: [to.dataset.id],
-            children: [...to.children].map(item => item.dataset.id),
-            mediaQuery
-        });
+    _handleSort({to, from}) {
+        this.props.save(to, from);
     }
 
     _handleCloseButton(item) {
-        this.props.actions.remove({item, from: this.sortable.el.dataset.id, mediaQuery: this.props.mediaQuery});
-        this.props.forceUpdateTab();
+        this.props.remove(item, this.sortable.el.dataset.id);
     }
 
     _handleCellRef(cellRef) {
@@ -97,8 +78,7 @@ export default class CellContainer extends Component {
     }
 
     render() {
-        const {name, mediaQuery} = this.props;
-        const items = this.props.globalState[mediaQuery];
+        const {items, name, mediaQuery} = this.props;
 
         const itemsHTML = items[name] ? items[name].map((item, key) => (
             <li key={key} data-id={item}><span>{item}</span>
@@ -113,3 +93,5 @@ export default class CellContainer extends Component {
         return (<ul ref={this._handleCellRef} data-id={name}> {itemsHTML} </ul>);
     }
 }
+
+export default CellContainer;
