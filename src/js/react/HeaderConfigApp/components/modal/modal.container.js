@@ -12,23 +12,14 @@ import {mediaQueries} from 'HeaderConfigApp/constants/mediaQueries';
 
 import {getInitialState} from 'HeaderConfigApp/utils/modalUtil';
 
-function mapStateToProps(state) {
-    return {
-        globalState: state.headerConfig
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        actions: bindActionCreators(actions, dispatch)
-    };
-}
-
-class ModalContainer extends React.Component {
+@connect(
+    state => ({globalState: state.headerConfig}),
+    dispatch => ({actions: bindActionCreators(actions, dispatch)})
+)
+export default class ModalContainer extends React.Component {
     state = getInitialState();
 
-    shouldComponentUpdate(nextProps, nextState) {
-        console.log(nextProps, nextState);
+    shouldComponentUpdate() {
         return true;
     }
 
@@ -56,7 +47,3 @@ class ModalContainer extends React.Component {
     }
 }
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(ModalContainer);
