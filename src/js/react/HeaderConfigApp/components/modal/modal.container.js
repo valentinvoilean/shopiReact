@@ -10,15 +10,11 @@ import {TabContainer} from 'HeaderConfigApp/components';
 import styles from './modal.scss';
 import {mediaQueries} from 'HeaderConfigApp/constants/mediaQueries';
 
-import {getInitialState} from 'HeaderConfigApp/utils/modalUtil';
-
 @connect(
     state => ({globalState: state.headerConfig}),
     dispatch => ({actions: bindActionCreators(actions, dispatch)})
 )
 export default class ModalContainer extends React.Component {
-    state = getInitialState();
-
     shouldComponentUpdate() {
         return true;
     }
