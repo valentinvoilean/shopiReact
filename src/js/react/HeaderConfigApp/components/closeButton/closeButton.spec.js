@@ -1,13 +1,13 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
-import CloseButtonView from './closeButton.view';
+import CloseButton from './closeButton';
 
 describe('Close button', () => {
 
     it('doesn\'t appear if is inside the Hidden cell', () => {
         expect(shallow(
-            <CloseButtonView onClick={() => void 0}
+            <CloseButton onClick={() => void 0}
                              item="Menu"
                              mediaQuery="mobile"
                              cellName="Hidden"
@@ -17,7 +17,7 @@ describe('Close button', () => {
 
     it('doesn\'t appear if the item is always required', () => {
         expect(shallow(
-            <CloseButtonView onClick={() => void 0}
+            <CloseButton onClick={() => void 0}
                              item="MenuIcon"
                              mediaQuery="mobile"
                              cellName="TopLeft"
@@ -27,7 +27,7 @@ describe('Close button', () => {
 
     it('renders without any problem if the item is not required and is not in the hidden list', () => {
         expect(shallow(
-            <CloseButtonView onClick={() => void 0}
+            <CloseButton onClick={() => void 0}
                              item="MyAccount"
                              mediaQuery="mobile"
                              cellName="TopRight"
@@ -39,7 +39,7 @@ describe('Close button', () => {
         const onClick = jasmine.createSpy('onButtonClick');
 
         const wrapper = shallow(
-            <CloseButtonView onClick={onClick}
+            <CloseButton onClick={onClick}
                              item="MyAccount"
                              mediaQuery="mobile"
                              cellName="TopRight"
