@@ -15,13 +15,10 @@ export default (state = getInitialState(), action) => {
 
             return {
                 ...state,
-                data: {
-                    ...state.data,
-                    [mediaQuery]: {
-                        ...state.data[mediaQuery],
-                        [from]: pull([...state.data[mediaQuery][from]], item),
-                        Hidden: [...state.data[mediaQuery].Hidden, item]
-                    }
+                [mediaQuery]: {
+                    ...state[mediaQuery],
+                    [from]: pull([...state[mediaQuery][from]], item),
+                    Hidden: [...state[mediaQuery].Hidden, item]
                 }
             };
         }

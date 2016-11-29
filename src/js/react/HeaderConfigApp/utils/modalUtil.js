@@ -12,9 +12,7 @@ export const getInitialState = () => {
     let currentSettings;
 
     try {
-        currentSettings = {
-            data: JSON.parse(shopifySettings)
-        };
+        currentSettings = JSON.parse(shopifySettings);
     }
     catch (err) {
         console.warn('Data not valid ! The default settings will be used instead ');
@@ -30,14 +28,14 @@ export const getInitialState = () => {
  * @returns {{}}
  */
 export const validateState = state => {
-    let wantedState = {...state.data},
+    let wantedState = {...state},
         newState = {},
         areas,
         validAreas,
 
         _loadDefaultSettings = (mediaQuery) => {
             console.warn(`Conditions not met; default settings will be loaded.`);
-            newState[mediaQuery] = {...defaultState.HeaderConfig.data[mediaQuery]};
+            newState[mediaQuery] = {...defaultState.HeaderConfig[mediaQuery]};
         },
 
         _parseEachHeaderArea = (mediaQuery) => {
@@ -68,9 +66,7 @@ export const validateState = state => {
         });
 
         return {
-            data: {
-                ...defaultState.HeaderConfig.data, ...newState
-            }
+            ...defaultState.HeaderConfig, ...newState
         };
     })();
 };
@@ -81,12 +77,9 @@ export const updateState = (state, action) => {
     if (includes(mediaQueries, mediaQuery)) {
         return {
             ...state,
-            data: {
-                ...state.data,
-                [mediaQuery]: {
-                    ...state.data[mediaQuery],
-                    [to]: children
-                }
+            [mediaQuery]: {
+                ...state[mediaQuery],
+                [to]: children
             }
         };
     }

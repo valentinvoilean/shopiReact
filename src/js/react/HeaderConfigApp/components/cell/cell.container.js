@@ -98,7 +98,7 @@ export default class CellContainer extends Component {
 
     render() {
         const {name, mediaQuery} = this.props;
-        const items = this.props.globalState.data[mediaQuery];
+        const items = this.props.globalState[mediaQuery];
 
         const itemsHTML = items[name] ? items[name].map((item, key) => (
             <li key={key} data-id={item}><span>{item}</span>

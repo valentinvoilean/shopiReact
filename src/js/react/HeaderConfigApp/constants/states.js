@@ -1,39 +1,37 @@
 export const defaultState = {
     HeaderConfig: {
-        data: {
-            mobile: {
-                Flyout: ['Search', 'Currency', 'Language', 'MyAccount', 'SocialIcons'],
-                Hidden: ['CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb', 'Search', 'MyAccount'],
-                TopLeft: ['MenuIcon'],
-                TopCenter: ['Logo'],
-                TopRight: ['Cart', 'Wishlist'],
-                Main: ['Menu'],
-                Bottom: ['WelcomeMessage']
-            },
-            tablet: {
-                Hidden: ['CustomLink3', 'CustomLink4'],
-                TopLeft: ['Currency', 'Language', 'CustomLink1', 'CustomLink2'],
-                TopCenter: [],
-                TopRight: ['MyAccount', 'Wishlist'],
-                MainLeft: ['Logo'],
-                MainCenter: ['Menu'],
-                MainRight: ['Cart', 'Search'],
-                BottomLeft: ['Breadcrumb'],
-                BottomCenter: [],
-                BottomRight: ['SocialIcons', 'WelcomeMessage']
-            },
-            desktop: {
-                Hidden: ['CustomLink3', 'CustomLink4'],
-                TopLeft: ['Currency', 'Language', 'CustomLink1', 'CustomLink2'],
-                TopCenter: [],
-                TopRight: ['MyAccount', 'Wishlist'],
-                MainLeft: ['Logo'],
-                MainCenter: ['Menu'],
-                MainRight: ['Cart', 'Search'],
-                BottomLeft: ['Breadcrumb'],
-                BottomCenter: [],
-                BottomRight: ['SocialIcons', 'WelcomeMessage']
-            }
+        mobile: {
+            Flyout: ['Search', 'Currency', 'Language', 'MyAccount', 'SocialIcons'],
+            Hidden: ['CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb', 'Search', 'MyAccount'],
+            TopLeft: ['MenuIcon'],
+            TopCenter: ['Logo'],
+            TopRight: ['Cart', 'Wishlist'],
+            Main: ['Menu'],
+            Bottom: ['WelcomeMessage']
+        },
+        tablet: {
+            Hidden: ['CustomLink3', 'CustomLink4'],
+            TopLeft: ['Currency', 'Language', 'CustomLink1', 'CustomLink2'],
+            TopCenter: [],
+            TopRight: ['MyAccount', 'Wishlist'],
+            MainLeft: ['Logo'],
+            MainCenter: ['Menu'],
+            MainRight: ['Cart', 'Search'],
+            BottomLeft: ['Breadcrumb'],
+            BottomCenter: [],
+            BottomRight: ['SocialIcons', 'WelcomeMessage']
+        },
+        desktop: {
+            Hidden: ['CustomLink3', 'CustomLink4'],
+            TopLeft: ['Currency', 'Language', 'CustomLink1', 'CustomLink2'],
+            TopCenter: [],
+            TopRight: ['MyAccount', 'Wishlist'],
+            MainLeft: ['Logo'],
+            MainCenter: ['Menu'],
+            MainRight: ['Cart', 'Search'],
+            BottomLeft: ['Breadcrumb'],
+            BottomCenter: [],
+            BottomRight: ['SocialIcons', 'WelcomeMessage']
         }
     }
 };
