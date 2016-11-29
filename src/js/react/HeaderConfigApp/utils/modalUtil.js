@@ -1,8 +1,6 @@
 import {forOwn, includes, has} from 'lodash';
 
 import {defaultState, validStates} from 'HeaderConfigApp/constants/states';
-import {mediaQueries} from 'HeaderConfigApp/constants/mediaQueries';
-
 /**
  * Get initial state from Shopify
  * @returns {*}
@@ -69,22 +67,4 @@ export const validateState = state => {
             ...defaultState.HeaderConfig, ...newState
         };
     })();
-};
-
-export const updateState = (state, action) => {
-    const {to, children, mediaQuery} = action;
-
-    if (includes(mediaQueries, mediaQuery)) {
-        return {
-            ...state,
-            [mediaQuery]: {
-                ...state[mediaQuery],
-                [to]: children
-            }
-        };
-    }
-    else {
-        console.warn('Component\'s name or its properties are not defined.');
-        return validateState(state);
-    }
 };
