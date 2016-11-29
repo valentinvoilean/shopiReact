@@ -1,5 +1,6 @@
 import {getInitialState, validateState} from 'HeaderConfigApp/utils/modalUtil';
 import {pull, includes} from 'lodash';
+import update from 'react-addons-update';
 
 import {mediaQueries} from 'HeaderConfigApp/constants/mediaQueries';
 
@@ -13,13 +14,11 @@ export default (state = getInitialState(), action) => {
             const {to, children, mediaQuery} = action;
 
             if (includes(mediaQueries, mediaQuery)) {
-                return {
-                    ...state,
-                    [mediaQuery]: {
-                        ...state[mediaQuery],
+                return update(state, {
+                    [mediaQuery]: {$merge: {
                         [to]: children
-                    }
-                };
+                    }}
+                });
             }
             else {
                 console.warn('Component\'s name or its properties are not defined.');
@@ -30,14 +29,12 @@ export default (state = getInitialState(), action) => {
         case REMOVE_HEADER_ITEM: {
             const {item, from, mediaQuery} = action;
 
-            return {
-                ...state,
-                [mediaQuery]: {
-                    ...state[mediaQuery],
+            return update(state, {
+                [mediaQuery]: {$merge: {
                     [from]: pull([...state[mediaQuery][from]], item),
                     Hidden: [...state[mediaQuery].Hidden, item]
-                }
-            };
+                }}
+            });
         }
 
         default:
