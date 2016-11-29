@@ -15,12 +15,11 @@ import {mediaQueries} from 'HeaderConfigApp/constants/mediaQueries';
     dispatch => ({actions: bindActionCreators(actions, dispatch)})
 )
 export default class ModalContainer extends React.Component {
-    shouldComponentUpdate() {
-        return true;
+    shouldComponentUpdate(nextProps) {
+        return nextProps.globalState.shouldComponentUpdate;
     }
 
     render() {
-
         return (
             <div className={styles.background}>
                 <div className={`container ${styles.base}`}>

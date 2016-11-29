@@ -9,17 +9,17 @@ import {mediaQueries} from 'HeaderConfigApp/constants/mediaQueries';
  */
 export const getInitialState = () => {
     const shopifySettings = '{"mobile":{"Flyout":["Search","Currency","Language","MyAccount","SocialIcons"],"Hidden":["CustomLink1","CustomLink2","CustomLink3","CustomLink4","Breadcrumb","Search","MyAccount"],"TopLeft":["MenuIcon"],"TopCenter":["Logo"],"TopRight":["Cart","Wishlist"],"Main":["Menu"],"Bottom":["WelcomeMessage"]},"tablet":{"Hidden":["CustomLink3","CustomLink4"],"TopLeft":["Currency","Language","CustomLink1","CustomLink2"],"TopCenter":[],"TopRight":["MyAccount","Wishlist"],"MainLeft":["Logo"],"MainCenter":["Menu"],"MainRight":["Cart","Search"],"BottomLeft":["Breadcrumb"],"BottomCenter":[],"BottomRight":["SocialIcons","WelcomeMessage"]},"desktop":{"Hidden":["CustomLink3","CustomLink4"],"TopLeft":["Currency","Language","CustomLink1","CustomLink2"],"TopCenter":[],"TopRight":["MyAccount","Wishlist"],"MainLeft":["Logo"],"MainCenter":["Menu"],"MainRight":["Cart","Search"],"BottomLeft":["Breadcrumb"],"BottomCenter":[],"BottomRight":["SocialIcons","WelcomeMessage"]}}';
-    let currentState;
+    let currentSettings;
 
     try {
-        currentState = JSON.parse(shopifySettings);
+        currentSettings = JSON.parse(shopifySettings);
     }
     catch (err) {
         console.warn('Data not valid ! The default settings will be used instead ');
-        currentState = {...defaultState.HeaderConfig};
+        currentSettings = {...defaultState.HeaderConfig};
     }
 
-    return currentState;
+    return currentSettings;
 };
 
 /**
@@ -70,12 +70,19 @@ export const validateState = state => {
 };
 
 export const updateState = (state, action) => {
-    const {items, mediaQuery} = action;
+    const {to, children, shouldComponentUpdate, mediaQuery} = action;
 
     if (includes(mediaQueries, mediaQuery)) {
         return {
             ...state,
-            [mediaQuery]: items
+            data: {
+                ...state.data,
+                [mediaQuery]: {
+                    ...state.data[mediaQuery],
+                    [to]: children
+                }
+            },
+            shouldComponentUpdate
         };
     }
     else {

@@ -19,29 +19,18 @@ export default class TabContainer extends React.Component {
         this._remove = this._remove.bind(this);
     }
 
-    state = {
-        items: this.props.globalState[this.props.mediaQuery]
-    };
-
     shouldComponentUpdate() {
-        return false;
+        return true;
     }
 
     _updatePositions(to, from) {
         const {actions, mediaQuery} = this.props;
 
-        this.setState(prevState => {
-            return {
-                items: {
-                    ...prevState.items,
-                    [to.dataset.id]: [...to.children].map(item => item.dataset.id)
-                },
-                modified: to.dataset.id === from.dataset.id
-            };
-        }, () => {
-            if (this.state.modified) {
-                actions.save({items: this.state.items, mediaQuery});
-            }
+        actions.save({
+            to: [to.dataset.id],
+            children: [...to.children].map(item => item.dataset.id),
+            mediaQuery,
+            shouldComponentUpdate: to.dataset.id === from.dataset.id
         });
     }
 
@@ -60,7 +49,7 @@ export default class TabContainer extends React.Component {
                     <h2 className={styles.h2}>1. Available components to drag & drop</h2>
                     <div className={styles.componentsContainer}>
                         <CellContainer name='Hidden'
-                                       items={globalState[mediaQuery]}
+                                       items={globalState.data[mediaQuery]}
                                        mediaQuery={mediaQuery}
                                        save={this._updatePositions}
                                        remove={this._remove}
@@ -71,7 +60,7 @@ export default class TabContainer extends React.Component {
                 <div className="col-md-6">
                     <h2 className={styles.h2}>3. Generated code to be copied</h2>
                     <div className={styles.codeContainer}>
-                        <CodeContainer text={JSON.stringify(globalState)} />
+                        <CodeContainer text={JSON.stringify(globalState.data)} />
                     </div>
                 </div>
 
@@ -83,19 +72,19 @@ export default class TabContainer extends React.Component {
 
                     <div className={styles.header + ' ' + styles[mediaQuery]}>
                         <RowView {...this.props}
-                                 items={globalState[mediaQuery]}
+                                 items={globalState.data[mediaQuery]}
                                  currentPosition={0}
                                  save={this._updatePositions}
                                  remove={this._remove}
                         />
                         <RowView {...this.props}
-                                 items={globalState[mediaQuery]}
+                                 items={globalState.data[mediaQuery]}
                                  currentPosition={1}
                                  save={this._updatePositions}
                                  remove={this._remove}
                         />
                         <RowView {...this.props}
-                                 items={globalState[mediaQuery]}
+                                 items={globalState.data[mediaQuery]}
                                  currentPosition={2}
                                  save={this._updatePositions}
                                  remove={this._remove}
