@@ -2,12 +2,12 @@ import React, {Component, PropTypes} from 'react';
 import {includes} from 'lodash';
 import Sortable from 'sortablejs';
 
-import {CloseButtonView} from 'HeaderConfigApp/components';
+import {CloseButton} from 'HeaderConfigApp/components';
 import styles from 'HeaderConfigApp/styles/modal.scss';
 import {validStates} from 'HeaderConfigApp/constants/states';
 
 // Functional Component
-class CellContainer extends Component {
+class Cell extends Component {
     static propTypes = {
         items: PropTypes.object.isRequired,
         name: PropTypes.string.isRequired,
@@ -82,7 +82,7 @@ class CellContainer extends Component {
 
         const itemsHTML = items[name] ? items[name].map((item, key) => (
             <li key={key} data-id={item}><span>{item}</span>
-                <CloseButtonView cellName={name}
+                <CloseButton cellName={name}
                                  item={item}
                                  onClick={this._handleCloseButton}
                                  mediaQuery={mediaQuery}
@@ -94,4 +94,4 @@ class CellContainer extends Component {
     }
 }
 
-export default CellContainer;
+export default Cell;

@@ -5,7 +5,7 @@ import uuid from 'uuid';
 
 import * as actions from 'HeaderConfigApp/redux/modules/modal';
 
-import {RowView, CellContainer, CodeContainer} from 'HeaderConfigApp/components';
+import {Row, Cell, CodeBox} from 'HeaderConfigApp/components';
 
 import styles from 'HeaderConfigApp/styles/modal.scss';
 
@@ -56,12 +56,12 @@ export default class TabContainer extends React.Component {
                 <div className="col-md-6">
                     <h2 className={styles.h2}>1. Available components to drag & drop</h2>
                     <div className={styles.componentsContainer}>
-                        <CellContainer key={uuid.v4()}
-                                       name='Hidden'
-                                       items={globalState.data[mediaQuery]}
-                                       mediaQuery={mediaQuery}
-                                       save={this._updatePositions}
-                                       remove={this._remove}
+                        <Cell key={uuid.v4()}
+                              name='Hidden'
+                              items={globalState.data[mediaQuery]}
+                              mediaQuery={mediaQuery}
+                              save={this._updatePositions}
+                              remove={this._remove}
                         />
                     </div>
                 </div>
@@ -69,7 +69,7 @@ export default class TabContainer extends React.Component {
                 <div className="col-md-6">
                     <h2 className={styles.h2}>3. Generated code to be copied</h2>
                     <div className={styles.codeContainer}>
-                        <CodeContainer text={JSON.stringify(globalState.data)} />
+                        <CodeBox text={JSON.stringify(globalState.data)} />
                     </div>
                 </div>
 
@@ -80,23 +80,23 @@ export default class TabContainer extends React.Component {
                         boxes.</p>
 
                     <div className={styles.header + ' ' + styles[mediaQuery]}>
-                        <RowView {...this.props}
-                                 items={globalState.data[mediaQuery]}
-                                 currentPosition={0}
-                                 save={this._updatePositions}
-                                 remove={this._remove}
+                        <Row {...this.props}
+                             items={globalState.data[mediaQuery]}
+                             currentPosition={0}
+                             save={this._updatePositions}
+                             remove={this._remove}
                         />
-                        <RowView {...this.props}
-                                 items={globalState.data[mediaQuery]}
-                                 currentPosition={1}
-                                 save={this._updatePositions}
-                                 remove={this._remove}
+                        <Row {...this.props}
+                             items={globalState.data[mediaQuery]}
+                             currentPosition={1}
+                             save={this._updatePositions}
+                             remove={this._remove}
                         />
-                        <RowView {...this.props}
-                                 items={globalState.data[mediaQuery]}
-                                 currentPosition={2}
-                                 save={this._updatePositions}
-                                 remove={this._remove}
+                        <Row {...this.props}
+                             items={globalState.data[mediaQuery]}
+                             currentPosition={2}
+                             save={this._updatePositions}
+                             remove={this._remove}
                         />
                     </div>
                 </div>

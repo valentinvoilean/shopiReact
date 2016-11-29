@@ -2,11 +2,11 @@ import React from 'react';
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 import uuid from 'uuid';
 
-import {TabContainer} from 'HeaderConfigApp/components';
+import {TabContainer} from 'HeaderConfigApp/containers';
 import styles from './modal.scss';
 import {mediaQueries} from 'HeaderConfigApp/constants/mediaQueries';
 
-export default function ModalContainer() {
+export default function Modal() {
     return (
         <div className={styles.background}>
             <div className={`container ${styles.base}`}>

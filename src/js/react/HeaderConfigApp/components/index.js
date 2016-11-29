@@ -1,9 +1,6 @@
-export TabContainer from './tab/tab.container';
-export CellContainer from './cell/cell.container';
-export CodeContainer from './code/code.container';
-
-export ModalView from './modal/modal.view';
-export RowView from './row/row.view';
-export CloseButtonView from './closeButton/closeButton.view';
-export CodeView from './code/code.view';
-export ItemsView from './items/items.view';
+export Modal from './modal/modal';
+export Cell from './cell/cell';
+export CodeBox from './code/code';
+export Row from './row/row';
+export CloseButton from './closeButton/closeButton';
+export Items from './items/items';

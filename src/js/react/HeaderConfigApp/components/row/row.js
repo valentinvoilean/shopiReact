@@ -1,10 +1,10 @@
 import React, {PropTypes} from 'react';
 import uuid from 'uuid';
-import {CellContainer} from 'HeaderConfigApp/components';
+import {Cell} from 'HeaderConfigApp/components';
 import {horizontalPositions, verticalPositions} from 'HeaderConfigApp/constants/positions';
 import styles from 'HeaderConfigApp/styles/modal.scss';
 
-const RowView = props => {
+const Row = props => {
     const {mediaQuery, items, currentPosition, save, remove} = props;
     const multiCells = mediaQuery !== 'mobile' || currentPosition === 0;
 
@@ -14,12 +14,12 @@ const RowView = props => {
                 {
                     horizontalPositions.map(
                         (pos) => (
-                            <CellContainer key={uuid.v4()}
-                                           name={`${verticalPositions[currentPosition]}${pos}`}
-                                           items={items}
-                                           mediaQuery={mediaQuery}
-                                           save={save}
-                                           remove={remove}
+                            <Cell key={uuid.v4()}
+                                  name={`${verticalPositions[currentPosition]}${pos}`}
+                                  items={items}
+                                  mediaQuery={mediaQuery}
+                                  save={save}
+                                  remove={remove}
                             />
                         )
                     )
@@ -30,18 +30,18 @@ const RowView = props => {
 
     return (
         <div className={styles.headerArea}>
-            <CellContainer key={uuid.v4()}
-                           name={verticalPositions[currentPosition]}
-                           items={items}
-                           mediaQuery={mediaQuery}
-                           save={save}
-                           remove={remove}
+            <Cell key={uuid.v4()}
+                  name={verticalPositions[currentPosition]}
+                  items={items}
+                  mediaQuery={mediaQuery}
+                  save={save}
+                  remove={remove}
             />
         </div>
     );
 };
 
-RowView.propTypes = {
+Row.propTypes = {
     items: PropTypes.object.isRequired,
     mediaQuery: PropTypes.string.isRequired,
     currentPosition: PropTypes.number,
@@ -49,4 +49,4 @@ RowView.propTypes = {
     remove: PropTypes.func.isRequired
 };
 
-export default RowView;
+export default Row;
