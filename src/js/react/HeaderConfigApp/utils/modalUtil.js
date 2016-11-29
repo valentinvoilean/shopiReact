@@ -13,8 +13,7 @@ export const getInitialState = () => {
 
     try {
         currentSettings = {
-            data: JSON.parse(shopifySettings),
-            shouldComponentUpdate: false
+            data: JSON.parse(shopifySettings)
         };
     }
     catch (err) {
@@ -71,14 +70,13 @@ export const validateState = state => {
         return {
             data: {
                 ...defaultState.HeaderConfig.data, ...newState
-            },
-            shouldComponentUpdate: false
+            }
         };
     })();
 };
 
 export const updateState = (state, action) => {
-    const {to, children, shouldComponentUpdate, mediaQuery} = action;
+    const {to, children, mediaQuery} = action;
 
     if (includes(mediaQueries, mediaQuery)) {
         return {
@@ -89,8 +87,7 @@ export const updateState = (state, action) => {
                     ...state.data[mediaQuery],
                     [to]: children
                 }
-            },
-            shouldComponentUpdate
+            }
         };
     }
     else {

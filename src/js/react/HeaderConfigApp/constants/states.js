@@ -34,8 +34,7 @@ export const defaultState = {
                 BottomCenter: [],
                 BottomRight: ['SocialIcons', 'WelcomeMessage']
             }
-        },
-        shouldComponentUpdate: false
+        }
     }
 };
 

@@ -30,7 +30,7 @@ class CodeContainer extends React.Component {
     }
 
     render() {
-        const text = JSON.stringify(this.props.globalState);
+        const text = JSON.stringify(this.props.globalState.data);
         return (<CodeView text={text} copied={this.state.copied} handleCopy={this._handleCopy} />);
     }
 }

@@ -22,8 +22,7 @@ export default (state = getInitialState(), action) => {
                         [from]: pull([...state.data[mediaQuery][from]], item),
                         Hidden: [...state.data[mediaQuery].Hidden, item]
                     }
-                },
-                shouldComponentUpdate: true
+                }
             };
         }
 

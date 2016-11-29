@@ -77,14 +77,13 @@ export default class CellContainer extends Component {
         onSort: this._handleSort.bind(this)
     };
 
-    _handleSort({to, from}) {
+    _handleSort({to}) {
         const {actions, mediaQuery} = this.props;
 
         actions.save({
             to: [to.dataset.id],
             children: [...to.children].map(item => item.dataset.id),
-            mediaQuery,
-            shouldComponentUpdate: to.dataset.id === from.dataset.id
+            mediaQuery
         });
     }
 
