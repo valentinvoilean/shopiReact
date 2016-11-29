@@ -36,7 +36,6 @@ export default class TabContainer extends React.Component {
 
     _remove(item, from) {
         const {actions, mediaQuery} = this.props;
-
         actions.remove({item, from, mediaQuery});
     }
 
