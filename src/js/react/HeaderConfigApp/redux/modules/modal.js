@@ -1,4 +1,5 @@
 import {getInitialState, validateState, updateState} from 'HeaderConfigApp/utils/modalUtil';
+import {pull} from 'lodash';
 
 const SAVE_HEADER_SETTINGS = 'SAVE_HEADER_SETTINGS';
 const REMOVE_HEADER_ITEM = 'REMOVE_HEADER_ITEM';
@@ -7,8 +8,20 @@ const REMOVE_HEADER_ITEM = 'REMOVE_HEADER_ITEM';
 export default (state = getInitialState(), action) => {
     switch (action.type) {
         case SAVE_HEADER_SETTINGS:
-        case REMOVE_HEADER_ITEM:
             return updateState(state, action);
+
+        case REMOVE_HEADER_ITEM: {
+            const {item, from, mediaQuery} = action;
+
+            return {
+                ...state,
+                [mediaQuery]: {
+                    ...state[mediaQuery],
+                    [from]: pull([...state[mediaQuery][from]], item),
+                    Hidden: [...state[mediaQuery].Hidden, item]
+                }
+            };
+        }
 
         default:
             return validateState(state);

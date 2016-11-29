@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-import {pull} from 'lodash';
 
 import {RowView, CellContainer, CodeContainer} from 'HeaderConfigApp/components';
 
@@ -49,15 +48,7 @@ export default class TabContainer extends React.Component {
     _remove(item, from) {
         const {actions, mediaQuery} = this.props;
 
-        this.setState(prevState => {
-            return {
-                items: {
-                    ...prevState.items,
-                    [from]: pull([...prevState.items[from]], item),
-                    Hidden: [...prevState.items.Hidden, item]
-                }
-            };
-        }, () => actions.remove({items: this.state.items, mediaQuery}));
+        actions.remove({item, from, mediaQuery});
     }
 
     render() {

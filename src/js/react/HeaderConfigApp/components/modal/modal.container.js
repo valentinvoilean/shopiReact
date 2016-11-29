@@ -27,7 +27,8 @@ function mapDispatchToProps(dispatch) {
 class ModalContainer extends React.Component {
     state = getInitialState();
 
-    shouldComponentUpdate() {
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log(nextProps, nextState);
         return true;
     }
 
