@@ -5,22 +5,21 @@ import {horizontalPositions, verticalPositions} from 'HeaderConfigApp/constants/
 import styles from 'HeaderConfigApp/styles/modal.scss';
 
 const Row = props => {
-    const {mediaQuery, globalState, currentPosition, save, remove} = props;
+    const {mediaQuery, globalState, pos, actions} = props;
     const items = globalState.data[mediaQuery];
-    const multiCells = mediaQuery !== 'mobile' || currentPosition === 0;
+    const multiCells = mediaQuery !== 'mobile' || pos === 0;
 
     if (multiCells) {
         return (
             <div className={styles.headerArea}>
                 {
                     horizontalPositions.map(
-                        (pos) => (
+                        (hPos) => (
                             <Cell key={uuid.v4()}
-                                  name={`${verticalPositions[currentPosition]}${pos}`}
+                                  name={`${verticalPositions[pos]}${hPos}`}
                                   items={items}
                                   mediaQuery={mediaQuery}
-                                  save={save}
-                                  remove={remove}
+                                  actions={actions}
                             />
                         )
                     )
@@ -32,11 +31,10 @@ const Row = props => {
     return (
         <div className={styles.headerArea}>
             <Cell key={uuid.v4()}
-                  name={verticalPositions[currentPosition]}
+                  name={verticalPositions[pos]}
                   items={items}
                   mediaQuery={mediaQuery}
-                  save={save}
-                  remove={remove}
+                  actions={actions}
             />
         </div>
     );
@@ -44,10 +42,9 @@ const Row = props => {
 
 Row.propTypes = {
     globalState: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired,
     mediaQuery: PropTypes.string.isRequired,
-    currentPosition: PropTypes.number,
-    save: PropTypes.func.isRequired,
-    remove: PropTypes.func.isRequired
+    pos: PropTypes.number
 };
 
 export default Row;

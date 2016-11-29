@@ -10,9 +10,8 @@ import {validStates} from 'HeaderConfigApp/constants/states';
 class Cell extends Component {
     static propTypes = {
         items: PropTypes.object.isRequired,
+        actions: PropTypes.object.isRequired,
         name: PropTypes.string.isRequired,
-        save: PropTypes.func.isRequired,
-        remove: PropTypes.func.isRequired,
         mediaQuery: PropTypes.string.isRequired
     };
 
@@ -66,11 +65,16 @@ class Cell extends Component {
     };
 
     _handleSort({to, from}) {
-        this.props.save(to, from, this.props.mediaQuery);
+        this.props.actions.save({
+            to: [to.dataset.id],
+            children: [...to.children].map(item => item.dataset.id),
+            mediaQuery: this.props.mediaQuery,
+            shouldComponentUpdate: to.dataset.id === from.dataset.id
+        });
     }
 
     _handleCloseButton(item) {
-        this.props.remove(item, this.sortable.el.dataset.id, this.props.mediaQuery);
+        this.props.actions.remove({item, from: this.sortable.el.dataset.id, mediaQuery: this.props.mediaQuery});
     }
 
     _handleCellRef(cellRef) {

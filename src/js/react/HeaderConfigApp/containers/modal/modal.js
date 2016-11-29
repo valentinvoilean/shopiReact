@@ -21,28 +21,8 @@ export default class Modal extends React.Component {
         actions: PropTypes.object.isRequired
     };
 
-    constructor(props) {
-        super(props);
-
-        this._updatePositions = this._updatePositions.bind(this);
-        this._remove = this._remove.bind(this);
-    }
-
     shouldComponentUpdate(nextProps) {
         return nextProps.globalState.shouldComponentUpdate;
-    }
-
-    _updatePositions(to, from, mediaQuery) {
-        this.props.actions.save({
-            to: [to.dataset.id],
-            children: [...to.children].map(item => item.dataset.id),
-            mediaQuery,
-            shouldComponentUpdate: to.dataset.id === from.dataset.id
-        });
-    }
-
-    _remove(item, from, mediaQuery) {
-        this.props.actions.remove({item, from, mediaQuery});
     }
 
     render() {
@@ -66,8 +46,7 @@ export default class Modal extends React.Component {
                                               name='Hidden'
                                               items={globalState.data[mediaQuery]}
                                               mediaQuery={mediaQuery}
-                                              save={this._updatePositions}
-                                              remove={this._remove}
+                                              actions={this.props.actions}
                                         />
                                     </div>
                                 </div>
@@ -87,19 +66,9 @@ export default class Modal extends React.Component {
                                         boxes.</p>
 
                                     <div className={styles.header + ' ' + styles[mediaQuery]}>
-                                        {
-                                            [0, 1, 2].map((row) => {
-                                                return (
-                                                    <Row key={uuid.v4()}
-                                                         {...this.props}
-                                                         currentPosition={row}
-                                                         save={this._updatePositions}
-                                                         remove={this._remove}
-                                                         mediaQuery={mediaQuery}
-                                                    />
-                                                );
-                                            })
-                                        }
+                                        <Row {...this.props} pos={0} mediaQuery={mediaQuery} />
+                                        <Row {...this.props} pos={1} mediaQuery={mediaQuery} />
+                                        <Row {...this.props} pos={2} mediaQuery={mediaQuery} />
                                     </div>
                                 </div>
                             </TabPanel>
