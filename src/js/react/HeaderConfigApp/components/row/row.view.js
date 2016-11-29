@@ -30,7 +30,8 @@ const RowView = props => {
 
     return (
         <div className={styles.headerArea}>
-            <CellContainer name={verticalPositions[currentPosition]}
+            <CellContainer key={uuid.v4()}
+                           name={verticalPositions[currentPosition]}
                            items={items}
                            mediaQuery={mediaQuery}
                            save={save}

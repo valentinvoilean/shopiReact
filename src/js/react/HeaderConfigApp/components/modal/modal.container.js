@@ -1,24 +1,12 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 import uuid from 'uuid';
-
-import * as actions from 'HeaderConfigApp/redux/modules/modal';
 
 import {TabContainer} from 'HeaderConfigApp/components';
 import styles from './modal.scss';
 import {mediaQueries} from 'HeaderConfigApp/constants/mediaQueries';
 
-@connect(
-    state => ({globalState: state.headerConfig}),
-    dispatch => ({actions: bindActionCreators(actions, dispatch)})
-)
 export default class ModalContainer extends React.Component {
-    shouldComponentUpdate(nextProps) {
-        return nextProps.globalState.shouldComponentUpdate;
-    }
-
     render() {
         return (
             <div className={styles.background}>
@@ -31,7 +19,7 @@ export default class ModalContainer extends React.Component {
                         </TabList>
                         { mediaQueries.map((mediaQuery) => (
                             <TabPanel key={uuid.v4()}>
-                                <TabContainer {...this.props} mediaQuery={mediaQuery} />
+                                <TabContainer mediaQuery={mediaQuery} />
                             </TabPanel>
                         ))}
                     </Tabs>

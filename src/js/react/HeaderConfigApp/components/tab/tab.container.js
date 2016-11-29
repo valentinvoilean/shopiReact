@@ -1,9 +1,18 @@
 import React, {PropTypes} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import uuid from 'uuid';
+
+import * as actions from 'HeaderConfigApp/redux/modules/modal';
 
 import {RowView, CellContainer, CodeContainer} from 'HeaderConfigApp/components';
 
 import styles from 'HeaderConfigApp/styles/modal.scss';
 
+@connect(
+    state => ({globalState: state.headerConfig}),
+    dispatch => ({actions: bindActionCreators(actions, dispatch)})
+)
 export default class TabContainer extends React.Component {
 
     static propTypes = {
@@ -19,8 +28,8 @@ export default class TabContainer extends React.Component {
         this._remove = this._remove.bind(this);
     }
 
-    shouldComponentUpdate() {
-        return true;
+    shouldComponentUpdate(nextProps) {
+        return nextProps.globalState.shouldComponentUpdate;
     }
 
     _updatePositions(to, from) {
@@ -47,7 +56,8 @@ export default class TabContainer extends React.Component {
                 <div className="col-md-6">
                     <h2 className={styles.h2}>1. Available components to drag & drop</h2>
                     <div className={styles.componentsContainer}>
-                        <CellContainer name='Hidden'
+                        <CellContainer key={uuid.v4()}
+                                       name='Hidden'
                                        items={globalState.data[mediaQuery]}
                                        mediaQuery={mediaQuery}
                                        save={this._updatePositions}
