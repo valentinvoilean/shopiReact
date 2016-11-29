@@ -1,1 +1,1 @@
-export TabContainer from './tab/tab';
+export Modal from './modal/modal';

@@ -66,11 +66,11 @@ class Cell extends Component {
     };
 
     _handleSort({to, from}) {
-        this.props.save(to, from);
+        this.props.save(to, from, this.props.mediaQuery);
     }
 
     _handleCloseButton(item) {
-        this.props.remove(item, this.sortable.el.dataset.id);
+        this.props.remove(item, this.sortable.el.dataset.id, this.props.mediaQuery);
     }
 
     _handleCellRef(cellRef) {

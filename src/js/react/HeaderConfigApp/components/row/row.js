@@ -5,7 +5,8 @@ import {horizontalPositions, verticalPositions} from 'HeaderConfigApp/constants/
 import styles from 'HeaderConfigApp/styles/modal.scss';
 
 const Row = props => {
-    const {mediaQuery, items, currentPosition, save, remove} = props;
+    const {mediaQuery, globalState, currentPosition, save, remove} = props;
+    const items = globalState.data[mediaQuery];
     const multiCells = mediaQuery !== 'mobile' || currentPosition === 0;
 
     if (multiCells) {
@@ -42,7 +43,7 @@ const Row = props => {
 };
 
 Row.propTypes = {
-    items: PropTypes.object.isRequired,
+    globalState: PropTypes.object.isRequired,
     mediaQuery: PropTypes.string.isRequired,
     currentPosition: PropTypes.number,
     save: PropTypes.func.isRequired,
