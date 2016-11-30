@@ -20,6 +20,7 @@ class Cell extends Component {
 
         this._handleCloseButton = this._handleCloseButton.bind(this);
         this._handleCellRef = this._handleCellRef.bind(this);
+        this._handleTooltipRef = this._handleTooltipRef.bind(this);
     }
 
     componentDidMount() {
@@ -38,19 +39,24 @@ class Cell extends Component {
     sortableOptions = {
         group: {name: 'headerConfig', put: (to, from, dragged) => {
             if (validStates[this.props.mediaQuery][to.el.dataset.id] instanceof Array) {
-                return !!includes(validStates[this.props.mediaQuery][to.el.dataset.id], dragged.dataset.id);
+                if (includes(validStates[this.props.mediaQuery][to.el.dataset.id], dragged.dataset.id)) {
+                    return true;
+                }
+
+                this._updateValidationMessage(`The item "${dragged.dataset.id}" is not allowed here!`);
+                return false;
             }
             else {
                 const items = validStates[this.props.mediaQuery][to.el.dataset.id].items;
                 const maxItems = validStates[this.props.mediaQuery][to.el.dataset.id].max;
 
                 if (to.el.children.length >= maxItems) {
-                    console.log(`Maximum number of items allowed is ${maxItems}`);
+                    this._updateValidationMessage(`Maximum number of items allowed is ${maxItems} `);
                     return false;
                 }
 
                 if (!includes(items, dragged.dataset.id)) {
-                    console.log(`The item "${dragged.dataset.id}" is not allowed here!`);
+                    this._updateValidationMessage(`The item "${dragged.dataset.id}" is not allowed here!`);
                     return false;
                 }
 
@@ -81,6 +87,14 @@ class Cell extends Component {
         this.cellRef = cellRef;
     }
 
+    _handleTooltipRef(tooltipRef) {
+        this.tooltipRef = tooltipRef;
+    }
+
+    _updateValidationMessage(message) {
+        this.tooltipRef.dataset.message = message;
+    }
+
     render() {
         const {items, name, mediaQuery} = this.props;
 
@@ -99,7 +113,7 @@ class Cell extends Component {
             <ul ref={this._handleCellRef} data-id={name}>
                 {itemsHTML}
             </ul>
-            <div className={styles.validationTooltip}><span>This is a message</span></div>
+            <div ref={this._handleTooltipRef} className={styles.validationTooltip}></div>
         </div>
         );
     }
