@@ -94,7 +94,14 @@ class Cell extends Component {
             </li>)
         ) : '';
 
-        return (<ul ref={this._handleCellRef} data-id={name}> {itemsHTML} </ul>);
+        return (
+        <div className={styles.cell}>
+            <ul ref={this._handleCellRef} data-id={name}>
+                {itemsHTML}
+            </ul>
+            <div className={styles.validationTooltip}><span>This is a message</span></div>
+        </div>
+        );
     }
 }
 

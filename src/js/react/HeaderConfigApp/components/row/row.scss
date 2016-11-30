@@ -10,22 +10,8 @@
         color: #BBBDC1;
         position: relative;
         list-style: none;
-        margin: 5px;
         width: 100%;
         z-index: 1;
-        overflow: hidden;
-
-        &:nth-child(2) {
-            text-align: center;
-        }
-
-        &:nth-child(3) {
-            text-align: right;
-
-            li {
-                float: right;
-            }
-        }
 
         &:before {
             position: absolute;
