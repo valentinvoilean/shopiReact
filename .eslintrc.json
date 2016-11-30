@@ -69,7 +69,10 @@
     "react/prefer-es6-class": "error",
     "react/prefer-stateless-function": "error",
     "react/require-optimization": "error",
-    "react/self-closing-comp": "error",
+    "react/self-closing-comp": ["error", {
+      "component": true,
+      "html": false
+    }],
     "react/sort-comp": "error",
     "react/style-prop-object": "error",
     // JSX
