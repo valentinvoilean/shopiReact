@@ -3,11 +3,13 @@
 }
 
 .cellValid {
-    background: #e8fde7 !important;
+    background: #c4fdbb !important;
+    border-color: #73956f !important;
 }
 
 .cellInvalid {
     background: #ffa3a3 !important;
+    border-color: #9c6262 !important;
 
     * { pointer-events: none; }
 }
