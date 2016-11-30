@@ -1,6 +1,6 @@
 .cell__cell___3YVVj {
   position: relative;
-  margin: 5px;
+  padding: 5px;
   width: 100%;
 }
 
@@ -391,13 +391,17 @@
 .modal__componentsContainer___3YNHM {
   height: 150px;
   border: 1px solid #E1E1E1;
-  padding: 10px;
+}
+
+.modal__componentsContainer___3YNHM > div {
+  height: 100%;
 }
 
 .modal__componentsContainer___3YNHM ul {
   list-style: none;
   height: 100%;
   overflow: auto;
+  padding: 10px;
 }
 
 .modal__componentsContainer___3YNHM li {
@@ -437,8 +441,6 @@
   width: 100%;
   border: 1px solid #E1E1E1;
   padding: 10px;
-  border-spacing: 10px;
   box-shadow: 2px 3px 2px 0 rgba(0, 0, 0, 0.1);
-  display: table;
 }
 /*# sourceMappingURL=helpers.css.map*/

@@ -66,12 +66,16 @@
 .componentsContainer {
     height: 150px;
     border: 1px solid #E1E1E1;
-    padding: 10px;
+
+    & > div {
+        height: 100%;
+    }
 
     ul {
         list-style: none;
         height: 100%;
         overflow: auto;
+        padding: 10px;
     }
 
     li {
@@ -111,7 +115,5 @@
     width: 100%;
     border: 1px solid #E1E1E1;
     padding: 10px;
-    border-spacing: 10px;
     box-shadow: 2px 3px 2px 0 rgba(0,0,0,0.1);
-    display: table;
 }
