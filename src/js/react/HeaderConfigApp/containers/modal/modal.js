@@ -7,7 +7,7 @@ import uuid from 'uuid';
 import {mediaQueries} from 'HeaderConfigApp/constants/mediaQueries';
 
 import {Row, Cell, CodeBox} from 'HeaderConfigApp/components';
-import styles from 'HeaderConfigApp/styles/modal.scss';
+import styles from './modal.scss';
 
 import * as actions from 'HeaderConfigApp/redux/modules/modal';
 
@@ -53,9 +53,7 @@ export default class Modal extends React.Component {
 
                                 <div className="col-md-6">
                                     <h2 className={styles.h2}>3. Generated code to be copied</h2>
-                                    <div className={styles.codeContainer}>
-                                        <CodeBox text={JSON.stringify(globalState.data)} />
-                                    </div>
+                                    <CodeBox text={JSON.stringify(globalState.data)} />
                                 </div>
 
                                 <div className={styles.container}>
@@ -65,7 +63,7 @@ export default class Modal extends React.Component {
                                         are inside the
                                         boxes.</p>
 
-                                    <div className={styles.header + ' ' + styles[mediaQuery]}>
+                                    <div data-mq={mediaQuery} className={styles.header}>
                                         <Row {...this.props} pos={0} mediaQuery={mediaQuery} />
                                         <Row {...this.props} pos={1} mediaQuery={mediaQuery} />
                                         <Row {...this.props} pos={2} mediaQuery={mediaQuery} />

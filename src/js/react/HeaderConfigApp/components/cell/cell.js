@@ -3,7 +3,7 @@ import {includes} from 'lodash';
 import Sortable from 'sortablejs';
 
 import {CloseButton} from 'HeaderConfigApp/components';
-import styles from 'HeaderConfigApp/styles/modal.scss';
+import styles from './cell.scss';
 import {validStates} from 'HeaderConfigApp/constants/states';
 
 // Functional Component

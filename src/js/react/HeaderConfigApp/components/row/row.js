@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import uuid from 'uuid';
 import {Cell} from 'HeaderConfigApp/components';
 import {horizontalPositions, verticalPositions} from 'HeaderConfigApp/constants/positions';
-import styles from 'HeaderConfigApp/styles/modal.scss';
+import styles from './row.scss';
 
 const Row = props => {
     const {mediaQuery, globalState, pos, actions} = props;

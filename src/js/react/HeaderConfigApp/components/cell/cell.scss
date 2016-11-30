@@ -1,0 +1,13 @@
+.sortableGhost {
+    opacity: 0.4;
+}
+
+.cellValid {
+    background: #e8fde7 !important;
+}
+
+.cellInvalid {
+    background: #ffa3a3 !important;
+
+    * { pointer-events: none; }
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
-import styles from 'HeaderConfigApp/styles/modal.scss';
+import styles from './code.scss';
 
 class CodeBox extends React.Component {
     static propTypes = {
