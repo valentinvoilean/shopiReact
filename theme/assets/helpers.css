@@ -366,16 +366,24 @@
   margin-bottom: 20px;
 }
 
-.modal__tabs___33vDW > ul > li {
+.modal__tabs___33vDW > ul > li[role=tab] {
   margin-left: 5px;
   border-radius: 5px 5px 0 0;
+  padding: 10px 12px;
   color: #337ab7;
   text-transform: capitalize;
 }
 
+.modal__tabs___33vDW > ul > li[role=tab]:hover {
+  border-color: #eceeef #eceeef #ddd;
+}
+
 .modal__tabs___33vDW > ul > li[role=tab][aria-selected=true] {
-  padding: 10px 12px;
   color: #555;
+  border-color: #e4e4e4;
+}
+
+.modal__tabs___33vDW > ul > li[role=tab][aria-selected=true]:hover {
   border-color: #e4e4e4;
 }
 

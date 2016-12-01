@@ -40,16 +40,24 @@
         margin-bottom: 20px;
     }
 
-    & > ul > li {
+    & > ul > li[role=tab] {
         margin-left: 5px;
         border-radius: 5px 5px 0 0;
+        padding: 10px 12px;
         color: #337ab7;
         text-transform: capitalize;
 
-        &[role=tab][aria-selected=true] {
-            padding: 10px 12px;
+        &:hover {
+            border-color: #eceeef #eceeef #ddd;
+        }
+
+        &[aria-selected=true] {
             color: #555;
             border-color: #e4e4e4;
+
+            &:hover {
+                border-color: #e4e4e4;
+            }
         }
     }
 }
