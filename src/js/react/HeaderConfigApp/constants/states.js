@@ -43,14 +43,14 @@ export const validStates = {
     mobile: [
         {
             names: ['MenuIcon'],
-            position: [
+            conditions: [
                 {
-                    names: ['TopLeft', 'TopRight'],
+                    allowedPositions: ['TopLeft', 'TopRight'],
                     order: 0,
                     cellConditions: {
                         max: 2
                     },
-                    itemsConditions: [
+                    itemConditions: [
                         {
                             names: ['Cart', 'MyAccount', 'Wishlist', 'Search', 'Menu', 'WelcomeMessage'],
                             position: 'TopLeft',
@@ -63,14 +63,14 @@ export const validStates = {
         },
         {
             names: ['Logo'],
-            position: [
+            conditions: [
                 {
-                    names: ['TopLeft'],
+                    allowedPositions: ['TopLeft'],
                     order: 1,
                     cellConditions: {
                         max: 2
                     },
-                    itemsConditions: [
+                    itemConditions: [
                         {
                             names: ['MenuIcon'],
                             position: 'TopRight',
@@ -80,7 +80,7 @@ export const validStates = {
                     ]
                 },
                 {
-                    names: ['TopCenter'],
+                    allowedPositions: ['TopCenter'],
                     order: 0,
                     cellConditions: {
                         max: 1
@@ -90,10 +90,10 @@ export const validStates = {
         },
         {
             names: ['Cart'],
-            position: [
+            conditions: [
                 {
-                    names: ['TopRight', 'TopLeft'],
-                    itemsConditions: [
+                    allowedPositions: ['TopRight', 'TopLeft'],
+                    itemConditions: [
                         {
                             names: ['Logo', 'MenuIcon'],
                             position: 'TopRight',
@@ -105,13 +105,13 @@ export const validStates = {
         },
         {
             names: ['MyAccount'],
-            position: [
+            conditions: [
                 {
-                    names: ['Hidden']
+                    allowedPositions: ['Hidden']
                 },
                 {
-                    names: ['TopRight'],
-                    itemsConditions: [
+                    allowedPositions: ['TopRight'],
+                    itemConditions: [
                         {
                             names: ['Logo', 'MenuIcon'],
                             position: 'TopRight',
@@ -123,13 +123,13 @@ export const validStates = {
         },
         {
             names: ['Wishlist', 'Search'],
-            position: [
+            conditions: [
                 {
-                    names: ['Hidden']
+                    allowedPositions: ['Hidden']
                 },
                 {
-                    names: ['TopRight'],
-                    itemsConditions: [
+                    allowedPositions: ['TopRight'],
+                    itemConditions: [
                         {
                             names: ['Logo', 'MenuIcon'],
                             position: 'TopRight',
@@ -141,18 +141,18 @@ export const validStates = {
         },
         {
             names: ['Menu', 'WelcomeMessage'],
-            position: [
+            conditions: [
                 {
-                    names: ['Hidden']
+                    allowedPositions: ['Hidden']
                 },
                 {
-                    names: ['Main'],
+                    allowedPositions: ['Main'],
                     cellConditions: {
                         max: 1
                     }
                 },
                 {
-                    names: ['Bottom'],
+                    allowedPositions: ['Bottom'],
                     cellConditions: {
                         max: 1
                     }
@@ -163,9 +163,9 @@ export const validStates = {
     tablet: [
         {
             names: ['Logo'],
-            position: [
+            conditions: [
                 {
-                    names: ['MainLeft', 'MainCenter'],
+                    allowedPositions: ['MainLeft', 'MainCenter'],
                     order: 0,
                     cellConditions: {
                         max: 1
@@ -175,9 +175,9 @@ export const validStates = {
         },
         {
             names: ['Menu'],
-            position: [
+            conditions: [
                 {
-                    names: ['MainCenter', 'BottomCenter'],
+                    allowedPositions: ['MainCenter', 'BottomCenter'],
                     cellConditions: {
                         max: 1
                     }
@@ -186,61 +186,61 @@ export const validStates = {
         },
         {
             names: ['Cart'],
-            position: [
+            conditions: [
                 {
-                    names: ['MainRight']
+                    allowedPositions: ['MainRight']
                 }
             ]
         },
         {
             names: ['Breadcrumb'],
-            position: [
+            conditions: [
                 {
-                    names: ['BottomLeft']
+                    allowedPositions: ['BottomLeft']
                 }
             ]
         },
         {
             names: ['MyAccount', 'Wishlist'],
-            position: [
+            conditions: [
                 {
-                    names: ['Hidden', 'TopLeft', 'TopRight', 'MainLeft', 'MainRight', 'BottomLeft', 'BottomRight']
+                    allowedPositions: ['Hidden', 'TopLeft', 'TopRight', 'MainLeft', 'MainRight', 'BottomLeft', 'BottomRight']
                 }
             ]
         },
         {
             names: ['Search', 'SocialIcons'],
-            position: [
+            conditions: [
                 {
-                    names: ['TopLeft', 'TopRight', 'MainLeft', 'MainRight', 'BottomLeft', 'BottomRight']
+                    allowedPositions: ['TopLeft', 'TopRight', 'MainLeft', 'MainRight', 'BottomLeft', 'BottomRight']
                 }
             ]
         },
         {
             names: ['WelcomeMessage'],
-            position: [
+            conditions: [
                 {
-                    names: ['TopLeft', 'TopCenter', 'TopRight', 'MainLeft', 'MainCenter', 'BottomLeft', 'BottomCenter', 'BottomRight']
+                    allowedPositions: ['TopLeft', 'TopCenter', 'TopRight', 'MainLeft', 'MainCenter', 'BottomLeft', 'BottomCenter', 'BottomRight']
                 }
             ]
         },
         {
             names: ['Currency', 'Language'],
-            position: [
+            conditions: [
                 {
-                    names: ['Hidden', 'TopLeft', 'TopRight']
+                    allowedPositions: ['Hidden', 'TopLeft', 'TopRight']
                 }
             ]
         },
         {
             names: ['CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
-            position: [
+            conditions: [
                 {
-                    names: ['Hidden', 'TopLeft', 'TopCenter', 'TopRight', 'MainRight', 'BottomLeft', 'BottomRight']
+                    allowedPositions: ['Hidden', 'TopLeft', 'TopCenter', 'TopRight', 'MainRight', 'BottomLeft', 'BottomRight']
                 },
                 {
-                    names: ['MainLeft'],
-                    itemsConditions: [
+                    allowedPositions: ['MainLeft'],
+                    itemConditions: [
                         {
                             names: ['Logo'],
                             position: 'MainLeft',
@@ -249,8 +249,8 @@ export const validStates = {
                     ]
                 },
                 {
-                    names: ['MainCenter'],
-                    itemsConditions: [
+                    allowedPositions: ['MainCenter'],
+                    itemConditions: [
                         {
                             names: ['Logo', 'Menu'],
                             position: 'MainCenter',
@@ -259,8 +259,119 @@ export const validStates = {
                     ]
                 },
                 {
-                    names: ['BottomCenter'],
-                    itemsConditions: [
+                    allowedPositions: ['BottomCenter'],
+                    itemConditions: [
+                        {
+                            names: ['Menu'],
+                            position: 'BottomCenter',
+                            excluded: true
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    desktop: [
+        {
+            names: ['Logo'],
+            conditions: [
+                {
+                    allowedPositions: ['MainLeft', 'MainCenter'],
+                    order: 0,
+                    cellConditions: {
+                        max: 1
+                    }
+                }
+            ]
+        },
+        {
+            names: ['Menu'],
+            conditions: [
+                {
+                    allowedPositions: ['MainCenter', 'BottomCenter'],
+                    cellConditions: {
+                        max: 1
+                    }
+                }
+            ]
+        },
+        {
+            names: ['Cart'],
+            conditions: [
+                {
+                    allowedPositions: ['MainRight']
+                }
+            ]
+        },
+        {
+            names: ['Breadcrumb'],
+            conditions: [
+                {
+                    allowedPositions: ['BottomLeft']
+                }
+            ]
+        },
+        {
+            names: ['MyAccount', 'Wishlist'],
+            conditions: [
+                {
+                    allowedPositions: ['Hidden', 'TopLeft', 'TopRight', 'MainLeft', 'MainRight', 'BottomLeft', 'BottomRight']
+                }
+            ]
+        },
+        {
+            names: ['Search', 'SocialIcons'],
+            conditions: [
+                {
+                    allowedPositions: ['TopLeft', 'TopRight', 'MainLeft', 'MainRight', 'BottomLeft', 'BottomRight']
+                }
+            ]
+        },
+        {
+            names: ['WelcomeMessage'],
+            conditions: [
+                {
+                    allowedPositions: ['TopLeft', 'TopCenter', 'TopRight', 'MainLeft', 'MainCenter', 'BottomLeft', 'BottomCenter', 'BottomRight']
+                }
+            ]
+        },
+        {
+            names: ['Currency', 'Language'],
+            conditions: [
+                {
+                    allowedPositions: ['Hidden', 'TopLeft', 'TopRight']
+                }
+            ]
+        },
+        {
+            names: ['CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
+            conditions: [
+                {
+                    allowedPositions: ['Hidden', 'TopLeft', 'TopCenter', 'TopRight', 'MainRight', 'BottomLeft', 'BottomRight']
+                },
+                {
+                    allowedPositions: ['MainLeft'],
+                    itemConditions: [
+                        {
+                            names: ['Logo'],
+                            position: 'MainLeft',
+                            excluded: true
+                        }
+                    ]
+                },
+                {
+                    allowedPositions: ['MainCenter'],
+                    itemConditions: [
+                        {
+                            names: ['Logo', 'Menu'],
+                            position: 'MainCenter',
+                            excluded: true
+                        }
+                    ]
+                },
+                {
+                    allowedPositions: ['BottomCenter'],
+                    itemConditions: [
                         {
                             names: ['Menu'],
                             position: 'BottomCenter',

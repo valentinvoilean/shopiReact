@@ -1,4 +1,4 @@
-import {forOwn, includes, has} from 'lodash';
+import {includes} from 'lodash';
 
 import {defaultState, validStates} from 'HeaderConfigApp/constants/states';
 
@@ -18,7 +18,7 @@ export const getInitialState = () => {
     }
     catch (err) {
         console.warn('Data not valid ! The default settings will be used instead ');
-        currentSettings = {...defaultState.HeaderConfig};
+        currentSettings = {...defaultState.HeaderConfig, shouldComponentUpdate: false};
     }
 
     return currentSettings;
@@ -30,48 +30,32 @@ export const getInitialState = () => {
  * @returns {{}}
  */
 export const validateState = state => {
-    let wantedState = {...state.data},
-        newState = {},
-        areas,
-        validAreas,
-
-        _loadDefaultSettings = (mediaQuery) => {
+    let
+        _loadDefaultSettings = () => {
             console.warn(`Conditions not met; default settings will be loaded.`);
-            newState[mediaQuery] = {...defaultState.HeaderConfig.data[mediaQuery]};
+            return {...defaultState.HeaderConfig.data};
         },
 
-        _parseEachHeaderArea = (mediaQuery) => {
-            forOwn(areas, (value, key) => {
-                const items = validAreas[key] instanceof Array ? validAreas[key] : validAreas[key].items;
+        _validateEachMediaQuery = () => {
+            return true;
+        },
 
-                value.map(item => {
-                    if (!includes(items, item)) {
-                        _loadDefaultSettings(mediaQuery);
-                        return false;
-                    }
-                });
-            });
-        };
+        _validate = () => {
+            const validMediaQueries = Object.keys(validStates);
+            const stateMediaQueries = Object.keys(state.data);
 
-    return (() => {
-        // Go trough each media query
-        forOwn(validStates, (value, mediaQuery) => {
-            if (!has(wantedState, mediaQuery)) {
-                return _loadDefaultSettings(mediaQuery);
+            for (let i = 0, len = stateMediaQueries.length; i < len; i++) {
+                if (!includes(validMediaQueries, stateMediaQueries[i])) {
+                    console.warn(`The media query "${stateMediaQueries[i]}" is not valid !`);
+                    return false;
+                }
             }
 
-            areas = {...wantedState[mediaQuery]};
-            validAreas = {...value};
-            newState[mediaQuery] = areas;
-
-            _parseEachHeaderArea(mediaQuery);
-        });
-
-        return {
-            data: {
-                ...defaultState.HeaderConfig.data, ...newState
-            },
-            shouldComponentUpdate: false
+            return _validateEachMediaQuery();
         };
-    })();
+
+    return {
+        data: _validate() ? {...state.data} : _loadDefaultSettings(),
+        shouldComponentUpdate: false
+    };
 };
