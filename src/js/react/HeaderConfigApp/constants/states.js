@@ -40,43 +40,235 @@ export const defaultState = {
 };
 
 export const validStates = {
-    mobile: {
-        Flyout: ['MenuIcon', 'MyAccount', 'Wishlist', 'Search', 'Currency', 'Language', 'MyAccount', 'SocialIcons'],
-        Hidden: ['Wishlist', 'MyAccount', 'Currency', 'Language', 'Breadcrumb', 'WelcomeMessage', 'SocialIcons', 'Search', 'Menu'],
-        TopLeft: ['MenuIcon', 'Logo'],
-        TopCenter: ['Logo'],
-        TopRight: ['MyAccount', 'Wishlist', 'Cart', 'Search'],
-        Main: {
-            items: ['Menu', 'WelcomeMessage'],
-            max: 1
+    mobile: [
+        {
+            names: ['MenuIcon'],
+            position: [
+                {
+                    names: ['TopLeft', 'TopRight'],
+                    order: 0,
+                    cellConditions: {
+                        max: 2
+                    },
+                    itemsConditions: [
+                        {
+                            names: ['Cart', 'MyAccount', 'Wishlist', 'Search', 'Menu', 'WelcomeMessage'],
+                            position: 'TopLeft',
+                            order: 0,
+                            excluded: true
+                        }
+                    ]
+                }
+            ]
         },
-        Bottom: {
-            items: ['Menu', 'WelcomeMessage'],
-            max: 1
+        {
+            names: ['Logo'],
+            position: [
+                {
+                    names: ['TopLeft'],
+                    order: 1,
+                    cellConditions: {
+                        max: 2
+                    },
+                    itemsConditions: [
+                        {
+                            names: ['MenuIcon'],
+                            position: 'TopRight',
+                            order: 0,
+                            required: true
+                        }
+                    ]
+                },
+                {
+                    names: ['TopCenter'],
+                    order: 0,
+                    cellConditions: {
+                        max: 1
+                    }
+                }
+            ]
+        },
+        {
+            names: ['Cart'],
+            position: [
+                {
+                    names: ['TopRight', 'TopLeft'],
+                    itemsConditions: [
+                        {
+                            names: ['Logo', 'MenuIcon'],
+                            position: 'TopRight',
+                            excluded: true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            names: ['MyAccount'],
+            position: [
+                {
+                    names: ['Hidden']
+                },
+                {
+                    names: ['TopRight'],
+                    itemsConditions: [
+                        {
+                            names: ['Logo', 'MenuIcon'],
+                            position: 'TopRight',
+                            excluded: true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            names: ['Wishlist', 'Search'],
+            position: [
+                {
+                    names: ['Hidden']
+                },
+                {
+                    names: ['TopRight'],
+                    itemsConditions: [
+                        {
+                            names: ['Logo', 'MenuIcon'],
+                            position: 'TopRight',
+                            excluded: true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            names: ['Menu', 'WelcomeMessage'],
+            position: [
+                {
+                    names: ['Hidden']
+                },
+                {
+                    names: ['Main'],
+                    cellConditions: {
+                        max: 1
+                    }
+                },
+                {
+                    names: ['Bottom'],
+                    cellConditions: {
+                        max: 1
+                    }
+                }
+            ]
         }
-    },
-    tablet: {
-        Hidden: ['MyAccount', 'Wishlist', 'Currency', 'Language', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
-        TopLeft: ['MyAccount', 'Wishlist', 'Search', 'Currency', 'Language', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
-        TopCenter: ['WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
-        TopRight: ['MyAccount', 'Wishlist', 'Search', 'Currency', 'Language', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
-        MainLeft: ['MyAccount', 'Wishlist', 'Logo', 'Search', 'SocialIcons', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
-        MainCenter: ['Logo', 'Menu'],
-        MainRight: ['MyAccount', 'Wishlist', 'Search', 'Cart', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
-        BottomLeft: ['MyAccount', 'Wishlist', 'Search', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb'],
-        BottomCenter: ['Menu', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
-        BottomRight: ['MyAccount', 'Wishlist', 'Search', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4']
-    },
-    desktop: {
-        Hidden: ['MyAccount', 'Wishlist', 'Currency', 'Language', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
-        TopLeft: ['MyAccount', 'Wishlist', 'Search', 'Currency', 'Language', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
-        TopCenter: ['WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
-        TopRight: ['MyAccount', 'Wishlist', 'Search', 'Currency', 'Language', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
-        MainLeft: ['MyAccount', 'Wishlist', 'Logo', 'Search', 'SocialIcons', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
-        MainCenter: ['Logo', 'Menu'],
-        MainRight: ['MyAccount', 'Wishlist', 'Search', 'Cart', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
-        BottomLeft: ['MyAccount', 'Wishlist', 'Search', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb'],
-        BottomCenter: ['Menu', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
-        BottomRight: ['MyAccount', 'Wishlist', 'Search', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4']
-    }
+    ],
+    tablet: [
+        {
+            names: ['Logo'],
+            position: [
+                {
+                    names: ['MainLeft', 'MainCenter'],
+                    order: 0,
+                    cellConditions: {
+                        max: 1
+                    }
+                }
+            ]
+        },
+        {
+            names: ['Menu'],
+            position: [
+                {
+                    names: ['MainCenter', 'BottomCenter'],
+                    cellConditions: {
+                        max: 1
+                    }
+                }
+            ]
+        },
+        {
+            names: ['Cart'],
+            position: [
+                {
+                    names: ['MainRight']
+                }
+            ]
+        },
+        {
+            names: ['Breadcrumb'],
+            position: [
+                {
+                    names: ['BottomLeft']
+                }
+            ]
+        },
+        {
+            names: ['MyAccount', 'Wishlist'],
+            position: [
+                {
+                    names: ['Hidden', 'TopLeft', 'TopRight', 'MainLeft', 'MainRight', 'BottomLeft', 'BottomRight']
+                }
+            ]
+        },
+        {
+            names: ['Search', 'SocialIcons'],
+            position: [
+                {
+                    names: ['TopLeft', 'TopRight', 'MainLeft', 'MainRight', 'BottomLeft', 'BottomRight']
+                }
+            ]
+        },
+        {
+            names: ['WelcomeMessage'],
+            position: [
+                {
+                    names: ['TopLeft', 'TopCenter', 'TopRight', 'MainLeft', 'MainCenter', 'BottomLeft', 'BottomCenter', 'BottomRight']
+                }
+            ]
+        },
+        {
+            names: ['Currency', 'Language'],
+            position: [
+                {
+                    names: ['Hidden', 'TopLeft', 'TopRight']
+                }
+            ]
+        },
+        {
+            names: ['CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
+            position: [
+                {
+                    names: ['Hidden', 'TopLeft', 'TopCenter', 'TopRight', 'MainRight', 'BottomLeft', 'BottomRight']
+                },
+                {
+                    names: ['MainLeft'],
+                    itemsConditions: [
+                        {
+                            names: ['Logo'],
+                            position: 'MainLeft',
+                            excluded: true
+                        }
+                    ]
+                },
+                {
+                    names: ['MainCenter'],
+                    itemsConditions: [
+                        {
+                            names: ['Logo', 'Menu'],
+                            position: 'MainCenter',
+                            excluded: true
+                        }
+                    ]
+                },
+                {
+                    names: ['BottomCenter'],
+                    itemsConditions: [
+                        {
+                            names: ['Menu'],
+                            position: 'BottomCenter',
+                            excluded: true
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 };
