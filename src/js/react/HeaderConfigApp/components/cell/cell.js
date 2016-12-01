@@ -40,16 +40,18 @@ class Cell extends Component {
         group: {name: 'headerConfig', put: (to, from, dragged) => {
             if (validStates[this.props.mediaQuery][to.el.dataset.id] instanceof Array) {
                 const items = validStates[this.props.mediaQuery][to.el.dataset.id];
+                const single = items.length === 1;
 
                 if (includes(items, dragged.dataset.id)) {
                     return true;
                 }
 
-                this._updateValidationMessage(`Only the ${items.join(', ')} ${items.length > 1 ? 'are' : 'is'} allowed here.`);
+                this._updateValidationMessage(`Only ${single ? 'the' : ''} ${items.join(', ')} ${single ? 'is' : 'are'} allowed here.`);
                 return false;
             }
             else {
                 const items = validStates[this.props.mediaQuery][to.el.dataset.id].items;
+                const single = items.length === 1;
                 const maxItems = validStates[this.props.mediaQuery][to.el.dataset.id].max;
 
                 if (maxItems && to.el.children.length >= maxItems) {
@@ -58,7 +60,7 @@ class Cell extends Component {
                 }
 
                 if (!includes(items, dragged.dataset.id)) {
-                    this._updateValidationMessage(`The item "${dragged.dataset.id}" is not allowed here!`);
+                    this._updateValidationMessage(`Only ${single ? 'the' : ''} ${items.join(', ')} ${single ? 'is' : 'are'} allowed here.`);
                     return false;
                 }
 
