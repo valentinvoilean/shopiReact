@@ -39,18 +39,20 @@ class Cell extends Component {
     sortableOptions = {
         group: {name: 'headerConfig', put: (to, from, dragged) => {
             if (validStates[this.props.mediaQuery][to.el.dataset.id] instanceof Array) {
-                if (includes(validStates[this.props.mediaQuery][to.el.dataset.id], dragged.dataset.id)) {
+                const items = validStates[this.props.mediaQuery][to.el.dataset.id];
+
+                if (includes(items, dragged.dataset.id)) {
                     return true;
                 }
 
-                this._updateValidationMessage(`The item "${dragged.dataset.id}" is not allowed here!`);
+                this._updateValidationMessage(`Only the ${items.join(', ')} ${items.length > 1 ? 'are' : 'is'} allowed here.`);
                 return false;
             }
             else {
                 const items = validStates[this.props.mediaQuery][to.el.dataset.id].items;
                 const maxItems = validStates[this.props.mediaQuery][to.el.dataset.id].max;
 
-                if (to.el.children.length >= maxItems) {
+                if (maxItems && to.el.children.length >= maxItems) {
                     this._updateValidationMessage(`Maximum number of items allowed is ${maxItems} `);
                     return false;
                 }

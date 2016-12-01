@@ -42,7 +42,7 @@ export const defaultState = {
 export const validStates = {
     mobile: {
         Flyout: ['MenuIcon', 'MyAccount', 'Wishlist', 'Search', 'Currency', 'Language', 'MyAccount', 'SocialIcons'],
-        Hidden: ['Wishlist', 'MyAccount', 'Currency', 'Language', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb', 'WelcomeMessage', 'SocialIcons', 'Search', 'Menu'],
+        Hidden: ['Wishlist', 'MyAccount', 'Currency', 'Language', 'Breadcrumb', 'WelcomeMessage', 'SocialIcons', 'Search', 'Menu'],
         TopLeft: ['MenuIcon', 'Logo'],
         TopCenter: ['Logo'],
         TopRight: ['MyAccount', 'Wishlist', 'Cart', 'Search'],
