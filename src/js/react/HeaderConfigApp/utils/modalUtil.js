@@ -36,8 +36,16 @@ export const validateState = state => {
             return {...defaultState.HeaderConfig.data};
         },
 
-        _validateEachMediaQuery = () => {
+        _validateEachItem = () => {
             return true;
+        },
+
+        _validateItems = () => {
+            return _validateEachItem();
+        },
+
+        _validateCells = () => {
+            return _validateItems();
         },
 
         _validate = () => {
@@ -51,7 +59,7 @@ export const validateState = state => {
                 }
             }
 
-            return _validateEachMediaQuery();
+            return _validateCells();
         };
 
     return {
