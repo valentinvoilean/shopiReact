@@ -55,7 +55,7 @@ export const validateState = state => {
             return true;
         },
 
-        _validateSimpleItems = (cell, cellName, validItemNames, mediaQuery) => {
+        _validateItemNames = (cell, cellName, validItemNames, mediaQuery) => {
             cell.map(item => {
                 if (!includes(validItemNames, item)) {
                     console.warn(`The item ${item} is not allowed in ${cellName} !`);
@@ -70,7 +70,7 @@ export const validateState = state => {
         _validateComplexItems = (cell, cellName, validItems, mediaQuery) => {
             const validItemNames = validItems.map((item) => item.name);
 
-            if (_validateSimpleItems(cell, cellName, validItemNames, mediaQuery)) {
+            if (_validateItemNames(cell, cellName, validItemNames, mediaQuery)) {
                 console.log('validate the rest conditions');
             }
             else {
@@ -81,10 +81,12 @@ export const validateState = state => {
         },
 
         _parseEachHeaderArea = (mediaQuery) => {
+            // first check if the cell names are valid
             if (!_validateCellNames(mediaQuery)) {
                 return;
             }
 
+            // then check if the items are just simple strings, or are complex objects which contain conditions
             forOwn(cells, (cell, cellName) => {
                 const complexCell = !(validAreas[cellName] instanceof Array);
                 const validItems = complexCell ? validAreas[cellName].items : validAreas[cellName];
@@ -96,7 +98,7 @@ export const validateState = state => {
                     }
                 }
                 else {
-                    if (!_validateSimpleItems(cell, cellName, validItems, mediaQuery)) {
+                    if (!_validateItemNames(cell, cellName, validItems, mediaQuery)) {
                         return false;
                     }
 
