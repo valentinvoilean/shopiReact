@@ -7,7 +7,7 @@ import {defaultState, validStates} from 'HeaderConfigApp/constants/states';
  * @returns {*}
  */
 export const getInitialState = () => {
-    const shopifySettings = '{"mobile":{"Flyout":["Search","Currency","Language","MyAccount","SocialIcons"],"Hidden":["Breadcrumb","Search","MyAccount"],"TopLeft":["MenuIcon"],"TopCenter":["Logo"],"TopRight":["Cart","Wishlist"],"Main":["Menu"],"Bottom":["WelcomeMessage"]},"tablet":{"Hidden":["CustomLink3","CustomLink4"],"TopLeft":["Currency","Language","CustomLink1","CustomLink2"],"TopCenter":[],"TopRight":["MyAccount","Wishlist"],"MainLeft":["Logo"],"MainCenter":["Menu"],"MainRight":["Cart","Search"],"BottomLeft":["Breadcrumb"],"BottomCenter":[],"BottomRight":["SocialIcons","WelcomeMessage"]},"desktop":{"Hidden":["CustomLink3","CustomLink4"],"TopLeft":["Currency","Language","CustomLink1","CustomLink2"],"TopCenter":[],"TopRight":["MyAccount","Wishlist"],"MainLeft":["Logo"],"MainCenter":["Menu"],"MainRight":["Cart","Search"],"BottomLeft":["Breadcrumb"],"BottomCenter":[],"BottomRight":["SocialIcons","WelcomeMessage"]}}';
+    const shopifySettings = '{"mobile":{"Hidden":["Breadcrumb","Search","MyAccount"],"TopLeft":["MenuIcon"],"TopCenter":["Logo"],"TopRight":["Cart","Wishlist"],"Main":["Menu"],"Bottom":["WelcomeMessage"]},"tablet":{"Hidden":["CustomLink3","CustomLink4"],"TopLeft":["Currency","Language","CustomLink1","CustomLink2"],"TopCenter":[],"TopRight":["MyAccount","Wishlist"],"MainLeft":["Logo"],"MainCenter":["Menu"],"MainRight":["Cart","Search"],"BottomLeft":["Breadcrumb"],"BottomCenter":[],"BottomRight":["SocialIcons","WelcomeMessage"]},"desktop":{"Hidden":["CustomLink3","CustomLink4"],"TopLeft":["Currency","Language","CustomLink1","CustomLink2"],"TopCenter":[],"TopRight":["MyAccount","Wishlist"],"MainLeft":["Logo"],"MainCenter":["Menu"],"MainRight":["Cart","Search"],"BottomLeft":["Breadcrumb"],"BottomCenter":[],"BottomRight":["SocialIcons","WelcomeMessage"]}}';
     let currentSettings;
 
     try {
@@ -40,12 +40,33 @@ export const validateState = state => {
             newState[mediaQuery] = {...defaultState.HeaderConfig.data[mediaQuery]};
         },
 
+        _validateCellNames = (mediaQuery) => {
+            const validCellNames = Object.keys(validAreas);
+            const availableCellNames = Object.keys(areas);
+
+            for (let i = 0, len = availableCellNames.length; i < len; i++) {
+                if (validCellNames.indexOf(availableCellNames[i]) === -1) {
+                    console.warn(`The cell ${availableCellNames[i]} doesn't exist!`);
+                    _loadDefaultSettings(mediaQuery);
+                    return false;
+                }
+            }
+
+            return true;
+        },
+
         _parseEachHeaderArea = (mediaQuery) => {
+            if (!_validateCellNames(mediaQuery)) {
+                return;
+            }
+
             forOwn(areas, (value, key) => {
                 const items = validAreas[key] instanceof Array ? validAreas[key] : validAreas[key].items;
 
                 value.map(item => {
-                    if (!includes(items, item)) {
+                    const itemNames = typeof items[0] === 'string' ? items : items.map((item) => item.name);
+
+                    if (!includes(itemNames, item)) {
                         _loadDefaultSettings(mediaQuery);
                         return false;
                     }

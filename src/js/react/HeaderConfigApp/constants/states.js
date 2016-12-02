@@ -2,7 +2,6 @@ export const defaultState = {
     HeaderConfig: {
         data: {
             mobile: {
-                Flyout: ['Search', 'Currency', 'Language', 'MyAccount', 'SocialIcons'],
                 Hidden: ['CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb', 'Search', 'MyAccount'],
                 TopLeft: ['MenuIcon'],
                 TopCenter: ['Logo'],
@@ -41,9 +40,23 @@ export const defaultState = {
 
 export const validStates = {
     mobile: {
-        Flyout: ['MenuIcon', 'MyAccount', 'Wishlist', 'Search', 'Currency', 'Language', 'MyAccount', 'SocialIcons'],
         Hidden: ['Wishlist', 'MyAccount', 'Currency', 'Language', 'Breadcrumb', 'WelcomeMessage', 'SocialIcons', 'Search', 'Menu'],
-        TopLeft: ['MenuIcon', 'Logo'],
+        TopLeft: {
+            items: [
+                {
+                    name: 'MenuIcon',
+                    order: 0
+                },
+                {
+                    name: 'Logo',
+                    required: {
+                        name: 'MenuIcon',
+                        position: 'TopLeft'
+                    }
+                }
+            ],
+            max: 2
+        },
         TopCenter: ['Logo'],
         TopRight: ['MyAccount', 'Wishlist', 'Cart', 'Search'],
         Main: {
