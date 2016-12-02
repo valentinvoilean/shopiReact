@@ -32,7 +32,7 @@ export const getInitialState = () => {
 export const validateState = state => {
     let wantedState = {...state.data},
         newState = {},
-        areas,
+        cells,
         validAreas,
 
         _loadDefaultSettings = (mediaQuery) => {
@@ -42,7 +42,7 @@ export const validateState = state => {
 
         _validateCellNames = (mediaQuery) => {
             const validCellNames = Object.keys(validAreas);
-            const availableCellNames = Object.keys(areas);
+            const availableCellNames = Object.keys(cells);
 
             for (let i = 0, len = availableCellNames.length; i < len; i++) {
                 if (validCellNames.indexOf(availableCellNames[i]) === -1) {
@@ -55,22 +55,52 @@ export const validateState = state => {
             return true;
         },
 
+        _validateSimpleItems = (cell, cellName, validItemNames, mediaQuery) => {
+            cell.map(item => {
+                if (!includes(validItemNames, item)) {
+                    console.warn(`The item ${item} is not allowed in ${cellName} !`);
+                    _loadDefaultSettings(mediaQuery);
+                    return false;
+                }
+            });
+
+            return true;
+        },
+
+        _validateComplexItems = (cell, cellName, validItems, mediaQuery) => {
+            const validItemNames = validItems.map((item) => item.name);
+
+            if (_validateSimpleItems(cell, cellName, validItemNames, mediaQuery)) {
+                console.log('validate the rest conditions');
+            }
+            else {
+                return false;
+            }
+
+            return true;
+        },
+
         _parseEachHeaderArea = (mediaQuery) => {
             if (!_validateCellNames(mediaQuery)) {
                 return;
             }
 
-            forOwn(areas, (value, key) => {
-                const items = validAreas[key] instanceof Array ? validAreas[key] : validAreas[key].items;
+            forOwn(cells, (cell, cellName) => {
+                const complexCell = !(validAreas[cellName] instanceof Array);
+                const validItems = complexCell ? validAreas[cellName].items : validAreas[cellName];
+                const complexItems = typeof validItems[0] !== 'string';
 
-                value.map(item => {
-                    const itemNames = typeof items[0] === 'string' ? items : items.map((item) => item.name);
-
-                    if (!includes(itemNames, item)) {
-                        _loadDefaultSettings(mediaQuery);
+                if (complexItems) {
+                    if (!_validateComplexItems(cell, cellName, validItems, mediaQuery)) {
                         return false;
                     }
-                });
+                }
+                else {
+                    if (!_validateSimpleItems(cell, cellName, validItems, mediaQuery)) {
+                        return false;
+                    }
+
+                }
             });
         };
 
@@ -81,9 +111,9 @@ export const validateState = state => {
                 return _loadDefaultSettings(mediaQuery);
             }
 
-            areas = {...wantedState[mediaQuery]};
+            cells = {...wantedState[mediaQuery]};
             validAreas = {...value};
-            newState[mediaQuery] = areas;
+            newState[mediaQuery] = cells;
 
             _parseEachHeaderArea(mediaQuery);
         });
