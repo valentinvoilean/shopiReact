@@ -40,18 +40,21 @@ class Cell extends Component {
         group: {name: 'headerConfig', put: (to, from, dragged) => {
             if (validStates[this.props.mediaQuery][to.el.dataset.id] instanceof Array) {
                 const items = validStates[this.props.mediaQuery][to.el.dataset.id];
-                const single = items.length === 1;
+                const itemNames = typeof items[0] === 'string' ? items : items.map((item) => item.name);
 
-                if (includes(items, dragged.dataset.id)) {
+                const single = itemNames.length === 1;
+
+                if (includes(itemNames, dragged.dataset.id)) {
                     return true;
                 }
 
-                this._updateValidationMessage(`Only ${single ? 'the' : ''} ${items.join(', ')} ${single ? 'is' : 'are'} allowed here.`);
+                this._updateValidationMessage(`Only ${single ? 'the' : ''} ${itemNames.join(', ')} ${single ? 'is' : 'are'} allowed here.`);
                 return false;
             }
             else {
                 const items = validStates[this.props.mediaQuery][to.el.dataset.id].items;
-                const single = items.length === 1;
+                const itemNames = typeof items[0] === 'string' ? items : items.map((item) => item.name);
+                const single = itemNames.length === 1;
                 const maxItems = validStates[this.props.mediaQuery][to.el.dataset.id].max;
 
                 if (maxItems && to.el.children.length >= maxItems) {
@@ -59,8 +62,8 @@ class Cell extends Component {
                     return false;
                 }
 
-                if (!includes(items, dragged.dataset.id)) {
-                    this._updateValidationMessage(`Only ${single ? 'the' : ''} ${items.join(', ')} ${single ? 'is' : 'are'} allowed here.`);
+                if (!includes(itemNames, dragged.dataset.id)) {
+                    this._updateValidationMessage(`Only ${single ? 'the' : ''} ${itemNames.join(', ')} ${single ? 'is' : 'are'} allowed here.`);
                     return false;
                 }
 
