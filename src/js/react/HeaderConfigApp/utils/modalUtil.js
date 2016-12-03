@@ -1,4 +1,4 @@
-import {forOwn, includes, has, each} from 'lodash';
+import {forOwn, includes, has} from 'lodash';
 
 import {defaultState, validStates} from 'HeaderConfigApp/constants/states';
 
