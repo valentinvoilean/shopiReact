@@ -58,7 +58,26 @@ export const validStates = {
             max: 2
         },
         TopCenter: ['Logo'],
-        TopRight: ['MyAccount', 'Wishlist', 'Cart', 'Search'],
+        TopRight: {
+            items: [
+                {
+                    name: 'MyAccount'
+                },
+                {
+                    name: 'Wishlist'
+                },
+                {
+                    name: 'Cart'
+                },
+                {
+                    name: 'Search'
+                },
+                {
+                    name: 'MenuIcon',
+                    order: 0
+                }
+            ]
+        },
         Main: {
             items: ['Menu', 'WelcomeMessage'],
             max: 1
@@ -74,7 +93,10 @@ export const validStates = {
         TopCenter: ['WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
         TopRight: ['MyAccount', 'Wishlist', 'Search', 'Currency', 'Language', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
         MainLeft: ['MyAccount', 'Wishlist', 'Logo', 'Search', 'SocialIcons', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
-        MainCenter: ['Logo', 'Menu'],
+        MainCenter: {
+            items: ['Logo', 'Menu'],
+            max: 1
+        },
         MainRight: ['MyAccount', 'Wishlist', 'Search', 'Cart', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
         BottomLeft: ['MyAccount', 'Wishlist', 'Search', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb'],
         BottomCenter: ['Menu', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
@@ -86,7 +108,10 @@ export const validStates = {
         TopCenter: ['WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
         TopRight: ['MyAccount', 'Wishlist', 'Search', 'Currency', 'Language', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
         MainLeft: ['MyAccount', 'Wishlist', 'Logo', 'Search', 'SocialIcons', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
-        MainCenter: ['Logo', 'Menu'],
+        MainCenter: {
+            items: ['Logo', 'Menu'],
+            max: 1
+        },
         MainRight: ['MyAccount', 'Wishlist', 'Search', 'Cart', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
         BottomLeft: ['MyAccount', 'Wishlist', 'Search', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb'],
         BottomCenter: ['Menu', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
