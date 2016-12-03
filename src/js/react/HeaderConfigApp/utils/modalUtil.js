@@ -80,6 +80,17 @@ export const validateState = state => {
             return true;
         },
 
+        _validateCellConditions = (cell, cellName, cellConditions) => {
+            if (typeof cellConditions.max !== 'undefined') {
+                if (cell.length > cellConditions.max) {
+                    console.log(`Max ${cellConditions.max} items allowed in ${cellName} !`);
+                    return false;
+                }
+            }
+
+            return true;
+        },
+
         _parseEachHeaderArea = (mediaQuery) => {
             // first check if the cell names are valid
             if (!_validateCellNames(mediaQuery)) {
@@ -91,6 +102,13 @@ export const validateState = state => {
                 const complexCell = !(validAreas[cellName] instanceof Array);
                 const validItems = complexCell ? validAreas[cellName].items : validAreas[cellName];
                 const complexItems = typeof validItems[0] !== 'string';
+
+                // check for cell conditions
+                if (complexCell) {
+                   if (!_validateCellConditions(cell, cellName, validAreas[cellName])) {
+                       return false;
+                   }
+                }
 
                 if (complexItems) {
                     if (!_validateComplexItems(cell, cellName, validItems, mediaQuery)) {
