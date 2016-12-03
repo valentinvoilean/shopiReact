@@ -81,12 +81,30 @@ export const validateState = state => {
             return true;
         },
 
+        _validateItemRequirements = (cell, cellName, validItems, mediaQuery) => {
+            cell.map((item) => {
+                let currentValidItem = validItems.filter((obj) => obj.name === item)[0];
+
+                if (typeof currentValidItem.required !== 'undefined') {
+                    const requiredName = currentValidItem.required.name;
+
+                    if (!includes(cell, requiredName)) {
+                        console.warn(`The item ${requiredName} is required inside the ${cellName} cell !`);
+                        _loadDefaultSettings(mediaQuery);
+                        return false;
+                    }
+                }
+            });
+
+            return true;
+        },
+
         _validateComplexItems = (cell, cellName, validItems, mediaQuery) => {
             const validItemNames = validItems.map((item) => item.name);
 
-            if (_validateItemNames(cell, cellName, validItemNames, mediaQuery)
-                && _validateItemOrder(cell, validItems, mediaQuery)) {
-                console.log('continue validation');
+            if (_validateItemNames(cell, cellName, validItemNames, mediaQuery)) {
+                return _validateItemOrder(cell, validItems, mediaQuery) &&
+                _validateItemRequirements(cell, cellName, validItems, mediaQuery);
             }
             else {
                 return false;
