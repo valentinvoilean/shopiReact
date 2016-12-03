@@ -67,11 +67,26 @@ export const validateState = state => {
             return true;
         },
 
+        _validateItemOrder = (cell, validItems, mediaQuery) => {
+            cell.map((item, index) => {
+                let currentValidItem = validItems.filter((obj) => obj.name === item)[0];
+
+                if (typeof currentValidItem.order !== 'undefined' && currentValidItem.order !== index) {
+                    console.warn(`The order of the items is not valid !`);
+                    _loadDefaultSettings(mediaQuery);
+                    return false;
+                }
+            });
+
+            return true;
+        },
+
         _validateComplexItems = (cell, cellName, validItems, mediaQuery) => {
             const validItemNames = validItems.map((item) => item.name);
 
-            if (_validateItemNames(cell, cellName, validItemNames, mediaQuery)) {
-                console.log('validate the rest conditions');
+            if (_validateItemNames(cell, cellName, validItemNames, mediaQuery)
+                && _validateItemOrder(cell, validItems, mediaQuery)) {
+                console.log('continue validation');
             }
             else {
                 return false;
@@ -80,10 +95,11 @@ export const validateState = state => {
             return true;
         },
 
-        _validateCellConditions = (cell, cellName, cellConditions) => {
+        _validateCellConditions = (cell, cellName, cellConditions, mediaQuery) => {
             if (typeof cellConditions.max !== 'undefined') {
                 if (cell.length > cellConditions.max) {
-                    console.log(`Max ${cellConditions.max} items allowed in ${cellName} !`);
+                    console.warn(`Max ${cellConditions.max} items allowed in ${cellName} !`);
+                    _loadDefaultSettings(mediaQuery);
                     return false;
                 }
             }
@@ -105,7 +121,7 @@ export const validateState = state => {
 
                 // check for cell conditions
                 if (complexCell) {
-                   if (!_validateCellConditions(cell, cellName, validAreas[cellName])) {
+                   if (!_validateCellConditions(cell, cellName, validAreas[cellName], mediaQuery)) {
                        return false;
                    }
                 }
