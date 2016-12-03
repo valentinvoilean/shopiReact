@@ -7,7 +7,7 @@ import {defaultState, validStates} from 'HeaderConfigApp/constants/states';
  * @returns {*}
  */
 export const getInitialState = () => {
-    const shopifySettings = '{"mobile":{"Hidden":["Breadcrumb","Search","MyAccount"],"TopLeft":["MenuIcon"],"TopCenter":["Logo"],"TopRight":["Cart","Wishlist"],"Main":["Menu"],"Bottom":["WelcomeMessage"]},"tablet":{"Hidden":["CustomLink3","CustomLink4"],"TopLeft":["Currency","Language","CustomLink1","CustomLink2"],"TopCenter":[],"TopRight":["MyAccount","Wishlist"],"MainLeft":["Logo"],"MainCenter":["Menu"],"MainRight":["Cart","Search"],"BottomLeft":["Breadcrumb"],"BottomCenter":[],"BottomRight":["SocialIcons","WelcomeMessage"]},"desktop":{"Hidden":["CustomLink3","CustomLink4"],"TopLeft":["Currency","Language","CustomLink1","CustomLink2"],"TopCenter":[],"TopRight":["MyAccount","Wishlist"],"MainLeft":["Logo"],"MainCenter":["Menu"],"MainRight":["Cart","Search"],"BottomLeft":["Breadcrumb"],"BottomCenter":[],"BottomRight":["SocialIcons","WelcomeMessage"]}}';
+    const shopifySettings = '{"mobile":{"Hidden":["Breadcrumb","Search","MyAccount"],"TopLeft":["Menu", "Logo"],"TopCenter":["Logo"],"TopRight":["Cart","Wishlist"],"Main":["Menu"],"Bottom":["WelcomeMessage"]},"tablet":{"Hidden":["CustomLink3","CustomLink4"],"TopLeft":["Currency","Language","CustomLink1","CustomLink2"],"TopCenter":[],"TopRight":["MyAccount","Wishlist"],"MainLeft":["Logo"],"MainCenter":["Menu"],"MainRight":["Cart","Search"],"BottomLeft":["Breadcrumb"],"BottomCenter":[],"BottomRight":["SocialIcons","WelcomeMessage"]},"desktop":{"Hidden":["CustomLink3","CustomLink4"],"TopLeft":["Currency","Language","CustomLink1","CustomLink2"],"TopCenter":[],"TopRight":["MyAccount","Wishlist"],"MainLeft":["Logo"],"MainCenter":["Menu"],"MainRight":["Cart","Search"],"BottomLeft":["Breadcrumb"],"BottomCenter":[],"BottomRight":["SocialIcons","WelcomeMessage"]}}';
     let currentSettings;
 
     try {
@@ -56,13 +56,14 @@ export const validateState = state => {
         },
 
         _validateItemNames = (cell, cellName, validItemNames, mediaQuery) => {
-            cell.map(item => {
-                if (!includes(validItemNames, item)) {
-                    console.warn(`The item ${item} is not allowed in ${cellName} !`);
+
+            for (let i = 0, len = cell.length; i < len; i++) {
+                if (!includes(validItemNames, cell[i])) {
+                    console.warn(`The item ${cell[i]} is not allowed in ${cellName} !`);
                     _loadDefaultSettings(mediaQuery);
                     return false;
                 }
-            });
+            }
 
             return true;
         },
@@ -109,8 +110,6 @@ export const validateState = state => {
             else {
                 return false;
             }
-
-            return true;
         },
 
         _validateCellConditions = (cell, cellName, cellConditions, mediaQuery) => {
