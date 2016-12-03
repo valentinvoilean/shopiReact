@@ -1,4 +1,4 @@
-import {forOwn, includes, has} from 'lodash';
+import {forOwn, includes, has, each} from 'lodash';
 
 import {defaultState, validStates} from 'HeaderConfigApp/constants/states';
 
@@ -7,7 +7,7 @@ import {defaultState, validStates} from 'HeaderConfigApp/constants/states';
  * @returns {*}
  */
 export const getInitialState = () => {
-    const shopifySettings = '{"mobile":{"Hidden":["Breadcrumb","Search","MyAccount"],"TopLeft":["Menu", "Logo"],"TopCenter":["Logo"],"TopRight":["Cart","Wishlist"],"Main":["Menu"],"Bottom":["WelcomeMessage"]},"tablet":{"Hidden":["CustomLink3","CustomLink4"],"TopLeft":["Currency","Language","CustomLink1","CustomLink2"],"TopCenter":[],"TopRight":["MyAccount","Wishlist"],"MainLeft":["Logo"],"MainCenter":["Menu"],"MainRight":["Cart","Search"],"BottomLeft":["Breadcrumb"],"BottomCenter":[],"BottomRight":["SocialIcons","WelcomeMessage"]},"desktop":{"Hidden":["CustomLink3","CustomLink4"],"TopLeft":["Currency","Language","CustomLink1","CustomLink2"],"TopCenter":[],"TopRight":["MyAccount","Wishlist"],"MainLeft":["Logo"],"MainCenter":["Menu"],"MainRight":["Cart","Search"],"BottomLeft":["Breadcrumb"],"BottomCenter":[],"BottomRight":["SocialIcons","WelcomeMessage"]}}';
+    const shopifySettings = '{"mobile":{"Hidden":["Breadcrumb","Search","MyAccount"],"TopLeft":["MenuIcon"],"TopCenter":["Logo"],"TopRight":["Cart","Wishlist"],"Main":["Menu"],"Bottom":["WelcomeMessage"]},"tablet":{"Hidden":["CustomLink3","CustomLink4"],"TopLeft":["Currency","Language","CustomLink1","CustomLink2"],"TopCenter":[],"TopRight":["MyAccount","Wishlist"],"MainLeft":["Logo"],"MainCenter":["Menu"],"MainRight":["Cart","Search"],"BottomLeft":["Breadcrumb"],"BottomCenter":[],"BottomRight":["SocialIcons","WelcomeMessage"]},"desktop":{"Hidden":["CustomLink3","CustomLink4"],"TopLeft":["Currency","Language","CustomLink1","CustomLink2"],"TopCenter":[],"TopRight":["MyAccount","Wishlist"],"MainLeft":["Logo"],"MainCenter":["Menu"],"MainRight":["Cart","Search"],"BottomLeft":["Breadcrumb"],"BottomCenter":[],"BottomRight":["SocialIcons","WelcomeMessage"]}}';
     let currentSettings;
 
     try {
@@ -69,22 +69,24 @@ export const validateState = state => {
         },
 
         _validateItemOrder = (cell, validItems, mediaQuery) => {
-            cell.map((item, index) => {
-                let currentValidItem = validItems.filter((obj) => obj.name === item)[0];
+            for (let i = 0, len = cell.length; i < len; i++) {
+                const item = cell[i];
+                const currentValidItem = validItems.filter((obj) => obj.name === item)[0];
 
-                if (typeof currentValidItem.order !== 'undefined' && currentValidItem.order !== index) {
+                if (typeof currentValidItem.order !== 'undefined' && currentValidItem.order !== i) {
                     console.warn(`The order of the items is not valid !`);
                     _loadDefaultSettings(mediaQuery);
                     return false;
                 }
-            });
+            }
 
             return true;
         },
 
         _validateItemRequirements = (cell, cellName, validItems, mediaQuery) => {
-            cell.map((item) => {
-                let currentValidItem = validItems.filter((obj) => obj.name === item)[0];
+            for (let i = 0, len = cell.length; i < len; i++) {
+                const item = cell[i];
+                const currentValidItem = validItems.filter((obj) => obj.name === item)[0];
 
                 if (typeof currentValidItem.required !== 'undefined') {
                     const requiredName = currentValidItem.required.name;
@@ -95,7 +97,7 @@ export const validateState = state => {
                         return false;
                     }
                 }
-            });
+            }
 
             return true;
         },
