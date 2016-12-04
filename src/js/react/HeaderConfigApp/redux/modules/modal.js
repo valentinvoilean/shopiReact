@@ -1,4 +1,4 @@
-import {getInitialState, validateState} from 'HeaderConfigApp/utils/modalUtil';
+import {getInitialState, validateState} from 'HeaderConfigApp/utils';
 import {pull, includes} from 'lodash';
 
 import {mediaQueries} from 'HeaderConfigApp/constants/mediaQueries';
