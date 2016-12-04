@@ -2,6 +2,7 @@ import {getInitialState, validateState} from 'HeaderConfigApp/utils';
 import {pull, includes} from 'lodash';
 
 import {mediaQueries} from 'HeaderConfigApp/constants/mediaQueries';
+import {defaultState} from 'HeaderConfigApp/constants/states';
 
 const SAVE_HEADER_SETTINGS = 'SAVE_HEADER_SETTINGS';
 const REMOVE_HEADER_ITEM = 'REMOVE_HEADER_ITEM';
@@ -27,7 +28,7 @@ export default (state = getInitialState(), action) => {
             }
             else {
                 console.warn('Component\'s name or its properties are not defined.');
-                return validateState(state);
+                return validateState(state) ? {...defaultState.HeaderConfig, ...state } : defaultState.HeaderConfig;
             }
         }
 
@@ -49,7 +50,7 @@ export default (state = getInitialState(), action) => {
         }
 
         default:
-            return validateState(state);
+            return validateState(state) ? {...defaultState.HeaderConfig, ...state } : defaultState.HeaderConfig;
 
     }
 };
