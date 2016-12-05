@@ -1,5 +1,4 @@
 import React, {Component, PropTypes} from 'react';
-import {includes} from 'lodash';
 import Sortable from 'sortablejs';
 
 import {CloseButton} from 'HeaderConfigApp/components';
@@ -52,7 +51,14 @@ class Cell extends Component {
                 }
             };
 
-            return validateState(newState);
+            try {
+                validateState(newState);
+                return true;
+            }
+            catch (e) {
+                this._updateValidationMessage(e);
+                return false;
+            }
         }},
         animation: 150,
         ghostClass: styles.sortableGhost,

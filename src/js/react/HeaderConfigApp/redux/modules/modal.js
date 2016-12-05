@@ -1,7 +1,6 @@
 import {getInitialState, validateState} from 'HeaderConfigApp/utils';
-import {pull, includes} from 'lodash';
+import {pull} from 'lodash';
 
-import {mediaQueries} from 'HeaderConfigApp/constants/mediaQueries';
 import {defaultState} from 'HeaderConfigApp/constants/states';
 
 const SAVE_HEADER_SETTINGS = 'SAVE_HEADER_SETTINGS';
@@ -13,23 +12,17 @@ export default (state = getInitialState(), action) => {
         case SAVE_HEADER_SETTINGS: {
             const {to, children, shouldComponentUpdate, mediaQuery} = action;
 
-            if (includes(mediaQueries, mediaQuery)) {
-                return {
-                    ...state,
-                    data: {
-                        ...state.data,
-                        [mediaQuery]: {
-                            ...state.data[mediaQuery],
-                            [to]: children
-                        }
-                    },
-                    shouldComponentUpdate
-                };
-            }
-            else {
-                console.warn('Component\'s name or its properties are not defined.');
-                return validateState(state) ? {...defaultState.HeaderConfig, ...state } : defaultState.HeaderConfig;
-            }
+            return {
+                ...state,
+                data: {
+                    ...state.data,
+                    [mediaQuery]: {
+                        ...state.data[mediaQuery],
+                        [to]: children
+                    }
+                },
+                shouldComponentUpdate
+            };
         }
 
         case REMOVE_HEADER_ITEM: {
@@ -50,8 +43,14 @@ export default (state = getInitialState(), action) => {
         }
 
         default:
-            return validateState(state) ? {...defaultState.HeaderConfig, ...state } : defaultState.HeaderConfig;
-
+            try {
+                validateState(state);
+                return {...defaultState.HeaderConfig, ...state };
+            }
+            catch (e) {
+                console.warn(e);
+                return defaultState.HeaderConfig;
+            }
     }
 };
 
