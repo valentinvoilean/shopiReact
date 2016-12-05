@@ -47,7 +47,7 @@ export const validStates = {
                     name: 'MenuIcon',
                     required: {
                         name: 'Logo',
-                        position: 'TopCenter'
+                        position: ['TopCenter', 'TopLeft']
                     }
                 },
                 {

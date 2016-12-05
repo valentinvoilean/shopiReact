@@ -31,10 +31,27 @@ let cells,
 
             if (typeof currentValidItem.required !== 'undefined') {
                 const requiredName = currentValidItem.required.name;
-                const requiredPosition = currentValidItem.required.position;
+                const requiredPositions = currentValidItem.required.position;
+                const throwErrorMessage = () => {
+                    throw `The item ${requiredName} is required inside the ${requiredPositions instanceof Array ? 
+                        requiredPositions.join(' or ') : requiredPositions} cell.`;
+                };
 
-                if (!includes(cells[requiredPosition], requiredName)) {
-                    throw `The item ${requiredName} is required inside the ${requiredPosition} cell.`;
+                if (requiredPositions instanceof Array) {
+                    let included = false;
+
+                    for (let j = 0, rpLen = requiredPositions.length; j < rpLen; j++) {
+                        if (includes(cells[requiredPositions[j]], requiredName)) {
+                            included = true;
+                            break;
+                        }
+                    }
+
+                    if (!included) {
+                        throwErrorMessage();
+                    }
+                } else if (!includes(cells[requiredPositions], requiredName)) {
+                    throwErrorMessage();
                 }
             }
         }
