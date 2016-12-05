@@ -10,7 +10,7 @@ let cells,
 
         for (let i = 0, len = availableCellNames.length; i < len; i++) {
             if (validCellNames.indexOf(availableCellNames[i]) === -1) {
-                throw `The cell ${availableCellNames[i]} doesn't exist!`;
+                throw `The cell ${availableCellNames[i]} doesn't exist.`;
             }
         }
     },
@@ -18,7 +18,8 @@ let cells,
     _validateItemNames = (cell, cellName, validItemNames) => {
         for (let i = 0, len = cell.length; i < len; i++) {
             if (!includes(validItemNames, cell[i])) {
-                throw `The item ${cell[i]} is not allowed in ${cellName} !`;
+                const single = validItemNames.length === 1;
+                throw `Only ${single ? 'the' : ''} ${validItemNames.join(', ')} ${single ? 'is' : 'are'} allowed in ${cellName}.`;
             }
         }
     },
@@ -29,7 +30,7 @@ let cells,
             const currentValidItem = validItems.filter((obj) => obj.name === item)[0];
 
             if (typeof currentValidItem.order !== 'undefined' && currentValidItem.order !== i) {
-                throw `The order of the items is not valid !`;
+                throw `The order of the items is not valid.`;
             }
         }
     },
@@ -43,7 +44,7 @@ let cells,
                 const requiredName = currentValidItem.required.name;
 
                 if (!includes(cell, requiredName)) {
-                    throw `The item ${requiredName} is required inside the ${cellName} cell !`;
+                    throw `The item ${requiredName} is required inside the ${cellName} cell.`;
                 }
             }
         }
@@ -60,7 +61,7 @@ let cells,
     _validateCellConditions = (cell, cellName, cellConditions) => {
         if (typeof cellConditions.max !== 'undefined') {
             if (cell.length > cellConditions.max) {
-                throw `Max ${cellConditions.max} items allowed in ${cellName} !`;
+                throw `Max items allowed in ${cellName} is ${cellConditions.max}.`;
             }
         }
     },
@@ -99,7 +100,7 @@ export const validateState = state => {
     // Go trough each media query
     for (let mediaQuery in validStates) {
         if (!has(state.data, mediaQuery)) {
-            throw `The media query ${mediaQuery} doesn't exist !`;
+            throw `The media query ${mediaQuery} doesn't exist.`;
         }
 
         cells = {...state.data[mediaQuery]};
