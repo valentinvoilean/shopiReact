@@ -45,7 +45,10 @@ export const validStates = {
             items: [
                 {
                     name: 'MenuIcon',
-                    order: 0
+                    required: {
+                        name: 'Logo',
+                        position: 'TopCenter'
+                    }
                 },
                 {
                     name: 'Logo',
@@ -74,7 +77,10 @@ export const validStates = {
                 },
                 {
                     name: 'MenuIcon',
-                    order: 0
+                    required: {
+                        name: 'Logo',
+                        position: 'TopCenter'
+                    }
                 }
             ]
         },

@@ -24,27 +24,17 @@ let cells,
         }
     },
 
-    _validateItemOrder = (cell, validItems) => {
-        for (let i = 0, len = cell.length; i < len; i++) {
-            const item = cell[i];
-            const currentValidItem = validItems.filter((obj) => obj.name === item)[0];
-
-            if (typeof currentValidItem.order !== 'undefined' && currentValidItem.order !== i) {
-                throw `The order of the items is not valid.`;
-            }
-        }
-    },
-
-    _validateItemRequirements = (cell, cellName, validItems) => {
+    _validateItemRequirements = (cell, validItems) => {
         for (let i = 0, len = cell.length; i < len; i++) {
             const item = cell[i];
             const currentValidItem = validItems.filter((obj) => obj.name === item)[0];
 
             if (typeof currentValidItem.required !== 'undefined') {
                 const requiredName = currentValidItem.required.name;
+                const requiredPosition = currentValidItem.required.position;
 
-                if (!includes(cell, requiredName)) {
-                    throw `The item ${requiredName} is required inside the ${cellName} cell.`;
+                if (!includes(cells[requiredPosition], requiredName)) {
+                    throw `The item ${requiredName} is required inside the ${requiredPosition} cell.`;
                 }
             }
         }
@@ -54,8 +44,7 @@ let cells,
         const validItemNames = validItems.map((item) => item.name);
 
         _validateItemNames(cell, cellName, validItemNames);
-        _validateItemOrder(cell, validItems);
-        _validateItemRequirements(cell, cellName, validItems);
+        _validateItemRequirements(cell, validItems);
     },
 
     _validateCellConditions = (cell, cellName, cellConditions) => {
