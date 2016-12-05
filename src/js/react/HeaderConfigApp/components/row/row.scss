@@ -40,9 +40,9 @@
 
     [data-mq="mobile"] > & {
         &:first-child {
-            ul:first-child:before { content: 'TOP LEFT'; }
-            ul:nth-child(2):before { content: 'TOP CENTER'; }
-            ul:last-child:before { content: 'TOP RIGHT'; }
+            & > div:first-child ul:before { content: 'TOP LEFT'; }
+            & > div:nth-child(2) ul:before { content: 'TOP CENTER'; }
+            & > div:last-child ul:before { content: 'TOP RIGHT'; }
         }
 
         &:nth-child(2) {
@@ -63,21 +63,21 @@
     [data-mq="tablet"] > &,
     [data-mq="desktop"] > & {
         &:first-child {
-            ul:first-child:before { content: 'TOP LEFT'; }
-            ul:nth-child(2):before { content: 'TOP CENTER'; }
-            ul:last-child:before { content: 'TOP RIGHT'; }
+            & > div:first-child ul:before { content: 'TOP LEFT'; }
+            & > div:nth-child(2) ul:before { content: 'TOP CENTER'; }
+            & > div:last-child ul:before { content: 'TOP RIGHT'; }
         }
 
         &:nth-child(2) {
-            ul:first-child:before { content: 'MAIN LEFT'; }
-            ul:nth-child(2):before { content: 'MAIN CENTER'; }
-            ul:last-child:before { content: 'MAIN RIGHT'; }
+            & > div:first-child ul:before { content: 'MAIN LEFT'; }
+            & > div:nth-child(2) ul:before { content: 'MAIN CENTER'; }
+            & > div:last-child ul:before { content: 'MAIN RIGHT'; }
         }
 
         &:last-child {
-            ul:first-child:before { content: 'BOTTOM LEFT'; }
-            ul:nth-child(2):before { content: 'BOTTOM CENTER'; }
-            ul:last-child:before { content: 'BOTTOM RIGHT'; }
+            & > div:first-child ul:before { content: 'BOTTOM LEFT'; }
+            & > div:nth-child(2) ul:before { content: 'BOTTOM CENTER'; }
+            & > div:last-child ul:before { content: 'BOTTOM RIGHT'; }
         }
     }
 }

@@ -223,15 +223,15 @@
   cursor: move;
 }
 
-[data-mq="mobile"] > .row__headerArea___hPNQ-:first-child ul:first-child:before {
+[data-mq="mobile"] > .row__headerArea___hPNQ-:first-child > div:first-child ul:before {
   content: 'TOP LEFT';
 }
 
-[data-mq="mobile"] > .row__headerArea___hPNQ-:first-child ul:nth-child(2):before {
+[data-mq="mobile"] > .row__headerArea___hPNQ-:first-child > div:nth-child(2) ul:before {
   content: 'TOP CENTER';
 }
 
-[data-mq="mobile"] > .row__headerArea___hPNQ-:first-child ul:last-child:before {
+[data-mq="mobile"] > .row__headerArea___hPNQ-:first-child > div:last-child ul:before {
   content: 'TOP RIGHT';
 }
 
@@ -251,48 +251,48 @@
   content: 'BOTTOM';
 }
 
-[data-mq="tablet"] > .row__headerArea___hPNQ-:first-child ul:first-child:before,
-[data-mq="desktop"] > .row__headerArea___hPNQ-:first-child ul:first-child:before {
+[data-mq="tablet"] > .row__headerArea___hPNQ-:first-child > div:first-child ul:before,
+[data-mq="desktop"] > .row__headerArea___hPNQ-:first-child > div:first-child ul:before {
   content: 'TOP LEFT';
 }
 
-[data-mq="tablet"] > .row__headerArea___hPNQ-:first-child ul:nth-child(2):before,
-[data-mq="desktop"] > .row__headerArea___hPNQ-:first-child ul:nth-child(2):before {
+[data-mq="tablet"] > .row__headerArea___hPNQ-:first-child > div:nth-child(2) ul:before,
+[data-mq="desktop"] > .row__headerArea___hPNQ-:first-child > div:nth-child(2) ul:before {
   content: 'TOP CENTER';
 }
 
-[data-mq="tablet"] > .row__headerArea___hPNQ-:first-child ul:last-child:before,
-[data-mq="desktop"] > .row__headerArea___hPNQ-:first-child ul:last-child:before {
+[data-mq="tablet"] > .row__headerArea___hPNQ-:first-child > div:last-child ul:before,
+[data-mq="desktop"] > .row__headerArea___hPNQ-:first-child > div:last-child ul:before {
   content: 'TOP RIGHT';
 }
 
-[data-mq="tablet"] > .row__headerArea___hPNQ-:nth-child(2) ul:first-child:before,
-[data-mq="desktop"] > .row__headerArea___hPNQ-:nth-child(2) ul:first-child:before {
+[data-mq="tablet"] > .row__headerArea___hPNQ-:nth-child(2) > div:first-child ul:before,
+[data-mq="desktop"] > .row__headerArea___hPNQ-:nth-child(2) > div:first-child ul:before {
   content: 'MAIN LEFT';
 }
 
-[data-mq="tablet"] > .row__headerArea___hPNQ-:nth-child(2) ul:nth-child(2):before,
-[data-mq="desktop"] > .row__headerArea___hPNQ-:nth-child(2) ul:nth-child(2):before {
+[data-mq="tablet"] > .row__headerArea___hPNQ-:nth-child(2) > div:nth-child(2) ul:before,
+[data-mq="desktop"] > .row__headerArea___hPNQ-:nth-child(2) > div:nth-child(2) ul:before {
   content: 'MAIN CENTER';
 }
 
-[data-mq="tablet"] > .row__headerArea___hPNQ-:nth-child(2) ul:last-child:before,
-[data-mq="desktop"] > .row__headerArea___hPNQ-:nth-child(2) ul:last-child:before {
+[data-mq="tablet"] > .row__headerArea___hPNQ-:nth-child(2) > div:last-child ul:before,
+[data-mq="desktop"] > .row__headerArea___hPNQ-:nth-child(2) > div:last-child ul:before {
   content: 'MAIN RIGHT';
 }
 
-[data-mq="tablet"] > .row__headerArea___hPNQ-:last-child ul:first-child:before,
-[data-mq="desktop"] > .row__headerArea___hPNQ-:last-child ul:first-child:before {
+[data-mq="tablet"] > .row__headerArea___hPNQ-:last-child > div:first-child ul:before,
+[data-mq="desktop"] > .row__headerArea___hPNQ-:last-child > div:first-child ul:before {
   content: 'BOTTOM LEFT';
 }
 
-[data-mq="tablet"] > .row__headerArea___hPNQ-:last-child ul:nth-child(2):before,
-[data-mq="desktop"] > .row__headerArea___hPNQ-:last-child ul:nth-child(2):before {
+[data-mq="tablet"] > .row__headerArea___hPNQ-:last-child > div:nth-child(2) ul:before,
+[data-mq="desktop"] > .row__headerArea___hPNQ-:last-child > div:nth-child(2) ul:before {
   content: 'BOTTOM CENTER';
 }
 
-[data-mq="tablet"] > .row__headerArea___hPNQ-:last-child ul:last-child:before,
-[data-mq="desktop"] > .row__headerArea___hPNQ-:last-child ul:last-child:before {
+[data-mq="tablet"] > .row__headerArea___hPNQ-:last-child > div:last-child ul:before,
+[data-mq="desktop"] > .row__headerArea___hPNQ-:last-child > div:last-child ul:before {
   content: 'BOTTOM RIGHT';
 }.closeButton__closeButton___2RMj3 {
   display: inline-block;
