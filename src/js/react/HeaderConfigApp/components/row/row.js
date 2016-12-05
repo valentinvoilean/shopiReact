@@ -6,7 +6,6 @@ import styles from './row.scss';
 
 const Row = props => {
     const {mediaQuery, globalState, pos, actions} = props;
-    const items = globalState.data[mediaQuery];
     const multiCells = mediaQuery !== 'mobile' || pos === 0;
 
     if (multiCells) {
@@ -17,7 +16,7 @@ const Row = props => {
                         (hPos) => (
                             <Cell key={uuid.v4()}
                                   name={`${verticalPositions[pos]}${hPos}`}
-                                  items={items}
+                                  globalState={globalState}
                                   mediaQuery={mediaQuery}
                                   actions={actions}
                             />
@@ -32,7 +31,7 @@ const Row = props => {
         <div className={styles.headerArea}>
             <Cell key={uuid.v4()}
                   name={verticalPositions[pos]}
-                  items={items}
+                  globalState={globalState}
                   mediaQuery={mediaQuery}
                   actions={actions}
             />

@@ -2,7 +2,7 @@ export const defaultState = {
     HeaderConfig: {
         data: {
             mobile: {
-                Hidden: ['CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb', 'Search', 'MyAccount'],
+                Hidden: ['Breadcrumb', 'Search', 'MyAccount'],
                 TopLeft: ['MenuIcon'],
                 TopCenter: ['Logo'],
                 TopRight: ['Cart', 'Wishlist'],

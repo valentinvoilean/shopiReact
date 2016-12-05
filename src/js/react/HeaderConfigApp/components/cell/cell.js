@@ -4,12 +4,13 @@ import Sortable from 'sortablejs';
 
 import {CloseButton} from 'HeaderConfigApp/components';
 import styles from './cell.scss';
-import {validStates} from 'HeaderConfigApp/constants/states';
+
+import {validateState} from 'HeaderConfigApp/utils';
 
 // Functional Component
 class Cell extends Component {
     static propTypes = {
-        items: PropTypes.object.isRequired,
+        globalState: PropTypes.object.isRequired,
         actions: PropTypes.object.isRequired,
         name: PropTypes.string.isRequired,
         mediaQuery: PropTypes.string.isRequired
@@ -38,37 +39,20 @@ class Cell extends Component {
 
     sortableOptions = {
         group: {name: 'headerConfig', put: (to, from, dragged) => {
-            if (validStates[this.props.mediaQuery][to.el.dataset.id] instanceof Array) {
-                const items = validStates[this.props.mediaQuery][to.el.dataset.id];
-                const itemNames = typeof items[0] === 'string' ? items : items.map((item) => item.name);
+            const {globalState, mediaQuery} = this.props;
 
-                const single = itemNames.length === 1;
-
-                if (includes(itemNames, dragged.dataset.id)) {
-                    return true;
+            const newState = {
+                ...globalState,
+                data : {
+                    ...globalState.data,
+                    [mediaQuery]: {
+                        ...globalState.data[mediaQuery],
+                        [to.el.dataset.id]: [...globalState.data[mediaQuery][to.el.dataset.id], dragged.dataset.id]
+                    }
                 }
+            };
 
-                this._updateValidationMessage(`Only ${single ? 'the' : ''} ${itemNames.join(', ')} ${single ? 'is' : 'are'} allowed here.`);
-                return false;
-            }
-            else {
-                const items = validStates[this.props.mediaQuery][to.el.dataset.id].items;
-                const itemNames = typeof items[0] === 'string' ? items : items.map((item) => item.name);
-                const single = itemNames.length === 1;
-                const maxItems = validStates[this.props.mediaQuery][to.el.dataset.id].max;
-
-                if (maxItems && to.el.children.length >= maxItems) {
-                    this._updateValidationMessage(`Maximum number of items allowed is ${maxItems} `);
-                    return false;
-                }
-
-                if (!includes(itemNames, dragged.dataset.id)) {
-                    this._updateValidationMessage(`Only ${single ? 'the' : ''} ${itemNames.join(', ')} ${single ? 'is' : 'are'} allowed here.`);
-                    return false;
-                }
-
-                return true;
-            }
+            return validateState(newState);
         }},
         animation: 150,
         ghostClass: styles.sortableGhost,
@@ -103,9 +87,9 @@ class Cell extends Component {
     }
 
     render() {
-        const {items, name, mediaQuery} = this.props;
+        const {globalState, name, mediaQuery} = this.props;
 
-        const itemsHTML = items[name] ? items[name].map((item, key) => (
+        const itemsHTML = globalState.data[mediaQuery][name] ? globalState.data[mediaQuery][name].map((item, key) => (
             <li key={key} data-id={item}><span>{item}</span>
                 <CloseButton cellName={name}
                                  item={item}

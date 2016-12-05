@@ -87,7 +87,7 @@ let cells,
     _parseEachHeaderArea = (mediaQuery) => {
         // first check if the cell names are valid
         if (!_validateCellNames(mediaQuery)) {
-            return;
+            return false;
         }
 
         // then check if the items are just simple strings, or are complex objects which contain conditions
@@ -116,6 +116,8 @@ let cells,
 
             }
         }
+
+        return true;
     };
 
 /**
@@ -134,7 +136,7 @@ export const validateState = state => {
         cells = {...state.data[mediaQuery]};
         validAreas = {...validStates[mediaQuery]};
 
-        _parseEachHeaderArea(mediaQuery);
+        return _parseEachHeaderArea(mediaQuery);
     }
 
     return true;

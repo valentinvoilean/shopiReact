@@ -44,7 +44,7 @@ export default class Modal extends React.Component {
                                     <div className={styles.componentsContainer}>
                                         <Cell key={uuid.v4()}
                                               name='Hidden'
-                                              items={globalState.data[mediaQuery]}
+                                              globalState={globalState}
                                               mediaQuery={mediaQuery}
                                               actions={this.props.actions}
                                         />
