@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react';
+import uuid from 'uuid';
 import Sortable from 'sortablejs';
 
 import {CloseButton} from 'HeaderConfigApp/components';
@@ -94,13 +95,14 @@ class Cell extends Component {
 
     render() {
         const {globalState, name, mediaQuery} = this.props;
+        const currentCell = globalState.getIn(['data', mediaQuery, name]).toJS();
 
-        const itemsHTML = globalState.get('data')[mediaQuery][name] ? globalState.get('data')[mediaQuery][name].map((item, key) => (
-            <li key={key} data-id={item}><span>{item}</span>
+        const itemsHTML = currentCell.length ? currentCell.map((item) => (
+            <li key={uuid.v4()} data-id={item}><span>{item}</span>
                 <CloseButton cellName={name}
-                                 item={item}
-                                 onClick={this._handleCloseButton}
-                                 mediaQuery={mediaQuery}
+                             item={item}
+                             onClick={this._handleCloseButton}
+                             mediaQuery={mediaQuery}
                 />
             </li>)
         ) : '';
