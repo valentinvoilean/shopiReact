@@ -1,44 +1,46 @@
-export const defaultState = {
-    HeaderConfig: {
-        data: {
-            mobile: {
-                Hidden: ['Breadcrumb', 'Search', 'MyAccount'],
-                TopLeft: ['MenuIcon'],
-                TopCenter: ['Logo'],
-                TopRight: ['Cart', 'Wishlist'],
-                Main: ['Menu'],
-                Bottom: ['WelcomeMessage']
-            },
-            tablet: {
-                Hidden: ['CustomLink3', 'CustomLink4'],
-                TopLeft: ['Currency', 'Language', 'CustomLink1', 'CustomLink2'],
-                TopCenter: [],
-                TopRight: ['MyAccount', 'Wishlist'],
-                MainLeft: ['Logo'],
-                MainCenter: ['Menu'],
-                MainRight: ['Cart', 'Search'],
-                BottomLeft: ['Breadcrumb'],
-                BottomCenter: [],
-                BottomRight: ['SocialIcons', 'WelcomeMessage']
-            },
-            desktop: {
-                Hidden: ['CustomLink3', 'CustomLink4'],
-                TopLeft: ['Currency', 'Language', 'CustomLink1', 'CustomLink2'],
-                TopCenter: [],
-                TopRight: ['MyAccount', 'Wishlist'],
-                MainLeft: ['Logo'],
-                MainCenter: ['Menu'],
-                MainRight: ['Cart', 'Search'],
-                BottomLeft: ['Breadcrumb'],
-                BottomCenter: [],
-                BottomRight: ['SocialIcons', 'WelcomeMessage']
-            }
-        },
-        shouldComponentUpdate: false
-    }
-};
+import { List, Map } from 'immutable';
 
-export const validStates = {
+export const defaultState = Map({
+    HeaderConfig: Map({
+        data: Map({
+            mobile: Map({
+                Hidden: List(['Breadcrumb', 'Search', 'MyAccount']),
+                TopLeft: List(['MenuIcon']),
+                TopCenter: List(['Logo']),
+                TopRight: List(['Cart', 'Wishlist']),
+                Main: List(['Menu']),
+                Bottom: List(['WelcomeMessage'])
+            }),
+            tablet: Map({
+                Hidden: List(['CustomLink3', 'CustomLink4']),
+                TopLeft: List(['Currency', 'Language', 'CustomLink1', 'CustomLink2']),
+                TopCenter: List([]),
+                TopRight: List(['MyAccount', 'Wishlist']),
+                MainLeft: List(['Logo']),
+                MainCenter: List(['Menu']),
+                MainRight: List(['Cart', 'Search']),
+                BottomLeft: List(['Breadcrumb']),
+                BottomCenter: List([]),
+                BottomRight: List(['SocialIcons', 'WelcomeMessage'])
+            }),
+            desktop: Map({
+                Hidden: List(['CustomLink3', 'CustomLink4']),
+                TopLeft: List(['Currency', 'Language', 'CustomLink1', 'CustomLink2']),
+                TopCenter: List([]),
+                TopRight: List(['MyAccount', 'Wishlist']),
+                MainLeft: List(['Logo']),
+                MainCenter: List(['Menu']),
+                MainRight: List(['Cart', 'Search']),
+                BottomLeft: List(['Breadcrumb']),
+                BottomCenter: List([]),
+                BottomRight: List(['SocialIcons', 'WelcomeMessage'])
+            })
+        }),
+        shouldComponentUpdate: false
+    })
+});
+
+export const validStates = Map({
     mobile: {
         Hidden: ['Wishlist', 'MyAccount', 'Currency', 'Language', 'Breadcrumb', 'WelcomeMessage', 'SocialIcons', 'Search', 'Menu'],
         TopLeft: {
@@ -123,4 +125,4 @@ export const validStates = {
         BottomCenter: ['Menu', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
         BottomRight: ['MyAccount', 'Wishlist', 'Search', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4']
     }
-};
+});

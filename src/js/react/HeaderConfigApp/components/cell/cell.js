@@ -95,7 +95,7 @@ class Cell extends Component {
     render() {
         const {globalState, name, mediaQuery} = this.props;
 
-        const itemsHTML = globalState.data[mediaQuery][name] ? globalState.data[mediaQuery][name].map((item, key) => (
+        const itemsHTML = globalState.get('data')[mediaQuery][name] ? globalState.get('data')[mediaQuery][name].map((item, key) => (
             <li key={key} data-id={item}><span>{item}</span>
                 <CloseButton cellName={name}
                                  item={item}

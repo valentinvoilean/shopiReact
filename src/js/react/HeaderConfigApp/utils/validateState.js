@@ -104,14 +104,15 @@ let cells,
  */
 export const validateState = state => {
     // Go trough each media query
-    for (let mediaQuery in validStates) {
-        if (!has(state.data, mediaQuery)) {
+
+    validStates.keySeq().forEach(mediaQuery => {
+        if (!has(state.get('data'), mediaQuery)) {
             throw `The media query ${mediaQuery} doesn't exist.`;
         }
 
-        cells = {...state.data[mediaQuery]};
-        validAreas = {...validStates[mediaQuery]};
+        cells = state.get('data')[mediaQuery];
+        validAreas = validStates.get(mediaQuery);
 
         _parseEachHeaderArea(mediaQuery);
-    }
+    });
 };

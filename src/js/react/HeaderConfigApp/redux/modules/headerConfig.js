@@ -1,3 +1,5 @@
+import { Map } from 'immutable';
+
 import {getInitialState, validateState} from 'HeaderConfigApp/utils';
 import {pull} from 'lodash';
 
@@ -7,7 +9,7 @@ const SAVE_HEADER_SETTINGS = 'SAVE_HEADER_SETTINGS';
 const REMOVE_HEADER_ITEM = 'REMOVE_HEADER_ITEM';
 
 // Reducer
-export default (state = getInitialState(), action) => {
+export default (state = Map(getInitialState()), action) => {
     switch (action.type) {
         case SAVE_HEADER_SETTINGS: {
             const {to, children, shouldComponentUpdate, mediaQuery} = action;
@@ -42,15 +44,16 @@ export default (state = getInitialState(), action) => {
             };
         }
 
-        default:
+        default: {
             try {
                 validateState(state);
-                return {...defaultState.HeaderConfig, ...state };
+                return defaultState.get('HeaderConfig').mergeDeep(state);
             }
             catch (e) {
                 console.warn(e);
-                return defaultState.HeaderConfig;
+                return defaultState.get('HeaderConfig');
             }
+        }
     }
 };
 

@@ -9,7 +9,7 @@ import {mediaQueries} from 'HeaderConfigApp/constants/mediaQueries';
 import {Row, Cell, CodeBox} from 'HeaderConfigApp/components';
 import styles from './modal.scss';
 
-import * as actions from 'HeaderConfigApp/redux/modules/modal';
+import * as actions from 'HeaderConfigApp/redux/modules/headerConfig';
 
 @connect(
     state => ({globalState: state.headerConfig}),
@@ -53,7 +53,7 @@ export default class Modal extends React.Component {
 
                                 <div className="col-md-6">
                                     <h2 className={styles.h2}>3. Generated code to be copied</h2>
-                                    <CodeBox text={JSON.stringify(globalState.data)} />
+                                    <CodeBox text={JSON.stringify(globalState.get('data'))} />
                                 </div>
 
                                 <div className={styles.container}>
