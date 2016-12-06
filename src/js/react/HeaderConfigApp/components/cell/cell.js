@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react';
+import uuid from 'uuid';
 import Sortable from 'sortablejs';
 
 import {CloseButton} from 'HeaderConfigApp/components';
@@ -40,19 +41,9 @@ class Cell extends Component {
         group: {name: 'headerConfig', put: (to, from, dragged) => {
             const {globalState, mediaQuery} = this.props;
 
-            const newState = {
-                ...globalState,
-                data : {
-                    ...globalState.data,
-                    [mediaQuery]: {
-                        ...globalState.data[mediaQuery],
-                        [to.el.dataset.id]: [...globalState.data[mediaQuery][to.el.dataset.id], dragged.dataset.id]
-                    }
-                }
-            };
-
             try {
-                validateState(newState);
+                validateState(globalState.updateIn(['data', mediaQuery, to.el.dataset.id],
+                    arr => arr.push(dragged.dataset.id)));
                 return true;
             }
             catch (e) {
@@ -69,7 +60,7 @@ class Cell extends Component {
 
     _handleSort({to, from}) {
         this.props.actions.save({
-            to: [to.dataset.id],
+            to: to.dataset.id,
             children: [...to.children].map(item => item.dataset.id),
             mediaQuery: this.props.mediaQuery,
             shouldComponentUpdate: to.dataset.id === from.dataset.id
@@ -94,13 +85,14 @@ class Cell extends Component {
 
     render() {
         const {globalState, name, mediaQuery} = this.props;
+        const currentCell = globalState.getIn(['data', mediaQuery, name]).toJS();
 
-        const itemsHTML = globalState.data[mediaQuery][name] ? globalState.data[mediaQuery][name].map((item, key) => (
-            <li key={key} data-id={item}><span>{item}</span>
+        const itemsHTML = currentCell.length ? currentCell.map((item) => (
+            <li key={uuid.v4()} data-id={item}><span>{item}</span>
                 <CloseButton cellName={name}
-                                 item={item}
-                                 onClick={this._handleCloseButton}
-                                 mediaQuery={mediaQuery}
+                             item={item}
+                             onClick={this._handleCloseButton}
+                             mediaQuery={mediaQuery}
                 />
             </li>)
         ) : '';

@@ -1,6 +1,4 @@
 import {combineReducers} from 'redux';
-import ModalReducer from './modal';
+import headerConfig from './headerConfig';
 
-export default combineReducers({
-    headerConfig: ModalReducer
-});
+export default combineReducers({ headerConfig });

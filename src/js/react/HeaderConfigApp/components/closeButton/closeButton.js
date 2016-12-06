@@ -13,7 +13,7 @@ const CloseButtonView = ({onClick, item, mediaQuery, cellName}) => {
         return null;
     }
 
-    if (includes(validStates[mediaQuery].Hidden, item)) {
+    if (includes(validStates.get(mediaQuery).Hidden, item)) {
         return (<button className={styles.closeButton} onClick={_handleClick}>&#10005;</button>);
     }
     else {

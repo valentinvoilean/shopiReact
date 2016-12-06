@@ -1,4 +1,4 @@
-import {includes, has} from 'lodash';
+import {includes} from 'lodash';
 import {validStates} from 'HeaderConfigApp/constants/states';
 
 let cells,
@@ -33,7 +33,7 @@ let cells,
                 const requiredName = currentValidItem.required.name;
                 const requiredPositions = currentValidItem.required.position;
                 const throwErrorMessage = () => {
-                    throw `The item ${requiredName} is required inside the ${requiredPositions instanceof Array ? 
+                    throw `The item ${requiredName} is required inside the ${requiredPositions instanceof Array ?
                         requiredPositions.join(' or ') : requiredPositions} cell.`;
                 };
 
@@ -104,14 +104,15 @@ let cells,
  */
 export const validateState = state => {
     // Go trough each media query
-    for (let mediaQuery in validStates) {
-        if (!has(state.data, mediaQuery)) {
+
+    validStates.keySeq().forEach(mediaQuery => {
+        if (!state.get('data').has(mediaQuery)) {
             throw `The media query ${mediaQuery} doesn't exist.`;
         }
 
-        cells = {...state.data[mediaQuery]};
-        validAreas = {...validStates[mediaQuery]};
+        cells = state.getIn(['data', mediaQuery]).toJS();
+        validAreas = validStates.get(mediaQuery);
 
         _parseEachHeaderArea(mediaQuery);
-    }
+    });
 };

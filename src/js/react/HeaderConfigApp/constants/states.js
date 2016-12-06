@@ -1,4 +1,6 @@
-export const defaultState = {
+import { Map, fromJS } from 'immutable';
+
+export const defaultState = fromJS({
     HeaderConfig: {
         data: {
             mobile: {
@@ -36,9 +38,9 @@ export const defaultState = {
         },
         shouldComponentUpdate: false
     }
-};
+});
 
-export const validStates = {
+export const validStates = Map({
     mobile: {
         Hidden: ['Wishlist', 'MyAccount', 'Currency', 'Language', 'Breadcrumb', 'WelcomeMessage', 'SocialIcons', 'Search', 'Menu'],
         TopLeft: {
@@ -123,4 +125,4 @@ export const validStates = {
         BottomCenter: ['Menu', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
         BottomRight: ['MyAccount', 'Wishlist', 'Search', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4']
     }
-};
+});

@@ -1,3 +1,5 @@
+import {fromJS} from 'immutable';
+
 import {defaultState} from 'HeaderConfigApp/constants/states';
 
 /**
@@ -9,14 +11,14 @@ export const getInitialState = () => {
     let currentSettings;
 
     try {
-        currentSettings = {
+        currentSettings = fromJS({
             data: JSON.parse(shopifySettings),
             shouldComponentUpdate: false
-        };
+        });
     }
     catch (err) {
         console.warn('Data not valid ! The default settings will be used instead ');
-        currentSettings = {...defaultState.HeaderConfig};
+        currentSettings = defaultState.get('HeaderConfig');
     }
 
     return currentSettings;
