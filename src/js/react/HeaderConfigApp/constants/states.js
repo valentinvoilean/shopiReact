@@ -1,48 +1,89 @@
 export const defaultState = {
     HeaderConfig: {
-        mobile: {
-            Flyout: ['Search', 'Currency', 'Language', 'MyAccount', 'SocialIcons'],
-            Hidden: ['CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb', 'Search', 'MyAccount'],
-            TopLeft: ['MenuIcon'],
-            TopCenter: ['Logo'],
-            TopRight: ['Cart', 'Wishlist'],
-            Main: ['Menu'],
-            Bottom: ['WelcomeMessage']
+        data: {
+            mobile: {
+                Hidden: ['Breadcrumb', 'Search', 'MyAccount'],
+                TopLeft: ['MenuIcon'],
+                TopCenter: ['Logo'],
+                TopRight: ['Cart', 'Wishlist'],
+                Main: ['Menu'],
+                Bottom: ['WelcomeMessage']
+            },
+            tablet: {
+                Hidden: ['CustomLink3', 'CustomLink4'],
+                TopLeft: ['Currency', 'Language', 'CustomLink1', 'CustomLink2'],
+                TopCenter: [],
+                TopRight: ['MyAccount', 'Wishlist'],
+                MainLeft: ['Logo'],
+                MainCenter: ['Menu'],
+                MainRight: ['Cart', 'Search'],
+                BottomLeft: ['Breadcrumb'],
+                BottomCenter: [],
+                BottomRight: ['SocialIcons', 'WelcomeMessage']
+            },
+            desktop: {
+                Hidden: ['CustomLink3', 'CustomLink4'],
+                TopLeft: ['Currency', 'Language', 'CustomLink1', 'CustomLink2'],
+                TopCenter: [],
+                TopRight: ['MyAccount', 'Wishlist'],
+                MainLeft: ['Logo'],
+                MainCenter: ['Menu'],
+                MainRight: ['Cart', 'Search'],
+                BottomLeft: ['Breadcrumb'],
+                BottomCenter: [],
+                BottomRight: ['SocialIcons', 'WelcomeMessage']
+            }
         },
-        tablet: {
-            Hidden: ['CustomLink3', 'CustomLink4'],
-            TopLeft: ['Currency', 'Language', 'CustomLink1', 'CustomLink2'],
-            TopCenter: [],
-            TopRight: ['MyAccount', 'Wishlist'],
-            MainLeft: ['Logo'],
-            MainCenter: ['Menu'],
-            MainRight: ['Cart', 'Search'],
-            BottomLeft: ['Breadcrumb'],
-            BottomCenter: [],
-            BottomRight: ['SocialIcons', 'WelcomeMessage']
-        },
-        desktop: {
-            Hidden: ['CustomLink3', 'CustomLink4'],
-            TopLeft: ['Currency', 'Language', 'CustomLink1', 'CustomLink2'],
-            TopCenter: [],
-            TopRight: ['MyAccount', 'Wishlist'],
-            MainLeft: ['Logo'],
-            MainCenter: ['Menu'],
-            MainRight: ['Cart', 'Search'],
-            BottomLeft: ['Breadcrumb'],
-            BottomCenter: [],
-            BottomRight: ['SocialIcons', 'WelcomeMessage']
-        }
+        shouldComponentUpdate: false
     }
 };
 
 export const validStates = {
     mobile: {
-        Flyout: ['MenuIcon', 'MyAccount', 'Wishlist', 'Search', 'Currency', 'Language', 'MyAccount', 'SocialIcons'],
-        Hidden: ['Wishlist', 'MyAccount', 'Currency', 'Language', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb', 'WelcomeMessage', 'SocialIcons', 'Search', 'Menu'],
-        TopLeft: ['MenuIcon', 'Logo'],
+        Hidden: ['Wishlist', 'MyAccount', 'Currency', 'Language', 'Breadcrumb', 'WelcomeMessage', 'SocialIcons', 'Search', 'Menu'],
+        TopLeft: {
+            items: [
+                {
+                    name: 'MenuIcon',
+                    required: {
+                        name: 'Logo',
+                        position: ['TopCenter', 'TopLeft']
+                    }
+                },
+                {
+                    name: 'Logo',
+                    required: {
+                        name: 'MenuIcon',
+                        position: 'TopLeft'
+                    }
+                }
+            ],
+            max: 2
+        },
         TopCenter: ['Logo'],
-        TopRight: ['MyAccount', 'Wishlist', 'Cart', 'Search'],
+        TopRight: {
+            items: [
+                {
+                    name: 'MyAccount'
+                },
+                {
+                    name: 'Wishlist'
+                },
+                {
+                    name: 'Cart'
+                },
+                {
+                    name: 'Search'
+                },
+                {
+                    name: 'MenuIcon',
+                    required: {
+                        name: 'Logo',
+                        position: 'TopCenter'
+                    }
+                }
+            ]
+        },
         Main: {
             items: ['Menu', 'WelcomeMessage'],
             max: 1
@@ -58,7 +99,10 @@ export const validStates = {
         TopCenter: ['WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
         TopRight: ['MyAccount', 'Wishlist', 'Search', 'Currency', 'Language', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
         MainLeft: ['MyAccount', 'Wishlist', 'Logo', 'Search', 'SocialIcons', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
-        MainCenter: ['Logo', 'Menu'],
+        MainCenter: {
+            items: ['Logo', 'Menu'],
+            max: 1
+        },
         MainRight: ['MyAccount', 'Wishlist', 'Search', 'Cart', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
         BottomLeft: ['MyAccount', 'Wishlist', 'Search', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb'],
         BottomCenter: ['Menu', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
@@ -70,7 +114,10 @@ export const validStates = {
         TopCenter: ['WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
         TopRight: ['MyAccount', 'Wishlist', 'Search', 'Currency', 'Language', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
         MainLeft: ['MyAccount', 'Wishlist', 'Logo', 'Search', 'SocialIcons', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
-        MainCenter: ['Logo', 'Menu'],
+        MainCenter: {
+            items: ['Logo', 'Menu'],
+            max: 1
+        },
         MainRight: ['MyAccount', 'Wishlist', 'Search', 'Cart', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
         BottomLeft: ['MyAccount', 'Wishlist', 'Search', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb'],
         BottomCenter: ['Menu', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
