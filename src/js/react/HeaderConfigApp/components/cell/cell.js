@@ -41,19 +41,9 @@ class Cell extends Component {
         group: {name: 'headerConfig', put: (to, from, dragged) => {
             const {globalState, mediaQuery} = this.props;
 
-            const newState = {
-                ...globalState,
-                data : {
-                    ...globalState.data,
-                    [mediaQuery]: {
-                        ...globalState.data[mediaQuery],
-                        [to.el.dataset.id]: [...globalState.data[mediaQuery][to.el.dataset.id], dragged.dataset.id]
-                    }
-                }
-            };
-
             try {
-                validateState(newState);
+                validateState(globalState.updateIn(['data', mediaQuery, to.el.dataset.id],
+                    arr => arr.push(dragged.dataset.id)));
                 return true;
             }
             catch (e) {
@@ -70,7 +60,7 @@ class Cell extends Component {
 
     _handleSort({to, from}) {
         this.props.actions.save({
-            to: [to.dataset.id],
+            to: to.dataset.id,
             children: [...to.children].map(item => item.dataset.id),
             mediaQuery: this.props.mediaQuery,
             shouldComponentUpdate: to.dataset.id === from.dataset.id

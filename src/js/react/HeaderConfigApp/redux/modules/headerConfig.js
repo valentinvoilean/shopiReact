@@ -1,6 +1,5 @@
 import {getInitialState, validateState} from 'HeaderConfigApp/utils';
-import {pull} from 'lodash';
-
+import {List} from 'immutable';
 import {defaultState} from 'HeaderConfigApp/constants/states';
 
 const SAVE_HEADER_SETTINGS = 'SAVE_HEADER_SETTINGS';
@@ -12,34 +11,18 @@ export default (state = getInitialState(), action) => {
         case SAVE_HEADER_SETTINGS: {
             const {to, children, shouldComponentUpdate, mediaQuery} = action;
 
-            return {
-                ...state,
-                data: {
-                    ...state.data,
-                    [mediaQuery]: {
-                        ...state.data[mediaQuery],
-                        [to]: children
-                    }
-                },
-                shouldComponentUpdate
-            };
+            return state
+                .set('shouldComponentUpdate', shouldComponentUpdate)
+                .setIn(['data', mediaQuery, to], List(children));
         }
 
         case REMOVE_HEADER_ITEM: {
             const {item, from, mediaQuery} = action;
 
-            return {
-                ...state,
-                data: {
-                    ...state.data,
-                    [mediaQuery]: {
-                        ...state.data[mediaQuery],
-                        [from]: pull([...state.data[mediaQuery][from]], item),
-                        Hidden: [...state.data[mediaQuery].Hidden, item]
-                    }
-                },
-                shouldComponentUpdate: true
-            };
+            return state
+                .updateIn(['data', mediaQuery, 'Hidden'], arr => arr.push(item))
+                .updateIn(['data', mediaQuery, from], arr => arr.filter(arrayItem => arrayItem !== item))
+                .set('shouldComponentUpdate', true);
         }
 
         default: {

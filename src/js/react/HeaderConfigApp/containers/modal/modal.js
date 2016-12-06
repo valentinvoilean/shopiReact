@@ -22,7 +22,7 @@ export default class Modal extends React.Component {
     };
 
     shouldComponentUpdate(nextProps) {
-        return nextProps.globalState.shouldComponentUpdate;
+        return nextProps.globalState.get('shouldComponentUpdate');
     }
 
     render() {
