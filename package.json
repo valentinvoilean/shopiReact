@@ -55,12 +55,12 @@
     "babel-preset-react": "6.16.0",
     "bootstrap": "3.3.7",
     "browser-sync": "2.18.2",
-    "css-loader": "0.26.0",
+    "css-loader": "0.26.1",
     "enzyme": "2.6.0",
     "eslint": "3.11.1",
     "eslint-loader": "1.6.1",
     "eslint-plugin-jsx-a11y": "3.0.1",
-    "eslint-plugin-react": "6.7.1",
+    "eslint-plugin-react": "6.8.0",
     "file-loader": "0.9.0",
     "html-loader": "0.4.4",
     "jest": "17.0.3",
@@ -73,9 +73,9 @@
     "node-normalize-scss": "1.4.0",
     "node-sass": "3.13.0",
     "node-watch": "0.4.1",
-    "npm-run-all": "3.1.1",
+    "npm-run-all": "3.1.2",
     "picturefill": "3.0.2",
-    "postcss-loader": "1.1.1",
+    "postcss-loader": "1.2.0",
     "react-addons-test-utils": "15.4.1",
     "react-match-media": "1.0.4",
     "react-test-renderer": "15.4.1",
@@ -88,7 +88,7 @@
     "style-loader": "0.13.1",
     "svg-sprite-loader": "0.0.31",
     "url-loader": "0.5.7",
-    "webpack": "1.13.3"
+    "webpack": "1.14.0"
   },
   "dependencies": {
     "babel-preset-react": "6.16.0",
@@ -108,6 +108,7 @@
     "redux-immutable-state-invariant": "1.2.4",
     "redux-thunk": "2.1.0",
     "sortablejs": "github:valentinvoilean/Sortable",
+    "toggle-selection": "1.0.5",
     "uuid": "3.0.1"
   }
 }

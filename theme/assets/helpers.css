@@ -83,10 +83,6 @@
   transition: all .5s;
 }
 
-.code__codeContainer___yidnt:hover {
-  border-color: #343434;
-}
-
 .code__codeContainer___yidnt:hover .code__copy___14rit {
   background: #343434;
 }
@@ -180,6 +176,7 @@
   cursor: pointer;
   -webkit-transition: background .5s;
   transition: background .5s;
+  border: 0;
 }.row__headerArea___hPNQ- {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -3,7 +3,7 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 
 import styles from './code.scss';
 
-class CodeBox extends React.Component {
+export default class CodeBox extends React.Component {
     static propTypes = {
         text: React.PropTypes.string.isRequired
     };
@@ -20,10 +20,6 @@ class CodeBox extends React.Component {
         return true;
     }
 
-    componentWillUnmount() {
-        this.setState({copied: false});
-    }
-
     _handleCopy() {
         this.setState({copied: true});
     }
@@ -35,11 +31,9 @@ class CodeBox extends React.Component {
             <div className={styles.codeContainer}>
                 <code className={styles.code}>{this.props.text}</code>
                 <CopyToClipboard text={this.props.text} onCopy={this._handleCopy}>
-                    <div className={buttonClass}>Click to copy</div>
+                    <button className={buttonClass}>Click to copy</button>
                 </CopyToClipboard>
             </div>
         );
     }
 }
-
-export default CodeBox;
