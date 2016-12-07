@@ -5,6 +5,22 @@ import CloseButton from './closeButton';
 
 describe('Close button', () => {
 
+    let _, states;
+
+    beforeAll(() => {
+        jest.mock('lodash');
+        jest.mock('HeaderConfigApp/constants/states');
+
+        _ = require('lodash');
+        states = require('HeaderConfigApp/constants/states');
+
+        states.validStates = {
+            get: jest.fn(() => ({Hidden: []}))
+        };
+
+        _.includes = jest.fn(() => false);
+    });
+
     it('doesn\'t appear if is inside the Hidden cell', () => {
         expect(shallow(
             <CloseButton onClick={() => void 0}
@@ -25,7 +41,9 @@ describe('Close button', () => {
         ).find('button')).not.toBePresent();
     });
 
-    it('renders without any problem if the item is not required and is not in the hidden list', () => {
+    it('renders without any problem if the item is not required and is not in the active Hidden cell,' +
+        ' but it is available in the validState hidden list', () => {
+        _.includes.mockReturnValue(true);
         expect(shallow(
             <CloseButton onClick={() => void 0}
                              item="MyAccount"
@@ -36,6 +54,7 @@ describe('Close button', () => {
     });
 
     it('simulates click events', () => {
+        _.includes.mockReturnValue(true);
         const onClick = jasmine.createSpy('onButtonClick');
 
         const wrapper = shallow(
