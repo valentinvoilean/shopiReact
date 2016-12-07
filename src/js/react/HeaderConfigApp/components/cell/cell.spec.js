@@ -21,7 +21,7 @@ describe('Cell', () => {
         props = {
             globalState: {
                 getIn: () => ({
-                    toJS: () => []
+                    toJS: () => ['Logo', 'Menu']
                 })
             },
             name: 'test',
@@ -36,5 +36,6 @@ describe('Cell', () => {
 
     it('should render', () => {
         expect(wrapper.find('ul')).toBePresent();
+        expect(wrapper.find('li').length === 2).toBeTruthy();
     });
 });
