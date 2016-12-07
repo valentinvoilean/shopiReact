@@ -1,5 +1,5 @@
 import React from 'react';
-import {mount} from 'enzyme';
+import {shallow} from 'enzyme';
 
 import Codebox from './code';
 
@@ -7,7 +7,7 @@ describe('Codebox', () => {
     let wrapper;
 
     beforeEach(() => {
-        wrapper = mount(<Codebox text="test"/>);
+        wrapper = shallow(<Codebox text="test"/>);
     });
 
     it('should render', () => {
