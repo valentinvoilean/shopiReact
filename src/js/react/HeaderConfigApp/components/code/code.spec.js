@@ -5,6 +5,7 @@ import Codebox from './code';
 
 describe('Codebox', () => {
     let wrapper;
+    jest.mock('react-copy-to-clipboard');
 
     beforeEach(() => {
         wrapper = shallow(<Codebox text="test"/>);
