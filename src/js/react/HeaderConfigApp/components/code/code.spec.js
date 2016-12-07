@@ -23,10 +23,14 @@ describe('Codebox', () => {
         expect(wrapper.find('code').text()).toBe('other text');
     });
 
-    /*it('should update the button class on click', () => {
-        wrapper.find('button').simulate('click');
+    it('should have the button state set to false at the beginning', () => {
+        expect(wrapper.state().copied).toBe(false);
+    });
+
+    it('should update the button class on click', () => {
+        wrapper.instance()._handleCopy();
         expect(wrapper.state().copied).toBe(true);
-    });*/ // TODO uncomment it when copyToClipboard gets fixed
+    });
 
     afterEach(() => {
         wrapper.unmount();
