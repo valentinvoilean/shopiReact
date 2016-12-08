@@ -12,7 +12,8 @@ const utils = require('HeaderConfigApp/utils');
 const Sortable = require('sortablejs');
 
 components.CloseButton = jest.fn(() => null);
-components.validateState = jest.fn(() => null);
+utils.validateState = jest.fn(() => null);
+
 Sortable.create = jest.fn(() => ({
     el: {dataset: {id: 'test'}},
     destroy: jest.fn()
@@ -27,11 +28,13 @@ describe('Cell', () => {
             globalState: {
                 getIn: () => ({
                     toJS: () => ['Logo', 'Menu']
-                })
+                }),
+                updateIn: jest.fn(() => null)
             },
             name: 'test',
             actions: {
-                remove: jest.fn()
+                remove: jest.fn(),
+                save: jest.fn()
             },
             mediaQuery: 'mobile'
         };
@@ -68,5 +71,23 @@ describe('Cell', () => {
         Cell.prototype.componentWillUnmount = jest.fn();
         wrapper.unmount();
         expect(Cell.prototype.componentWillUnmount).toHaveBeenCalled();
+    });
+
+    describe('_validateItem method', () => {
+        it('should return false if the validateState returns any error', () => {
+            wrapper.instance().tooltipRef = {dataset: {message: null}};
+            wrapper.instance()._validateItem();
+            expect(wrapper.instance().tooltipRef.dataset.message).not.toBeNull();
+        });
+
+        it('should return true if the validateState doesn\'t return any error', () => {
+
+            expect(wrapper.instance()._validateItem({
+                el: {dataset:{id:'test'}}
+            },null, {
+                dataset:{id:'test'}
+            })).toBeTruthy();
+
+        })
     });
 });

@@ -1,2 +1,2 @@
-export * from './getInitialState';
-export * from './validateState';
+export getInitialState from './getInitialState';
+export validateState from './validateState';

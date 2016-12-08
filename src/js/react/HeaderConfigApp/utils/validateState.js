@@ -102,7 +102,7 @@ let cells,
  * @param state
  * @returns boolean
  */
-export const validateState = state => {
+export default function validateState(state) {
     // Go trough each media query
 
     validStates.keySeq().forEach(mediaQuery => {
