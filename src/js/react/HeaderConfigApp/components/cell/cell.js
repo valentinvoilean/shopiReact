@@ -22,6 +22,7 @@ class Cell extends Component {
         this._handleCloseButton = this._handleCloseButton.bind(this);
         this._handleCellRef = this._handleCellRef.bind(this);
         this._handleTooltipRef = this._handleTooltipRef.bind(this);
+        this._handleSort = this._handleSort.bind(this);
     }
 
     componentDidMount() {
@@ -55,7 +56,7 @@ class Cell extends Component {
         ghostClass: styles.sortableGhost,
         validGroupClass: styles.cellValid,
         invalidGroupClass: styles.cellInvalid,
-        onSort: this._handleSort.bind(this)
+        onSort: this._handleSort
     };
 
     _handleSort({to, from}) {

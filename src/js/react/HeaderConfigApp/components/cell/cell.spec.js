@@ -1,5 +1,5 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 
 import Cell from './cell';
 
@@ -9,9 +9,11 @@ jest.mock('HeaderConfigApp/utils');
 
 const components = require('HeaderConfigApp/components');
 const utils = require('HeaderConfigApp/utils');
+const Sortable = require('sortablejs');
 
 components.CloseButton = jest.fn(() => null);
 components.validateState = jest.fn(() => null);
+Sortable.create = jest.fn(() => ({el: {dataset: {id: 'test'}}}));
 
 describe('Cell', () => {
 
@@ -25,17 +27,28 @@ describe('Cell', () => {
                 })
             },
             name: 'test',
-            actions: {},
+            actions: {
+                remove: jest.fn()
+            },
             mediaQuery: 'mobile'
         };
     });
 
     beforeEach(() => {
-        wrapper = shallow(<Cell {...props} />);
+        wrapper = mount(<Cell {...props} />);
+    });
+
+    it('should call the componentDidMount method', () => {
+       expect(Sortable.create).toHaveBeenCalled();
     });
 
     it('should render', () => {
         expect(wrapper.find('ul')).toBePresent();
         expect(wrapper.find('li').length === 2).toBeTruthy();
     });
+
+    it('should call the remove action', () => {
+        wrapper.instance()._handleCloseButton();
+        expect(props.actions.remove).toHaveBeenCalled();
+    })
 });
