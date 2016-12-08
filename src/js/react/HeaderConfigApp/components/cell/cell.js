@@ -22,7 +22,6 @@ class Cell extends Component {
         this._handleCloseButton = this._handleCloseButton.bind(this);
         this._handleCellRef = this._handleCellRef.bind(this);
         this._handleTooltipRef = this._handleTooltipRef.bind(this);
-        this._handleSort = this._handleSort.bind(this);
     }
 
     componentDidMount() {
@@ -32,32 +31,33 @@ class Cell extends Component {
     componentWillUnmount() {
         if (this.sortable) {
             this.sortable.destroy();
-            this.sortable = null;
         }
     }
 
     sortable = null; // sortable instance
 
     sortableOptions = {
-        group: {name: 'headerConfig', put: (to, from, dragged) => {
-            const {globalState, mediaQuery} = this.props;
-
-            try {
-                validateState(globalState.updateIn(['data', mediaQuery, to.el.dataset.id],
-                    arr => arr.push(dragged.dataset.id)));
-                return true;
-            }
-            catch (e) {
-                this._updateValidationMessage(e);
-                return false;
-            }
-        }},
+        group: {name: 'headerConfig', put: this._validateItem.bind(this)},
         animation: 150,
         ghostClass: styles.sortableGhost,
         validGroupClass: styles.cellValid,
         invalidGroupClass: styles.cellInvalid,
-        onSort: this._handleSort
+        onSort: this._handleSort.bind(this)
     };
+
+    _validateItem(to, from, dragged) {
+        const {globalState, mediaQuery} = this.props;
+
+        try {
+            validateState(globalState.updateIn(['data', mediaQuery, to.el.dataset.id],
+                arr => arr.push(dragged.dataset.id)));
+            return true;
+        }
+        catch (e) {
+            this._updateValidationMessage(e);
+            return false;
+        }
+    }
 
     _handleSort({to, from}) {
         this.props.actions.save({

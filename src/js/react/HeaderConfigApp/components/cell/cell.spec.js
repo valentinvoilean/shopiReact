@@ -13,7 +13,10 @@ const Sortable = require('sortablejs');
 
 components.CloseButton = jest.fn(() => null);
 components.validateState = jest.fn(() => null);
-Sortable.create = jest.fn(() => ({el: {dataset: {id: 'test'}}}));
+Sortable.create = jest.fn(() => ({
+    el: {dataset: {id: 'test'}},
+    destroy: jest.fn()
+}));
 
 describe('Cell', () => {
 
@@ -50,5 +53,20 @@ describe('Cell', () => {
     it('should call the remove action', () => {
         wrapper.instance()._handleCloseButton();
         expect(props.actions.remove).toHaveBeenCalled();
-    })
+    });
+
+    it('should destroy the sortable when componentWillUnmount method called', () => {
+        wrapper.instance().sortable = {
+            destroy: jest.fn()
+        };
+
+        wrapper.instance().componentWillUnmount();
+        expect(wrapper.instance().sortable.destroy).toHaveBeenCalled();
+    });
+
+    it('should call the componentWillUnmoint method called', () => {
+        Cell.prototype.componentWillUnmount = jest.fn();
+        wrapper.unmount();
+        expect(Cell.prototype.componentWillUnmount).toHaveBeenCalled();
+    });
 });
