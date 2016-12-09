@@ -9,7 +9,7 @@
     "watch:theme": "browser-sync start",
     "watch:sass": "babel-node tools/watchSass",
     "lint": "eslint ./src/js/** ./tests/**",
-    "test": "jest"
+    "test": "jest --watch"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "node_modules/jest-enzyme/lib/index.js",

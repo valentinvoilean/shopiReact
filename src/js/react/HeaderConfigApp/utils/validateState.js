@@ -115,4 +115,4 @@ export default function validateState(state) {
 
         _parseEachHeaderArea(mediaQuery);
     });
-};
+}

@@ -50,11 +50,11 @@ describe('Cell', () => {
 
     it('should render', () => {
         expect(wrapper.find('ul')).toBePresent();
-        expect(wrapper.find('li').length === 2).toBeTruthy();
+        expect(wrapper.find(components.CloseButton).length === 2).toBeTruthy();
     });
 
     it('should call the remove action', () => {
-        wrapper.instance()._handleCloseButton();
+        wrapper.find(components.CloseButton).nodes[0].props.onClick()
         expect(props.actions.remove).toHaveBeenCalled();
     });
 
