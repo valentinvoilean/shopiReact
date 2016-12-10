@@ -1,6 +1,7 @@
 import React from 'react';
 import {mount} from 'enzyme';
 
+jest.unmock('HeaderConfigApp/components');
 import Cell from './cell';
 
 jest.mock('sortablejs');
