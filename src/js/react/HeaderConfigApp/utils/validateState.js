@@ -67,7 +67,7 @@ let cells,
     _validateCellConditions = (cell, cellName, cellConditions) => {
         if (typeof cellConditions.max !== 'undefined') {
             if (cell.length > cellConditions.max) {
-                throw `Max items allowed in ${cellName} is ${cellConditions.max}.`;
+                throw `The max number of items allowed in ${cellName} is ${cellConditions.max}.`;
             }
         }
     },
@@ -107,7 +107,7 @@ export default function validateState(state) {
 
     validStates.keySeq().forEach(mediaQuery => {
         if (!state.get('data').has(mediaQuery)) {
-            throw `The media query ${mediaQuery} doesn't exist.`;
+            throw `The media query ${mediaQuery} does not exist in the settings provided.`;
         }
 
         cells = state.getIn(['data', mediaQuery]).toJS();
