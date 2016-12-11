@@ -42,7 +42,7 @@ export const defaultState = fromJS({
     }
 });
 
-export const validStates = Map({
+export let validStates = Map({
     mobile: {
         Hidden: ['Wishlist', 'MyAccount', 'Currency', 'Language', 'Breadcrumb', 'WelcomeMessage', 'SocialIcons', 'Search', 'Menu'],
         TopLeft: {
