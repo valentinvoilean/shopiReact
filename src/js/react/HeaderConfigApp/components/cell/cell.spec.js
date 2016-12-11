@@ -74,6 +74,14 @@ describe('Cell', () => {
         expect(Cell.prototype.componentWillUnmount).toHaveBeenCalled();
     });
 
+    it('should call the save action method on sort', () => {
+        wrapper.instance()._handleSort({
+            to: {dataset: {id: ''}, children:[{dataset: {id: ''}}]},
+            from: {dataset: {id: ''}}
+        });
+        expect(props.actions.save).toHaveBeenCalled();
+    });
+
     describe('_validateItem method', () => {
         it('should return false if the validateState returns any error', () => {
             wrapper.instance().tooltipRef = {dataset: {message: null}};
