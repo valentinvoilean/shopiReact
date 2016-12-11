@@ -61,5 +61,25 @@ describe('Get initial state', () => {
         });
 
         expect(function(){ validateState(state); } ).toThrow(new Error('The item Logo is required inside the TopCenter cell.'));
+
+        shopifySettings = '{"mobile":{"TopLeft":["MenuIcon"]}}';
+
+        state = fromJS({
+            data: JSON.parse(shopifySettings),
+            shouldComponentUpdate: false
+        });
+
+        expect(function(){ validateState(state); } ).toThrow(new Error('The item Logo is required inside the TopCenter or TopLeft cell.'));
+    });
+
+    it('should not throw an error if can validate complex item\'s requirements', () => {
+        const shopifySettings = '{"mobile":{"TopLeft":["MenuIcon"], "TopCenter": ["Logo"]}}';
+
+        const state = fromJS({
+            data: JSON.parse(shopifySettings),
+            shouldComponentUpdate: false
+        });
+
+        expect(function(){ validateState(state); } ).not.toThrow(new Error('The item Logo is required inside the TopCenter or TopLeft cell.'));
     });
 });
