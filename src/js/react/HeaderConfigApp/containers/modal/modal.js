@@ -11,7 +11,7 @@ import styles from './modal.scss';
 
 import * as actions from 'HeaderConfigApp/redux/modules/headerConfig';
 
-export class Modal extends React.Component {
+export class PureModal extends React.Component {
     static propTypes = {
         globalState: PropTypes.object.isRequired,
         actions: PropTypes.object.isRequired
@@ -78,4 +78,4 @@ export class Modal extends React.Component {
 export default connect(
     state => ({globalState: state.headerConfig}),
     dispatch => ({actions: bindActionCreators(actions, dispatch)})
-)(Modal);
+)(PureModal);
