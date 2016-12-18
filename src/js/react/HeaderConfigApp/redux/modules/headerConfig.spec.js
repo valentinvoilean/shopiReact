@@ -1,4 +1,6 @@
 import {save, remove} from './headerConfig';
+import reducer from './headerConfig';
+import {defaultState} from 'HeaderConfigApp/constants/states';
 
 describe('actions', () => {
     it('should call the save action', () => {
@@ -18,4 +20,34 @@ describe('actions', () => {
         };
         expect(remove(payload)).toEqual(payload);
     })
+});
+
+describe('reducer', () => {
+    it('should return the default state', () => {
+        expect(reducer(undefined, {})).toEqual(defaultState.get('HeaderConfig'));
+        expect(reducer('throw error', {})).toEqual(defaultState.get('HeaderConfig'));
+    });
+
+    it('should save header settings', () => {
+        const payload = {
+            type: 'SAVE_HEADER_SETTINGS',
+            to: 'TopLeft',
+            children: ['MenuIcon', 'Logo'],
+            mediaQuery: 'mobile',
+            shouldComponentUpdate: false
+        };
+
+        expect(reducer(defaultState.get('HeaderConfig'), payload).toJS().data.mobile.TopLeft).toEqual(payload.children);
+    });
+
+    it('should remove header item', () => {
+        const payload = {
+            type: 'REMOVE_HEADER_ITEM',
+            item: 'Menu',
+            from: 'Main',
+            mediaQuery: 'mobile'
+        };
+
+        expect(reducer(defaultState.get('HeaderConfig'), payload).toJS().data.mobile.TopLeft).toEqual(['MenuIcon']);
+    });
 });
