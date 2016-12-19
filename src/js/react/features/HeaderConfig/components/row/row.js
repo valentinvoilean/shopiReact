@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import uuid from 'uuid';
-import {Cell} from 'HeaderConfigApp/components';
+import {Cell} from 'HeaderConfig/components';
 import {horizontalPositions, verticalPositions} from 'AppConstants/positions';
 import styles from './row.scss';
 

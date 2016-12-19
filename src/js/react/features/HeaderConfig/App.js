@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import configureStore from 'AppRedux/configureStore';
-import {Modal} from 'HeaderConfigApp/containers';
+import {Modal} from 'HeaderConfig/containers';
 
 const headerConfigStore = configureStore();
 

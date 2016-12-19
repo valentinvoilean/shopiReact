@@ -6,7 +6,7 @@ import uuid from 'uuid';
 
 import {mediaQueries} from 'AppConstants/mediaQueries';
 
-import {Row, Cell, CodeBox} from 'HeaderConfigApp/components';
+import {Row, Cell, CodeBox} from 'HeaderConfig/components';
 import styles from './modal.scss';
 
 import * as actions from 'AppRedux/modules/headerConfig';

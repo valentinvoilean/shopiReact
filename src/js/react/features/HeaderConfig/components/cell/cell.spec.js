@@ -1,14 +1,14 @@
 import React from 'react';
 import {mount} from 'enzyme';
 
-jest.unmock('HeaderConfigApp/components');
+jest.unmock('HeaderConfig/components');
 import Cell from './cell';
 
 jest.mock('sortablejs');
-jest.mock('HeaderConfigApp/components');
+jest.mock('HeaderConfig/components');
 jest.mock('AppUtils');
 
-const components = require('HeaderConfigApp/components');
+const components = require('HeaderConfig/components');
 const utils = require('AppUtils');
 const Sortable = require('sortablejs');
 

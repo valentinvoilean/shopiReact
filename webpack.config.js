@@ -13,7 +13,7 @@ export default {
     entry: {
         vendors: ['babel-polyfill', 'modernizr', 'picturefill', 'react', 'react-dom', 'react-match-media',
             'react-redux', 'redux', 'redux-devtools-extension', 'jquery', 'jquery.currencies.js'],
-        config: ['HeaderConfigApp/index.js'],
+        config: ['HeaderConfig/App.js'],
         main: ['HeaderApp/index.js']
     },
 
@@ -28,8 +28,8 @@ export default {
         extensions: ['', '.js', '.jsx', '.svg'],
         modulesDirectories: ['src/js', 'node_modules'],
         alias: {
-            'HeaderConfigApp': 'react/HeaderConfigApp',
-            'HeaderApp': 'react/HeaderApp',
+            'HeaderConfig': 'react/features/HeaderConfig',
+            'HeaderApp': 'react/features/HeaderApp',
             'AppConstants': 'react/constants',
             'AppRedux': 'react/redux',
             'AppUtils': 'react/utils',

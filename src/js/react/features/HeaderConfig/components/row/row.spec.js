@@ -3,9 +3,9 @@ import {mount} from 'enzyme';
 
 import Row from './row';
 
-jest.mock('HeaderConfigApp/components');
+jest.mock('HeaderConfig/components');
 
-const components = require('HeaderConfigApp/components');
+const components = require('HeaderConfig/components');
 components.Cell = jest.fn(() => null);
 
 describe('Row', () => {
