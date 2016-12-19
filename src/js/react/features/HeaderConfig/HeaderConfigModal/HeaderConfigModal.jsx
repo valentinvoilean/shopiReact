@@ -6,7 +6,7 @@ import uuid from 'uuid';
 
 import {mediaQueries} from 'AppConstants/mediaQueries';
 
-import {Row, Cell, CodeBox} from 'HeaderConfig';
+import {Row, Cell, HeaderConfigCodeBox} from 'HeaderConfig';
 import styles from './HeaderConfigModal.scss';
 
 import * as actions from 'AppRedux/modules/headerConfig';
@@ -49,7 +49,7 @@ export class HeaderConfigPureModal extends React.Component {
 
                                 <div className="col-md-6">
                                     <h2 className={styles.h2}>3. Generated code to be copied</h2>
-                                    <CodeBox text={JSON.stringify(globalState.get('data'))} />
+                                    <HeaderConfigCodeBox text={JSON.stringify(globalState.get('data'))} />
                                 </div>
 
                                 <div className={styles.container}>

@@ -75,7 +75,7 @@
   bottom: -10px;
   margin-right: -5px;
   border-top-color: #C0312E;
-}.code__codeContainer___3L02D {
+}.HeaderConfigCodeBox__codeContainer___3AFAJ {
   height: 150px;
   border: 1px solid #E1E1E1;
   position: relative;
@@ -83,11 +83,11 @@
   transition: all .5s;
 }
 
-.code__codeContainer___3L02D:hover .code__copy___S8Ksd {
+.HeaderConfigCodeBox__codeContainer___3AFAJ:hover .HeaderConfigCodeBox__copy___1YgbR {
   background: #343434;
 }
 
-.code__codeContainer___3L02D:hover .code__copied___3kDDf:before {
+.HeaderConfigCodeBox__codeContainer___3AFAJ:hover .HeaderConfigCodeBox__copied___2cS7A:before {
   display: inline-block;
   text-decoration: none;
   position: absolute;
@@ -105,7 +105,7 @@
   border-bottom-color: rgba(0, 0, 0, 0.8);
 }
 
-.code__codeContainer___3L02D:hover .code__copied___3kDDf:after {
+.HeaderConfigCodeBox__codeContainer___3AFAJ:hover .HeaderConfigCodeBox__copied___2cS7A:after {
   position: absolute;
   z-index: 1000000;
   padding: 5px 8px;
@@ -131,11 +131,11 @@
   margin-top: 5px;
 }
 
-.code__codeContainer___3L02D:hover .code__code___2zWly {
+.HeaderConfigCodeBox__codeContainer___3AFAJ:hover .HeaderConfigCodeBox__code___33sHO {
   color: #343434;
 }
 
-.code__codeContainer___3L02D .code__code___2zWly {
+.HeaderConfigCodeBox__codeContainer___3AFAJ .HeaderConfigCodeBox__code___33sHO {
   position: absolute;
   top: 0;
   left: 0;
@@ -153,17 +153,17 @@
           user-select: all;
 }
 
-.code__codeContainer___3L02D .code__code___2zWly::-moz-selection {
+.HeaderConfigCodeBox__codeContainer___3AFAJ .HeaderConfigCodeBox__code___33sHO::-moz-selection {
   background: #2F5A59;
   color: white;
 }
 
-.code__codeContainer___3L02D .code__code___2zWly::selection {
+.HeaderConfigCodeBox__codeContainer___3AFAJ .HeaderConfigCodeBox__code___33sHO::selection {
   background: #2F5A59;
   color: white;
 }
 
-.code__codeContainer___3L02D .code__copy___S8Ksd {
+.HeaderConfigCodeBox__codeContainer___3AFAJ .HeaderConfigCodeBox__copy___1YgbR {
   position: absolute;
   bottom: 0;
   right: 0;
