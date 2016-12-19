@@ -1,12 +1,12 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
-import {PureModal} from './modal';
+import {HeaderConfigPureModal} from './HeaderConfigModal';
 
 jest.mock('react-tabs');
-jest.mock('HeaderConfig/components');
+jest.mock('HeaderConfig');
 
-const components = require('HeaderConfig/components');
+const components = require('HeaderConfig');
 components.Cell = jest.fn(() => null);
 components.CodeBox = jest.fn(() => null);
 components.Row = jest.fn(() => null);
@@ -23,7 +23,7 @@ describe('Modal', () => {
             globalState: {get: jest.fn(()=> false)},
             actions: {}
         };
-        const wrapper = shallow(<PureModal {...props} />);
+        const wrapper = shallow(<HeaderConfigPureModal {...props} />);
 
         expect(wrapper.find(ReactTabs.Tabs).length === 1).toBeTruthy();
     });
@@ -37,7 +37,7 @@ describe('Modal', () => {
             globalState: {get: jest.fn(()=> true)},
             actions: {}
         };
-        const wrapper = shallow(<PureModal {...props} />);
+        const wrapper = shallow(<HeaderConfigPureModal {...props} />);
 
         wrapper.setProps(nextProps);
 

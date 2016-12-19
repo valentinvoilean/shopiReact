@@ -13,7 +13,7 @@ export default {
     entry: {
         vendors: ['babel-polyfill', 'modernizr', 'picturefill', 'react', 'react-dom', 'react-match-media',
             'react-redux', 'redux', 'redux-devtools-extension', 'jquery', 'jquery.currencies.js'],
-        config: ['HeaderConfig/App.js'],
+        config: ['HeaderConfig/App.jsx'],
         main: ['HeaderApp/index.js']
     },
 

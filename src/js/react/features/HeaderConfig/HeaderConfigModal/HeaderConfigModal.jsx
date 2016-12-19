@@ -6,12 +6,12 @@ import uuid from 'uuid';
 
 import {mediaQueries} from 'AppConstants/mediaQueries';
 
-import {Row, Cell, CodeBox} from 'HeaderConfig/components';
-import styles from './modal.scss';
+import {Row, Cell, CodeBox} from 'HeaderConfig';
+import styles from './HeaderConfigModal.scss';
 
 import * as actions from 'AppRedux/modules/headerConfig';
 
-export class PureModal extends React.Component {
+export class HeaderConfigPureModal extends React.Component {
     static propTypes = {
         globalState: PropTypes.object.isRequired,
         actions: PropTypes.object.isRequired
@@ -78,4 +78,4 @@ export class PureModal extends React.Component {
 export default connect(
     state => ({globalState: state.headerConfig}),
     dispatch => ({actions: bindActionCreators(actions, dispatch)})
-)(PureModal);
+)(HeaderConfigPureModal);

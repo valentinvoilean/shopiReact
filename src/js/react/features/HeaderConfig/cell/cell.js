@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import uuid from 'uuid';
 import Sortable from 'sortablejs';
 
-import {CloseButton} from 'HeaderConfig/components';
+import {CloseButton} from 'HeaderConfig';
 import styles from './cell.scss';
 
 import {validateState} from 'AppUtils';

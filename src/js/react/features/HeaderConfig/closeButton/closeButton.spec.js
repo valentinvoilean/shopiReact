@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
-jest.unmock('HeaderConfig/components');
+jest.unmock('HeaderConfig');
 import CloseButton from './closeButton';
 
 describe('Close button', () => {
