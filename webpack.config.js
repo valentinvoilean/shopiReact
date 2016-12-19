@@ -30,6 +30,9 @@ export default {
         alias: {
             'HeaderConfigApp': 'react/HeaderConfigApp',
             'HeaderApp': 'react/HeaderApp',
+            'AppConstants': 'react/constants',
+            'AppRedux': 'react/redux',
+            'AppUtils': 'react/utils',
             'jquery': 'jquery/dist/jquery.min.js',
             modernizr$: path.resolve(__dirname, '.modernizrrc') }
     },

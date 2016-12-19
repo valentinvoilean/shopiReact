@@ -1,6 +1,6 @@
 import {fromJS} from 'immutable';
 
-import {defaultState, shopifySettings} from 'HeaderConfigApp/constants/states';
+import {defaultState, shopifySettings} from 'AppConstants/states';
 
 /**
  * Get initial state from Shopify

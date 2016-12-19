@@ -4,12 +4,12 @@ import {bindActionCreators} from 'redux';
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 import uuid from 'uuid';
 
-import {mediaQueries} from 'HeaderConfigApp/constants/mediaQueries';
+import {mediaQueries} from 'AppConstants/mediaQueries';
 
 import {Row, Cell, CodeBox} from 'HeaderConfigApp/components';
 import styles from './modal.scss';
 
-import * as actions from 'HeaderConfigApp/redux/modules/headerConfig';
+import * as actions from 'AppRedux/modules/headerConfig';
 
 export class PureModal extends React.Component {
     static propTypes = {

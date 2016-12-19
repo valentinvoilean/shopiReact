@@ -6,10 +6,10 @@ import Cell from './cell';
 
 jest.mock('sortablejs');
 jest.mock('HeaderConfigApp/components');
-jest.mock('HeaderConfigApp/utils');
+jest.mock('AppUtils');
 
 const components = require('HeaderConfigApp/components');
-const utils = require('HeaderConfigApp/utils');
+const utils = require('AppUtils');
 const Sortable = require('sortablejs');
 
 components.CloseButton = jest.fn(() => null);

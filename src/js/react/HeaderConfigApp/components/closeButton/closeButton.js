@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import {includes} from 'lodash';
 
 import styles from './closeButton.scss';
-import {validStates} from 'HeaderConfigApp/constants/states';
+import {validStates} from 'AppConstants/states';
 
 const CloseButtonView = ({onClick, item, mediaQuery, cellName}) => {
     const _handleClick = () => {

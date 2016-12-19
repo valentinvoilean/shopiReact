@@ -5,7 +5,7 @@ import Sortable from 'sortablejs';
 import {CloseButton} from 'HeaderConfigApp/components';
 import styles from './cell.scss';
 
-import {validateState} from 'HeaderConfigApp/utils';
+import {validateState} from 'AppUtils';
 
 // Functional Component
 class Cell extends Component {

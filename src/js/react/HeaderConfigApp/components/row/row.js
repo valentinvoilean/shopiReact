@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import uuid from 'uuid';
 import {Cell} from 'HeaderConfigApp/components';
-import {horizontalPositions, verticalPositions} from 'HeaderConfigApp/constants/positions';
+import {horizontalPositions, verticalPositions} from 'AppConstants/positions';
 import styles from './row.scss';
 
 const Row = props => {
