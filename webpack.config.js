@@ -13,7 +13,7 @@ export default {
     entry: {
         vendors: ['babel-polyfill', 'modernizr', 'picturefill', 'react', 'react-dom', 'react-match-media',
             'react-redux', 'redux', 'redux-devtools-extension', 'jquery', 'jquery.currencies.js'],
-        config: ['HeaderConfig/App.jsx'],
+        config: ['HeaderConfig/index.jsx'],
         main: ['HeaderApp/index.js']
     },
 
@@ -31,7 +31,7 @@ export default {
             'HeaderConfig': 'react/features/HeaderConfig',
             'HeaderApp': 'react/features/HeaderApp',
             'AppConstants': 'react/constants',
-            'AppRedux': 'react/redux',
+            'AppStore': 'react/store',
             'AppUtils': 'react/utils',
             'jquery': 'jquery/dist/jquery.min.js',
             modernizr$: path.resolve(__dirname, '.modernizrrc') }

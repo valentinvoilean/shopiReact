@@ -1,5 +1,5 @@
-import {save, remove} from './headerConfig';
-import reducer from './headerConfig';
+import {save, remove} from './duck';
+import reducer from './duck';
 import {defaultState} from 'AppConstants/states';
 
 describe('actions', () => {

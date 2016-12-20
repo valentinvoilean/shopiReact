@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import uuid from 'uuid';
 import Sortable from 'sortablejs';
 
-import {HeaderConfigCloseButton} from 'HeaderConfig';
+import {HeaderConfigCloseButton} from 'HeaderConfig/components';
 import styles from './HeaderConfigCell.scss';
 
 import {validateState} from 'AppUtils';

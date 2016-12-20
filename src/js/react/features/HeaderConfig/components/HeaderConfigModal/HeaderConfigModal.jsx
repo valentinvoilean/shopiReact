@@ -6,10 +6,10 @@ import uuid from 'uuid';
 
 import {mediaQueries} from 'AppConstants/mediaQueries';
 
-import {HeaderConfigRow, HeaderConfigCell, HeaderConfigCodeBox} from 'HeaderConfig';
+import {HeaderConfigRow, HeaderConfigCell, HeaderConfigCodeBox} from 'HeaderConfig/components';
 import styles from './HeaderConfigModal.scss';
 
-import * as actions from 'AppRedux/modules/headerConfig';
+import * as actions from 'HeaderConfig/duck';
 
 export class HeaderConfigPureModal extends React.Component {
     static propTypes = {

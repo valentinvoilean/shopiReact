@@ -4,9 +4,9 @@ import {shallow} from 'enzyme';
 import {HeaderConfigPureModal} from './HeaderConfigModal';
 
 jest.mock('react-tabs');
-jest.mock('HeaderConfig');
+jest.mock('HeaderConfig/components');
 
-const components = require('HeaderConfig');
+const components = require('HeaderConfig/components');
 components.HeaderConfigCell = jest.fn(() => null);
 components.HeaderConfigCodeBox = jest.fn(() => null);
 components.HeaderConfigRow = jest.fn(() => null);

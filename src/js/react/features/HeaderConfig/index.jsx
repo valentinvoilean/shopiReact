@@ -1,5 +1,13 @@
-export HeaderConfigCell from './HeaderConfigCell/HeaderConfigCell';
-export HeaderConfigCodeBox from './HeaderConfigCodeBox/HeaderConfigCodeBox';
-export HeaderConfigRow from './HeaderConfigRow/HeaderConfigRow';
-export HeaderConfigCloseButton from './HeaderConfigCloseButton/HeaderConfigCloseButton';
-export HeaderConfigModal from './HeaderConfigModal/HeaderConfigModal';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+
+import configureStore from 'AppStore/configureStore';
+import {HeaderConfigModal} from 'HeaderConfig/components';
+
+const store = configureStore();
+
+ReactDOM.render(
+    <Provider store={store}>
+        <HeaderConfigModal />
+    </Provider>, document.getElementById('configContainer'));
