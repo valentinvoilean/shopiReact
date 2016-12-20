@@ -1,6 +1,6 @@
 import {save, remove} from './duck';
 import reducer from './duck';
-import {defaultState} from 'AppConstants/states';
+import {defaultState} from 'HeaderConfig/constants/states';
 
 describe('actions', () => {
     it('should call the save action', () => {

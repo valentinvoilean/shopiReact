@@ -31,7 +31,6 @@ export default {
             'HeaderConfig': 'react/features/HeaderConfig',
             'HeaderApp': 'react/features/HeaderApp',
             'AppConstants': 'react/constants',
-            'AppStore': 'react/store',
             'jquery': 'jquery/dist/jquery.min.js',
             modernizr$: path.resolve(__dirname, '.modernizrrc') }
     },

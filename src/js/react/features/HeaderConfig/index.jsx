@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
-import configureStore from 'AppStore/configureStore';
+import configureStore from 'react/store/configureStore';
 import {HeaderConfigModal} from 'HeaderConfig/components';
 
 const store = configureStore();

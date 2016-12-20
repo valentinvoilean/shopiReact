@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import {includes} from 'lodash';
 
 import styles from './HeaderConfigCloseButton.scss';
-import {validStates} from 'AppConstants/states';
+import {validStates} from 'HeaderConfig/constants/states';
 
 const HeaderConfigCloseButton = ({onClick, item, mediaQuery, cellName}) => {
     const _handleClick = () => {

@@ -1,7 +1,7 @@
 import getInitialState from './getInitialState';
 
-jest.mock('AppConstants/states');
-const states = require('AppConstants/states');
+jest.mock('HeaderConfig/constants/states');
+const states = require('HeaderConfig/constants/states');
 
 describe('Get initial state', () => {
     it('should return the default state if the settings are not a valid json', () => {

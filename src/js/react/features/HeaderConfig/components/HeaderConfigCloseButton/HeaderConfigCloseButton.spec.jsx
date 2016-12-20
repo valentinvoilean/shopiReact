@@ -10,10 +10,10 @@ describe('Close button', () => {
 
     beforeAll(() => {
         jest.mock('lodash');
-        jest.mock('AppConstants/states');
+        jest.mock('HeaderConfig/constants/states');
 
         _ = require('lodash');
-        states = require('AppConstants/states');
+        states = require('HeaderConfig/constants/states');
 
         states.validStates = {
             get: jest.fn(() => ({Hidden: []}))
