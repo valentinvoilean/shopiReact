@@ -2,9 +2,9 @@ import React, {PropTypes} from 'react';
 import uuid from 'uuid';
 import {Cell} from 'HeaderConfig';
 import {horizontalPositions, verticalPositions} from 'AppConstants/positions';
-import styles from './row.scss';
+import styles from './HeaderConfigRow.scss';
 
-const Row = props => {
+const HeaderConfigRow = props => {
     const {mediaQuery, globalState, pos, actions} = props;
     const multiCells = mediaQuery !== 'mobile' || pos === 0;
 
@@ -39,11 +39,11 @@ const Row = props => {
     );
 };
 
-Row.propTypes = {
+HeaderConfigRow.propTypes = {
     globalState: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired,
     mediaQuery: PropTypes.string.isRequired,
     pos: PropTypes.number
 };
 
-export default Row;
+export default HeaderConfigRow;

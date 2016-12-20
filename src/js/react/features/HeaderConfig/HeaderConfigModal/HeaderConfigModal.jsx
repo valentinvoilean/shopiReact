@@ -6,7 +6,7 @@ import uuid from 'uuid';
 
 import {mediaQueries} from 'AppConstants/mediaQueries';
 
-import {Row, Cell, HeaderConfigCodeBox} from 'HeaderConfig';
+import {HeaderConfigRow, Cell, HeaderConfigCodeBox} from 'HeaderConfig';
 import styles from './HeaderConfigModal.scss';
 
 import * as actions from 'AppRedux/modules/headerConfig';
@@ -60,9 +60,9 @@ export class HeaderConfigPureModal extends React.Component {
                                         boxes.</p>
 
                                     <div data-mq={mediaQuery} className={styles.header}>
-                                        <Row {...this.props} pos={0} mediaQuery={mediaQuery} />
-                                        <Row {...this.props} pos={1} mediaQuery={mediaQuery} />
-                                        <Row {...this.props} pos={2} mediaQuery={mediaQuery} />
+                                        <HeaderConfigRow {...this.props} pos={0} mediaQuery={mediaQuery} />
+                                        <HeaderConfigRow {...this.props} pos={1} mediaQuery={mediaQuery} />
+                                        <HeaderConfigRow {...this.props} pos={2} mediaQuery={mediaQuery} />
                                     </div>
                                 </div>
                             </TabPanel>

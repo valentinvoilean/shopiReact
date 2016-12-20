@@ -1,7 +1,7 @@
 import React from 'react';
 import {mount} from 'enzyme';
 
-import Row from './row';
+import HeaderConfigRow from './HeaderConfigRow';
 
 jest.mock('HeaderConfig');
 
@@ -17,7 +17,7 @@ describe('Row', () => {
             actions: {},
             mediaQuery: 'mobile'
         };
-        const wrapper = mount(<Row {...props} />);
+        const wrapper = mount(<HeaderConfigRow {...props} />);
 
         expect(wrapper.find(components.Cell).length === 3).toBeTruthy();
     });
@@ -29,7 +29,7 @@ describe('Row', () => {
             actions: {},
             mediaQuery: 'mobile'
         };
-        const wrapper = mount(<Row {...props} />);
+        const wrapper = mount(<HeaderConfigRow {...props} />);
 
         expect(wrapper.find(components.Cell).length === 1).toBeTruthy();
     });
@@ -41,7 +41,7 @@ describe('Row', () => {
             actions: {},
             mediaQuery: 'mobile'
         };
-        const wrapper = mount(<Row {...props} />);
+        const wrapper = mount(<HeaderConfigRow {...props} />);
 
         expect(wrapper.find(components.Cell).length === 1).toBeTruthy();
     });
@@ -53,15 +53,15 @@ describe('Row', () => {
             actions: {},
             mediaQuery: 'tablet'
         };
-        let wrapper = mount(<Row {...props} />);
+        let wrapper = mount(<HeaderConfigRow {...props} />);
         expect(wrapper.find(components.Cell).length === 3).toBeTruthy();
 
         props.pos = 1;
-        wrapper = mount(<Row {...props} />);
+        wrapper = mount(<HeaderConfigRow {...props} />);
         expect(wrapper.find(components.Cell).length === 3).toBeTruthy();
 
         props.pos = 2;
-        wrapper = mount(<Row {...props} />);
+        wrapper = mount(<HeaderConfigRow {...props} />);
         expect(wrapper.find(components.Cell).length === 3).toBeTruthy();
     });
 });
