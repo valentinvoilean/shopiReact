@@ -40,11 +40,9 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "6.5.4",
-    "autoprefixer-loader": "3.2.0",
     "babel-cli": "6.18.0",
     "babel-core": "6.21.0",
     "babel-eslint": "7.1.1",
-    "babel-jest": "18.0.0",
     "babel-loader": "6.2.10",
     "babel-plugin-syntax-decorators": "6.13.0",
     "babel-plugin-transform-class-properties": "6.19.0",
