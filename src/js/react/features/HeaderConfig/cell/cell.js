@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import uuid from 'uuid';
 import Sortable from 'sortablejs';
 
-import {CloseButton} from 'HeaderConfig';
+import {HeaderConfigCloseButton} from 'HeaderConfig';
 import styles from './cell.scss';
 
 import {validateState} from 'AppUtils';
@@ -90,7 +90,7 @@ class Cell extends Component {
 
         const itemsHTML = currentCell && currentCell.toJS().length ? currentCell.toJS().map((item) => (
             <li key={uuid.v4()} data-id={item}><span>{item}</span>
-                <CloseButton cellName={name}
+                <HeaderConfigCloseButton cellName={name}
                              item={item}
                              onClick={this._handleCloseButton}
                              mediaQuery={mediaQuery}

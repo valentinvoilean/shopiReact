@@ -2,7 +2,7 @@ import React from 'react';
 import {shallow} from 'enzyme';
 
 jest.unmock('HeaderConfig');
-import CloseButton from './closeButton';
+import HeaderConfigCloseButton from './HeaderConfigCloseButton';
 
 describe('Close button', () => {
 
@@ -24,7 +24,7 @@ describe('Close button', () => {
 
     it('doesn\'t appear if is inside the Hidden cell', () => {
         expect(shallow(
-            <CloseButton onClick={() => void 0}
+            <HeaderConfigCloseButton onClick={() => void 0}
                              item="Menu"
                              mediaQuery="mobile"
                              cellName="Hidden"
@@ -34,7 +34,7 @@ describe('Close button', () => {
 
     it('doesn\'t appear if the item is always required', () => {
         expect(shallow(
-            <CloseButton onClick={() => void 0}
+            <HeaderConfigCloseButton onClick={() => void 0}
                              item="MenuIcon"
                              mediaQuery="mobile"
                              cellName="TopLeft"
@@ -46,7 +46,7 @@ describe('Close button', () => {
         ' but it is available in the validState hidden list', () => {
         _.includes.mockReturnValue(true);
         expect(shallow(
-            <CloseButton onClick={() => void 0}
+            <HeaderConfigCloseButton onClick={() => void 0}
                              item="MyAccount"
                              mediaQuery="mobile"
                              cellName="TopRight"
@@ -59,7 +59,7 @@ describe('Close button', () => {
         const onClick = jasmine.createSpy('onButtonClick');
 
         const wrapper = shallow(
-            <CloseButton onClick={onClick}
+            <HeaderConfigCloseButton onClick={onClick}
                              item="MyAccount"
                              mediaQuery="mobile"
                              cellName="TopRight"

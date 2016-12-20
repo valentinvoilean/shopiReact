@@ -291,7 +291,7 @@
 [data-mq="tablet"] > .row__headerArea___j5HYq:last-child > div:last-child ul:before,
 [data-mq="desktop"] > .row__headerArea___j5HYq:last-child > div:last-child ul:before {
   content: 'BOTTOM RIGHT';
-}.closeButton__closeButton___3Tap6 {
+}.HeaderConfigCloseButton__closeButton___3C_Sj {
   display: inline-block;
   color: white;
   font-size: 10px;
@@ -307,12 +307,12 @@
   border: 0;
 }
 
-.closeButton__closeButton___3Tap6:hover {
+.HeaderConfigCloseButton__closeButton___3C_Sj:hover {
   -webkit-transform: rotate(1turn);
           transform: rotate(1turn);
 }
 
-.closeButton__closeButton___3Tap6:focus {
+.HeaderConfigCloseButton__closeButton___3C_Sj:focus {
   outline: 1px solid darkblue;
 }.HeaderConfigModal__background___D6W_F {
   background: rgba(0, 0, 0, 0.5);

@@ -12,7 +12,7 @@ const components = require('HeaderConfig');
 const utils = require('AppUtils');
 const Sortable = require('sortablejs');
 
-components.CloseButton = jest.fn(() => null);
+components.HeaderConfigCloseButton = jest.fn(() => null);
 utils.validateState = jest.fn(() => null);
 
 Sortable.create = jest.fn(() => ({
@@ -51,11 +51,11 @@ describe('Cell', () => {
 
     it('should render', () => {
         expect(wrapper.find('ul')).toBePresent();
-        expect(wrapper.find(components.CloseButton).length === 2).toBeTruthy();
+        expect(wrapper.find(components.HeaderConfigCloseButton).length === 2).toBeTruthy();
     });
 
     it('should call the remove action', () => {
-        wrapper.find(components.CloseButton).nodes[0].props.onClick()
+        wrapper.find(components.HeaderConfigCloseButton).nodes[0].props.onClick()
         expect(props.actions.remove).toHaveBeenCalled();
     });
 
