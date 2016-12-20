@@ -29,8 +29,7 @@ export default {
         modulesDirectories: ['src/js', 'node_modules'],
         alias: {
             'HeaderConfig': 'react/features/HeaderConfig',
-            'HeaderApp': 'react/features/HeaderApp',
-            'AppConstants': 'react/constants',
+            'HeaderApp': 'react/features/Header',
             'jquery': 'jquery/dist/jquery.min.js',
             modernizr$: path.resolve(__dirname, '.modernizrrc') }
     },

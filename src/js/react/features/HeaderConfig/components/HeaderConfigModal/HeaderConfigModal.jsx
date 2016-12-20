@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 import uuid from 'uuid';
 
-import {mediaQueries} from 'AppConstants/mediaQueries';
+import {mediaQueries} from 'common/constants/mediaQueries';
 
 import {HeaderConfigRow, HeaderConfigCell, HeaderConfigCodeBox} from 'HeaderConfig/components';
 import styles from './HeaderConfigModal.scss';

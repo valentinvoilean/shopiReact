@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import uuid from 'uuid';
 import {HeaderConfigCell} from 'HeaderConfig/components';
-import {horizontalPositions, verticalPositions} from 'AppConstants/positions';
+import {horizontalPositions, verticalPositions} from 'common/constants/headerPositions';
 import styles from './HeaderConfigRow.scss';
 
 const HeaderConfigRow = props => {
