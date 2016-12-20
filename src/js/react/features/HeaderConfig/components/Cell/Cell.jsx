@@ -2,13 +2,13 @@ import React, {Component, PropTypes} from 'react';
 import uuid from 'uuid';
 import Sortable from 'sortablejs';
 
-import {HeaderConfigCloseButton} from 'HeaderConfig/components';
-import styles from './HeaderConfigCell.scss';
+import {CloseButton} from 'HeaderConfig/components';
+import styles from './Cell.scss';
 
 import {validateState} from 'HeaderConfig/utils';
 
 // Functional Component
-export default class HeaderConfigCell extends Component {
+export default class Cell extends Component {
     static propTypes = {
         globalState: PropTypes.object.isRequired,
         actions: PropTypes.object.isRequired,
@@ -90,7 +90,7 @@ export default class HeaderConfigCell extends Component {
 
         const itemsHTML = currentCell && currentCell.toJS().length ? currentCell.toJS().map((item) => (
             <li key={uuid.v4()} data-id={item}><span>{item}</span>
-                <HeaderConfigCloseButton cellName={name}
+                <CloseButton cellName={name}
                              item={item}
                              onClick={this._handleCloseButton}
                              mediaQuery={mediaQuery}

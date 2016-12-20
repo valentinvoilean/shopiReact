@@ -1,9 +1,9 @@
 import React from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
-import styles from './HeaderConfigCodeBox.scss';
+import styles from './CodeBox.scss';
 
-export default class HeaderConfigCodeBox extends React.Component {
+export default class CodeBox extends React.Component {
     static propTypes = {
         text: React.PropTypes.string.isRequired
     };

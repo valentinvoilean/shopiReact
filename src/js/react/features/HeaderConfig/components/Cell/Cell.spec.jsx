@@ -2,7 +2,7 @@ import React from 'react';
 import {mount} from 'enzyme';
 
 jest.unmock('HeaderConfig/components');
-import HeaderConfigCell from './HeaderConfigCell';
+import Cell from './Cell';
 
 jest.mock('sortablejs');
 jest.mock('HeaderConfig/components');
@@ -12,7 +12,7 @@ const components = require('HeaderConfig/components');
 const utils = require('HeaderConfig/utils');
 const Sortable = require('sortablejs');
 
-components.HeaderConfigCloseButton = jest.fn(() => null);
+components.CloseButton = jest.fn(() => null);
 utils.validateState = jest.fn(() => null);
 
 Sortable.create = jest.fn(() => ({
@@ -42,7 +42,7 @@ describe('Cell', () => {
     });
 
     beforeEach(() => {
-        wrapper = mount(<HeaderConfigCell {...props} />);
+        wrapper = mount(<Cell {...props} />);
     });
 
     it('should call the componentDidMount method', () => {
@@ -51,11 +51,11 @@ describe('Cell', () => {
 
     it('should render', () => {
         expect(wrapper.find('ul')).toBePresent();
-        expect(wrapper.find(components.HeaderConfigCloseButton).length === 2).toBeTruthy();
+        expect(wrapper.find(components.CloseButton).length === 2).toBeTruthy();
     });
 
     it('should call the remove action', () => {
-        wrapper.find(components.HeaderConfigCloseButton).nodes[0].props.onClick()
+        wrapper.find(components.CloseButton).nodes[0].props.onClick()
         expect(props.actions.remove).toHaveBeenCalled();
     });
 
@@ -69,9 +69,9 @@ describe('Cell', () => {
     });
 
     it('should call the componentWillUnmoint method called', () => {
-        HeaderConfigCell.prototype.componentWillUnmount = jest.fn();
+        Cell.prototype.componentWillUnmount = jest.fn();
         wrapper.unmount();
-        expect(HeaderConfigCell.prototype.componentWillUnmount).toHaveBeenCalled();
+        expect(Cell.prototype.componentWillUnmount).toHaveBeenCalled();
     });
 
     it('should call the save action method on sort', () => {

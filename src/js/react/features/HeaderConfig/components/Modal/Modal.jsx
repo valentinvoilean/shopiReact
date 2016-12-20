@@ -6,8 +6,8 @@ import uuid from 'uuid';
 
 import {mediaQueries} from 'common/constants/mediaQueries';
 
-import {HeaderConfigRow, HeaderConfigCell, HeaderConfigCodeBox} from 'HeaderConfig/components';
-import styles from './HeaderConfigModal.scss';
+import {Row, Cell, CodeBox} from 'HeaderConfig/components';
+import styles from './Modal.scss';
 
 import * as actions from 'HeaderConfig/duck';
 
@@ -38,7 +38,7 @@ export class HeaderConfigPureModal extends React.Component {
                                 <div className="col-md-6">
                                     <h2 className={styles.h2}>1. Available components to drag & drop</h2>
                                     <div className={styles.componentsContainer}>
-                                        <HeaderConfigCell key={uuid.v4()}
+                                        <Cell key={uuid.v4()}
                                               name='Hidden'
                                               globalState={globalState}
                                               mediaQuery={mediaQuery}
@@ -49,7 +49,7 @@ export class HeaderConfigPureModal extends React.Component {
 
                                 <div className="col-md-6">
                                     <h2 className={styles.h2}>3. Generated code to be copied</h2>
-                                    <HeaderConfigCodeBox text={JSON.stringify(globalState.get('data'))} />
+                                    <CodeBox text={JSON.stringify(globalState.get('data'))} />
                                 </div>
 
                                 <div className={styles.container}>
@@ -60,9 +60,9 @@ export class HeaderConfigPureModal extends React.Component {
                                         boxes.</p>
 
                                     <div data-mq={mediaQuery} className={styles.header}>
-                                        <HeaderConfigRow {...this.props} pos={0} mediaQuery={mediaQuery} />
-                                        <HeaderConfigRow {...this.props} pos={1} mediaQuery={mediaQuery} />
-                                        <HeaderConfigRow {...this.props} pos={2} mediaQuery={mediaQuery} />
+                                        <Row {...this.props} pos={0} mediaQuery={mediaQuery} />
+                                        <Row {...this.props} pos={1} mediaQuery={mediaQuery} />
+                                        <Row {...this.props} pos={2} mediaQuery={mediaQuery} />
                                     </div>
                                 </div>
                             </TabPanel>

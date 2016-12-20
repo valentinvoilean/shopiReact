@@ -3,14 +3,14 @@ import {shallow} from 'enzyme';
 
 jest.unmock('HeaderConfig/components');
 jest.unmock('HeaderConfig/constants/states');
-import HeaderConfigCodeBox from './HeaderConfigCodeBox';
+import CodeBox from './CodeBox';
 
 describe('Codebox', () => {
     let wrapper;
     jest.mock('react-copy-to-clipboard');
 
     beforeEach(() => {
-        wrapper = shallow(<HeaderConfigCodeBox text="test"/>);
+        wrapper = shallow(<CodeBox text="test"/>);
     });
 
     it('should render', () => {

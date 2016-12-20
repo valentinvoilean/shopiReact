@@ -1,10 +1,10 @@
 import React, {PropTypes} from 'react';
 import uuid from 'uuid';
-import {HeaderConfigCell} from 'HeaderConfig/components';
+import {Cell} from 'HeaderConfig/components';
 import {horizontalPositions, verticalPositions} from 'common/constants/headerPositions';
-import styles from './HeaderConfigRow.scss';
+import styles from './Row.scss';
 
-const HeaderConfigRow = props => {
+const Row = props => {
     const {mediaQuery, globalState, pos, actions} = props;
     const multiCells = mediaQuery !== 'mobile' || pos === 0;
 
@@ -14,7 +14,7 @@ const HeaderConfigRow = props => {
                 {
                     horizontalPositions.map(
                         (hPos) => (
-                            <HeaderConfigCell key={uuid.v4()}
+                            <Cell key={uuid.v4()}
                                   name={`${verticalPositions[pos]}${hPos}`}
                                   globalState={globalState}
                                   mediaQuery={mediaQuery}
@@ -29,7 +29,7 @@ const HeaderConfigRow = props => {
 
     return (
         <div className={styles.headerArea}>
-            <HeaderConfigCell key={uuid.v4()}
+            <Cell key={uuid.v4()}
                   name={verticalPositions[pos]}
                   globalState={globalState}
                   mediaQuery={mediaQuery}
@@ -39,11 +39,11 @@ const HeaderConfigRow = props => {
     );
 };
 
-HeaderConfigRow.propTypes = {
+Row.propTypes = {
     globalState: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired,
     mediaQuery: PropTypes.string.isRequired,
     pos: PropTypes.number
 };
 
-export default HeaderConfigRow;
+export default Row;

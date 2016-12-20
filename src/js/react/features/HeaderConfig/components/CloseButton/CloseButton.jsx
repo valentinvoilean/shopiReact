@@ -1,10 +1,10 @@
 import React, {PropTypes} from 'react';
 import {includes} from 'lodash';
 
-import styles from './HeaderConfigCloseButton.scss';
+import styles from './CloseButton.scss';
 import {validStates} from 'HeaderConfig/constants/states';
 
-const HeaderConfigCloseButton = ({onClick, item, mediaQuery, cellName}) => {
+const CloseButton = ({onClick, item, mediaQuery, cellName}) => {
     const _handleClick = () => {
         onClick(item);
     };
@@ -21,11 +21,11 @@ const HeaderConfigCloseButton = ({onClick, item, mediaQuery, cellName}) => {
     }
 };
 
-HeaderConfigCloseButton.propTypes = {
+CloseButton.propTypes = {
     item: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
     mediaQuery: PropTypes.string.isRequired,
     cellName: PropTypes.string.isRequired
 };
 
-export default HeaderConfigCloseButton;
+export default CloseButton;
