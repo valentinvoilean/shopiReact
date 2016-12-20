@@ -1,4 +1,4 @@
-import {getInitialState, validateState} from 'AppUtils';
+import {getInitialState, validateState} from 'HeaderConfig/utils';
 import {List} from 'immutable';
 import {defaultState} from 'AppConstants/states';
 

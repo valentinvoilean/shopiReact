@@ -6,10 +6,10 @@ import HeaderConfigCell from './HeaderConfigCell';
 
 jest.mock('sortablejs');
 jest.mock('HeaderConfig/components');
-jest.mock('AppUtils');
+jest.mock('HeaderConfig/utils');
 
 const components = require('HeaderConfig/components');
-const utils = require('AppUtils');
+const utils = require('HeaderConfig/utils');
 const Sortable = require('sortablejs');
 
 components.HeaderConfigCloseButton = jest.fn(() => null);
