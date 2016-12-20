@@ -6,7 +6,7 @@ import HeaderConfigRow from './HeaderConfigRow';
 jest.mock('HeaderConfig');
 
 const components = require('HeaderConfig');
-components.Cell = jest.fn(() => null);
+components.HeaderConfigCell = jest.fn(() => null);
 
 describe('Row', () => {
 
@@ -19,7 +19,7 @@ describe('Row', () => {
         };
         const wrapper = mount(<HeaderConfigRow {...props} />);
 
-        expect(wrapper.find(components.Cell).length === 3).toBeTruthy();
+        expect(wrapper.find(components.HeaderConfigCell).length === 3).toBeTruthy();
     });
 
     it('should render only 1 cell if is on mobile Center position', () => {
@@ -31,7 +31,7 @@ describe('Row', () => {
         };
         const wrapper = mount(<HeaderConfigRow {...props} />);
 
-        expect(wrapper.find(components.Cell).length === 1).toBeTruthy();
+        expect(wrapper.find(components.HeaderConfigCell).length === 1).toBeTruthy();
     });
 
     it('should render only 1 cell if is on mobile Bottom position', () => {
@@ -43,7 +43,7 @@ describe('Row', () => {
         };
         const wrapper = mount(<HeaderConfigRow {...props} />);
 
-        expect(wrapper.find(components.Cell).length === 1).toBeTruthy();
+        expect(wrapper.find(components.HeaderConfigCell).length === 1).toBeTruthy();
     });
 
     it('should render 3 cells if is not mobile', () => {
@@ -54,14 +54,14 @@ describe('Row', () => {
             mediaQuery: 'tablet'
         };
         let wrapper = mount(<HeaderConfigRow {...props} />);
-        expect(wrapper.find(components.Cell).length === 3).toBeTruthy();
+        expect(wrapper.find(components.HeaderConfigCell).length === 3).toBeTruthy();
 
         props.pos = 1;
         wrapper = mount(<HeaderConfigRow {...props} />);
-        expect(wrapper.find(components.Cell).length === 3).toBeTruthy();
+        expect(wrapper.find(components.HeaderConfigCell).length === 3).toBeTruthy();
 
         props.pos = 2;
         wrapper = mount(<HeaderConfigRow {...props} />);
-        expect(wrapper.find(components.Cell).length === 3).toBeTruthy();
+        expect(wrapper.find(components.HeaderConfigCell).length === 3).toBeTruthy();
     });
 });

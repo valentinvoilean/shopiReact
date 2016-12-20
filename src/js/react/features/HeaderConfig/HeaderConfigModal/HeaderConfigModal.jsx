@@ -6,7 +6,7 @@ import uuid from 'uuid';
 
 import {mediaQueries} from 'AppConstants/mediaQueries';
 
-import {HeaderConfigRow, Cell, HeaderConfigCodeBox} from 'HeaderConfig';
+import {HeaderConfigRow, HeaderConfigCell, HeaderConfigCodeBox} from 'HeaderConfig';
 import styles from './HeaderConfigModal.scss';
 
 import * as actions from 'AppRedux/modules/headerConfig';
@@ -38,7 +38,7 @@ export class HeaderConfigPureModal extends React.Component {
                                 <div className="col-md-6">
                                     <h2 className={styles.h2}>1. Available components to drag & drop</h2>
                                     <div className={styles.componentsContainer}>
-                                        <Cell key={uuid.v4()}
+                                        <HeaderConfigCell key={uuid.v4()}
                                               name='Hidden'
                                               globalState={globalState}
                                               mediaQuery={mediaQuery}

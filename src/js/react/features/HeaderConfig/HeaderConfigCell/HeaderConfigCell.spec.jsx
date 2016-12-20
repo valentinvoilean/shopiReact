@@ -2,7 +2,7 @@ import React from 'react';
 import {mount} from 'enzyme';
 
 jest.unmock('HeaderConfig');
-import Cell from './cell';
+import HeaderConfigCell from './HeaderConfigCell';
 
 jest.mock('sortablejs');
 jest.mock('HeaderConfig');
@@ -42,7 +42,7 @@ describe('Cell', () => {
     });
 
     beforeEach(() => {
-        wrapper = mount(<Cell {...props} />);
+        wrapper = mount(<HeaderConfigCell {...props} />);
     });
 
     it('should call the componentDidMount method', () => {
@@ -69,9 +69,9 @@ describe('Cell', () => {
     });
 
     it('should call the componentWillUnmoint method called', () => {
-        Cell.prototype.componentWillUnmount = jest.fn();
+        HeaderConfigCell.prototype.componentWillUnmount = jest.fn();
         wrapper.unmount();
-        expect(Cell.prototype.componentWillUnmount).toHaveBeenCalled();
+        expect(HeaderConfigCell.prototype.componentWillUnmount).toHaveBeenCalled();
     });
 
     it('should call the save action method on sort', () => {

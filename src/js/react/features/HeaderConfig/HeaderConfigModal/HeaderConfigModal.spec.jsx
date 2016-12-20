@@ -7,9 +7,9 @@ jest.mock('react-tabs');
 jest.mock('HeaderConfig');
 
 const components = require('HeaderConfig');
-components.Cell = jest.fn(() => null);
+components.HeaderConfigCell = jest.fn(() => null);
 components.HeaderConfigCodeBox = jest.fn(() => null);
-components.Row = jest.fn(() => null);
+components.HeaderConfigRow = jest.fn(() => null);
 
 const ReactTabs = require('react-tabs');
 ReactTabs.Tab = jest.fn(() => null);

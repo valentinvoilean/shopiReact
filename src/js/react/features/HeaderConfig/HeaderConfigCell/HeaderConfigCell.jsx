@@ -3,12 +3,12 @@ import uuid from 'uuid';
 import Sortable from 'sortablejs';
 
 import {HeaderConfigCloseButton} from 'HeaderConfig';
-import styles from './cell.scss';
+import styles from './HeaderConfigCell.scss';
 
 import {validateState} from 'AppUtils';
 
 // Functional Component
-class Cell extends Component {
+export default class HeaderConfigCell extends Component {
     static propTypes = {
         globalState: PropTypes.object.isRequired,
         actions: PropTypes.object.isRequired,
@@ -108,5 +108,3 @@ class Cell extends Component {
         );
     }
 }
-
-export default Cell;

@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import uuid from 'uuid';
-import {Cell} from 'HeaderConfig';
+import {HeaderConfigCell} from 'HeaderConfig';
 import {horizontalPositions, verticalPositions} from 'AppConstants/positions';
 import styles from './HeaderConfigRow.scss';
 
@@ -14,7 +14,7 @@ const HeaderConfigRow = props => {
                 {
                     horizontalPositions.map(
                         (hPos) => (
-                            <Cell key={uuid.v4()}
+                            <HeaderConfigCell key={uuid.v4()}
                                   name={`${verticalPositions[pos]}${hPos}`}
                                   globalState={globalState}
                                   mediaQuery={mediaQuery}
@@ -29,7 +29,7 @@ const HeaderConfigRow = props => {
 
     return (
         <div className={styles.headerArea}>
-            <Cell key={uuid.v4()}
+            <HeaderConfigCell key={uuid.v4()}
                   name={verticalPositions[pos]}
                   globalState={globalState}
                   mediaQuery={mediaQuery}
