@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import {HeaderTop, HeaderBottom, HeaderMain} from './components/Header';
 
@@ -22,10 +22,6 @@ export default class Header extends Component {
                 desktop: {position: 'TopRight', order: 1}
             }
         };
-    }
-
-    componentDidMount() {
-        //console.warn('mounted');
     }
 
     _checkSide(child) {

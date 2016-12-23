@@ -2,7 +2,6 @@ import React from 'react';
 import { MatchMedia } from 'react-match-media';
 
 const HeaderBottom = ({data}) => {
-
     return (
         <div className="headerBottom">
             <div className="container">
