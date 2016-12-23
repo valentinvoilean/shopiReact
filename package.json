@@ -25,10 +25,9 @@
       "src/js"
     ],
     "moduleNameMapper": {
-      "^HeaderConfig(.*)$": "<rootDir>/src/js/react/features/HeaderConfig$1",
-      "^HeaderApp(.*)$": "<rootDir>/src/js/react/features/Header$1",
-      "\\.(css|scss|less)$": "<rootDir>/src/js/react/__mocks__/styleMock.js",
-      "\\.(gif|ttf|eot|svg)$": "<rootDir>/src/js/react/__mocks__/fileMock.js"
+      "^HeaderConfig(.*)$": "<rootDir>/src/js/App/features/HeaderConfig$1",
+      "\\.(css|scss|less)$": "<rootDir>/src/js/App/__mocks__/styleMock.js",
+      "\\.(gif|ttf|eot|svg)$": "<rootDir>/src/js/App/__mocks__/fileMock.js"
     },
     "collectCoverage": true,
     "coverageReporters": [

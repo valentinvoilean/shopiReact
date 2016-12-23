@@ -3,12 +3,12 @@ webpackJsonp([1],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(272);
+	module.exports = __webpack_require__(264);
 
 
 /***/ },
 
-/***/ 272:
+/***/ 264:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21,63 +21,32 @@ webpackJsonp([1],{
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _header = __webpack_require__(273);
+	var _Header = __webpack_require__(265);
 	
-	var _footer = __webpack_require__(436);
+	var _Header2 = _interopRequireDefault(_Header);
 	
-	var _MyAccount = __webpack_require__(438);
+	var _Footer = __webpack_require__(428);
 	
-	var _Wishlist = __webpack_require__(439);
+	var _Footer2 = _interopRequireDefault(_Footer);
+	
+	var _MyAccount = __webpack_require__(429);
+	
+	var _Wishlist = __webpack_require__(430);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	_reactDom2.default.render(_react2.default.createElement(
-	    _header.Header,
+	    _Header2.default,
 	    null,
 	    _react2.default.createElement(_MyAccount.MyAccount, null),
 	    _react2.default.createElement(_Wishlist.Wishlist, null)
 	), document.getElementsByTagName('header')[0]);
 	
-	_reactDom2.default.render(_react2.default.createElement(_footer.Footer, null), document.getElementsByTagName('footer')[0]);
+	_reactDom2.default.render(_react2.default.createElement(_Footer2.default, null), document.getElementsByTagName('footer')[0]);
 
 /***/ },
 
-/***/ 273:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.HeaderMain = exports.HeaderTop = exports.HeaderBottom = exports.Header = undefined;
-	
-	var _header = __webpack_require__(274);
-	
-	var _header2 = _interopRequireDefault(_header);
-	
-	var _headerBottom = __webpack_require__(275);
-	
-	var _headerBottom2 = _interopRequireDefault(_headerBottom);
-	
-	var _headerTop = __webpack_require__(434);
-	
-	var _headerTop2 = _interopRequireDefault(_headerTop);
-	
-	var _headerMain = __webpack_require__(435);
-	
-	var _headerMain2 = _interopRequireDefault(_headerMain);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.Header = _header2.default;
-	exports.HeaderBottom = _headerBottom2.default;
-	exports.HeaderTop = _headerTop2.default;
-	exports.HeaderMain = _headerMain2.default;
-
-/***/ },
-
-/***/ 274:
+/***/ 265:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -95,7 +64,7 @@ webpackJsonp([1],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _ = __webpack_require__(273);
+	var _Header = __webpack_require__(266);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -170,9 +139,9 @@ webpackJsonp([1],{
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'header' },
-	                _react2.default.createElement(_.HeaderTop, { data: this.HeaderData }),
-	                _react2.default.createElement(_.HeaderMain, { data: this.HeaderData }),
-	                _react2.default.createElement(_.HeaderBottom, { data: this.HeaderData })
+	                _react2.default.createElement(_Header.HeaderTop, { data: this.HeaderData }),
+	                _react2.default.createElement(_Header.HeaderMain, { data: this.HeaderData }),
+	                _react2.default.createElement(_Header.HeaderBottom, { data: this.HeaderData })
 	            );
 	        }
 	    }]);
@@ -185,7 +154,37 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 275:
+/***/ 266:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.HeaderMain = exports.HeaderTop = exports.HeaderBottom = undefined;
+	
+	var _headerBottom = __webpack_require__(267);
+	
+	var _headerBottom2 = _interopRequireDefault(_headerBottom);
+	
+	var _headerTop = __webpack_require__(426);
+	
+	var _headerTop2 = _interopRequireDefault(_headerTop);
+	
+	var _headerMain = __webpack_require__(427);
+	
+	var _headerMain2 = _interopRequireDefault(_headerMain);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.HeaderBottom = _headerBottom2.default;
+	exports.HeaderTop = _headerTop2.default;
+	exports.HeaderMain = _headerMain2.default;
+
+/***/ },
+
+/***/ 267:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -198,7 +197,7 @@ webpackJsonp([1],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactMatchMedia = __webpack_require__(276);
+	var _reactMatchMedia = __webpack_require__(268);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -281,7 +280,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 434:
+/***/ 426:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -299,7 +298,7 @@ webpackJsonp([1],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactMatchMedia = __webpack_require__(276);
+	var _reactMatchMedia = __webpack_require__(268);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -406,7 +405,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 435:
+/***/ 427:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -424,7 +423,7 @@ webpackJsonp([1],{
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactMatchMedia = __webpack_require__(276);
+	var _reactMatchMedia = __webpack_require__(268);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -529,27 +528,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 436:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.Footer = undefined;
-	
-	var _footer = __webpack_require__(437);
-	
-	var _footer2 = _interopRequireDefault(_footer);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.Footer = _footer2.default;
-
-/***/ },
-
-/***/ 437:
+/***/ 428:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -577,7 +556,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 438:
+/***/ 429:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -635,7 +614,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 439:
+/***/ 430:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

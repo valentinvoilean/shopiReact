@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import {HeaderTop, HeaderBottom, HeaderMain} from './';
+import {HeaderTop, HeaderBottom, HeaderMain} from './components/Header';
 
 export default class Header extends Component {
     static propTypes = {

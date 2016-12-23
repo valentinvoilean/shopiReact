@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Header } from './containers/header';
-import { Footer } from './containers/footer';
-import { MyAccount } from './components/MyAccount/MyAccount';
-import { Wishlist } from './components/Wishlist/Wishlist';
+import Header from './features/Header';
+import Footer from './features/Footer';
+import {MyAccount} from './features/Header/components/MyAccount/MyAccount';
+import {Wishlist} from './features/Header/components/Wishlist/Wishlist';
 
 ReactDOM.render(
     <Header>
