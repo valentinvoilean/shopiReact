@@ -8,6 +8,18 @@ webpackJsonp([1],{
 
 /***/ },
 
+/***/ 269:
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var mediaQueries = exports.mediaQueries = ['mobile', 'tablet', 'desktop'];
+
+/***/ },
+
 /***/ 272:
 /***/ function(module, exports, __webpack_require__) {
 
@@ -66,6 +78,8 @@ webpackJsonp([1],{
 	
 	var _Header = __webpack_require__(274);
 	
+	var _mediaQueries = __webpack_require__(269);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -104,9 +118,8 @@ webpackJsonp([1],{
 	
 	            var data = this.data;
 	            var childName = child.props.name;
-	            var mediaQueries = ['mobile', 'tablet', 'desktop'];
 	
-	            mediaQueries.map(function (mq) {
+	            _mediaQueries.mediaQueries.map(function (mq) {
 	                var childPosition = data[childName][mq].position;
 	                var childOrder = data[childName][mq].order;
 	

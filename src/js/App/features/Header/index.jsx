@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 
 import {HeaderTop, HeaderBottom, HeaderMain} from './components/Header';
 
+import {mediaQueries} from 'common/constants/mediaQueries';
+
 export default class Header extends Component {
     static propTypes = {
         children: React.PropTypes.array.isRequired
@@ -27,7 +29,6 @@ export default class Header extends Component {
     _checkSide(child) {
         const data = this.data;
         const childName = child.props.name;
-        const mediaQueries = ['mobile', 'tablet', 'desktop'];
 
         mediaQueries.map((mq) => {
             let childPosition = data[childName][mq].position;
