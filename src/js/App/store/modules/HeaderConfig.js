@@ -1,5 +1,6 @@
-import {getInitialState, validateState} from 'common/utils/header';
 import {List} from 'immutable';
+
+import {getInitialState, validateState} from 'common/utils/header';
 import {defaultState} from 'common/constants/headerSettings';
 
 const SAVE_HEADER_SETTINGS = 'SAVE_HEADER_SETTINGS';

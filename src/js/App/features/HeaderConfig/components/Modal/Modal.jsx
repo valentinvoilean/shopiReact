@@ -9,7 +9,7 @@ import {mediaQueries} from 'common/constants/mediaQueries';
 import {Row, Cell, CodeBox} from 'HeaderConfig/components';
 import styles from './Modal.scss';
 
-import * as actions from 'HeaderConfig/duck';
+import * as actions from 'App/store/modules/HeaderConfig';
 
 export class HeaderConfigPureModal extends React.Component {
     static propTypes = {

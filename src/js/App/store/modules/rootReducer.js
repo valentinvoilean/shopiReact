@@ -1,4 +1,5 @@
 import {combineReducers} from 'redux';
-import headerConfig from 'HeaderConfig/duck';
+
+import headerConfig from './HeaderConfig';
 
 export default combineReducers({ headerConfig });
