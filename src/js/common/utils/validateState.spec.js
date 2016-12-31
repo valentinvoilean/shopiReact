@@ -12,10 +12,10 @@ describe('Get initial state', () => {
     });
 
     it('should throw an error if the cell name does not exist in the current media query', () => {
-        const shopifySettings = '{"mobile":{"Hiddenn":["Breadcrumb","Search","MyAccount"]}}';
+        const headerSettings = '{"mobile":{"Hiddenn":["Breadcrumb","Search","MyAccount"]}}';
 
         const state = fromJS({
-            data: JSON.parse(shopifySettings),
+            data: JSON.parse(headerSettings),
             shouldComponentUpdate: false
         });
 
@@ -23,10 +23,10 @@ describe('Get initial state', () => {
     });
 
     it('should throw an error if the number of items is higher then the max items allowed', () => {
-        const shopifySettings = '{"mobile":{"TopLeft":["MenuIcon", "Logo", "Cart"]}}';
+        const headerSettings = '{"mobile":{"TopLeft":["MenuIcon", "Logo", "Cart"]}}';
 
         const state = fromJS({
-            data: JSON.parse(shopifySettings),
+            data: JSON.parse(headerSettings),
             shouldComponentUpdate: false
         });
 
@@ -34,18 +34,18 @@ describe('Get initial state', () => {
     });
 
     it('should throw an error if the item is not allowed in the current cell', () => {
-        let shopifySettings = '{"mobile":{"Hidden":["Logo"]}}';
+        let headerSettings = '{"mobile":{"Hidden":["Logo"]}}';
 
         let state = fromJS({
-            data: JSON.parse(shopifySettings),
+            data: JSON.parse(headerSettings),
             shouldComponentUpdate: false
         });
 
         expect(function(){ validateState(state); } ).toThrow(new Error('Only  Wishlist, MyAccount, Currency, Language, Breadcrumb, WelcomeMessage, SocialIcons, Search, Menu are allowed in Hidden.'));
 
-        shopifySettings = '{"mobile":{"TopLeft":["Wishlist"]}}';
+        headerSettings = '{"mobile":{"TopLeft":["Wishlist"]}}';
         state = fromJS({
-            data: JSON.parse(shopifySettings),
+            data: JSON.parse(headerSettings),
             shouldComponentUpdate: false
         });
 
@@ -53,19 +53,19 @@ describe('Get initial state', () => {
     });
 
     it('should throw an error if cannot validate complex item\'s requirements', () => {
-        let shopifySettings = '{"mobile":{"TopRight":["MenuIcon"]}}';
+        let headerSettings = '{"mobile":{"TopRight":["MenuIcon"]}}';
 
         let state = fromJS({
-            data: JSON.parse(shopifySettings),
+            data: JSON.parse(headerSettings),
             shouldComponentUpdate: false
         });
 
         expect(function(){ validateState(state); } ).toThrow(new Error('The item Logo is required inside the TopCenter cell.'));
 
-        shopifySettings = '{"mobile":{"TopLeft":["MenuIcon"]}}';
+        headerSettings = '{"mobile":{"TopLeft":["MenuIcon"]}}';
 
         state = fromJS({
-            data: JSON.parse(shopifySettings),
+            data: JSON.parse(headerSettings),
             shouldComponentUpdate: false
         });
 
@@ -73,10 +73,10 @@ describe('Get initial state', () => {
     });
 
     it('should not throw an error if can validate complex item\'s requirements', () => {
-        const shopifySettings = '{"mobile":{"TopLeft":["MenuIcon"], "TopCenter": ["Logo"]}}';
+        const headerSettings = '{"mobile":{"TopLeft":["MenuIcon"], "TopCenter": ["Logo"]}}';
 
         const state = fromJS({
-            data: JSON.parse(shopifySettings),
+            data: JSON.parse(headerSettings),
             shouldComponentUpdate: false
         });
 

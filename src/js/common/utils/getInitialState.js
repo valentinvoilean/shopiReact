@@ -1,6 +1,6 @@
 import {fromJS} from 'immutable';
 
-import {defaultState, shopifySettings} from 'HeaderConfig/constants/states';
+import {defaultState, headerSettings} from 'common/constants/headerSettings';
 
 /**
  * Get initial state from Shopify
@@ -11,7 +11,7 @@ export default function getInitialState() {
 
     try {
         currentSettings = fromJS({
-            data: JSON.parse(shopifySettings),
+            data: JSON.parse(headerSettings),
             shouldComponentUpdate: false
         });
     }
