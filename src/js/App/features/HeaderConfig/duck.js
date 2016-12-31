@@ -1,4 +1,4 @@
-import {getInitialState, validateState} from 'common/utils';
+import {getInitialState, validateState} from 'common/utils/header';
 import {List} from 'immutable';
 import {defaultState} from 'common/constants/headerSettings';
 
