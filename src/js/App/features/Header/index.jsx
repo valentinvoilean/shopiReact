@@ -1,16 +1,20 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
+import {connect} from 'react-redux';
 
 import {HeaderTop, HeaderBottom, HeaderMain} from './components/Header';
 
 import {mediaQueries} from 'common/constants/mediaQueries';
 
-export default class Header extends Component {
+export class PureHeader extends Component {
     static propTypes = {
-        children: React.PropTypes.array.isRequired
+        globalState: PropTypes.object.isRequired,
+        children: PropTypes.array.isRequired
     };
 
     constructor(props) {
         super(props);
+
+        console.log(this.props.globalState);
 
         this.data = {
             MyAccount: {
@@ -63,3 +67,7 @@ export default class Header extends Component {
         );
     }
 }
+
+export default connect(
+    state => ({globalState: state.headerConfig})
+)(PureHeader);

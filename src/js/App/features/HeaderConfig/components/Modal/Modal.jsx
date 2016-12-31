@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
@@ -11,7 +11,7 @@ import styles from './Modal.scss';
 
 import * as actions from 'App/store/modules/HeaderConfig';
 
-export class HeaderConfigPureModal extends React.Component {
+export class HeaderConfigPureModal extends Component {
     static propTypes = {
         globalState: PropTypes.object.isRequired,
         actions: PropTypes.object.isRequired
