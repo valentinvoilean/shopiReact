@@ -22791,18 +22791,6 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 269:
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var mediaQueries = exports.mediaQueries = ['mobile', 'tablet', 'desktop'];
-
-/***/ },
-
 /***/ 272:
 /***/ function(module, exports, __webpack_require__) {
 
@@ -22830,10 +22818,6 @@ webpackJsonp([1],{
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
 	
-	var _MyAccount = __webpack_require__(437);
-	
-	var _Wishlist = __webpack_require__(438);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var store = (0, _configureStore2.default)();
@@ -22841,12 +22825,7 @@ webpackJsonp([1],{
 	_reactDom2.default.render(_react2.default.createElement(
 	    _reactRedux.Provider,
 	    { store: store },
-	    _react2.default.createElement(
-	        _Header2.default,
-	        null,
-	        _react2.default.createElement(_MyAccount.MyAccount, null),
-	        _react2.default.createElement(_Wishlist.Wishlist, null)
-	    )
+	    _react2.default.createElement(_Header2.default, null)
 	), document.getElementsByTagName('header')[0]);
 	
 	_reactDom2.default.render(_react2.default.createElement(
@@ -22867,10 +22846,6 @@ webpackJsonp([1],{
 	});
 	exports.PureHeader = undefined;
 	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _class, _temp;
-	
 	var _react = __webpack_require__(2);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -22879,89 +22854,24 @@ webpackJsonp([1],{
 	
 	var _Header = __webpack_require__(274);
 	
-	var _mediaQueries = __webpack_require__(269);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var PureHeader = exports.PureHeader = function PureHeader(_ref) {
+	    var globalState = _ref.globalState;
 	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	    return _react2.default.createElement(
+	        'div',
+	        { className: 'header' },
+	        _react2.default.createElement(_Header.HeaderTop, { globalState: globalState }),
+	        _react2.default.createElement(_Header.HeaderMain, { globalState: globalState }),
+	        _react2.default.createElement(_Header.HeaderBottom, { globalState: globalState })
+	    );
+	};
 	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	PureHeader.propTypes = {
+	    globalState: _react.PropTypes.object.isRequired
+	};
 	
-	var PureHeader = exports.PureHeader = (_temp = _class = function (_Component) {
-	    _inherits(PureHeader, _Component);
-	
-	    function PureHeader(props) {
-	        _classCallCheck(this, PureHeader);
-	
-	        var _this = _possibleConstructorReturn(this, (PureHeader.__proto__ || Object.getPrototypeOf(PureHeader)).call(this, props));
-	
-	        console.log(_this.props.globalState);
-	
-	        _this.data = {
-	            MyAccount: {
-	                mobile: { position: 'TopLeft', order: 1 },
-	                tablet: { position: 'MainCenter', order: 0 },
-	                desktop: { position: 'BottomRight', order: 0 }
-	            },
-	            Wishlist: {
-	                mobile: { position: 'TopLeft', order: 0 },
-	                tablet: { position: 'TopLeft', order: 0 },
-	                desktop: { position: 'TopRight', order: 1 }
-	            }
-	        };
-	        return _this;
-	    }
-	
-	    _createClass(PureHeader, [{
-	        key: '_checkSide',
-	        value: function _checkSide(child) {
-	            var _this2 = this;
-	
-	            var data = this.data;
-	            var childName = child.props.name;
-	
-	            _mediaQueries.mediaQueries.map(function (mq) {
-	                var childPosition = data[childName][mq].position;
-	                var childOrder = data[childName][mq].order;
-	
-	                _this2.HeaderData = _this2.HeaderData || {};
-	                _this2.HeaderData[childPosition] = _this2.HeaderData[childPosition] || {};
-	                _this2.HeaderData[childPosition][mq] = _this2.HeaderData[childPosition][mq] || [];
-	                _this2.HeaderData[childPosition][mq][childOrder] = child;
-	            });
-	        }
-	    }, {
-	        key: '_sortCompoents',
-	        value: function _sortCompoents() {
-	            var children = this.props.children;
-	
-	            if (Array.isArray(children)) {
-	                children.map(this._checkSide.bind(this));
-	            } else {
-	                this._checkSide(children);
-	            }
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            this._sortCompoents();
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'header' },
-	                _react2.default.createElement(_Header.HeaderTop, { data: this.HeaderData }),
-	                _react2.default.createElement(_Header.HeaderMain, { data: this.HeaderData }),
-	                _react2.default.createElement(_Header.HeaderBottom, { data: this.HeaderData })
-	            );
-	        }
-	    }]);
-	
-	    return PureHeader;
-	}(_react.Component), _class.propTypes = {
-	    globalState: _react.PropTypes.object.isRequired,
-	    children: _react.PropTypes.array.isRequired
-	}, _temp);
 	exports.default = (0, _reactRedux.connect)(function (state) {
 	    return { globalState: state.headerConfig };
 	})(PureHeader);
@@ -23006,6 +22916,11 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	exports.default = undefined;
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _class, _temp;
 	
 	var _react = __webpack_require__(2);
 	
@@ -23013,82 +22928,113 @@ webpackJsonp([1],{
 	
 	var _reactMatchMedia = __webpack_require__(276);
 	
+	var _ = __webpack_require__(437);
+	
+	var HeaderComponents = _interopRequireWildcard(_);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var HeaderBottom = function HeaderBottom(_ref) {
-	    var data = _ref.data;
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	    return _react2.default.createElement(
-	        'div',
-	        { className: 'headerBottom' },
-	        _react2.default.createElement(
-	            'div',
-	            { className: 'container' },
-	            _react2.default.createElement(
-	                _reactMatchMedia.MatchMedia,
-	                { mediaQuery: '(max-width: 767px)' },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'headerBottom__items' },
-	                    data.BottomLeft ? data.BottomLeft.mobile : ''
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'headerBottom__items' },
-	                    data.BottomCenter ? data.BottomCenter.mobile : ''
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'headerBottom__items' },
-	                    data.BottomRight ? data.BottomRight.mobile : ''
-	                )
-	            ),
-	            _react2.default.createElement(
-	                _reactMatchMedia.MatchMedia,
-	                { mediaQuery: '(min-width: 768px) and (max-width: 1023px)' },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'headerBottom__items' },
-	                    data.BottomLeft ? data.BottomLeft.tablet : ''
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'headerBottom__items' },
-	                    data.BottomCenter ? data.BottomCenter.tablet : ''
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'headerBottom__items' },
-	                    data.BottomRight ? data.BottomRight.tablet : ''
-	                )
-	            ),
-	            _react2.default.createElement(
-	                _reactMatchMedia.MatchMedia,
-	                { mediaQuery: '(min-width: 1024px)' },
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'headerBottom__items' },
-	                    data.BottomLeft ? data.BottomLeft.desktop : ''
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'headerBottom__items' },
-	                    data.BottomCenter ? data.BottomCenter.desktop : ''
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'headerBottom__items' },
-	                    data.BottomRight ? data.BottomRight.desktop : ''
-	                )
-	            )
-	        )
-	    );
-	};
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	HeaderBottom.propTypes = {
-	    data: _react2.default.PropTypes.object.isRequired
-	};
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	var HeaderBottom = (_temp = _class = function (_Component) {
+	    _inherits(HeaderBottom, _Component);
+	
+	    function HeaderBottom() {
+	        _classCallCheck(this, HeaderBottom);
+	
+	        return _possibleConstructorReturn(this, (HeaderBottom.__proto__ || Object.getPrototypeOf(HeaderBottom)).apply(this, arguments));
+	    }
+	
+	    _createClass(HeaderBottom, [{
+	        key: 'shouldComponentUpdate',
+	        value: function shouldComponentUpdate() {
+	            return true;
+	        }
+	    }, {
+	        key: '_returnComponents',
+	        value: function _returnComponents(data) {
+	            return data.toJS().map(function (key, index) {
+	                if (HeaderComponents[key]) {
+	                    return _react2.default.createElement(HeaderComponents[key], { key: index });
+	                } else {
+	                    return null;
+	                }
+	            });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var globalState = this.props.globalState;
+	
+	
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'headerBottom' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'container' },
+	                    _react2.default.createElement(
+	                        _reactMatchMedia.MatchMedia,
+	                        { mediaQuery: '(max-width: 767px)' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'headerBottom__items' },
+	                            this._returnComponents(globalState.getIn(['data', 'mobile', 'Bottom']))
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        _reactMatchMedia.MatchMedia,
+	                        { mediaQuery: '(min-width: 768px) and (max-width: 1023px)' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'headerBottom__items' },
+	                            this._returnComponents(globalState.getIn(['data', 'tablet', 'BottomLeft']))
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'headerBottom__items' },
+	                            this._returnComponents(globalState.getIn(['data', 'tablet', 'BottomCenter']))
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'headerBottom__items' },
+	                            this._returnComponents(globalState.getIn(['data', 'tablet', 'BottomRight']))
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        _reactMatchMedia.MatchMedia,
+	                        { mediaQuery: '(min-width: 1024px)' },
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'headerBottom__items' },
+	                            this._returnComponents(globalState.getIn(['data', 'desktop', 'BottomLeft']))
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'headerBottom__items' },
+	                            this._returnComponents(globalState.getIn(['data', 'desktop', 'BottomCenter']))
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'headerBottom__items' },
+	                            this._returnComponents(globalState.getIn(['data', 'desktop', 'BottomRight']))
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return HeaderBottom;
+	}(_react.Component), _class.propTypes = {
+	    globalState: _react.PropTypes.object.isRequired
+	}, _temp);
 	exports.default = HeaderBottom;
 
 /***/ },
@@ -23113,6 +23059,12 @@ webpackJsonp([1],{
 	
 	var _reactMatchMedia = __webpack_require__(276);
 	
+	var _ = __webpack_require__(437);
+	
+	var HeaderComponents = _interopRequireWildcard(_);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23136,9 +23088,21 @@ webpackJsonp([1],{
 	            return true;
 	        }
 	    }, {
+	        key: '_returnComponents',
+	        value: function _returnComponents(data) {
+	            return data.toJS().map(function (key, index) {
+	                if (HeaderComponents[key]) {
+	                    return _react2.default.createElement(HeaderComponents[key], { key: index });
+	                } else {
+	                    return null;
+	                }
+	            });
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
-	            console.warn(this);
+	            var globalState = this.props.globalState;
+	
 	
 	            return _react2.default.createElement(
 	                'div',
@@ -23152,17 +23116,17 @@ webpackJsonp([1],{
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerTop__items' },
-	                            this.props.data.TopLeft ? this.props.data.TopLeft.mobile : ''
+	                            this._returnComponents(globalState.getIn(['data', 'mobile', 'TopLeft']))
 	                        ),
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerTop__items' },
-	                            this.props.data.TopCenter ? this.props.data.TopCenter.mobile : ''
+	                            this._returnComponents(globalState.getIn(['data', 'mobile', 'TopCenter']))
 	                        ),
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerTop__items' },
-	                            this.props.data.TopRight ? this.props.data.TopRight.mobile : ''
+	                            this._returnComponents(globalState.getIn(['data', 'mobile', 'TopRight']))
 	                        )
 	                    ),
 	                    _react2.default.createElement(
@@ -23171,17 +23135,17 @@ webpackJsonp([1],{
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerTop__items' },
-	                            this.props.data.TopLeft ? this.props.data.TopLeft.tablet : ''
+	                            this._returnComponents(globalState.getIn(['data', 'tablet', 'TopLeft']))
 	                        ),
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerTop__items' },
-	                            this.props.data.TopCenter ? this.props.data.TopCenter.tablet : ''
+	                            this._returnComponents(globalState.getIn(['data', 'tablet', 'TopCenter']))
 	                        ),
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerTop__items' },
-	                            this.props.data.TopRight ? this.props.data.TopRight.tablet : ''
+	                            this._returnComponents(globalState.getIn(['data', 'tablet', 'TopRight']))
 	                        )
 	                    ),
 	                    _react2.default.createElement(
@@ -23190,17 +23154,17 @@ webpackJsonp([1],{
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerTop__items' },
-	                            this.props.data.TopLeft ? this.props.data.TopLeft.desktop : ''
+	                            this._returnComponents(globalState.getIn(['data', 'desktop', 'TopLeft']))
 	                        ),
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerTop__items' },
-	                            this.props.data.TopCenter ? this.props.data.TopCenter.desktop : ''
+	                            this._returnComponents(globalState.getIn(['data', 'desktop', 'TopCenter']))
 	                        ),
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerTop__items' },
-	                            this.props.data.TopRight ? this.props.data.TopRight.desktop : ''
+	                            this._returnComponents(globalState.getIn(['data', 'desktop', 'TopRight']))
 	                        )
 	                    )
 	                )
@@ -23209,10 +23173,8 @@ webpackJsonp([1],{
 	    }]);
 	
 	    return HeaderTop;
-	}(_react.Component), _class.defaultProps = {
-	    name: 'HeaderTop'
-	}, _class.propTypes = {
-	    data: _react2.default.PropTypes.object.isRequired
+	}(_react.Component), _class.propTypes = {
+	    globalState: _react.PropTypes.object.isRequired
 	}, _temp);
 	exports.default = HeaderTop;
 
@@ -23238,6 +23200,12 @@ webpackJsonp([1],{
 	
 	var _reactMatchMedia = __webpack_require__(276);
 	
+	var _ = __webpack_require__(437);
+	
+	var HeaderComponents = _interopRequireWildcard(_);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23261,8 +23229,22 @@ webpackJsonp([1],{
 	            return true;
 	        }
 	    }, {
+	        key: '_returnComponents',
+	        value: function _returnComponents(data) {
+	            return data.toJS().map(function (key, index) {
+	                if (HeaderComponents[key]) {
+	                    return _react2.default.createElement(HeaderComponents[key], { key: index });
+	                } else {
+	                    return null;
+	                }
+	            });
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var globalState = this.props.globalState;
+	
+	
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'headerMain' },
@@ -23275,17 +23257,7 @@ webpackJsonp([1],{
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerMain__items' },
-	                            this.props.data.MainLeft ? this.props.data.MainLeft.mobile : ''
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'headerMain__items' },
-	                            this.props.data.MainCenter ? this.props.data.MainCenter.mobile : ''
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            { className: 'headerMain__items' },
-	                            this.props.data.MainRight ? this.props.data.MainRight.mobile : ''
+	                            this._returnComponents(globalState.getIn(['data', 'mobile', 'Main']))
 	                        )
 	                    ),
 	                    _react2.default.createElement(
@@ -23294,17 +23266,17 @@ webpackJsonp([1],{
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerMain__items' },
-	                            this.props.data.MainLeft ? this.props.data.MainLeft.tablet : ''
+	                            this._returnComponents(globalState.getIn(['data', 'tablet', 'MainLeft']))
 	                        ),
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerMain__items' },
-	                            this.props.data.MainCenter ? this.props.data.MainCenter.tablet : ''
+	                            this._returnComponents(globalState.getIn(['data', 'tablet', 'MainCenter']))
 	                        ),
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerMain__items' },
-	                            this.props.data.MainRight ? this.props.data.MainRight.tablet : ''
+	                            this._returnComponents(globalState.getIn(['data', 'tablet', 'MainRight']))
 	                        )
 	                    ),
 	                    _react2.default.createElement(
@@ -23313,17 +23285,17 @@ webpackJsonp([1],{
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerMain__items' },
-	                            this.props.data.MainLeft ? this.props.data.MainLeft.desktop : ''
+	                            this._returnComponents(globalState.getIn(['data', 'desktop', 'MainLeft']))
 	                        ),
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerMain__items' },
-	                            this.props.data.MainCenter ? this.props.data.MainCenter.desktop : ''
+	                            this._returnComponents(globalState.getIn(['data', 'desktop', 'MainCenter']))
 	                        ),
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'headerMain__items' },
-	                            this.props.data.MainRight ? this.props.data.MainRight.desktop : ''
+	                            this._returnComponents(globalState.getIn(['data', 'desktop', 'MainRight']))
 	                        )
 	                    )
 	                )
@@ -23332,10 +23304,8 @@ webpackJsonp([1],{
 	    }]);
 	
 	    return HeaderMain;
-	}(_react.Component), _class.defaultProps = {
-	    name: 'HeaderMain'
-	}, _class.propTypes = {
-	    data: _react2.default.PropTypes.object.isRequired
+	}(_react.Component), _class.propTypes = {
+	    globalState: _react.PropTypes.object.isRequired
 	}, _temp);
 	exports.default = HeaderMain;
 
@@ -23375,55 +23345,22 @@ webpackJsonp([1],{
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
-	exports.MyAccount = undefined;
+	exports.MyAccount = exports.Wishlist = undefined;
 	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _Wishlist2 = __webpack_require__(438);
 	
-	var _class, _temp;
+	var _Wishlist3 = _interopRequireDefault(_Wishlist2);
 	
-	var _react = __webpack_require__(2);
+	var _MyAccount2 = __webpack_require__(439);
 	
-	var _react2 = _interopRequireDefault(_react);
+	var _MyAccount3 = _interopRequireDefault(_MyAccount2);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var MyAccount = exports.MyAccount = (_temp = _class = function (_Component) {
-	    _inherits(MyAccount, _Component);
-	
-	    function MyAccount() {
-	        _classCallCheck(this, MyAccount);
-	
-	        return _possibleConstructorReturn(this, (MyAccount.__proto__ || Object.getPrototypeOf(MyAccount)).apply(this, arguments));
-	    }
-	
-	    _createClass(MyAccount, [{
-	        key: 'shouldComponentUpdate',
-	        value: function shouldComponentUpdate() {
-	            return true;
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'myAccount' },
-	                ' My Account '
-	            );
-	        }
-	    }]);
-	
-	    return MyAccount;
-	}(_react.Component), _class.defaultProps = {
-	    name: 'MyAccount'
-	}, _temp);
+	exports.Wishlist = _Wishlist3.default;
+	exports.MyAccount = _MyAccount3.default;
 
 /***/ },
 
@@ -23435,7 +23372,7 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.Wishlist = undefined;
+	exports.default = undefined;
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
@@ -23453,7 +23390,7 @@ webpackJsonp([1],{
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var Wishlist = exports.Wishlist = (_temp = _class = function (_Component) {
+	var Wishlist = (_temp = _class = function (_Component) {
 	    _inherits(Wishlist, _Component);
 	
 	    function Wishlist() {
@@ -23482,6 +23419,66 @@ webpackJsonp([1],{
 	}(_react.Component), _class.defaultProps = {
 	    name: 'Wishlist'
 	}, _temp);
+	exports.default = Wishlist;
+
+/***/ },
+
+/***/ 439:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = undefined;
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _class, _temp;
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var MyAccount = (_temp = _class = function (_Component) {
+	    _inherits(MyAccount, _Component);
+	
+	    function MyAccount() {
+	        _classCallCheck(this, MyAccount);
+	
+	        return _possibleConstructorReturn(this, (MyAccount.__proto__ || Object.getPrototypeOf(MyAccount)).apply(this, arguments));
+	    }
+	
+	    _createClass(MyAccount, [{
+	        key: 'shouldComponentUpdate',
+	        value: function shouldComponentUpdate() {
+	            return true;
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'myAccount' },
+	                ' My Account '
+	            );
+	        }
+	    }]);
+	
+	    return MyAccount;
+	}(_react.Component), _class.defaultProps = {
+	    name: 'MyAccount'
+	}, _temp);
+	exports.default = MyAccount;
 
 /***/ }
 

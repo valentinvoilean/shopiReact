@@ -1,50 +1,62 @@
-import React from 'react';
-import { MatchMedia } from 'react-match-media';
+import React, {Component, PropTypes} from 'react';
+import {MatchMedia} from 'react-match-media';
 
-const HeaderBottom = ({data}) => {
-    return (
-        <div className="headerBottom">
-            <div className="container">
-                <MatchMedia mediaQuery={'(max-width: 767px)'}>
-                    <div className="headerBottom__items">
-                        {data.BottomLeft ? data.BottomLeft.mobile : ''}
-                    </div>
-                    <div className="headerBottom__items">
-                        {data.BottomCenter ? data.BottomCenter.mobile : ''}
-                    </div>
-                    <div className="headerBottom__items">
-                        {data.BottomRight ? data.BottomRight.mobile : ''}
-                    </div>
-                </MatchMedia>
-                <MatchMedia mediaQuery={'(min-width: 768px) and (max-width: 1023px)'}>
-                    <div className="headerBottom__items">
-                        {data.BottomLeft ? data.BottomLeft.tablet : ''}
-                    </div>
-                    <div className="headerBottom__items">
-                        {data.BottomCenter ? data.BottomCenter.tablet : ''}
-                    </div>
-                    <div className="headerBottom__items">
-                        {data.BottomRight ? data.BottomRight.tablet : ''}
-                    </div>
-                </MatchMedia>
-                <MatchMedia mediaQuery={'(min-width: 1024px)'}>
-                    <div className="headerBottom__items">
-                        {data.BottomLeft ? data.BottomLeft.desktop : ''}
-                    </div>
-                    <div className="headerBottom__items">
-                        {data.BottomCenter ? data.BottomCenter.desktop : ''}
-                    </div>
-                    <div className="headerBottom__items">
-                        {data.BottomRight ? data.BottomRight.desktop : ''}
-                    </div>
-                </MatchMedia>
+import * as HeaderComponents from '../';
+
+export default class HeaderBottom extends Component {
+    static propTypes = {
+        globalState: PropTypes.object.isRequired
+    };
+
+    shouldComponentUpdate() {
+        return true;
+    }
+
+    _returnComponents(data) {
+        return data.toJS().map((key, index) => {
+            if (HeaderComponents[key]) {
+                return React.createElement(HeaderComponents[key], {key: index});
+            } else {
+                return null;
+            }
+        });
+    }
+
+    render() {
+        const {globalState} = this.props;
+
+        return (
+            <div className="headerBottom">
+                <div className="container">
+                    <MatchMedia mediaQuery={'(max-width: 767px)'}>
+                        <div className="headerBottom__items">
+                            {this._returnComponents(globalState.getIn(['data', 'mobile', 'Bottom']))}
+                        </div>
+                    </MatchMedia>
+                    <MatchMedia mediaQuery={'(min-width: 768px) and (max-width: 1023px)'}>
+                        <div className="headerBottom__items">
+                            {this._returnComponents(globalState.getIn(['data', 'tablet', 'BottomLeft']))}
+                        </div>
+                        <div className="headerBottom__items">
+                            {this._returnComponents(globalState.getIn(['data', 'tablet', 'BottomCenter']))}
+                        </div>
+                        <div className="headerBottom__items">
+                            {this._returnComponents(globalState.getIn(['data', 'tablet', 'BottomRight']))}
+                        </div>
+                    </MatchMedia>
+                    <MatchMedia mediaQuery={'(min-width: 1024px)'}>
+                        <div className="headerBottom__items">
+                            {this._returnComponents(globalState.getIn(['data', 'desktop', 'BottomLeft']))}
+                        </div>
+                        <div className="headerBottom__items">
+                            {this._returnComponents(globalState.getIn(['data', 'desktop', 'BottomCenter']))}
+                        </div>
+                        <div className="headerBottom__items">
+                            {this._returnComponents(globalState.getIn(['data', 'desktop', 'BottomRight']))}
+                        </div>
+                    </MatchMedia>
+                </div>
             </div>
-        </div>
-    );
-};
-
-HeaderBottom.propTypes = {
-    data: React.PropTypes.object.isRequired
-};
-
-export default HeaderBottom;
+        );
+    }
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class MyAccount extends Component {
+export default class MyAccount extends Component {
     static defaultProps = {
         name: 'MyAccount'
     };

@@ -6,17 +6,12 @@ import configureStore from 'App/store/configureStore';
 
 import Header from './features/Header';
 import Footer from './features/Footer';
-import {MyAccount} from './features/Header/components/MyAccount/MyAccount';
-import {Wishlist} from './features/Header/components/Wishlist/Wishlist';
 
 const store = configureStore();
 
 ReactDOM.render(
     <Provider store={store}>
-        <Header>
-            <MyAccount />
-            <Wishlist />
-        </Header>
+        <Header />
     </Provider>
     , document.getElementsByTagName('header')[0]);
 

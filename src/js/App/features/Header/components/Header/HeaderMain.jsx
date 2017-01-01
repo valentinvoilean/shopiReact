@@ -1,54 +1,58 @@
-import React, { Component } from 'react';
+import React, {Component, PropTypes} from 'react';
 import {MatchMedia} from 'react-match-media';
 
-export default class HeaderMain extends Component {
-    static defaultProps = {
-        name: 'HeaderMain'
-    };
+import * as HeaderComponents from '../';
 
+export default class HeaderMain extends Component {
     static propTypes = {
-        data: React.PropTypes.object.isRequired
+        globalState: PropTypes.object.isRequired
     };
 
     shouldComponentUpdate() {
         return true;
     }
 
+    _returnComponents(data) {
+        return data.toJS().map((key, index) => {
+            if (HeaderComponents[key]) {
+                return React.createElement(HeaderComponents[key], {key: index});
+            } else {
+                return null;
+            }
+        });
+    }
+
     render() {
+        const {globalState} = this.props;
+
         return (
             <div className="headerMain">
                 <div className="container">
                     <MatchMedia mediaQuery={'(max-width: 767px)'}>
                         <div className="headerMain__items">
-                            {this.props.data.MainLeft ? this.props.data.MainLeft.mobile : ''}
-                        </div>
-                        <div className="headerMain__items">
-                            {this.props.data.MainCenter ? this.props.data.MainCenter.mobile : ''}
-                        </div>
-                        <div className="headerMain__items">
-                            {this.props.data.MainRight ? this.props.data.MainRight.mobile : ''}
+                            {this._returnComponents(globalState.getIn(['data', 'mobile', 'Main']))}
                         </div>
                     </MatchMedia>
                     <MatchMedia mediaQuery={'(min-width: 768px) and (max-width: 1023px)'}>
                         <div className="headerMain__items">
-                            {this.props.data.MainLeft ? this.props.data.MainLeft.tablet : ''}
+                            {this._returnComponents(globalState.getIn(['data', 'tablet', 'MainLeft']))}
                         </div>
                         <div className="headerMain__items">
-                            {this.props.data.MainCenter ? this.props.data.MainCenter.tablet : ''}
+                            {this._returnComponents(globalState.getIn(['data', 'tablet', 'MainCenter']))}
                         </div>
                         <div className="headerMain__items">
-                            {this.props.data.MainRight ? this.props.data.MainRight.tablet : ''}
+                            {this._returnComponents(globalState.getIn(['data', 'tablet', 'MainRight']))}
                         </div>
                     </MatchMedia>
                     <MatchMedia mediaQuery={'(min-width: 1024px)'}>
                         <div className="headerMain__items">
-                            {this.props.data.MainLeft ? this.props.data.MainLeft.desktop : ''}
+                            {this._returnComponents(globalState.getIn(['data', 'desktop', 'MainLeft']))}
                         </div>
                         <div className="headerMain__items">
-                            {this.props.data.MainCenter ? this.props.data.MainCenter.desktop : ''}
+                            {this._returnComponents(globalState.getIn(['data', 'desktop', 'MainCenter']))}
                         </div>
                         <div className="headerMain__items">
-                            {this.props.data.MainRight ? this.props.data.MainRight.desktop : ''}
+                            {this._returnComponents(globalState.getIn(['data', 'desktop', 'MainRight']))}
                         </div>
                     </MatchMedia>
                 </div>
