@@ -1,12 +1,7 @@
 import React from 'react';
-import {mount} from 'enzyme';
+import {shallow} from 'enzyme';
 
 import Row from './Row';
-
-jest.mock('HeaderConfig/components');
-
-const components = require('HeaderConfig/components');
-components.Cell = jest.fn(() => null);
 
 describe('Row', () => {
 
@@ -17,9 +12,9 @@ describe('Row', () => {
             actions: {},
             mediaQuery: 'mobile'
         };
-        const wrapper = mount(<Row {...props} />);
+        const wrapper = shallow(<Row {...props} />);
 
-        expect(wrapper.find(components.Cell).length === 3).toBeTruthy();
+        expect(wrapper.find('Cell')).toHaveLength(3);
     });
 
     it('should render only 1 cell if is on mobile Center position', () => {
@@ -29,9 +24,9 @@ describe('Row', () => {
             actions: {},
             mediaQuery: 'mobile'
         };
-        const wrapper = mount(<Row {...props} />);
+        const wrapper = shallow(<Row {...props} />);
 
-        expect(wrapper.find(components.Cell).length === 1).toBeTruthy();
+        expect(wrapper.find('Cell')).toHaveLength(1);
     });
 
     it('should render only 1 cell if is on mobile Bottom position', () => {
@@ -41,9 +36,9 @@ describe('Row', () => {
             actions: {},
             mediaQuery: 'mobile'
         };
-        const wrapper = mount(<Row {...props} />);
+        const wrapper = shallow(<Row {...props} />);
 
-        expect(wrapper.find(components.Cell).length === 1).toBeTruthy();
+        expect(wrapper.find('Cell')).toHaveLength(1);
     });
 
     it('should render 3 cells if is not mobile', () => {
@@ -53,15 +48,15 @@ describe('Row', () => {
             actions: {},
             mediaQuery: 'tablet'
         };
-        let wrapper = mount(<Row {...props} />);
-        expect(wrapper.find(components.Cell).length === 3).toBeTruthy();
+        let wrapper = shallow(<Row {...props} />);
+        expect(wrapper.find('Cell')).toHaveLength(3);
 
         props.pos = 1;
-        wrapper = mount(<Row {...props} />);
-        expect(wrapper.find(components.Cell).length === 3).toBeTruthy();
+        wrapper = shallow(<Row {...props} />);
+        expect(wrapper.find('Cell')).toHaveLength(3);
 
         props.pos = 2;
-        wrapper = mount(<Row {...props} />);
-        expect(wrapper.find(components.Cell).length === 3).toBeTruthy();
+        wrapper = shallow(<Row {...props} />);
+        expect(wrapper.find('Cell')).toHaveLength(3);
     });
 });

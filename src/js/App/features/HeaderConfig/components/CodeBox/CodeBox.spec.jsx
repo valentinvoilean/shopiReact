@@ -1,8 +1,9 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
-jest.unmock('HeaderConfig/components');
+jest.unmock('HeaderConfig/components/CodeBox');
 jest.unmock('common/constants/headerSettings');
+
 import CodeBox from './CodeBox';
 
 describe('Codebox', () => {
@@ -31,7 +32,7 @@ describe('Codebox', () => {
     });
 
     it('should update the button class on click', () => {
-        wrapper.instance()._handleCopy();
+        wrapper.instance().handleCopy();
         expect(wrapper.state().copied).toBe(true);
     });
 
