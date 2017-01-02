@@ -5735,7 +5735,7 @@ webpackJsonp([1],{
 	  var undefined;
 	
 	  /** Used as the semantic version number. */
-	  var VERSION = '4.17.2';
+	  var VERSION = '4.17.4';
 	
 	  /** Used as the size to enable large array optimizations. */
 	  var LARGE_ARRAY_SIZE = 200;
@@ -7290,9 +7290,9 @@ webpackJsonp([1],{
 	     * Shortcut fusion is an optimization to merge iteratee calls; this avoids
 	     * the creation of intermediate arrays and can greatly reduce the number of
 	     * iteratee executions. Sections of a chain sequence qualify for shortcut
-	     * fusion if the section is applied to an array of at least `200` elements
-	     * and any iteratees accept only one argument. The heuristic for whether a
-	     * section qualifies for shortcut fusion is subject to change.
+	     * fusion if the section is applied to an array and iteratees accept only
+	     * one argument. The heuristic for whether a section qualifies for shortcut
+	     * fusion is subject to change.
 	     *
 	     * Chaining is supported in custom builds as long as the `_#value` method is
 	     * directly or indirectly included in the build.
@@ -7451,8 +7451,8 @@ webpackJsonp([1],{
 	
 	    /**
 	     * By default, the template delimiters used by lodash are like those in
-	     * embedded Ruby (ERB). Change the following template settings to use
-	     * alternative delimiters.
+	     * embedded Ruby (ERB) as well as ES2015 template strings. Change the
+	     * following template settings to use alternative delimiters.
 	     *
 	     * @static
 	     * @memberOf _
@@ -7599,8 +7599,7 @@ webpackJsonp([1],{
 	          resIndex = 0,
 	          takeCount = nativeMin(length, this.__takeCount__);
 	
-	      if (!isArr || arrLength < LARGE_ARRAY_SIZE ||
-	          (arrLength == length && takeCount == length)) {
+	      if (!isArr || (!isRight && arrLength == length && takeCount == length)) {
 	        return baseWrapperValue(array, this.__actions__);
 	      }
 	      var result = [];
@@ -7714,7 +7713,7 @@ webpackJsonp([1],{
 	     */
 	    function hashHas(key) {
 	      var data = this.__data__;
-	      return nativeCreate ? data[key] !== undefined : hasOwnProperty.call(data, key);
+	      return nativeCreate ? (data[key] !== undefined) : hasOwnProperty.call(data, key);
 	    }
 	
 	    /**
@@ -8185,24 +8184,6 @@ webpackJsonp([1],{
 	     */
 	    function arrayShuffle(array) {
 	      return shuffleSelf(copyArray(array));
-	    }
-	
-	    /**
-	     * Used by `_.defaults` to customize its `_.assignIn` use.
-	     *
-	     * @private
-	     * @param {*} objValue The destination value.
-	     * @param {*} srcValue The source value.
-	     * @param {string} key The key of the property to assign.
-	     * @param {Object} object The parent object of `objValue`.
-	     * @returns {*} Returns the value to assign.
-	     */
-	    function assignInDefaults(objValue, srcValue, key, object) {
-	      if (objValue === undefined ||
-	          (eq(objValue, objectProto[key]) && !hasOwnProperty.call(object, key))) {
-	        return srcValue;
-	      }
-	      return objValue;
 	    }
 	
 	    /**
@@ -8817,8 +8798,7 @@ webpackJsonp([1],{
 	      if (value == null) {
 	        return value === undefined ? undefinedTag : nullTag;
 	      }
-	      value = Object(value);
-	      return (symToStringTag && symToStringTag in value)
+	      return (symToStringTag && symToStringTag in Object(value))
 	        ? getRawTag(value)
 	        : objectToString(value);
 	    }
@@ -9022,7 +9002,7 @@ webpackJsonp([1],{
 	      if (value === other) {
 	        return true;
 	      }
-	      if (value == null || other == null || (!isObject(value) && !isObjectLike(other))) {
+	      if (value == null || other == null || (!isObjectLike(value) && !isObjectLike(other))) {
 	        return value !== value && other !== other;
 	      }
 	      return baseIsEqualDeep(value, other, bitmask, customizer, baseIsEqual, stack);
@@ -9045,17 +9025,12 @@ webpackJsonp([1],{
 	    function baseIsEqualDeep(object, other, bitmask, customizer, equalFunc, stack) {
 	      var objIsArr = isArray(object),
 	          othIsArr = isArray(other),
-	          objTag = arrayTag,
-	          othTag = arrayTag;
+	          objTag = objIsArr ? arrayTag : getTag(object),
+	          othTag = othIsArr ? arrayTag : getTag(other);
 	
-	      if (!objIsArr) {
-	        objTag = getTag(object);
-	        objTag = objTag == argsTag ? objectTag : objTag;
-	      }
-	      if (!othIsArr) {
-	        othTag = getTag(other);
-	        othTag = othTag == argsTag ? objectTag : othTag;
-	      }
+	      objTag = objTag == argsTag ? objectTag : objTag;
+	      othTag = othTag == argsTag ? objectTag : othTag;
+	
 	      var objIsObj = objTag == objectTag,
 	          othIsObj = othTag == objectTag,
 	          isSameTag = objTag == othTag;
@@ -9503,7 +9478,6 @@ webpackJsonp([1],{
 	     * @returns {Object} Returns the new object.
 	     */
 	    function basePick(object, paths) {
-	      object = Object(object);
 	      return basePickBy(object, paths, function(value, path) {
 	        return hasIn(object, path);
 	      });
@@ -10896,8 +10870,7 @@ webpackJsonp([1],{
 	          var args = arguments,
 	              value = args[0];
 	
-	          if (wrapper && args.length == 1 &&
-	              isArray(value) && value.length >= LARGE_ARRAY_SIZE) {
+	          if (wrapper && args.length == 1 && isArray(value)) {
 	            return wrapper.plant(value).value();
 	          }
 	          var index = 0,
@@ -11204,7 +11177,7 @@ webpackJsonp([1],{
 	      var func = Math[methodName];
 	      return function(number, precision) {
 	        number = toNumber(number);
-	        precision = nativeMin(toInteger(precision), 292);
+	        precision = precision == null ? 0 : nativeMin(toInteger(precision), 292);
 	        if (precision) {
 	          // Shift with exponential notation to avoid floating-point issues.
 	          // See [MDN](https://mdn.io/round#Examples) for more details.
@@ -11309,7 +11282,7 @@ webpackJsonp([1],{
 	      thisArg = newData[2];
 	      partials = newData[3];
 	      holders = newData[4];
-	      arity = newData[9] = newData[9] == null
+	      arity = newData[9] = newData[9] === undefined
 	        ? (isBindKey ? 0 : func.length)
 	        : nativeMax(newData[9] - length, 0);
 	
@@ -11327,6 +11300,63 @@ webpackJsonp([1],{
 	      }
 	      var setter = data ? baseSetData : setData;
 	      return setWrapToString(setter(result, newData), func, bitmask);
+	    }
+	
+	    /**
+	     * Used by `_.defaults` to customize its `_.assignIn` use to assign properties
+	     * of source objects to the destination object for all destination properties
+	     * that resolve to `undefined`.
+	     *
+	     * @private
+	     * @param {*} objValue The destination value.
+	     * @param {*} srcValue The source value.
+	     * @param {string} key The key of the property to assign.
+	     * @param {Object} object The parent object of `objValue`.
+	     * @returns {*} Returns the value to assign.
+	     */
+	    function customDefaultsAssignIn(objValue, srcValue, key, object) {
+	      if (objValue === undefined ||
+	          (eq(objValue, objectProto[key]) && !hasOwnProperty.call(object, key))) {
+	        return srcValue;
+	      }
+	      return objValue;
+	    }
+	
+	    /**
+	     * Used by `_.defaultsDeep` to customize its `_.merge` use to merge source
+	     * objects into destination objects that are passed thru.
+	     *
+	     * @private
+	     * @param {*} objValue The destination value.
+	     * @param {*} srcValue The source value.
+	     * @param {string} key The key of the property to merge.
+	     * @param {Object} object The parent object of `objValue`.
+	     * @param {Object} source The parent object of `srcValue`.
+	     * @param {Object} [stack] Tracks traversed source values and their merged
+	     *  counterparts.
+	     * @returns {*} Returns the value to assign.
+	     */
+	    function customDefaultsMerge(objValue, srcValue, key, object, source, stack) {
+	      if (isObject(objValue) && isObject(srcValue)) {
+	        // Recursively merge objects and arrays (susceptible to call stack limits).
+	        stack.set(srcValue, objValue);
+	        baseMerge(objValue, srcValue, undefined, customDefaultsMerge, stack);
+	        stack['delete'](srcValue);
+	      }
+	      return objValue;
+	    }
+	
+	    /**
+	     * Used by `_.omit` to customize its `_.cloneDeep` use to only clone plain
+	     * objects.
+	     *
+	     * @private
+	     * @param {*} value The value to inspect.
+	     * @param {string} key The key of the property to inspect.
+	     * @returns {*} Returns the uncloned value or `undefined` to defer cloning to `_.cloneDeep`.
+	     */
+	    function customOmitClone(value) {
+	      return isPlainObject(value) ? undefined : value;
 	    }
 	
 	    /**
@@ -11500,9 +11530,9 @@ webpackJsonp([1],{
 	     */
 	    function equalObjects(object, other, bitmask, customizer, equalFunc, stack) {
 	      var isPartial = bitmask & COMPARE_PARTIAL_FLAG,
-	          objProps = keys(object),
+	          objProps = getAllKeys(object),
 	          objLength = objProps.length,
-	          othProps = keys(other),
+	          othProps = getAllKeys(other),
 	          othLength = othProps.length;
 	
 	      if (objLength != othLength && !isPartial) {
@@ -11740,7 +11770,15 @@ webpackJsonp([1],{
 	     * @param {Object} object The object to query.
 	     * @returns {Array} Returns the array of symbols.
 	     */
-	    var getSymbols = nativeGetSymbols ? overArg(nativeGetSymbols, Object) : stubArray;
+	    var getSymbols = !nativeGetSymbols ? stubArray : function(object) {
+	      if (object == null) {
+	        return [];
+	      }
+	      object = Object(object);
+	      return arrayFilter(nativeGetSymbols(object), function(symbol) {
+	        return propertyIsEnumerable.call(object, symbol);
+	      });
+	    };
 	
 	    /**
 	     * Creates an array of the own and inherited enumerable symbols of `object`.
@@ -12224,29 +12262,6 @@ webpackJsonp([1],{
 	      data[1] = newBitmask;
 	
 	      return data;
-	    }
-	
-	    /**
-	     * Used by `_.defaultsDeep` to customize its `_.merge` use.
-	     *
-	     * @private
-	     * @param {*} objValue The destination value.
-	     * @param {*} srcValue The source value.
-	     * @param {string} key The key of the property to merge.
-	     * @param {Object} object The parent object of `objValue`.
-	     * @param {Object} source The parent object of `srcValue`.
-	     * @param {Object} [stack] Tracks traversed source values and their merged
-	     *  counterparts.
-	     * @returns {*} Returns the value to assign.
-	     */
-	    function mergeDefaults(objValue, srcValue, key, object, source, stack) {
-	      if (isObject(objValue) && isObject(srcValue)) {
-	        // Recursively merge objects and arrays (susceptible to call stack limits).
-	        stack.set(srcValue, objValue);
-	        baseMerge(objValue, srcValue, undefined, mergeDefaults, stack);
-	        stack['delete'](srcValue);
-	      }
-	      return objValue;
 	    }
 	
 	    /**
@@ -13991,7 +14006,7 @@ webpackJsonp([1],{
 	     *
 	     * var users = [
 	     *   { 'user': 'barney',  'active': false },
-	     *   { 'user': 'fred',    'active': false},
+	     *   { 'user': 'fred',    'active': false },
 	     *   { 'user': 'pebbles', 'active': true }
 	     * ];
 	     *
@@ -16560,7 +16575,7 @@ webpackJsonp([1],{
 	      if (typeof func != 'function') {
 	        throw new TypeError(FUNC_ERROR_TEXT);
 	      }
-	      start = start === undefined ? 0 : nativeMax(toInteger(start), 0);
+	      start = start == null ? 0 : nativeMax(toInteger(start), 0);
 	      return baseRest(function(args) {
 	        var array = args[start],
 	            otherArgs = castSlice(args, 0, start);
@@ -17230,7 +17245,7 @@ webpackJsonp([1],{
 	     * date objects, error objects, maps, numbers, `Object` objects, regexes,
 	     * sets, strings, symbols, and typed arrays. `Object` objects are compared
 	     * by their own, not inherited, enumerable properties. Functions and DOM
-	     * nodes are **not** supported.
+	     * nodes are compared by strict equality, i.e. `===`.
 	     *
 	     * @static
 	     * @memberOf _
@@ -18250,7 +18265,9 @@ webpackJsonp([1],{
 	     * // => 3
 	     */
 	    function toSafeInteger(value) {
-	      return baseClamp(toInteger(value), -MAX_SAFE_INTEGER, MAX_SAFE_INTEGER);
+	      return value
+	        ? baseClamp(toInteger(value), -MAX_SAFE_INTEGER, MAX_SAFE_INTEGER)
+	        : (value === 0 ? value : 0);
 	    }
 	
 	    /**
@@ -18504,7 +18521,7 @@ webpackJsonp([1],{
 	     * // => { 'a': 1, 'b': 2 }
 	     */
 	    var defaults = baseRest(function(args) {
-	      args.push(undefined, assignInDefaults);
+	      args.push(undefined, customDefaultsAssignIn);
 	      return apply(assignInWith, undefined, args);
 	    });
 	
@@ -18528,7 +18545,7 @@ webpackJsonp([1],{
 	     * // => { 'a': { 'b': 2, 'c': 3 } }
 	     */
 	    var defaultsDeep = baseRest(function(args) {
-	      args.push(undefined, mergeDefaults);
+	      args.push(undefined, customDefaultsMerge);
 	      return apply(mergeWith, undefined, args);
 	    });
 	
@@ -19190,7 +19207,7 @@ webpackJsonp([1],{
 	      });
 	      copyObject(object, getAllKeysIn(object), result);
 	      if (isDeep) {
-	        result = baseClone(result, CLONE_DEEP_FLAG | CLONE_FLAT_FLAG | CLONE_SYMBOLS_FLAG);
+	        result = baseClone(result, CLONE_DEEP_FLAG | CLONE_FLAT_FLAG | CLONE_SYMBOLS_FLAG, customOmitClone);
 	      }
 	      var length = paths.length;
 	      while (length--) {
@@ -20339,7 +20356,10 @@ webpackJsonp([1],{
 	     */
 	    function startsWith(string, target, position) {
 	      string = toString(string);
-	      position = baseClamp(toInteger(position), 0, string.length);
+	      position = position == null
+	        ? 0
+	        : baseClamp(toInteger(position), 0, string.length);
+	
 	      target = baseToString(target);
 	      return string.slice(position, position + target.length) == target;
 	    }
@@ -20458,9 +20478,9 @@ webpackJsonp([1],{
 	        options = undefined;
 	      }
 	      string = toString(string);
-	      options = assignInWith({}, options, settings, assignInDefaults);
+	      options = assignInWith({}, options, settings, customDefaultsAssignIn);
 	
-	      var imports = assignInWith({}, options.imports, settings.imports, assignInDefaults),
+	      var imports = assignInWith({}, options.imports, settings.imports, customDefaultsAssignIn),
 	          importsKeys = keys(imports),
 	          importsValues = baseValues(imports, importsKeys);
 	
@@ -22544,14 +22564,13 @@ webpackJsonp([1],{
 	    // Add `LazyWrapper` methods for `_.drop` and `_.take` variants.
 	    arrayEach(['drop', 'take'], function(methodName, index) {
 	      LazyWrapper.prototype[methodName] = function(n) {
-	        var filtered = this.__filtered__;
-	        if (filtered && !index) {
-	          return new LazyWrapper(this);
-	        }
 	        n = n === undefined ? 1 : nativeMax(toInteger(n), 0);
 	
-	        var result = this.clone();
-	        if (filtered) {
+	        var result = (this.__filtered__ && !index)
+	          ? new LazyWrapper(this)
+	          : this.clone();
+	
+	        if (result.__filtered__) {
 	          result.__takeCount__ = nativeMin(n, result.__takeCount__);
 	        } else {
 	          result.__views__.push({
@@ -22814,7 +22833,7 @@ webpackJsonp([1],{
 	
 	var _Header2 = _interopRequireDefault(_Header);
 	
-	var _Footer = __webpack_require__(439);
+	var _Footer = __webpack_require__(446);
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
 	
@@ -22852,9 +22871,9 @@ webpackJsonp([1],{
 	
 	var _reactRedux = __webpack_require__(179);
 	
-	var _reactMatchMedia = __webpack_require__(276);
+	var _reactMatchMedia = __webpack_require__(274);
 	
-	var _components = __webpack_require__(434);
+	var _components = __webpack_require__(432);
 	
 	var HeaderComponents = _interopRequireWildcard(_components);
 	
@@ -23067,7 +23086,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 434:
+/***/ 432:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23077,7 +23096,7 @@ webpackJsonp([1],{
 	});
 	exports.CustomLink4 = exports.CustomLink3 = exports.CustomLink2 = exports.CustomLink1 = exports.SocialIcons = exports.Language = exports.Currency = exports.Breadcrumb = exports.Search = exports.WelcomeMessage = exports.Cart = exports.MenuIcon = exports.Menu = exports.Logo = exports.MyAccount = exports.Wishlist = undefined;
 	
-	var _CustomLink = __webpack_require__(752);
+	var _CustomLink = __webpack_require__(433);
 	
 	Object.defineProperty(exports, 'CustomLink1', {
 	  enumerable: true,
@@ -23104,51 +23123,51 @@ webpackJsonp([1],{
 	  }
 	});
 	
-	var _Wishlist2 = __webpack_require__(435);
+	var _Wishlist2 = __webpack_require__(434);
 	
 	var _Wishlist3 = _interopRequireDefault(_Wishlist2);
 	
-	var _MyAccount2 = __webpack_require__(436);
+	var _MyAccount2 = __webpack_require__(435);
 	
 	var _MyAccount3 = _interopRequireDefault(_MyAccount2);
 	
-	var _Logo2 = __webpack_require__(742);
+	var _Logo2 = __webpack_require__(436);
 	
 	var _Logo3 = _interopRequireDefault(_Logo2);
 	
-	var _Menu2 = __webpack_require__(743);
+	var _Menu2 = __webpack_require__(437);
 	
 	var _Menu3 = _interopRequireDefault(_Menu2);
 	
-	var _MenuIcon2 = __webpack_require__(746);
+	var _MenuIcon2 = __webpack_require__(438);
 	
 	var _MenuIcon3 = _interopRequireDefault(_MenuIcon2);
 	
-	var _Cart2 = __webpack_require__(744);
+	var _Cart2 = __webpack_require__(439);
 	
 	var _Cart3 = _interopRequireDefault(_Cart2);
 	
-	var _WelcomeMessage2 = __webpack_require__(745);
+	var _WelcomeMessage2 = __webpack_require__(440);
 	
 	var _WelcomeMessage3 = _interopRequireDefault(_WelcomeMessage2);
 	
-	var _Search2 = __webpack_require__(747);
+	var _Search2 = __webpack_require__(441);
 	
 	var _Search3 = _interopRequireDefault(_Search2);
 	
-	var _Breadcrumb2 = __webpack_require__(748);
+	var _Breadcrumb2 = __webpack_require__(442);
 	
 	var _Breadcrumb3 = _interopRequireDefault(_Breadcrumb2);
 	
-	var _Currency2 = __webpack_require__(749);
+	var _Currency2 = __webpack_require__(443);
 	
 	var _Currency3 = _interopRequireDefault(_Currency2);
 	
-	var _Language2 = __webpack_require__(750);
+	var _Language2 = __webpack_require__(444);
 	
 	var _Language3 = _interopRequireDefault(_Language2);
 	
-	var _SocialIcons2 = __webpack_require__(751);
+	var _SocialIcons2 = __webpack_require__(445);
 	
 	var _SocialIcons3 = _interopRequireDefault(_SocialIcons2);
 	
@@ -23169,7 +23188,38 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 435:
+/***/ 433:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.CustomLink4 = exports.CustomLink3 = exports.CustomLink2 = exports.CustomLink1 = exports.CustomLink = undefined;
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var CustomLink = exports.CustomLink = function CustomLink() {
+	    return _react2.default.createElement(
+	        'span',
+	        null,
+	        'CustomLink'
+	    );
+	};
+	
+	var CustomLink1 = exports.CustomLink1 = CustomLink;
+	var CustomLink2 = exports.CustomLink2 = CustomLink;
+	var CustomLink3 = exports.CustomLink3 = CustomLink;
+	var CustomLink4 = exports.CustomLink4 = CustomLink;
+
+/***/ },
+
+/***/ 434:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23228,7 +23278,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 436:
+/***/ 435:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23287,35 +23337,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 439:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.default = Footer;
-	
-	var _react = __webpack_require__(2);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function Footer() {
-	    return _react2.default.createElement(
-	        'div',
-	        null,
-	        ' I am the footer!! '
-	    );
-	}
-	
-	Footer.displayName = 'Footer';
-
-/***/ },
-
-/***/ 742:
+/***/ 436:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23342,7 +23364,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 743:
+/***/ 437:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23369,61 +23391,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 744:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _react = __webpack_require__(2);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Cart = function Cart() {
-	    return _react2.default.createElement(
-	        'span',
-	        null,
-	        'Cart'
-	    );
-	};
-	
-	exports.default = Cart;
-
-/***/ },
-
-/***/ 745:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _react = __webpack_require__(2);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var WelcomeMessage = function WelcomeMessage() {
-	    return _react2.default.createElement(
-	        'span',
-	        null,
-	        'WelcomeMessage'
-	    );
-	};
-	
-	exports.default = WelcomeMessage;
-
-/***/ },
-
-/***/ 746:
+/***/ 438:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23450,7 +23418,61 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 747:
+/***/ 439:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Cart = function Cart() {
+	    return _react2.default.createElement(
+	        'span',
+	        null,
+	        'Cart'
+	    );
+	};
+	
+	exports.default = Cart;
+
+/***/ },
+
+/***/ 440:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var WelcomeMessage = function WelcomeMessage() {
+	    return _react2.default.createElement(
+	        'span',
+	        null,
+	        'WelcomeMessage'
+	    );
+	};
+	
+	exports.default = WelcomeMessage;
+
+/***/ },
+
+/***/ 441:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23477,7 +23499,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 748:
+/***/ 442:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23504,7 +23526,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 749:
+/***/ 443:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23531,7 +23553,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 750:
+/***/ 444:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23558,7 +23580,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 751:
+/***/ 445:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23585,7 +23607,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 752:
+/***/ 446:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23593,7 +23615,7 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.CustomLink4 = exports.CustomLink3 = exports.CustomLink2 = exports.CustomLink1 = exports.CustomLink = undefined;
+	exports.default = Footer;
 	
 	var _react = __webpack_require__(2);
 	
@@ -23601,18 +23623,15 @@ webpackJsonp([1],{
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var CustomLink = exports.CustomLink = function CustomLink() {
+	function Footer() {
 	    return _react2.default.createElement(
-	        'span',
+	        'div',
 	        null,
-	        'CustomLink'
+	        ' I am the footer!! '
 	    );
-	};
+	}
 	
-	var CustomLink1 = exports.CustomLink1 = CustomLink;
-	var CustomLink2 = exports.CustomLink2 = CustomLink;
-	var CustomLink3 = exports.CustomLink3 = CustomLink;
-	var CustomLink4 = exports.CustomLink4 = CustomLink;
+	Footer.displayName = 'Footer';
 
 /***/ }
 
