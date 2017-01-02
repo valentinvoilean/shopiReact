@@ -51760,7 +51760,7 @@
 	
 	})(window, document);
 	module.exports = window.Modernizr;
-	})(window);
+	})({});
 
 /***/ },
 /* 744 */

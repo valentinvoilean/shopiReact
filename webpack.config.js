@@ -55,7 +55,7 @@ export default {
         loaders: [
             {test: /\.jsx?$/, include: `${__dirname}/src/js`, loader: 'babel-loader'},
             {test: /\.svg$/, loader: 'svg-sprite'},
-            {test: /\.modernizrrc$/, loader: 'modernizr'},
+            {test: /\.modernizrrc$/, loader: 'modernizr!json'},
             {test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file'},
             {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url?limit=10000&mimetype=application/font-woff'},
             {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
