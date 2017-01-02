@@ -3,7 +3,7 @@ webpackJsonp([1],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(272);
+	module.exports = __webpack_require__(277);
 
 
 /***/ },
@@ -22810,7 +22810,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 272:
+/***/ 277:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22829,11 +22829,11 @@ webpackJsonp([1],{
 	
 	var _configureStore2 = _interopRequireDefault(_configureStore);
 	
-	var _Header = __webpack_require__(273);
+	var _Header = __webpack_require__(278);
 	
 	var _Header2 = _interopRequireDefault(_Header);
 	
-	var _Footer = __webpack_require__(446);
+	var _Footer = __webpack_require__(463);
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
 	
@@ -22855,7 +22855,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 273:
+/***/ 278:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22871,9 +22871,9 @@ webpackJsonp([1],{
 	
 	var _reactRedux = __webpack_require__(179);
 	
-	var _reactMatchMedia = __webpack_require__(274);
+	var _reactMatchMedia = __webpack_require__(279);
 	
-	var _components = __webpack_require__(432);
+	var _components = __webpack_require__(437);
 	
 	var HeaderComponents = _interopRequireWildcard(_components);
 	
@@ -23086,7 +23086,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 432:
+/***/ 437:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23095,7 +23095,7 @@ webpackJsonp([1],{
 	  value: true
 	});
 	
-	var _Wishlist = __webpack_require__(749);
+	var _Wishlist = __webpack_require__(438);
 	
 	Object.defineProperty(exports, 'Wishlist', {
 	  enumerable: true,
@@ -23104,7 +23104,7 @@ webpackJsonp([1],{
 	  }
 	});
 	
-	var _MyAccount = __webpack_require__(750);
+	var _MyAccount = __webpack_require__(440);
 	
 	Object.defineProperty(exports, 'MyAccount', {
 	  enumerable: true,
@@ -23113,7 +23113,7 @@ webpackJsonp([1],{
 	  }
 	});
 	
-	var _Logo = __webpack_require__(751);
+	var _Logo = __webpack_require__(442);
 	
 	Object.defineProperty(exports, 'Logo', {
 	  enumerable: true,
@@ -23122,7 +23122,7 @@ webpackJsonp([1],{
 	  }
 	});
 	
-	var _Menu = __webpack_require__(752);
+	var _Menu = __webpack_require__(444);
 	
 	Object.defineProperty(exports, 'Menu', {
 	  enumerable: true,
@@ -23137,7 +23137,7 @@ webpackJsonp([1],{
 	  }
 	});
 	
-	var _Cart = __webpack_require__(753);
+	var _Cart = __webpack_require__(447);
 	
 	Object.defineProperty(exports, 'Cart', {
 	  enumerable: true,
@@ -23146,7 +23146,7 @@ webpackJsonp([1],{
 	  }
 	});
 	
-	var _WelcomeMessage = __webpack_require__(754);
+	var _WelcomeMessage = __webpack_require__(449);
 	
 	Object.defineProperty(exports, 'WelcomeMessage', {
 	  enumerable: true,
@@ -23155,7 +23155,7 @@ webpackJsonp([1],{
 	  }
 	});
 	
-	var _Search = __webpack_require__(755);
+	var _Search = __webpack_require__(451);
 	
 	Object.defineProperty(exports, 'Search', {
 	  enumerable: true,
@@ -23164,7 +23164,7 @@ webpackJsonp([1],{
 	  }
 	});
 	
-	var _Breadcrumb = __webpack_require__(756);
+	var _Breadcrumb = __webpack_require__(453);
 	
 	Object.defineProperty(exports, 'Breadcrumb', {
 	  enumerable: true,
@@ -23173,7 +23173,7 @@ webpackJsonp([1],{
 	  }
 	});
 	
-	var _Currency = __webpack_require__(757);
+	var _Currency = __webpack_require__(455);
 	
 	Object.defineProperty(exports, 'Currency', {
 	  enumerable: true,
@@ -23182,7 +23182,7 @@ webpackJsonp([1],{
 	  }
 	});
 	
-	var _Language = __webpack_require__(758);
+	var _Language = __webpack_require__(457);
 	
 	Object.defineProperty(exports, 'Language', {
 	  enumerable: true,
@@ -23191,7 +23191,7 @@ webpackJsonp([1],{
 	  }
 	});
 	
-	var _SocialIcons = __webpack_require__(759);
+	var _SocialIcons = __webpack_require__(459);
 	
 	Object.defineProperty(exports, 'SocialIcons', {
 	  enumerable: true,
@@ -23200,7 +23200,7 @@ webpackJsonp([1],{
 	  }
 	});
 	
-	var _CustomLink = __webpack_require__(760);
+	var _CustomLink = __webpack_require__(461);
 	
 	Object.defineProperty(exports, 'CustomLink1', {
 	  enumerable: true,
@@ -23229,7 +23229,582 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 433:
+/***/ 438:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Wishlist = undefined;
+	
+	var _Wishlist2 = __webpack_require__(439);
+	
+	var _Wishlist3 = _interopRequireDefault(_Wishlist2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.Wishlist = _Wishlist3.default;
+
+/***/ },
+
+/***/ 439:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = Wishlist;
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function Wishlist() {
+	    return _react2.default.createElement(
+	        'span',
+	        null,
+	        ' Wishlist '
+	    );
+	}
+
+/***/ },
+
+/***/ 440:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.MyAccount = undefined;
+	
+	var _MyAccount2 = __webpack_require__(441);
+	
+	var _MyAccount3 = _interopRequireDefault(_MyAccount2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.MyAccount = _MyAccount3.default;
+
+/***/ },
+
+/***/ 441:
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = MyAccount;
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function MyAccount() {
+	    return _react2.default.createElement(
+	        "div",
+	        { className: "myAccount" },
+	        " My Account "
+	    );
+	}
+
+/***/ },
+
+/***/ 442:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Logo = undefined;
+	
+	var _Logo2 = __webpack_require__(443);
+	
+	var _Logo3 = _interopRequireDefault(_Logo2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.Logo = _Logo3.default;
+
+/***/ },
+
+/***/ 443:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.Logo = Logo;
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function Logo() {
+	    return _react2.default.createElement(
+	        'span',
+	        null,
+	        ' Logo '
+	    );
+	}
+
+/***/ },
+
+/***/ 444:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.MenuIcon = exports.Menu = undefined;
+	
+	var _Menu2 = __webpack_require__(445);
+	
+	var _Menu3 = _interopRequireDefault(_Menu2);
+	
+	var _MenuIcon2 = __webpack_require__(446);
+	
+	var _MenuIcon3 = _interopRequireDefault(_MenuIcon2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.Menu = _Menu3.default;
+	exports.MenuIcon = _MenuIcon3.default;
+
+/***/ },
+
+/***/ 445:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.Menu = Menu;
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function Menu() {
+	    return _react2.default.createElement(
+	        'span',
+	        null,
+	        ' Menu '
+	    );
+	}
+
+/***/ },
+
+/***/ 446:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = MenuIcon;
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function MenuIcon() {
+	    return _react2.default.createElement(
+	        'span',
+	        null,
+	        'MenuIcon'
+	    );
+	}
+
+/***/ },
+
+/***/ 447:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Cart = undefined;
+	
+	var _Cart2 = __webpack_require__(448);
+	
+	var _Cart3 = _interopRequireDefault(_Cart2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.Cart = _Cart3.default;
+
+/***/ },
+
+/***/ 448:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = Cart;
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function Cart() {
+	    return _react2.default.createElement(
+	        'span',
+	        null,
+	        ' Cart '
+	    );
+	}
+
+/***/ },
+
+/***/ 449:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.WelcomeMessage = undefined;
+	
+	var _WelcomeMessage2 = __webpack_require__(450);
+	
+	var _WelcomeMessage3 = _interopRequireDefault(_WelcomeMessage2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.WelcomeMessage = _WelcomeMessage3.default;
+
+/***/ },
+
+/***/ 450:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = WelcomeMessage;
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function WelcomeMessage() {
+	    return _react2.default.createElement(
+	        'span',
+	        null,
+	        ' WelcomeMessage '
+	    );
+	}
+
+/***/ },
+
+/***/ 451:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Search = undefined;
+	
+	var _Search2 = __webpack_require__(452);
+	
+	var _Search3 = _interopRequireDefault(_Search2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.Search = _Search3.default;
+
+/***/ },
+
+/***/ 452:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = Search;
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function Search() {
+	    return _react2.default.createElement(
+	        'span',
+	        null,
+	        ' Search '
+	    );
+	}
+
+/***/ },
+
+/***/ 453:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Breadcrumb = undefined;
+	
+	var _Breadcrumb2 = __webpack_require__(454);
+	
+	var _Breadcrumb3 = _interopRequireDefault(_Breadcrumb2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.Breadcrumb = _Breadcrumb3.default;
+
+/***/ },
+
+/***/ 454:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = Breadcrumb;
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function Breadcrumb() {
+	    return _react2.default.createElement(
+	        'span',
+	        null,
+	        ' Breadcrumb '
+	    );
+	}
+
+/***/ },
+
+/***/ 455:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Currency = undefined;
+	
+	var _Currency2 = __webpack_require__(456);
+	
+	var _Currency3 = _interopRequireDefault(_Currency2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.Currency = _Currency3.default;
+
+/***/ },
+
+/***/ 456:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = Currency;
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function Currency() {
+	    return _react2.default.createElement(
+	        'span',
+	        null,
+	        ' Currency '
+	    );
+	}
+
+/***/ },
+
+/***/ 457:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Language = undefined;
+	
+	var _Language2 = __webpack_require__(458);
+	
+	var _Language3 = _interopRequireDefault(_Language2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.Language = _Language3.default;
+
+/***/ },
+
+/***/ 458:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.Language = Language;
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function Language() {
+	    return _react2.default.createElement(
+	        'span',
+	        null,
+	        ' Language '
+	    );
+	}
+
+/***/ },
+
+/***/ 459:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.SocialIcons = undefined;
+	
+	var _SocialIcons2 = __webpack_require__(460);
+	
+	var _SocialIcons3 = _interopRequireDefault(_SocialIcons2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.SocialIcons = _SocialIcons3.default;
+
+/***/ },
+
+/***/ 460:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = SocialIcons;
+	
+	var _react = __webpack_require__(2);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function SocialIcons() {
+	    return _react2.default.createElement(
+	        'span',
+	        null,
+	        'SocialIcons'
+	    );
+	}
+
+/***/ },
+
+/***/ 461:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _CustomLink = __webpack_require__(462);
+	
+	Object.defineProperty(exports, 'CustomLink1', {
+	  enumerable: true,
+	  get: function get() {
+	    return _CustomLink.CustomLink1;
+	  }
+	});
+	Object.defineProperty(exports, 'CustomLink2', {
+	  enumerable: true,
+	  get: function get() {
+	    return _CustomLink.CustomLink2;
+	  }
+	});
+	Object.defineProperty(exports, 'CustomLink3', {
+	  enumerable: true,
+	  get: function get() {
+	    return _CustomLink.CustomLink3;
+	  }
+	});
+	Object.defineProperty(exports, 'CustomLink4', {
+	  enumerable: true,
+	  get: function get() {
+	    return _CustomLink.CustomLink4;
+	  }
+	});
+
+/***/ },
+
+/***/ 462:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23261,319 +23836,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 434:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.default = Wishlist;
-	
-	var _react = __webpack_require__(2);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function Wishlist() {
-	    return _react2.default.createElement(
-	        'span',
-	        null,
-	        ' Wishlist '
-	    );
-	}
-
-/***/ },
-
-/***/ 435:
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.default = MyAccount;
-	
-	var _react = __webpack_require__(2);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function MyAccount() {
-	    return _react2.default.createElement(
-	        "div",
-	        { className: "myAccount" },
-	        " My Account "
-	    );
-	}
-
-/***/ },
-
-/***/ 436:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.Logo = Logo;
-	
-	var _react = __webpack_require__(2);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function Logo() {
-	    return _react2.default.createElement(
-	        'span',
-	        null,
-	        ' Logo '
-	    );
-	}
-
-/***/ },
-
-/***/ 437:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.Menu = Menu;
-	
-	var _react = __webpack_require__(2);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function Menu() {
-	    return _react2.default.createElement(
-	        'span',
-	        null,
-	        ' Menu '
-	    );
-	}
-
-/***/ },
-
-/***/ 438:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.default = MenuIcon;
-	
-	var _react = __webpack_require__(2);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function MenuIcon() {
-	    return _react2.default.createElement(
-	        'span',
-	        null,
-	        'MenuIcon'
-	    );
-	}
-
-/***/ },
-
-/***/ 439:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.default = Cart;
-	
-	var _react = __webpack_require__(2);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function Cart() {
-	    return _react2.default.createElement(
-	        'span',
-	        null,
-	        ' Cart '
-	    );
-	}
-
-/***/ },
-
-/***/ 440:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.default = WelcomeMessage;
-	
-	var _react = __webpack_require__(2);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function WelcomeMessage() {
-	    return _react2.default.createElement(
-	        'span',
-	        null,
-	        ' WelcomeMessage '
-	    );
-	}
-
-/***/ },
-
-/***/ 441:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.default = Search;
-	
-	var _react = __webpack_require__(2);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function Search() {
-	    return _react2.default.createElement(
-	        'span',
-	        null,
-	        ' Search '
-	    );
-	}
-
-/***/ },
-
-/***/ 442:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.default = Breadcrumb;
-	
-	var _react = __webpack_require__(2);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function Breadcrumb() {
-	    return _react2.default.createElement(
-	        'span',
-	        null,
-	        ' Breadcrumb '
-	    );
-	}
-
-/***/ },
-
-/***/ 443:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.default = Currency;
-	
-	var _react = __webpack_require__(2);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function Currency() {
-	    return _react2.default.createElement(
-	        'span',
-	        null,
-	        ' Currency '
-	    );
-	}
-
-/***/ },
-
-/***/ 444:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.Language = Language;
-	
-	var _react = __webpack_require__(2);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function Language() {
-	    return _react2.default.createElement(
-	        'span',
-	        null,
-	        ' Language '
-	    );
-	}
-
-/***/ },
-
-/***/ 445:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.default = SocialIcons;
-	
-	var _react = __webpack_require__(2);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function SocialIcons() {
-	    return _react2.default.createElement(
-	        'span',
-	        null,
-	        'SocialIcons'
-	    );
-	}
-
-/***/ },
-
-/***/ 446:
+/***/ 463:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23598,269 +23861,6 @@ webpackJsonp([1],{
 	}
 	
 	Footer.displayName = 'Footer';
-
-/***/ },
-
-/***/ 749:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.Wishlist = undefined;
-	
-	var _Wishlist2 = __webpack_require__(434);
-	
-	var _Wishlist3 = _interopRequireDefault(_Wishlist2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.Wishlist = _Wishlist3.default;
-
-/***/ },
-
-/***/ 750:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.MyAccount = undefined;
-	
-	var _MyAccount2 = __webpack_require__(435);
-	
-	var _MyAccount3 = _interopRequireDefault(_MyAccount2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.MyAccount = _MyAccount3.default;
-
-/***/ },
-
-/***/ 751:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.Logo = undefined;
-	
-	var _Logo2 = __webpack_require__(436);
-	
-	var _Logo3 = _interopRequireDefault(_Logo2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.Logo = _Logo3.default;
-
-/***/ },
-
-/***/ 752:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.MenuIcon = exports.Menu = undefined;
-	
-	var _Menu2 = __webpack_require__(437);
-	
-	var _Menu3 = _interopRequireDefault(_Menu2);
-	
-	var _MenuIcon2 = __webpack_require__(438);
-	
-	var _MenuIcon3 = _interopRequireDefault(_MenuIcon2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.Menu = _Menu3.default;
-	exports.MenuIcon = _MenuIcon3.default;
-
-/***/ },
-
-/***/ 753:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.Cart = undefined;
-	
-	var _Cart2 = __webpack_require__(439);
-	
-	var _Cart3 = _interopRequireDefault(_Cart2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.Cart = _Cart3.default;
-
-/***/ },
-
-/***/ 754:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.WelcomeMessage = undefined;
-	
-	var _WelcomeMessage2 = __webpack_require__(440);
-	
-	var _WelcomeMessage3 = _interopRequireDefault(_WelcomeMessage2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.WelcomeMessage = _WelcomeMessage3.default;
-
-/***/ },
-
-/***/ 755:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.Search = undefined;
-	
-	var _Search2 = __webpack_require__(441);
-	
-	var _Search3 = _interopRequireDefault(_Search2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.Search = _Search3.default;
-
-/***/ },
-
-/***/ 756:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.Breadcrumb = undefined;
-	
-	var _Breadcrumb2 = __webpack_require__(442);
-	
-	var _Breadcrumb3 = _interopRequireDefault(_Breadcrumb2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.Breadcrumb = _Breadcrumb3.default;
-
-/***/ },
-
-/***/ 757:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.Currency = undefined;
-	
-	var _Currency2 = __webpack_require__(443);
-	
-	var _Currency3 = _interopRequireDefault(_Currency2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.Currency = _Currency3.default;
-
-/***/ },
-
-/***/ 758:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.Language = undefined;
-	
-	var _Language2 = __webpack_require__(444);
-	
-	var _Language3 = _interopRequireDefault(_Language2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.Language = _Language3.default;
-
-/***/ },
-
-/***/ 759:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.SocialIcons = undefined;
-	
-	var _SocialIcons2 = __webpack_require__(445);
-	
-	var _SocialIcons3 = _interopRequireDefault(_SocialIcons2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.SocialIcons = _SocialIcons3.default;
-
-/***/ },
-
-/***/ 760:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _CustomLink = __webpack_require__(433);
-	
-	Object.defineProperty(exports, 'CustomLink1', {
-	  enumerable: true,
-	  get: function get() {
-	    return _CustomLink.CustomLink1;
-	  }
-	});
-	Object.defineProperty(exports, 'CustomLink2', {
-	  enumerable: true,
-	  get: function get() {
-	    return _CustomLink.CustomLink2;
-	  }
-	});
-	Object.defineProperty(exports, 'CustomLink3', {
-	  enumerable: true,
-	  get: function get() {
-	    return _CustomLink.CustomLink3;
-	  }
-	});
-	Object.defineProperty(exports, 'CustomLink4', {
-	  enumerable: true,
-	  get: function get() {
-	    return _CustomLink.CustomLink4;
-	  }
-	});
 
 /***/ }
 

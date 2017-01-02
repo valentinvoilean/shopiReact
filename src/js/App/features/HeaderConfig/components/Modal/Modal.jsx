@@ -39,7 +39,7 @@ export class HeaderConfigPureModal extends Component {
                                     <h2 className={styles.h2}>1. Available components to drag & drop</h2>
                                     <div className={styles.componentsContainer}>
                                         <Cell key={uuid.v4()}
-                                              name='Hidden'
+                                              name="Hidden"
                                               globalState={globalState}
                                               mediaQuery={mediaQuery}
                                               actions={this.props.actions}

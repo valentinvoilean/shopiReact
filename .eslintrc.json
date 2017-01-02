@@ -76,6 +76,7 @@
     "react/sort-comp": "error",
     "react/style-prop-object": "error",
     // JSX
+    "jsx-quotes": ["error", "prefer-double"],
     "react/jsx-boolean-value": ["error", "always"],
     "react/jsx-closing-bracket-location": "error",
     "react/jsx-curly-spacing": "error",
