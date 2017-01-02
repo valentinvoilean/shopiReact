@@ -75,6 +75,7 @@
     }],
     "react/sort-comp": "error",
     "react/style-prop-object": "error",
+    "react/no-string-refs": "error",
     // JSX
     "jsx-quotes": ["error", "prefer-double"],
     "react/jsx-boolean-value": ["error", "never"],

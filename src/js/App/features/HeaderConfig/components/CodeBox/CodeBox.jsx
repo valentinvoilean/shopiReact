@@ -8,6 +8,10 @@ export default class CodeBox extends React.Component {
         text: React.PropTypes.string.isRequired
     };
 
+    static defaultProps = {
+      text: ''
+    };
+
     constructor(props) {
         super(props);
 

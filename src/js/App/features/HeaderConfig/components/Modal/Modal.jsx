@@ -17,6 +17,11 @@ export class HeaderConfigPureModal extends Component {
         actions: PropTypes.object.isRequired
     };
 
+    static defaultProps = {
+        globalState: {},
+        actions: {}
+    };
+
     shouldComponentUpdate(nextProps) {
         return nextProps.globalState.get('shouldComponentUpdate');
     }

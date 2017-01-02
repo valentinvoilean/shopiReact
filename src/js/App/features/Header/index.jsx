@@ -8,7 +8,7 @@ import * as HeaderComponents from './components';
 export const PureHeader = ({globalState}) => {
 
     const _returnComponents = (data) => {
-        return data.toJS().map((key, index) => {
+        return data.toJS().map((key) => {
             if (HeaderComponents[key]) {
                 return React.createElement(HeaderComponents[key], {key: uuid.v4()});
             }

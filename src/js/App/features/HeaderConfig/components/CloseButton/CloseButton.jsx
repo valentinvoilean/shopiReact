@@ -28,4 +28,11 @@ CloseButton.propTypes = {
     cellName: PropTypes.string.isRequired
 };
 
+CloseButton.defaultProps = {
+    item: '',
+    onClick: function () {},
+    mediaQuery: '',
+    cellName: ''
+};
+
 export default CloseButton;

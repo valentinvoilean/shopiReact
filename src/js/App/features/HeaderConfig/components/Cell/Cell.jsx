@@ -16,6 +16,13 @@ export default class Cell extends Component {
         mediaQuery: PropTypes.string.isRequired
     };
 
+    static defaultProps = {
+        globalState: {},
+        actions: {},
+        name: '',
+        mediaQuery: ''
+    };
+
     constructor(props) {
         super(props);
 

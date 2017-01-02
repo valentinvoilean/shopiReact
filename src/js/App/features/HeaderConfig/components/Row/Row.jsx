@@ -46,4 +46,11 @@ Row.propTypes = {
     pos: PropTypes.number
 };
 
+Row.defaultProps = {
+    globalState: {},
+    actions: {},
+    mediaQuery: '',
+    pos: 0
+};
+
 export default Row;
