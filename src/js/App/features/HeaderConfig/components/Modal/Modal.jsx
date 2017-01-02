@@ -11,17 +11,17 @@ import styles from './Modal.scss';
 
 import * as actions from 'App/store/modules/HeaderConfig';
 
+const propTypes = {
+    globalState: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired
+};
+
+const defaultProps = {
+    globalState: {},
+    actions: {}
+};
+
 export class HeaderConfigPureModal extends Component {
-    static propTypes = {
-        globalState: PropTypes.object.isRequired,
-        actions: PropTypes.object.isRequired
-    };
-
-    static defaultProps = {
-        globalState: {},
-        actions: {}
-    };
-
     shouldComponentUpdate(nextProps) {
         return nextProps.globalState.get('shouldComponentUpdate');
     }
@@ -79,6 +79,9 @@ export class HeaderConfigPureModal extends Component {
         );
     }
 }
+
+HeaderConfigPureModal.propTypes = propTypes;
+HeaderConfigPureModal.defaultProps = defaultProps;
 
 export default connect(
     state => ({globalState: state.headerConfig}),

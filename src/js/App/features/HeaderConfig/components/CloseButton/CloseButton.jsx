@@ -4,6 +4,20 @@ import {includes} from 'lodash';
 import styles from './CloseButton.scss';
 import {validStates} from 'common/constants/headerSettings';
 
+const propTypes = {
+    item: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
+    mediaQuery: PropTypes.string.isRequired,
+    cellName: PropTypes.string.isRequired
+};
+
+const defaultProps = {
+    item: '',
+    onClick: function () {},
+    mediaQuery: '',
+    cellName: ''
+};
+
 function CloseButton({onClick, item, mediaQuery, cellName}) {
     const handleClick = () => {
         onClick(item);
@@ -21,18 +35,7 @@ function CloseButton({onClick, item, mediaQuery, cellName}) {
     }
 }
 
-CloseButton.propTypes = {
-    item: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
-    mediaQuery: PropTypes.string.isRequired,
-    cellName: PropTypes.string.isRequired
-};
-
-CloseButton.defaultProps = {
-    item: '',
-    onClick: function () {},
-    mediaQuery: '',
-    cellName: ''
-};
+CloseButton.propTypes = propTypes;
+CloseButton.defaultProps = defaultProps;
 
 export default CloseButton;

@@ -7,22 +7,21 @@ import styles from './Cell.scss';
 
 import {validateState} from 'common/utils/header';
 
-// Functional Component
-export default class Cell extends Component {
-    static propTypes = {
-        globalState: PropTypes.object.isRequired,
-        actions: PropTypes.object.isRequired,
-        name: PropTypes.string.isRequired,
-        mediaQuery: PropTypes.string.isRequired
-    };
+const propTypes = {
+    globalState: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired,
+    name: PropTypes.string.isRequired,
+    mediaQuery: PropTypes.string.isRequired
+};
 
-    static defaultProps = {
-        globalState: {},
-        actions: {},
-        name: '',
-        mediaQuery: ''
-    };
+const defaultProps = {
+    globalState: {},
+    actions: {},
+    name: '',
+    mediaQuery: ''
+};
 
+class Cell extends Component {
     constructor(props) {
         super(props);
 
@@ -115,3 +114,8 @@ export default class Cell extends Component {
         );
     }
 }
+
+Cell.propTypes = propTypes;
+Cell.defaultProps = defaultProps;
+
+export default Cell;

@@ -3,15 +3,15 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 
 import styles from './CodeBox.scss';
 
-export default class CodeBox extends React.Component {
-    static propTypes = {
-        text: React.PropTypes.string.isRequired
-    };
+const propTypes = {
+    text: React.PropTypes.string.isRequired
+};
 
-    static defaultProps = {
-      text: ''
-    };
+const defaultProps = {
+    text: ''
+};
 
+class CodeBox extends React.Component {
     constructor(props) {
         super(props);
 
@@ -41,3 +41,8 @@ export default class CodeBox extends React.Component {
         );
     }
 }
+
+CodeBox.propTypes = propTypes;
+CodeBox.defaultProps = defaultProps;
+
+export default CodeBox;
