@@ -4,7 +4,7 @@ import {includes} from 'lodash';
 import styles from './CloseButton.scss';
 import {validStates} from 'common/constants/headerSettings';
 
-const CloseButton = ({onClick, item, mediaQuery, cellName}) => {
+function CloseButton({onClick, item, mediaQuery, cellName}) {
     const _handleClick = () => {
         onClick(item);
     };
@@ -19,7 +19,7 @@ const CloseButton = ({onClick, item, mediaQuery, cellName}) => {
     else {
         return null;
     }
-};
+}
 
 CloseButton.propTypes = {
     item: PropTypes.string.isRequired,

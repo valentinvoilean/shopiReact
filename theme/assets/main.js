@@ -23196,7 +23196,8 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.CustomLink4 = exports.CustomLink3 = exports.CustomLink2 = exports.CustomLink1 = exports.CustomLink = undefined;
+	exports.CustomLink4 = exports.CustomLink3 = exports.CustomLink2 = exports.CustomLink1 = undefined;
+	exports.CustomLink = CustomLink;
 	
 	var _react = __webpack_require__(2);
 	
@@ -23204,13 +23205,13 @@ webpackJsonp([1],{
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var CustomLink = exports.CustomLink = function CustomLink() {
+	function CustomLink() {
 	    return _react2.default.createElement(
 	        'span',
 	        null,
-	        'CustomLink'
+	        ' CustomLink '
 	    );
-	};
+	}
 	
 	var CustomLink1 = exports.CustomLink1 = CustomLink;
 	var CustomLink2 = exports.CustomLink2 = CustomLink;
@@ -23227,11 +23228,7 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.default = undefined;
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _class, _temp;
+	exports.default = Wishlist;
 	
 	var _react = __webpack_require__(2);
 	
@@ -23239,58 +23236,25 @@ webpackJsonp([1],{
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Wishlist = (_temp = _class = function (_Component) {
-	    _inherits(Wishlist, _Component);
-	
-	    function Wishlist() {
-	        _classCallCheck(this, Wishlist);
-	
-	        return _possibleConstructorReturn(this, (Wishlist.__proto__ || Object.getPrototypeOf(Wishlist)).apply(this, arguments));
-	    }
-	
-	    _createClass(Wishlist, [{
-	        key: 'shouldComponentUpdate',
-	        value: function shouldComponentUpdate() {
-	            return true;
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                ' Wishlist '
-	            );
-	        }
-	    }]);
-	
-	    return Wishlist;
-	}(_react.Component), _class.defaultProps = {
-	    name: 'Wishlist'
-	}, _temp);
-	exports.default = Wishlist;
+	function Wishlist() {
+	    return _react2.default.createElement(
+	        'span',
+	        null,
+	        ' Wishlist '
+	    );
+	}
 
 /***/ },
 
 /***/ 435:
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.default = undefined;
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _class, _temp;
+	exports.default = MyAccount;
 	
 	var _react = __webpack_require__(2);
 	
@@ -23298,42 +23262,13 @@ webpackJsonp([1],{
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var MyAccount = (_temp = _class = function (_Component) {
-	    _inherits(MyAccount, _Component);
-	
-	    function MyAccount() {
-	        _classCallCheck(this, MyAccount);
-	
-	        return _possibleConstructorReturn(this, (MyAccount.__proto__ || Object.getPrototypeOf(MyAccount)).apply(this, arguments));
-	    }
-	
-	    _createClass(MyAccount, [{
-	        key: 'shouldComponentUpdate',
-	        value: function shouldComponentUpdate() {
-	            return true;
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'myAccount' },
-	                ' My Account '
-	            );
-	        }
-	    }]);
-	
-	    return MyAccount;
-	}(_react.Component), _class.defaultProps = {
-	    name: 'MyAccount'
-	}, _temp);
-	exports.default = MyAccount;
+	function MyAccount() {
+	    return _react2.default.createElement(
+	        "div",
+	        { className: "myAccount" },
+	        " My Account "
+	    );
+	}
 
 /***/ },
 
@@ -23345,6 +23280,7 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	exports.Logo = Logo;
 	
 	var _react = __webpack_require__(2);
 	
@@ -23352,15 +23288,13 @@ webpackJsonp([1],{
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Logo = function Logo() {
+	function Logo() {
 	    return _react2.default.createElement(
 	        'span',
 	        null,
-	        'Logo'
+	        ' Logo '
 	    );
-	};
-	
-	exports.default = Logo;
+	}
 
 /***/ },
 
@@ -23372,6 +23306,7 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	exports.Menu = Menu;
 	
 	var _react = __webpack_require__(2);
 	
@@ -23379,15 +23314,13 @@ webpackJsonp([1],{
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Menu = function Menu() {
+	function Menu() {
 	    return _react2.default.createElement(
 	        'span',
 	        null,
-	        'Menu'
+	        ' Menu '
 	    );
-	};
-	
-	exports.default = Menu;
+	}
 
 /***/ },
 
@@ -23399,6 +23332,7 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	exports.default = MenuIcon;
 	
 	var _react = __webpack_require__(2);
 	
@@ -23406,15 +23340,13 @@ webpackJsonp([1],{
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var MenuIcon = function MenuIcon() {
+	function MenuIcon() {
 	    return _react2.default.createElement(
 	        'span',
 	        null,
 	        'MenuIcon'
 	    );
-	};
-	
-	exports.default = MenuIcon;
+	}
 
 /***/ },
 
@@ -23426,6 +23358,7 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	exports.default = Cart;
 	
 	var _react = __webpack_require__(2);
 	
@@ -23433,15 +23366,13 @@ webpackJsonp([1],{
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Cart = function Cart() {
+	function Cart() {
 	    return _react2.default.createElement(
 	        'span',
 	        null,
-	        'Cart'
+	        ' Cart '
 	    );
-	};
-	
-	exports.default = Cart;
+	}
 
 /***/ },
 
@@ -23453,6 +23384,7 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	exports.default = WelcomeMessage;
 	
 	var _react = __webpack_require__(2);
 	
@@ -23460,15 +23392,13 @@ webpackJsonp([1],{
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var WelcomeMessage = function WelcomeMessage() {
+	function WelcomeMessage() {
 	    return _react2.default.createElement(
 	        'span',
 	        null,
-	        'WelcomeMessage'
+	        ' WelcomeMessage '
 	    );
-	};
-	
-	exports.default = WelcomeMessage;
+	}
 
 /***/ },
 
@@ -23480,6 +23410,7 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	exports.default = Search;
 	
 	var _react = __webpack_require__(2);
 	
@@ -23487,15 +23418,13 @@ webpackJsonp([1],{
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Search = function Search() {
+	function Search() {
 	    return _react2.default.createElement(
 	        'span',
 	        null,
-	        'Search'
+	        ' Search '
 	    );
-	};
-	
-	exports.default = Search;
+	}
 
 /***/ },
 
@@ -23507,6 +23436,7 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	exports.default = Breadcrumb;
 	
 	var _react = __webpack_require__(2);
 	
@@ -23514,15 +23444,13 @@ webpackJsonp([1],{
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Breadcrumb = function Breadcrumb() {
+	function Breadcrumb() {
 	    return _react2.default.createElement(
 	        'span',
 	        null,
-	        'Breadcrumb'
+	        ' Breadcrumb '
 	    );
-	};
-	
-	exports.default = Breadcrumb;
+	}
 
 /***/ },
 
@@ -23534,6 +23462,7 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	exports.default = Currency;
 	
 	var _react = __webpack_require__(2);
 	
@@ -23541,15 +23470,13 @@ webpackJsonp([1],{
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Currency = function Currency() {
+	function Currency() {
 	    return _react2.default.createElement(
 	        'span',
 	        null,
-	        'Currency'
+	        ' Currency '
 	    );
-	};
-	
-	exports.default = Currency;
+	}
 
 /***/ },
 
@@ -23561,6 +23488,7 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	exports.Language = Language;
 	
 	var _react = __webpack_require__(2);
 	
@@ -23568,15 +23496,13 @@ webpackJsonp([1],{
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Language = function Language() {
+	function Language() {
 	    return _react2.default.createElement(
 	        'span',
 	        null,
-	        'Language'
+	        ' Language '
 	    );
-	};
-	
-	exports.default = Language;
+	}
 
 /***/ },
 
@@ -23588,6 +23514,7 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	exports.default = SocialIcons;
 	
 	var _react = __webpack_require__(2);
 	
@@ -23595,15 +23522,13 @@ webpackJsonp([1],{
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var SocialIcons = function SocialIcons() {
+	function SocialIcons() {
 	    return _react2.default.createElement(
 	        'span',
 	        null,
 	        'SocialIcons'
 	    );
-	};
-	
-	exports.default = SocialIcons;
+	}
 
 /***/ },
 

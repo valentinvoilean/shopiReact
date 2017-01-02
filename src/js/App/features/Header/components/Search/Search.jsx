@@ -1,7 +1,5 @@
 import React from 'react';
 
-const Search = () => {
-    return <span>Search</span>;
-};
-
-export default Search;
+export default function Search() {
+    return <span> Search </span>;
+}

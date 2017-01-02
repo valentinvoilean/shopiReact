@@ -1,7 +1,5 @@
 import React from 'react';
 
-const SocialIcons = () => {
+export default function SocialIcons() {
     return <span>SocialIcons</span>;
-};
-
-export default SocialIcons;
+}

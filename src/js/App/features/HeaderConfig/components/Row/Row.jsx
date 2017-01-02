@@ -4,7 +4,7 @@ import {Cell} from 'HeaderConfig/components';
 import {horizontalPositions, verticalPositions} from 'common/constants/headerPositions';
 import styles from './Row.scss';
 
-const Row = props => {
+function Row(props) {
     const {mediaQuery, globalState, pos, actions} = props;
     const multiCells = mediaQuery !== 'mobile' || pos === 0;
 
@@ -37,7 +37,7 @@ const Row = props => {
             />
         </div>
     );
-};
+}
 
 Row.propTypes = {
     globalState: PropTypes.object.isRequired,

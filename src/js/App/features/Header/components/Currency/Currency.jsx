@@ -1,7 +1,5 @@
 import React from 'react';
 
-const Currency = () => {
-    return <span>Currency</span>;
-};
-
-export default Currency;
+export default function Currency() {
+    return <span> Currency </span>;
+}

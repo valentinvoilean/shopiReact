@@ -1,7 +1,5 @@
 import React from 'react';
 
-const Logo = () => {
-    return <span>Logo</span>;
-};
-
-export default Logo;
+export function Logo() {
+    return <span> Logo </span>;
+}

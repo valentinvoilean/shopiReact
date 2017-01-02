@@ -1,7 +1,5 @@
 import React from 'react';
 
-const WelcomeMessage = () => {
-    return <span>WelcomeMessage</span>;
-};
-
-export default WelcomeMessage;
+export default function WelcomeMessage() {
+    return <span> WelcomeMessage </span>;
+}

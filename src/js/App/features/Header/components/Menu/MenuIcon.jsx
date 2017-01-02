@@ -1,7 +1,5 @@
 import React from 'react';
 
-const MenuIcon = () => {
+export default function MenuIcon() {
     return <span>MenuIcon</span>;
-};
-
-export default MenuIcon;
+}
