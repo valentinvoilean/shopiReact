@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {MatchMedia} from 'react-match-media';
+import uuid from 'uuid';
 
 import * as HeaderComponents from './components';
 
@@ -9,7 +10,7 @@ export const PureHeader = ({globalState}) => {
     const _returnComponents = (data) => {
         return data.toJS().map((key, index) => {
             if (HeaderComponents[key]) {
-                return React.createElement(HeaderComponents[key], {key: index});
+                return React.createElement(HeaderComponents[key], {key: uuid.v4()});
             }
 
             return null;
