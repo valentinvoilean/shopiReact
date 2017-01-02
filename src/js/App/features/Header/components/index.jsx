@@ -10,4 +10,4 @@ export Breadcrumb from './Breadcrumb/Breadcrumb';
 export Currency from './Currency/Currency';
 export Language from './Language/Language';
 export SocialIcons from './SocialIcons/SocialIcons';
-export CustomLink from './CustomLink/CustomLink';
+export {CustomLink1, CustomLink2, CustomLink3, CustomLink4} from './CustomLink/CustomLink';

@@ -1,7 +1,10 @@
 import React from 'react';
 
-const CustomLink = () => {
+export const CustomLink = () => {
     return <span>CustomLink</span>;
 };
 
-export default CustomLink;
+export const CustomLink1 = CustomLink;
+export const CustomLink2 = CustomLink;
+export const CustomLink3 = CustomLink;
+export const CustomLink4 = CustomLink;
