@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {MatchMedia} from 'react-match-media';
 
-import * as HeaderComponents from '../';
+import * as HeaderComponents from '../components';
 
 export default class HeaderTop extends Component {
     static propTypes = {
@@ -16,7 +16,10 @@ export default class HeaderTop extends Component {
         return data.toJS().map((key, index) => {
             if (HeaderComponents[key]) {
                 return React.createElement(HeaderComponents[key], {key: index});
-            } else {
+            } else if (key.indexOf('CustomLink') !== -1) {
+                return React.createElement(HeaderComponents.CustomLink, {key: index});
+            }
+            else {
                 return null;
             }
         });

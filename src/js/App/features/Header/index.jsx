@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 
-import {HeaderTop, HeaderBottom, HeaderMain} from './components/Header';
+import {HeaderTop, HeaderBottom, HeaderMain} from './features';
 
 export const PureHeader = ({globalState}) => {
     return (
