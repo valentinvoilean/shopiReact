@@ -1,18 +1,15 @@
 import React from 'react';
-import {mount} from 'enzyme';
+import {mount, shallow} from 'enzyme';
 
 jest.unmock('HeaderConfig/components/Cell');
 import Cell from './Cell';
 
 jest.mock('sortablejs');
-jest.mock('HeaderConfig/components');
 jest.mock('common/utils/header');
 
-const components = require('HeaderConfig/components');
 const utils = require('common/utils/header');
 const Sortable = require('sortablejs');
 
-components.CloseButton = jest.fn(() => null);
 utils.validateState = jest.fn(() => null);
 
 Sortable.create = jest.fn(() => ({
@@ -41,25 +38,25 @@ describe('Cell', () => {
         };
     });
 
-    beforeEach(() => {
-        wrapper = mount(<Cell {...props} />);
-    });
-
     it('should call the componentDidMount method', () => {
-       expect(Sortable.create).toHaveBeenCalled();
+        wrapper = mount(<Cell {...props} />);
+        expect(Sortable.create).toHaveBeenCalled();
     });
 
     it('should render', () => {
+        wrapper = shallow(<Cell {...props} />);
         expect(wrapper.find('ul')).toBePresent();
-        expect(wrapper.find(components.CloseButton).length === 2).toBeTruthy();
+        expect(wrapper.find('CloseButton')).toHaveLength(2);
     });
 
     it('should call the remove action', () => {
-        wrapper.find(components.CloseButton).nodes[0].props.onClick()
+        wrapper = mount(<Cell {...props} />);
+        wrapper.find('CloseButton').nodes[0].props.onClick();
         expect(props.actions.remove).toHaveBeenCalled();
     });
 
     it('should destroy the sortable when componentWillUnmount method called', () => {
+        wrapper = mount(<Cell {...props} />);
         wrapper.instance().sortable = {
             destroy: jest.fn()
         };
@@ -69,13 +66,15 @@ describe('Cell', () => {
     });
 
     it('should call the componentWillUnmoint method called', () => {
+        wrapper = mount(<Cell {...props} />);
         Cell.prototype.componentWillUnmount = jest.fn();
         wrapper.unmount();
         expect(Cell.prototype.componentWillUnmount).toHaveBeenCalled();
     });
 
     it('should call the save action method on sort', () => {
-        wrapper.instance()._handleSort({
+        wrapper = mount(<Cell {...props} />);
+        wrapper.instance().handleSort({
             to: {dataset: {id: ''}, children:[{dataset: {id: ''}}]},
             from: {dataset: {id: ''}}
         });
@@ -85,13 +84,13 @@ describe('Cell', () => {
     describe('_validateItem method', () => {
         it('should return false if the validateState returns any error', () => {
             wrapper.instance().tooltipRef = {dataset: {message: null}};
-            wrapper.instance()._validateItem();
+            wrapper.instance().validateItem();
             expect(wrapper.instance().tooltipRef.dataset.message).not.toBeNull();
         });
 
         it('should return true if the validateState doesn\'t return any error', () => {
 
-            expect(wrapper.instance()._validateItem({
+            expect(wrapper.instance().validateItem({
                 el: {dataset:{id:'test'}}
             },null, {
                 dataset:{id:'test'}
