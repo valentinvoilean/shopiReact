@@ -23121,7 +23121,7 @@ webpackJsonp([1],{
 	    var globalState = _ref.globalState;
 	
 	
-	    var _returnComponents = function _returnComponents(data) {
+	    var returnComponents = function returnComponents(data) {
 	        return data.toJS().map(function (key) {
 	            if (HeaderComponents[key]) {
 	                return _react2.default.createElement(HeaderComponents[key], { key: _uuid2.default.v4() });
@@ -23146,17 +23146,17 @@ webpackJsonp([1],{
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'headerTop__items' },
-	                        _returnComponents(globalState.getIn(['data', 'mobile', 'TopLeft']))
+	                        returnComponents(globalState.getIn(['data', 'mobile', 'TopLeft']))
 	                    ),
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'headerTop__items' },
-	                        _returnComponents(globalState.getIn(['data', 'mobile', 'TopCenter']))
+	                        returnComponents(globalState.getIn(['data', 'mobile', 'TopCenter']))
 	                    ),
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'headerTop__items' },
-	                        _returnComponents(globalState.getIn(['data', 'mobile', 'TopRight']))
+	                        returnComponents(globalState.getIn(['data', 'mobile', 'TopRight']))
 	                    )
 	                ),
 	                _react2.default.createElement(
@@ -23165,17 +23165,17 @@ webpackJsonp([1],{
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'headerTop__items' },
-	                        _returnComponents(globalState.getIn(['data', 'tablet', 'TopLeft']))
+	                        returnComponents(globalState.getIn(['data', 'tablet', 'TopLeft']))
 	                    ),
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'headerTop__items' },
-	                        _returnComponents(globalState.getIn(['data', 'tablet', 'TopCenter']))
+	                        returnComponents(globalState.getIn(['data', 'tablet', 'TopCenter']))
 	                    ),
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'headerTop__items' },
-	                        _returnComponents(globalState.getIn(['data', 'tablet', 'TopRight']))
+	                        returnComponents(globalState.getIn(['data', 'tablet', 'TopRight']))
 	                    )
 	                ),
 	                _react2.default.createElement(
@@ -23184,17 +23184,17 @@ webpackJsonp([1],{
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'headerTop__items' },
-	                        _returnComponents(globalState.getIn(['data', 'desktop', 'TopLeft']))
+	                        returnComponents(globalState.getIn(['data', 'desktop', 'TopLeft']))
 	                    ),
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'headerTop__items' },
-	                        _returnComponents(globalState.getIn(['data', 'desktop', 'TopCenter']))
+	                        returnComponents(globalState.getIn(['data', 'desktop', 'TopCenter']))
 	                    ),
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'headerTop__items' },
-	                        _returnComponents(globalState.getIn(['data', 'desktop', 'TopRight']))
+	                        returnComponents(globalState.getIn(['data', 'desktop', 'TopRight']))
 	                    )
 	                )
 	            )
@@ -23211,7 +23211,7 @@ webpackJsonp([1],{
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'headerMain__items' },
-	                        _returnComponents(globalState.getIn(['data', 'mobile', 'Main']))
+	                        returnComponents(globalState.getIn(['data', 'mobile', 'Main']))
 	                    )
 	                ),
 	                _react2.default.createElement(
@@ -23220,17 +23220,17 @@ webpackJsonp([1],{
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'headerMain__items' },
-	                        _returnComponents(globalState.getIn(['data', 'tablet', 'MainLeft']))
+	                        returnComponents(globalState.getIn(['data', 'tablet', 'MainLeft']))
 	                    ),
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'headerMain__items' },
-	                        _returnComponents(globalState.getIn(['data', 'tablet', 'MainCenter']))
+	                        returnComponents(globalState.getIn(['data', 'tablet', 'MainCenter']))
 	                    ),
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'headerMain__items' },
-	                        _returnComponents(globalState.getIn(['data', 'tablet', 'MainRight']))
+	                        returnComponents(globalState.getIn(['data', 'tablet', 'MainRight']))
 	                    )
 	                ),
 	                _react2.default.createElement(
@@ -23239,17 +23239,17 @@ webpackJsonp([1],{
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'headerMain__items' },
-	                        _returnComponents(globalState.getIn(['data', 'desktop', 'MainLeft']))
+	                        returnComponents(globalState.getIn(['data', 'desktop', 'MainLeft']))
 	                    ),
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'headerMain__items' },
-	                        _returnComponents(globalState.getIn(['data', 'desktop', 'MainCenter']))
+	                        returnComponents(globalState.getIn(['data', 'desktop', 'MainCenter']))
 	                    ),
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'headerMain__items' },
-	                        _returnComponents(globalState.getIn(['data', 'desktop', 'MainRight']))
+	                        returnComponents(globalState.getIn(['data', 'desktop', 'MainRight']))
 	                    )
 	                )
 	            )
@@ -23266,7 +23266,7 @@ webpackJsonp([1],{
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'headerBottom__items' },
-	                        _returnComponents(globalState.getIn(['data', 'mobile', 'Bottom']))
+	                        returnComponents(globalState.getIn(['data', 'mobile', 'Bottom']))
 	                    )
 	                ),
 	                _react2.default.createElement(
@@ -23275,17 +23275,17 @@ webpackJsonp([1],{
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'headerBottom__items' },
-	                        _returnComponents(globalState.getIn(['data', 'tablet', 'BottomLeft']))
+	                        returnComponents(globalState.getIn(['data', 'tablet', 'BottomLeft']))
 	                    ),
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'headerBottom__items' },
-	                        _returnComponents(globalState.getIn(['data', 'tablet', 'BottomCenter']))
+	                        returnComponents(globalState.getIn(['data', 'tablet', 'BottomCenter']))
 	                    ),
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'headerBottom__items' },
-	                        _returnComponents(globalState.getIn(['data', 'tablet', 'BottomRight']))
+	                        returnComponents(globalState.getIn(['data', 'tablet', 'BottomRight']))
 	                    )
 	                ),
 	                _react2.default.createElement(
@@ -23294,17 +23294,17 @@ webpackJsonp([1],{
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'headerBottom__items' },
-	                        _returnComponents(globalState.getIn(['data', 'desktop', 'BottomLeft']))
+	                        returnComponents(globalState.getIn(['data', 'desktop', 'BottomLeft']))
 	                    ),
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'headerBottom__items' },
-	                        _returnComponents(globalState.getIn(['data', 'desktop', 'BottomCenter']))
+	                        returnComponents(globalState.getIn(['data', 'desktop', 'BottomCenter']))
 	                    ),
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'headerBottom__items' },
-	                        _returnComponents(globalState.getIn(['data', 'desktop', 'BottomRight']))
+	                        returnComponents(globalState.getIn(['data', 'desktop', 'BottomRight']))
 	                    )
 	                )
 	            )

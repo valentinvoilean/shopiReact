@@ -15,7 +15,7 @@ export default class CodeBox extends React.Component {
     constructor(props) {
         super(props);
 
-        this._handleCopy = this._handleCopy.bind(this);
+        this.handleCopy = this.handleCopy.bind(this);
     }
 
     state = { copied: false };
@@ -24,7 +24,7 @@ export default class CodeBox extends React.Component {
         return true;
     }
 
-    _handleCopy() {
+    handleCopy() {
         this.setState({copied: true});
     }
 
@@ -34,7 +34,7 @@ export default class CodeBox extends React.Component {
         return (
             <div className={styles.codeContainer}>
                 <code className={styles.code}>{this.props.text}</code>
-                <CopyToClipboard text={this.props.text} onCopy={this._handleCopy}>
+                <CopyToClipboard text={this.props.text} onCopy={this.handleCopy}>
                     <button className={buttonClass}>Click to copy</button>
                 </CopyToClipboard>
             </div>

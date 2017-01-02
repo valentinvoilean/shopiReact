@@ -7,7 +7,7 @@ import * as HeaderComponents from './components';
 
 export const PureHeader = ({globalState}) => {
 
-    const _returnComponents = (data) => {
+    const returnComponents = (data) => {
         return data.toJS().map((key) => {
             if (HeaderComponents[key]) {
                 return React.createElement(HeaderComponents[key], {key: uuid.v4()});
@@ -23,35 +23,35 @@ export const PureHeader = ({globalState}) => {
                 <div className="container">
                     <MatchMedia mediaQuery={'(max-width: 767px)'}>
                         <div className="headerTop__items">
-                            {_returnComponents(globalState.getIn(['data', 'mobile', 'TopLeft']))}
+                            {returnComponents(globalState.getIn(['data', 'mobile', 'TopLeft']))}
                         </div>
                         <div className="headerTop__items">
-                            {_returnComponents(globalState.getIn(['data', 'mobile', 'TopCenter']))}
+                            {returnComponents(globalState.getIn(['data', 'mobile', 'TopCenter']))}
                         </div>
                         <div className="headerTop__items">
-                            {_returnComponents(globalState.getIn(['data', 'mobile', 'TopRight']))}
+                            {returnComponents(globalState.getIn(['data', 'mobile', 'TopRight']))}
                         </div>
                     </MatchMedia>
                     <MatchMedia mediaQuery={'(min-width: 768px) and (max-width: 1023px)'}>
                         <div className="headerTop__items">
-                            {_returnComponents(globalState.getIn(['data', 'tablet', 'TopLeft']))}
+                            {returnComponents(globalState.getIn(['data', 'tablet', 'TopLeft']))}
                         </div>
                         <div className="headerTop__items">
-                            {_returnComponents(globalState.getIn(['data', 'tablet', 'TopCenter']))}
+                            {returnComponents(globalState.getIn(['data', 'tablet', 'TopCenter']))}
                         </div>
                         <div className="headerTop__items">
-                            {_returnComponents(globalState.getIn(['data', 'tablet', 'TopRight']))}
+                            {returnComponents(globalState.getIn(['data', 'tablet', 'TopRight']))}
                         </div>
                     </MatchMedia>
                     <MatchMedia mediaQuery={'(min-width: 1024px)'}>
                         <div className="headerTop__items">
-                            {_returnComponents(globalState.getIn(['data', 'desktop', 'TopLeft']))}
+                            {returnComponents(globalState.getIn(['data', 'desktop', 'TopLeft']))}
                         </div>
                         <div className="headerTop__items">
-                            {_returnComponents(globalState.getIn(['data', 'desktop', 'TopCenter']))}
+                            {returnComponents(globalState.getIn(['data', 'desktop', 'TopCenter']))}
                         </div>
                         <div className="headerTop__items">
-                            {_returnComponents(globalState.getIn(['data', 'desktop', 'TopRight']))}
+                            {returnComponents(globalState.getIn(['data', 'desktop', 'TopRight']))}
                         </div>
                     </MatchMedia>
                 </div>
@@ -61,29 +61,29 @@ export const PureHeader = ({globalState}) => {
                 <div className="container">
                     <MatchMedia mediaQuery={'(max-width: 767px)'}>
                         <div className="headerMain__items">
-                            {_returnComponents(globalState.getIn(['data', 'mobile', 'Main']))}
+                            {returnComponents(globalState.getIn(['data', 'mobile', 'Main']))}
                         </div>
                     </MatchMedia>
                     <MatchMedia mediaQuery={'(min-width: 768px) and (max-width: 1023px)'}>
                         <div className="headerMain__items">
-                            {_returnComponents(globalState.getIn(['data', 'tablet', 'MainLeft']))}
+                            {returnComponents(globalState.getIn(['data', 'tablet', 'MainLeft']))}
                         </div>
                         <div className="headerMain__items">
-                            {_returnComponents(globalState.getIn(['data', 'tablet', 'MainCenter']))}
+                            {returnComponents(globalState.getIn(['data', 'tablet', 'MainCenter']))}
                         </div>
                         <div className="headerMain__items">
-                            {_returnComponents(globalState.getIn(['data', 'tablet', 'MainRight']))}
+                            {returnComponents(globalState.getIn(['data', 'tablet', 'MainRight']))}
                         </div>
                     </MatchMedia>
                     <MatchMedia mediaQuery={'(min-width: 1024px)'}>
                         <div className="headerMain__items">
-                            {_returnComponents(globalState.getIn(['data', 'desktop', 'MainLeft']))}
+                            {returnComponents(globalState.getIn(['data', 'desktop', 'MainLeft']))}
                         </div>
                         <div className="headerMain__items">
-                            {_returnComponents(globalState.getIn(['data', 'desktop', 'MainCenter']))}
+                            {returnComponents(globalState.getIn(['data', 'desktop', 'MainCenter']))}
                         </div>
                         <div className="headerMain__items">
-                            {_returnComponents(globalState.getIn(['data', 'desktop', 'MainRight']))}
+                            {returnComponents(globalState.getIn(['data', 'desktop', 'MainRight']))}
                         </div>
                     </MatchMedia>
                 </div>
@@ -93,29 +93,29 @@ export const PureHeader = ({globalState}) => {
                 <div className="container">
                     <MatchMedia mediaQuery={'(max-width: 767px)'}>
                         <div className="headerBottom__items">
-                            {_returnComponents(globalState.getIn(['data', 'mobile', 'Bottom']))}
+                            {returnComponents(globalState.getIn(['data', 'mobile', 'Bottom']))}
                         </div>
                     </MatchMedia>
                     <MatchMedia mediaQuery={'(min-width: 768px) and (max-width: 1023px)'}>
                         <div className="headerBottom__items">
-                            {_returnComponents(globalState.getIn(['data', 'tablet', 'BottomLeft']))}
+                            {returnComponents(globalState.getIn(['data', 'tablet', 'BottomLeft']))}
                         </div>
                         <div className="headerBottom__items">
-                            {_returnComponents(globalState.getIn(['data', 'tablet', 'BottomCenter']))}
+                            {returnComponents(globalState.getIn(['data', 'tablet', 'BottomCenter']))}
                         </div>
                         <div className="headerBottom__items">
-                            {_returnComponents(globalState.getIn(['data', 'tablet', 'BottomRight']))}
+                            {returnComponents(globalState.getIn(['data', 'tablet', 'BottomRight']))}
                         </div>
                     </MatchMedia>
                     <MatchMedia mediaQuery={'(min-width: 1024px)'}>
                         <div className="headerBottom__items">
-                            {_returnComponents(globalState.getIn(['data', 'desktop', 'BottomLeft']))}
+                            {returnComponents(globalState.getIn(['data', 'desktop', 'BottomLeft']))}
                         </div>
                         <div className="headerBottom__items">
-                            {_returnComponents(globalState.getIn(['data', 'desktop', 'BottomCenter']))}
+                            {returnComponents(globalState.getIn(['data', 'desktop', 'BottomCenter']))}
                         </div>
                         <div className="headerBottom__items">
-                            {_returnComponents(globalState.getIn(['data', 'desktop', 'BottomRight']))}
+                            {returnComponents(globalState.getIn(['data', 'desktop', 'BottomRight']))}
                         </div>
                     </MatchMedia>
                 </div>

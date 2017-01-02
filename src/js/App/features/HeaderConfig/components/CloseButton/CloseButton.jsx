@@ -5,7 +5,7 @@ import styles from './CloseButton.scss';
 import {validStates} from 'common/constants/headerSettings';
 
 function CloseButton({onClick, item, mediaQuery, cellName}) {
-    const _handleClick = () => {
+    const handleClick = () => {
         onClick(item);
     };
 
@@ -14,7 +14,7 @@ function CloseButton({onClick, item, mediaQuery, cellName}) {
     }
 
     if (includes(validStates.get(mediaQuery).Hidden, item)) {
-        return (<button className={styles.closeButton} onClick={_handleClick}>&#10005;</button>);
+        return (<button className={styles.closeButton} onClick={handleClick}>&#10005;</button>);
     }
     else {
         return null;
