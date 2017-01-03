@@ -1,6 +1,6 @@
-import 'colors';
-import concat from 'serial-concat-files';
-import watch from 'node-watch';
+require('colors');
+const concat = require('serial-concat-files');
+const watch = require('node-watch');
 
 console.log('Watching SCSS files..'.green);
 
@@ -62,7 +62,7 @@ let concatFiles = () => {
   });
 };
 
-watch(styles, function (filename) {
+watch(styles, { recursive: true }, function (filename) {
 
   console.log(`${filename} changed`.blue);
   concatFiles();

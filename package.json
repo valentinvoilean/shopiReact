@@ -7,7 +7,7 @@
     "start": "npm-run-all --parallel watch:js watch:sass",
     "watch:js": "node tools/startBuild.js",
     "watch:theme": "browser-sync start",
-    "watch:sass": "babel-node tools/watchSass",
+    "watch:sass": "node tools/watchSass",
     "lint": "eslint ./src/js/** ./tests/**",
     "test": "jest"
   },

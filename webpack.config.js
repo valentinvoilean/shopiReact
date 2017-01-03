@@ -12,7 +12,7 @@ module.exports = {
 
     entry: {
         vendors: ['babel-polyfill', 'modernizr', 'picturefill', 'react', 'react-dom', 'react-match-media',
-            'react-redux', 'redux', 'redux-devtools-extension', 'jquery', 'jquery.currencies.js'],
+            'react-redux', 'redux', 'redux-devtools-extension', 'jquery'],
         config: 'App/features/HeaderConfig/index.jsx',
         main: 'App/index.js'
     },
