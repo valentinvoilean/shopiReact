@@ -13,11 +13,11 @@ module.exports = {
     entry: {
         vendors: ['babel-polyfill', 'modernizr', 'picturefill', 'react', 'react-dom', 'react-match-media',
             'react-redux', 'redux', 'redux-devtools-extension', 'jquery', 'jquery.currencies.js'],
-        config: ['App/features/HeaderConfig/index.jsx'],
-        main: ['App/index.js']
+        config: 'App/features/HeaderConfig/index.jsx',
+        main: 'App/index.js'
     },
 
-    target: 'web', // necessary for https://webpack.github.io/docs/testing.html#compile-and-test
+    target: 'web',
 
     output: {
         path: path.resolve(__dirname, 'theme/assets'),
@@ -25,44 +25,52 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['', '.js', '.jsx', '.svg'],
-        modulesDirectories: ['src/js', 'node_modules'],
+        extensions: ['.js', '.jsx', '.svg'],
+        modules: [
+            path.join(__dirname, 'src/js'),
+            'node_modules'
+        ],
         alias: {
-            'jquery': 'jquery/dist/jquery.min.js',
-            modernizr$: path.resolve(__dirname, '.modernizrrc') }
+            jquery: 'jquery/dist/jquery.min.js',
+            modernizr$: path.resolve(__dirname, '.modernizrrc')
+        }
     },
 
     plugins: [
         new webpack.DefinePlugin(GLOBALS),
-        new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js', Infinity),
+        new webpack.optimize.CommonsChunkPlugin({ name: 'vendors', filename: 'vendors.js'}),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery'
         }),
-        new ExtractTextPlugin('helpers.css', {allChunks: false})
+        new ExtractTextPlugin({
+            filename: 'helpers.css',
+            allChunks: false
+        }),
+        new webpack.LoaderOptionsPlugin({
+            test: /\.jsx/, // may apply this only for some modules
+            options: {
+                eslint: {
+                    failOnError: false
+                }
+            }
+        })
     ],
 
-    eslint: {
-        failOnError: false
-    },
-
     module: {
-        noParse: ['jquery'],
-        preLoaders: [
-            {test: /\.jsx?$/, include: `${__dirname}/src/js`, loaders: ['eslint']}
-        ],
-        loaders: [
+        noParse: /jquery|backbone/,
+        rules: [
+            {enforce: 'pre', test: /\.jsx?$/, include: `${__dirname}/src/js`, loader: 'eslint-loader'},
             {test: /\.jsx?$/, include: `${__dirname}/src/js`, loader: 'babel-loader'},
-            {test: /\.svg$/, loader: 'svg-sprite'},
-            {test: /\.modernizrrc$/, loader: 'modernizr!json'},
-            {test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file'},
-            {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url?limit=10000&mimetype=application/font-woff'},
-            {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
-            {test: /\.(jpe?g|png|gif)$/i, loader: 'file?name=[name].[ext]'},
-            {test: /\.ico$/, loader: 'file?name=[name].[ext]'},
-            {test: /\.less$/, loader: ExtractTextPlugin.extract('style', 'css!autoprefixer!less')},
-            {test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer!resolve-url!sass')},
-            {test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css')}
+            {test: /\.svg$/, loader: 'svg-sprite-loader'},
+            {test: /\.modernizrrc$/, loader: 'modernizr-loader!json-loader'},
+            {test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file-loader'},
+            {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff'},
+            {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?limit=10000&mimetype=application/octet-stream'},
+            {test: /\.(jpe?g|png|gif)$/i, loader: 'file-loader?name=[name].[ext]'},
+            {test: /\.ico$/, loader: 'file-loader?name=[name].[ext]'},
+            {test: /\.scss$/, loader: ExtractTextPlugin.extract({fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer-loader!resolve-url-loader!sass-loader'})},
+            {test: /\.css$/, loader: ExtractTextPlugin.extract({fallbackLoader: 'style-loader', loader: 'css-loader'})}
         ]
     }
 };
