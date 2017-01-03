@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
-jest.unmock('HeaderConfig/components/CodeBox');
+jest.unmock('App/features/HeaderConfig/components/CodeBox');
 jest.unmock('common/constants/headerSettings');
 
 import CodeBox from './CodeBox';

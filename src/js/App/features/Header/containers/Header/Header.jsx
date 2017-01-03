@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {MatchMedia} from 'react-match-media';
 import uuid from 'uuid';
 
-import * as HeaderComponents from 'features/Header/components';
+import * as HeaderComponents from 'App/features/Header/components';
 
 const propTypes = {
     globalState: PropTypes.object.isRequired

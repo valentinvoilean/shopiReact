@@ -13,7 +13,7 @@ export default {
     entry: {
         vendors: ['babel-polyfill', 'modernizr', 'picturefill', 'react', 'react-dom', 'react-match-media',
             'react-redux', 'redux', 'redux-devtools-extension', 'jquery', 'jquery.currencies.js'],
-        config: ['HeaderConfig/index.jsx'],
+        config: ['App/features/HeaderConfig/index.jsx'],
         main: ['App/index.js']
     },
 
@@ -28,8 +28,6 @@ export default {
         extensions: ['', '.js', '.jsx', '.svg'],
         modulesDirectories: ['src/js', 'node_modules'],
         alias: {
-            'HeaderConfig': 'App/features/HeaderConfig',
-            'features': 'App/features',
             'jquery': 'jquery/dist/jquery.min.js',
             modernizr$: path.resolve(__dirname, '.modernizrrc') }
     },
