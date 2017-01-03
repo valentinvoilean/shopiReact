@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import DirectoryNamedWebpackPlugin from 'directory-named-webpack-plugin';
 
 const GLOBALS = {
     'process.env.NODE_ENV': JSON.stringify('development'),
@@ -41,6 +42,9 @@ export default {
             $: 'jquery',
             jQuery: 'jquery'
         }),
+        new webpack.ResolverPlugin(new DirectoryNamedWebpackPlugin({
+            honorIndex: true
+        })),
         new ExtractTextPlugin('helpers.css', {allChunks: false})
     ],
 
