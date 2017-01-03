@@ -4,9 +4,9 @@ import {mount, shallow} from 'enzyme';
 import Cell from './Cell';
 
 jest.mock('sortablejs');
-jest.mock('common/utils/header');
+jest.mock('App/utils/header');
 
-const utils = require('common/utils/header');
+const utils = require('App/utils/header');
 const Sortable = require('sortablejs');
 
 utils.validateState = jest.fn(() => null);

@@ -1,7 +1,7 @@
 import {save, remove} from './HeaderConfig';
 import reducer from './HeaderConfig';
 
-import {defaultState} from 'common/constants/headerSettings';
+import {defaultState} from 'App/constants/headerSettings';
 
 describe('actions', () => {
     it('should call the save action', () => {

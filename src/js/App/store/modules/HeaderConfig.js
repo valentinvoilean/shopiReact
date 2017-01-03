@@ -1,7 +1,7 @@
 import {List} from 'immutable';
 
-import {getInitialState, validateState} from 'common/utils/header';
-import {defaultState} from 'common/constants/headerSettings';
+import {getInitialState, validateState} from 'App/utils/header';
+import {defaultState} from 'App/constants/headerSettings';
 
 const SAVE_HEADER_SETTINGS = 'SAVE_HEADER_SETTINGS';
 const REMOVE_HEADER_ITEM = 'REMOVE_HEADER_ITEM';

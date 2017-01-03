@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import uuid from 'uuid';
 import {Cell} from 'App/features/HeaderConfig/components';
-import {horizontalPositions, verticalPositions} from 'common/constants/headerPositions';
+import {horizontalPositions, verticalPositions} from 'App/features/HeaderConfig/constants/positions';
 import styles from './Row.scss';
 
 const propTypes = {

@@ -1,5 +1,5 @@
 import {includes} from 'lodash';
-import {validStates} from 'common/constants/headerSettings';
+import {validStates} from 'App/constants/headerSettings';
 
 let cells,
     validAreas,

@@ -5,7 +5,7 @@ import Sortable from 'sortablejs';
 import {CloseButton} from '../';
 import styles from './Cell.scss';
 
-import {validateState} from 'common/utils/header';
+import {validateState} from 'App/utils/header';
 
 const propTypes = {
     globalState: PropTypes.object.isRequired,
