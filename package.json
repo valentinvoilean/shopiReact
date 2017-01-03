@@ -26,6 +26,7 @@
     ],
     "moduleNameMapper": {
       "^HeaderConfig(.*)$": "<rootDir>/src/js/App/features/HeaderConfig$1",
+      "^features(.*)$": "<rootDir>/src/js/App/features$1",
       "\\.(css|scss|less)$": "<rootDir>/src/js/App/__mocks__/styleMock.js",
       "\\.(gif|ttf|eot|svg)$": "<rootDir>/src/js/App/__mocks__/fileMock.js"
     },
