@@ -4,165 +4,77 @@ webpackJsonp([1],{
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Menu__ = __webpack_require__(329);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__Menu__["default"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__MenuIcon__ = __webpack_require__(330);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__MenuIcon__["a"]; });
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
-var _Wishlist = __webpack_require__(339);
 
-Object.defineProperty(exports, 'Wishlist', {
-  enumerable: true,
-  get: function get() {
-    return _Wishlist.Wishlist;
-  }
-});
-
-var _MyAccount = __webpack_require__(331);
-
-Object.defineProperty(exports, 'MyAccount', {
-  enumerable: true,
-  get: function get() {
-    return _MyAccount.MyAccount;
-  }
-});
-
-var _Logo = __webpack_require__(326);
-
-Object.defineProperty(exports, 'Logo', {
-  enumerable: true,
-  get: function get() {
-    return _Logo.Logo;
-  }
-});
-
-var _Menu = __webpack_require__(329);
-
-Object.defineProperty(exports, 'Menu', {
-  enumerable: true,
-  get: function get() {
-    return _Menu.Menu;
-  }
-});
-Object.defineProperty(exports, 'MenuIcon', {
-  enumerable: true,
-  get: function get() {
-    return _Menu.MenuIcon;
-  }
-});
-
-var _Cart = __webpack_require__(318);
-
-Object.defineProperty(exports, 'Cart', {
-  enumerable: true,
-  get: function get() {
-    return _Cart.Cart;
-  }
-});
-
-var _WelcomeMessage = __webpack_require__(337);
-
-Object.defineProperty(exports, 'WelcomeMessage', {
-  enumerable: true,
-  get: function get() {
-    return _WelcomeMessage.WelcomeMessage;
-  }
-});
-
-var _Search = __webpack_require__(333);
-
-Object.defineProperty(exports, 'Search', {
-  enumerable: true,
-  get: function get() {
-    return _Search.Search;
-  }
-});
-
-var _Breadcrumb = __webpack_require__(316);
-
-Object.defineProperty(exports, 'Breadcrumb', {
-  enumerable: true,
-  get: function get() {
-    return _Breadcrumb.Breadcrumb;
-  }
-});
-
-var _Currency = __webpack_require__(320);
-
-Object.defineProperty(exports, 'Currency', {
-  enumerable: true,
-  get: function get() {
-    return _Currency.Currency;
-  }
-});
-
-var _Language = __webpack_require__(324);
-
-Object.defineProperty(exports, 'Language', {
-  enumerable: true,
-  get: function get() {
-    return _Language.Language;
-  }
-});
-
-var _SocialIcons = __webpack_require__(335);
-
-Object.defineProperty(exports, 'SocialIcons', {
-  enumerable: true,
-  get: function get() {
-    return _SocialIcons.SocialIcons;
-  }
-});
-
-var _CustomLink = __webpack_require__(322);
-
-Object.defineProperty(exports, 'CustomLink1', {
-  enumerable: true,
-  get: function get() {
-    return _CustomLink.CustomLink1;
-  }
-});
-Object.defineProperty(exports, 'CustomLink2', {
-  enumerable: true,
-  get: function get() {
-    return _CustomLink.CustomLink2;
-  }
-});
-Object.defineProperty(exports, 'CustomLink3', {
-  enumerable: true,
-  get: function get() {
-    return _CustomLink.CustomLink3;
-  }
-});
-Object.defineProperty(exports, 'CustomLink4', {
-  enumerable: true,
-  get: function get() {
-    return _CustomLink.CustomLink4;
-  }
-});
 
 /***/ },
 
-/***/ 307:
+/***/ 203:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Wishlist__ = __webpack_require__(340);
+Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "Wishlist", function() { return __WEBPACK_IMPORTED_MODULE_0__Wishlist__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "MyAccount", function() { return __WEBPACK_IMPORTED_MODULE_1__MyAccount__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__MyAccount__ = __webpack_require__(332);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "Logo", function() { return __WEBPACK_IMPORTED_MODULE_2__Logo__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Logo__ = __webpack_require__(328);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "Menu", function() { return __WEBPACK_IMPORTED_MODULE_3__Menu__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Menu__ = __webpack_require__(202);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "MenuIcon", function() { return __WEBPACK_IMPORTED_MODULE_3__Menu__["b"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Cart__ = __webpack_require__(320);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "Cart", function() { return __WEBPACK_IMPORTED_MODULE_4__Cart__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__WelcomeMessage__ = __webpack_require__(338);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "WelcomeMessage", function() { return __WEBPACK_IMPORTED_MODULE_5__WelcomeMessage__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Search__ = __webpack_require__(334);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "Search", function() { return __WEBPACK_IMPORTED_MODULE_6__Search__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Breadcrumb__ = __webpack_require__(318);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "Breadcrumb", function() { return __WEBPACK_IMPORTED_MODULE_7__Breadcrumb__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Currency__ = __webpack_require__(322);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "Currency", function() { return __WEBPACK_IMPORTED_MODULE_8__Currency__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__Language__ = __webpack_require__(326);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "Language", function() { return __WEBPACK_IMPORTED_MODULE_9__Language__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__SocialIcons__ = __webpack_require__(336);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "SocialIcons", function() { return __WEBPACK_IMPORTED_MODULE_10__SocialIcons__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__CustomLink__ = __webpack_require__(324);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "CustomLink1", function() { return __WEBPACK_IMPORTED_MODULE_11__CustomLink__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "CustomLink2", function() { return __WEBPACK_IMPORTED_MODULE_11__CustomLink__["b"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "CustomLink3", function() { return __WEBPACK_IMPORTED_MODULE_11__CustomLink__["c"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "CustomLink4", function() { return __WEBPACK_IMPORTED_MODULE_11__CustomLink__["d"]; });
 
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = Footer;
 
-var _react = __webpack_require__(5);
 
-var _react2 = _interopRequireDefault(_react);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+
+
+
+
+
+
+
+
+/***/ },
+
+/***/ 309:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony export (immutable) */ exports["a"] = Footer;
+
 
 function Footer() {
-    return _react2.default.createElement(
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         null,
         ' I am the footer!! '
@@ -173,87 +85,16 @@ Footer.displayName = 'Footer';
 
 /***/ },
 
-/***/ 308:
+/***/ 310:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components__ = __webpack_require__(203);
+/* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__containers__ = __webpack_require__(343);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__containers__["a"]; });
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _components = __webpack_require__(202);
-
-Object.keys(_components).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function get() {
-      return _components[key];
-    }
-  });
-});
-
-var _containers = __webpack_require__(342);
-
-Object.keys(_containers).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function get() {
-      return _containers[key];
-    }
-  });
-});
-
-/***/ },
-
-/***/ 315:
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = Breadcrumb;
-
-var _react = __webpack_require__(5);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Breadcrumb() {
-    return _react2.default.createElement(
-        'span',
-        null,
-        ' Breadcrumb '
-    );
-}
-
-/***/ },
-
-/***/ 316:
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Breadcrumb = undefined;
-
-var _Breadcrumb2 = __webpack_require__(315);
-
-var _Breadcrumb3 = _interopRequireDefault(_Breadcrumb2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.Breadcrumb = _Breadcrumb3.default;
 
 /***/ },
 
@@ -261,24 +102,16 @@ exports.Breadcrumb = _Breadcrumb3.default;
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony export (immutable) */ exports["a"] = Breadcrumb;
 
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = Cart;
-
-var _react = __webpack_require__(5);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Cart() {
-    return _react2.default.createElement(
+function Breadcrumb() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'span',
         null,
-        ' Cart '
+        ' Breadcrumb '
     );
 }
 
@@ -288,20 +121,10 @@ function Cart() {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Breadcrumb__ = __webpack_require__(317);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__Breadcrumb__["a"]; });
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Cart = undefined;
-
-var _Cart2 = __webpack_require__(317);
-
-var _Cart3 = _interopRequireDefault(_Cart2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.Cart = _Cart3.default;
 
 /***/ },
 
@@ -309,24 +132,16 @@ exports.Cart = _Cart3.default;
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony export (immutable) */ exports["a"] = Cart;
 
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = Currency;
-
-var _react = __webpack_require__(5);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Currency() {
-    return _react2.default.createElement(
+function Cart() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'span',
         null,
-        ' Currency '
+        ' Cart '
     );
 }
 
@@ -336,20 +151,10 @@ function Currency() {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Cart__ = __webpack_require__(319);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__Cart__["a"]; });
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Currency = undefined;
-
-var _Currency2 = __webpack_require__(319);
-
-var _Currency3 = _interopRequireDefault(_Currency2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.Currency = _Currency3.default;
 
 /***/ },
 
@@ -357,32 +162,18 @@ exports.Currency = _Currency3.default;
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony export (immutable) */ exports["a"] = Currency;
 
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.CustomLink4 = exports.CustomLink3 = exports.CustomLink2 = exports.CustomLink1 = undefined;
-exports.CustomLink = CustomLink;
-
-var _react = __webpack_require__(5);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function CustomLink() {
-    return _react2.default.createElement(
+function Currency() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'span',
         null,
-        ' CustomLink '
+        ' Currency '
     );
 }
-
-var CustomLink1 = exports.CustomLink1 = CustomLink;
-var CustomLink2 = exports.CustomLink2 = CustomLink;
-var CustomLink3 = exports.CustomLink3 = CustomLink;
-var CustomLink4 = exports.CustomLink4 = CustomLink;
 
 /***/ },
 
@@ -390,38 +181,10 @@ var CustomLink4 = exports.CustomLink4 = CustomLink;
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Currency__ = __webpack_require__(321);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__Currency__["a"]; });
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _CustomLink = __webpack_require__(321);
-
-Object.defineProperty(exports, 'CustomLink1', {
-  enumerable: true,
-  get: function get() {
-    return _CustomLink.CustomLink1;
-  }
-});
-Object.defineProperty(exports, 'CustomLink2', {
-  enumerable: true,
-  get: function get() {
-    return _CustomLink.CustomLink2;
-  }
-});
-Object.defineProperty(exports, 'CustomLink3', {
-  enumerable: true,
-  get: function get() {
-    return _CustomLink.CustomLink3;
-  }
-});
-Object.defineProperty(exports, 'CustomLink4', {
-  enumerable: true,
-  get: function get() {
-    return _CustomLink.CustomLink4;
-  }
-});
 
 /***/ },
 
@@ -429,26 +192,27 @@ Object.defineProperty(exports, 'CustomLink4', {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* unused harmony export CustomLink */
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return CustomLink1; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return CustomLink2; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return CustomLink3; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "d", function() { return CustomLink4; });
 
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.Language = Language;
-
-var _react = __webpack_require__(5);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Language() {
-    return _react2.default.createElement(
+function CustomLink() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'span',
         null,
-        ' Language '
+        ' CustomLink '
     );
 }
+
+var CustomLink1 = CustomLink;
+var CustomLink2 = CustomLink;
+var CustomLink3 = CustomLink;
+var CustomLink4 = CustomLink;
 
 /***/ },
 
@@ -456,20 +220,12 @@ function Language() {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__CustomLink__ = __webpack_require__(323);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__CustomLink__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__CustomLink__["b"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "c", function() { return __WEBPACK_IMPORTED_MODULE_0__CustomLink__["c"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "d", function() { return __WEBPACK_IMPORTED_MODULE_0__CustomLink__["d"]; });
 
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Language = undefined;
-
-var _Language2 = __webpack_require__(323);
-
-var _Language3 = _interopRequireDefault(_Language2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.Language = _Language3.default;
 
 /***/ },
 
@@ -477,24 +233,16 @@ exports.Language = _Language3.default;
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* unused harmony export Language */
 
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.Logo = Logo;
-
-var _react = __webpack_require__(5);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Logo() {
-    return _react2.default.createElement(
+function Language() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'span',
         null,
-        ' Logo '
+        ' Language '
     );
 }
 
@@ -504,20 +252,10 @@ function Logo() {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Language__ = __webpack_require__(325);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__Language__["default"]; });
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Logo = undefined;
-
-var _Logo2 = __webpack_require__(325);
-
-var _Logo3 = _interopRequireDefault(_Logo2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.Logo = _Logo3.default;
 
 /***/ },
 
@@ -525,24 +263,16 @@ exports.Logo = _Logo3.default;
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* unused harmony export Logo */
 
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.Menu = Menu;
-
-var _react = __webpack_require__(5);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Menu() {
-    return _react2.default.createElement(
+function Logo() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'span',
         null,
-        ' Menu '
+        ' Logo '
     );
 }
 
@@ -552,26 +282,10 @@ function Menu() {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Logo__ = __webpack_require__(327);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__Logo__["default"]; });
 
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = MenuIcon;
-
-var _react = __webpack_require__(5);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function MenuIcon() {
-    return _react2.default.createElement(
-        'span',
-        null,
-        'MenuIcon'
-    );
-}
 
 /***/ },
 
@@ -579,25 +293,18 @@ function MenuIcon() {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* unused harmony export Menu */
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.MenuIcon = exports.Menu = undefined;
-
-var _Menu2 = __webpack_require__(327);
-
-var _Menu3 = _interopRequireDefault(_Menu2);
-
-var _MenuIcon2 = __webpack_require__(328);
-
-var _MenuIcon3 = _interopRequireDefault(_MenuIcon2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.Menu = _Menu3.default;
-exports.MenuIcon = _MenuIcon3.default;
+function Menu() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'span',
+        null,
+        ' Menu '
+    );
+}
 
 /***/ },
 
@@ -605,24 +312,16 @@ exports.MenuIcon = _MenuIcon3.default;
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony export (immutable) */ exports["a"] = MenuIcon;
 
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = MyAccount;
-
-var _react = __webpack_require__(5);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function MyAccount() {
-    return _react2.default.createElement(
-        "div",
-        { className: "myAccount" },
-        " My Account "
+function MenuIcon() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'span',
+        null,
+        'MenuIcon'
     );
 }
 
@@ -632,20 +331,18 @@ function MyAccount() {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony export (immutable) */ exports["a"] = MyAccount;
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.MyAccount = undefined;
-
-var _MyAccount2 = __webpack_require__(330);
-
-var _MyAccount3 = _interopRequireDefault(_MyAccount2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.MyAccount = _MyAccount3.default;
+function MyAccount() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "div",
+        { className: "myAccount" },
+        " My Account "
+    );
+}
 
 /***/ },
 
@@ -653,21 +350,24 @@ exports.MyAccount = _MyAccount3.default;
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__MyAccount__ = __webpack_require__(331);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__MyAccount__["a"]; });
 
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = Search;
 
-var _react = __webpack_require__(5);
+/***/ },
 
-var _react2 = _interopRequireDefault(_react);
+/***/ 333:
+/***/ function(module, exports, __webpack_require__) {
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony export (immutable) */ exports["a"] = Search;
+
 
 function Search() {
-    return _react2.default.createElement(
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'span',
         null,
         ' Search '
@@ -676,46 +376,28 @@ function Search() {
 
 /***/ },
 
-/***/ 333:
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Search = undefined;
-
-var _Search2 = __webpack_require__(332);
-
-var _Search3 = _interopRequireDefault(_Search2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.Search = _Search3.default;
-
-/***/ },
-
 /***/ 334:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Search__ = __webpack_require__(333);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__Search__["a"]; });
 
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = SocialIcons;
 
-var _react = __webpack_require__(5);
+/***/ },
 
-var _react2 = _interopRequireDefault(_react);
+/***/ 335:
+/***/ function(module, exports, __webpack_require__) {
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony export (immutable) */ exports["a"] = SocialIcons;
+
 
 function SocialIcons() {
-    return _react2.default.createElement(
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'span',
         null,
         'SocialIcons'
@@ -724,46 +406,28 @@ function SocialIcons() {
 
 /***/ },
 
-/***/ 335:
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.SocialIcons = undefined;
-
-var _SocialIcons2 = __webpack_require__(334);
-
-var _SocialIcons3 = _interopRequireDefault(_SocialIcons2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.SocialIcons = _SocialIcons3.default;
-
-/***/ },
-
 /***/ 336:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__SocialIcons__ = __webpack_require__(335);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__SocialIcons__["a"]; });
 
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = WelcomeMessage;
 
-var _react = __webpack_require__(5);
+/***/ },
 
-var _react2 = _interopRequireDefault(_react);
+/***/ 337:
+/***/ function(module, exports, __webpack_require__) {
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony export (immutable) */ exports["a"] = WelcomeMessage;
+
 
 function WelcomeMessage() {
-    return _react2.default.createElement(
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'span',
         null,
         ' WelcomeMessage '
@@ -772,46 +436,28 @@ function WelcomeMessage() {
 
 /***/ },
 
-/***/ 337:
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.WelcomeMessage = undefined;
-
-var _WelcomeMessage2 = __webpack_require__(336);
-
-var _WelcomeMessage3 = _interopRequireDefault(_WelcomeMessage2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.WelcomeMessage = _WelcomeMessage3.default;
-
-/***/ },
-
 /***/ 338:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__WelcomeMessage__ = __webpack_require__(337);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__WelcomeMessage__["a"]; });
 
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = Wishlist;
 
-var _react = __webpack_require__(5);
+/***/ },
 
-var _react2 = _interopRequireDefault(_react);
+/***/ 339:
+/***/ function(module, exports, __webpack_require__) {
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony export (immutable) */ exports["a"] = Wishlist;
+
 
 function Wishlist() {
-    return _react2.default.createElement(
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'span',
         null,
         ' Wishlist '
@@ -820,60 +466,39 @@ function Wishlist() {
 
 /***/ },
 
-/***/ 339:
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Wishlist = undefined;
-
-var _Wishlist2 = __webpack_require__(338);
-
-var _Wishlist3 = _interopRequireDefault(_Wishlist2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.Wishlist = _Wishlist3.default;
-
-/***/ },
-
 /***/ 340:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Wishlist__ = __webpack_require__(339);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__Wishlist__["a"]; });
 
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.PureHeader = PureHeader;
 
-var _react = __webpack_require__(5);
+/***/ },
 
-var _react2 = _interopRequireDefault(_react);
+/***/ 341:
+/***/ function(module, exports, __webpack_require__) {
 
-var _reactRedux = __webpack_require__(59);
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_match_media__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_match_media___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_match_media__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_uuid__ = __webpack_require__(129);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_uuid___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_uuid__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_App_features_Header_components__ = __webpack_require__(203);
+/* unused harmony export PureHeader */
 
-var _reactMatchMedia = __webpack_require__(201);
 
-var _uuid = __webpack_require__(129);
 
-var _uuid2 = _interopRequireDefault(_uuid);
 
-var _components = __webpack_require__(202);
 
-var HeaderComponents = _interopRequireWildcard(_components);
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var propTypes = {
-    globalState: _react.PropTypes.object.isRequired
+    globalState: __WEBPACK_IMPORTED_MODULE_0_react__["PropTypes"].object.isRequired
 };
 
 var defaultProps = {
@@ -886,75 +511,75 @@ function PureHeader(_ref) {
 
     var returnComponents = function returnComponents(data) {
         return data.toJS().map(function (key) {
-            if (HeaderComponents[key]) {
-                return _react2.default.createElement(HeaderComponents[key], { key: _uuid2.default.v4() });
+            if (__WEBPACK_IMPORTED_MODULE_4_App_features_Header_components__[key]) {
+                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4_App_features_Header_components__[key], { key: __WEBPACK_IMPORTED_MODULE_3_uuid___default.a.v4() });
             }
 
             return null;
         });
     };
 
-    return _react2.default.createElement(
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'header' },
-        _react2.default.createElement(
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
             { className: 'headerTop' },
-            _react2.default.createElement(
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: 'container' },
-                _react2.default.createElement(
-                    _reactMatchMedia.MatchMedia,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_2_react_match_media__["MatchMedia"],
                     { mediaQuery: '(max-width: 767px)' },
-                    _react2.default.createElement(
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'headerTop__items' },
                         returnComponents(globalState.getIn(['data', 'mobile', 'TopLeft']))
                     ),
-                    _react2.default.createElement(
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'headerTop__items' },
                         returnComponents(globalState.getIn(['data', 'mobile', 'TopCenter']))
                     ),
-                    _react2.default.createElement(
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'headerTop__items' },
                         returnComponents(globalState.getIn(['data', 'mobile', 'TopRight']))
                     )
                 ),
-                _react2.default.createElement(
-                    _reactMatchMedia.MatchMedia,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_2_react_match_media__["MatchMedia"],
                     { mediaQuery: '(min-width: 768px) and (max-width: 1023px)' },
-                    _react2.default.createElement(
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'headerTop__items' },
                         returnComponents(globalState.getIn(['data', 'tablet', 'TopLeft']))
                     ),
-                    _react2.default.createElement(
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'headerTop__items' },
                         returnComponents(globalState.getIn(['data', 'tablet', 'TopCenter']))
                     ),
-                    _react2.default.createElement(
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'headerTop__items' },
                         returnComponents(globalState.getIn(['data', 'tablet', 'TopRight']))
                     )
                 ),
-                _react2.default.createElement(
-                    _reactMatchMedia.MatchMedia,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_2_react_match_media__["MatchMedia"],
                     { mediaQuery: '(min-width: 1024px)' },
-                    _react2.default.createElement(
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'headerTop__items' },
                         returnComponents(globalState.getIn(['data', 'desktop', 'TopLeft']))
                     ),
-                    _react2.default.createElement(
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'headerTop__items' },
                         returnComponents(globalState.getIn(['data', 'desktop', 'TopCenter']))
                     ),
-                    _react2.default.createElement(
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'headerTop__items' },
                         returnComponents(globalState.getIn(['data', 'desktop', 'TopRight']))
@@ -962,54 +587,54 @@ function PureHeader(_ref) {
                 )
             )
         ),
-        _react2.default.createElement(
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
             { className: 'headerMain' },
-            _react2.default.createElement(
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: 'container' },
-                _react2.default.createElement(
-                    _reactMatchMedia.MatchMedia,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_2_react_match_media__["MatchMedia"],
                     { mediaQuery: '(max-width: 767px)' },
-                    _react2.default.createElement(
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'headerMain__items' },
                         returnComponents(globalState.getIn(['data', 'mobile', 'Main']))
                     )
                 ),
-                _react2.default.createElement(
-                    _reactMatchMedia.MatchMedia,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_2_react_match_media__["MatchMedia"],
                     { mediaQuery: '(min-width: 768px) and (max-width: 1023px)' },
-                    _react2.default.createElement(
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'headerMain__items' },
                         returnComponents(globalState.getIn(['data', 'tablet', 'MainLeft']))
                     ),
-                    _react2.default.createElement(
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'headerMain__items' },
                         returnComponents(globalState.getIn(['data', 'tablet', 'MainCenter']))
                     ),
-                    _react2.default.createElement(
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'headerMain__items' },
                         returnComponents(globalState.getIn(['data', 'tablet', 'MainRight']))
                     )
                 ),
-                _react2.default.createElement(
-                    _reactMatchMedia.MatchMedia,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_2_react_match_media__["MatchMedia"],
                     { mediaQuery: '(min-width: 1024px)' },
-                    _react2.default.createElement(
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'headerMain__items' },
                         returnComponents(globalState.getIn(['data', 'desktop', 'MainLeft']))
                     ),
-                    _react2.default.createElement(
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'headerMain__items' },
                         returnComponents(globalState.getIn(['data', 'desktop', 'MainCenter']))
                     ),
-                    _react2.default.createElement(
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'headerMain__items' },
                         returnComponents(globalState.getIn(['data', 'desktop', 'MainRight']))
@@ -1017,54 +642,54 @@ function PureHeader(_ref) {
                 )
             )
         ),
-        _react2.default.createElement(
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
             { className: 'headerBottom' },
-            _react2.default.createElement(
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: 'container' },
-                _react2.default.createElement(
-                    _reactMatchMedia.MatchMedia,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_2_react_match_media__["MatchMedia"],
                     { mediaQuery: '(max-width: 767px)' },
-                    _react2.default.createElement(
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'headerBottom__items' },
                         returnComponents(globalState.getIn(['data', 'mobile', 'Bottom']))
                     )
                 ),
-                _react2.default.createElement(
-                    _reactMatchMedia.MatchMedia,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_2_react_match_media__["MatchMedia"],
                     { mediaQuery: '(min-width: 768px) and (max-width: 1023px)' },
-                    _react2.default.createElement(
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'headerBottom__items' },
                         returnComponents(globalState.getIn(['data', 'tablet', 'BottomLeft']))
                     ),
-                    _react2.default.createElement(
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'headerBottom__items' },
                         returnComponents(globalState.getIn(['data', 'tablet', 'BottomCenter']))
                     ),
-                    _react2.default.createElement(
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'headerBottom__items' },
                         returnComponents(globalState.getIn(['data', 'tablet', 'BottomRight']))
                     )
                 ),
-                _react2.default.createElement(
-                    _reactMatchMedia.MatchMedia,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    __WEBPACK_IMPORTED_MODULE_2_react_match_media__["MatchMedia"],
                     { mediaQuery: '(min-width: 1024px)' },
-                    _react2.default.createElement(
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'headerBottom__items' },
                         returnComponents(globalState.getIn(['data', 'desktop', 'BottomLeft']))
                     ),
-                    _react2.default.createElement(
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'headerBottom__items' },
                         returnComponents(globalState.getIn(['data', 'desktop', 'BottomCenter']))
                     ),
-                    _react2.default.createElement(
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
                         { className: 'headerBottom__items' },
                         returnComponents(globalState.getIn(['data', 'desktop', 'BottomRight']))
@@ -1078,30 +703,9 @@ function PureHeader(_ref) {
 PureHeader.propTypes = propTypes;
 PureHeader.defaultProps = defaultProps;
 
-exports.default = (0, _reactRedux.connect)(function (state) {
+/* harmony default export */ exports["a"] = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_redux__["connect"])(function (state) {
     return { globalState: state.headerConfig };
 })(PureHeader);
-
-/***/ },
-
-/***/ 341:
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Header = undefined;
-
-var _Header2 = __webpack_require__(340);
-
-var _Header3 = _interopRequireDefault(_Header2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.Header = _Header3.default;
 
 /***/ },
 
@@ -1109,20 +713,20 @@ exports.Header = _Header3.default;
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Header__ = __webpack_require__(341);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__Header__["a"]; });
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
-var _Header = __webpack_require__(341);
+/***/ },
 
-Object.defineProperty(exports, 'Header', {
-  enumerable: true,
-  get: function get() {
-    return _Header.Header;
-  }
-});
+/***/ 343:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Header__ = __webpack_require__(342);
+/* harmony reexport (binding) */ __webpack_require__.d(exports, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__Header__["a"]; });
+
 
 /***/ },
 
@@ -1130,42 +734,37 @@ Object.defineProperty(exports, 'Header', {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_App_store_configureStore__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_App_store_configureStore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_App_store_configureStore__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__features_Header__ = __webpack_require__(310);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__features_Footer__ = __webpack_require__(309);
 
 
-var _react = __webpack_require__(5);
 
-var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(58);
 
-var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _reactRedux = __webpack_require__(59);
 
-var _configureStore = __webpack_require__(130);
 
-var _configureStore2 = _interopRequireDefault(_configureStore);
 
-var _Header = __webpack_require__(308);
+var store = __WEBPACK_IMPORTED_MODULE_3_App_store_configureStore___default()();
 
-var _Footer = __webpack_require__(307);
-
-var _Footer2 = _interopRequireDefault(_Footer);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var store = (0, _configureStore2.default)();
-
-_reactDom2.default.render(_react2.default.createElement(
-    _reactRedux.Provider,
+__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    __WEBPACK_IMPORTED_MODULE_2_react_redux__["Provider"],
     { store: store },
-    _react2.default.createElement(_Header.Header, null)
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__features_Header__["a" /* Header */], null)
 ), document.getElementsByTagName('header')[0]);
 
-_reactDom2.default.render(_react2.default.createElement(
-    _reactRedux.Provider,
+__WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    __WEBPACK_IMPORTED_MODULE_2_react_redux__["Provider"],
     { store: store },
-    _react2.default.createElement(_Footer2.default, null)
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__features_Footer__["a" /* default */], null)
 ), document.getElementsByTagName('footer')[0]);
 
 /***/ }
