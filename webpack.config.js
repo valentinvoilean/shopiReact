@@ -1,13 +1,13 @@
-import webpack from 'webpack';
-import path from 'path';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+const webpack = require('webpack');
+const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const GLOBALS = {
     'process.env.NODE_ENV': JSON.stringify('development'),
     __DEV__: true
 };
 
-export default {
+module.exports = {
     devtool: 'source-map',
 
     entry: {

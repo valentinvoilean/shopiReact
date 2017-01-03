@@ -1,10 +1,10 @@
-import browserSync from 'browser-sync';
-import webpack from 'webpack';
+const browserSync = require('browser-sync');
+const webpack = require('webpack');
 
-import config from '../webpack.config';
-import browserSyncConfig from '../bs-config';
+const webpackConfig = require('../webpack.config');
+const browserSyncConfig = require('../bs-config');
 
-const compiler = webpack(config);
+const compiler = webpack(webpackConfig);
 
 browserSync.create();
 browserSync.init(browserSyncConfig);

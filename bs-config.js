@@ -12,7 +12,7 @@
  |
  |
  */
-export default {
+module.exports = {
     "ui": {
         "port": 3001,
         "weinre": {
