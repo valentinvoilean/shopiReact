@@ -3,7 +3,7 @@ webpackJsonp([1],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(264);
+	module.exports = __webpack_require__(277);
 
 
 /***/ },
@@ -23042,7 +23042,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 264:
+/***/ 277:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23061,11 +23061,9 @@ webpackJsonp([1],{
 	
 	var _configureStore2 = _interopRequireDefault(_configureStore);
 	
-	var _Header = __webpack_require__(265);
+	var _Header = __webpack_require__(278);
 	
-	var _Header2 = _interopRequireDefault(_Header);
-	
-	var _Footer = __webpack_require__(450);
+	var _Footer = __webpack_require__(465);
 	
 	var _Footer2 = _interopRequireDefault(_Footer);
 	
@@ -23076,7 +23074,7 @@ webpackJsonp([1],{
 	_reactDom2.default.render(_react2.default.createElement(
 	    _reactRedux.Provider,
 	    { store: store },
-	    _react2.default.createElement(_Header2.default, null)
+	    _react2.default.createElement(_Header.Header, null)
 	), document.getElementsByTagName('header')[0]);
 	
 	_reactDom2.default.render(_react2.default.createElement(
@@ -23087,7 +23085,62 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 265:
+/***/ 278:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _components = __webpack_require__(439);
+	
+	Object.keys(_components).forEach(function (key) {
+	  if (key === "default" || key === "__esModule") return;
+	  Object.defineProperty(exports, key, {
+	    enumerable: true,
+	    get: function get() {
+	      return _components[key];
+	    }
+	  });
+	});
+	
+	var _containers = __webpack_require__(768);
+	
+	Object.keys(_containers).forEach(function (key) {
+	  if (key === "default" || key === "__esModule") return;
+	  Object.defineProperty(exports, key, {
+	    enumerable: true,
+	    get: function get() {
+	      return _containers[key];
+	    }
+	  });
+	});
+
+/***/ },
+
+/***/ 279:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Header = undefined;
+	
+	var _Header2 = __webpack_require__(280);
+	
+	var _Header3 = _interopRequireDefault(_Header2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.Header = _Header3.default;
+
+/***/ },
+
+/***/ 280:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23095,7 +23148,7 @@ webpackJsonp([1],{
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.PureHeader = undefined;
+	exports.PureHeader = PureHeader;
 	
 	var _react = __webpack_require__(2);
 	
@@ -23103,13 +23156,13 @@ webpackJsonp([1],{
 	
 	var _reactRedux = __webpack_require__(179);
 	
-	var _reactMatchMedia = __webpack_require__(266);
+	var _reactMatchMedia = __webpack_require__(281);
 	
 	var _uuid = __webpack_require__(235);
 	
 	var _uuid2 = _interopRequireDefault(_uuid);
 	
-	var _components = __webpack_require__(424);
+	var _components = __webpack_require__(439);
 	
 	var HeaderComponents = _interopRequireWildcard(_components);
 	
@@ -23117,7 +23170,15 @@ webpackJsonp([1],{
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var PureHeader = exports.PureHeader = function PureHeader(_ref) {
+	var propTypes = {
+	    globalState: _react.PropTypes.object.isRequired
+	};
+	
+	var defaultProps = {
+	    globalState: {}
+	};
+	
+	function PureHeader(_ref) {
 	    var globalState = _ref.globalState;
 	
 	
@@ -23310,11 +23371,10 @@ webpackJsonp([1],{
 	            )
 	        )
 	    );
-	};
+	}
 	
-	PureHeader.propTypes = {
-	    globalState: _react.PropTypes.object.isRequired
-	};
+	PureHeader.propTypes = propTypes;
+	PureHeader.defaultProps = defaultProps;
 	
 	exports.default = (0, _reactRedux.connect)(function (state) {
 	    return { globalState: state.headerConfig };
@@ -23322,7 +23382,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 424:
+/***/ 439:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23331,7 +23391,7 @@ webpackJsonp([1],{
 	  value: true
 	});
 	
-	var _Wishlist = __webpack_require__(425);
+	var _Wishlist = __webpack_require__(440);
 	
 	Object.defineProperty(exports, 'Wishlist', {
 	  enumerable: true,
@@ -23340,7 +23400,7 @@ webpackJsonp([1],{
 	  }
 	});
 	
-	var _MyAccount = __webpack_require__(427);
+	var _MyAccount = __webpack_require__(442);
 	
 	Object.defineProperty(exports, 'MyAccount', {
 	  enumerable: true,
@@ -23349,7 +23409,7 @@ webpackJsonp([1],{
 	  }
 	});
 	
-	var _Logo = __webpack_require__(429);
+	var _Logo = __webpack_require__(444);
 	
 	Object.defineProperty(exports, 'Logo', {
 	  enumerable: true,
@@ -23358,7 +23418,7 @@ webpackJsonp([1],{
 	  }
 	});
 	
-	var _Menu = __webpack_require__(431);
+	var _Menu = __webpack_require__(446);
 	
 	Object.defineProperty(exports, 'Menu', {
 	  enumerable: true,
@@ -23373,7 +23433,7 @@ webpackJsonp([1],{
 	  }
 	});
 	
-	var _Cart = __webpack_require__(434);
+	var _Cart = __webpack_require__(449);
 	
 	Object.defineProperty(exports, 'Cart', {
 	  enumerable: true,
@@ -23382,7 +23442,7 @@ webpackJsonp([1],{
 	  }
 	});
 	
-	var _WelcomeMessage = __webpack_require__(436);
+	var _WelcomeMessage = __webpack_require__(451);
 	
 	Object.defineProperty(exports, 'WelcomeMessage', {
 	  enumerable: true,
@@ -23391,7 +23451,7 @@ webpackJsonp([1],{
 	  }
 	});
 	
-	var _Search = __webpack_require__(438);
+	var _Search = __webpack_require__(453);
 	
 	Object.defineProperty(exports, 'Search', {
 	  enumerable: true,
@@ -23400,7 +23460,7 @@ webpackJsonp([1],{
 	  }
 	});
 	
-	var _Breadcrumb = __webpack_require__(440);
+	var _Breadcrumb = __webpack_require__(455);
 	
 	Object.defineProperty(exports, 'Breadcrumb', {
 	  enumerable: true,
@@ -23409,7 +23469,7 @@ webpackJsonp([1],{
 	  }
 	});
 	
-	var _Currency = __webpack_require__(442);
+	var _Currency = __webpack_require__(457);
 	
 	Object.defineProperty(exports, 'Currency', {
 	  enumerable: true,
@@ -23418,7 +23478,7 @@ webpackJsonp([1],{
 	  }
 	});
 	
-	var _Language = __webpack_require__(444);
+	var _Language = __webpack_require__(459);
 	
 	Object.defineProperty(exports, 'Language', {
 	  enumerable: true,
@@ -23427,7 +23487,7 @@ webpackJsonp([1],{
 	  }
 	});
 	
-	var _SocialIcons = __webpack_require__(446);
+	var _SocialIcons = __webpack_require__(461);
 	
 	Object.defineProperty(exports, 'SocialIcons', {
 	  enumerable: true,
@@ -23436,7 +23496,7 @@ webpackJsonp([1],{
 	  }
 	});
 	
-	var _CustomLink = __webpack_require__(448);
+	var _CustomLink = __webpack_require__(463);
 	
 	Object.defineProperty(exports, 'CustomLink1', {
 	  enumerable: true,
@@ -23465,7 +23525,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 425:
+/***/ 440:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23475,7 +23535,7 @@ webpackJsonp([1],{
 	});
 	exports.Wishlist = undefined;
 	
-	var _Wishlist2 = __webpack_require__(426);
+	var _Wishlist2 = __webpack_require__(441);
 	
 	var _Wishlist3 = _interopRequireDefault(_Wishlist2);
 	
@@ -23485,7 +23545,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 426:
+/***/ 441:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23511,7 +23571,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 427:
+/***/ 442:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23521,7 +23581,7 @@ webpackJsonp([1],{
 	});
 	exports.MyAccount = undefined;
 	
-	var _MyAccount2 = __webpack_require__(428);
+	var _MyAccount2 = __webpack_require__(443);
 	
 	var _MyAccount3 = _interopRequireDefault(_MyAccount2);
 	
@@ -23531,7 +23591,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 428:
+/***/ 443:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -23557,7 +23617,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 429:
+/***/ 444:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23567,7 +23627,7 @@ webpackJsonp([1],{
 	});
 	exports.Logo = undefined;
 	
-	var _Logo2 = __webpack_require__(430);
+	var _Logo2 = __webpack_require__(445);
 	
 	var _Logo3 = _interopRequireDefault(_Logo2);
 	
@@ -23577,7 +23637,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 430:
+/***/ 445:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23603,7 +23663,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 431:
+/***/ 446:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23613,11 +23673,11 @@ webpackJsonp([1],{
 	});
 	exports.MenuIcon = exports.Menu = undefined;
 	
-	var _Menu2 = __webpack_require__(432);
+	var _Menu2 = __webpack_require__(447);
 	
 	var _Menu3 = _interopRequireDefault(_Menu2);
 	
-	var _MenuIcon2 = __webpack_require__(433);
+	var _MenuIcon2 = __webpack_require__(448);
 	
 	var _MenuIcon3 = _interopRequireDefault(_MenuIcon2);
 	
@@ -23628,7 +23688,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 432:
+/***/ 447:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23654,7 +23714,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 433:
+/***/ 448:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23680,7 +23740,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 434:
+/***/ 449:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23690,7 +23750,7 @@ webpackJsonp([1],{
 	});
 	exports.Cart = undefined;
 	
-	var _Cart2 = __webpack_require__(435);
+	var _Cart2 = __webpack_require__(450);
 	
 	var _Cart3 = _interopRequireDefault(_Cart2);
 	
@@ -23700,7 +23760,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 435:
+/***/ 450:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23726,7 +23786,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 436:
+/***/ 451:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23736,7 +23796,7 @@ webpackJsonp([1],{
 	});
 	exports.WelcomeMessage = undefined;
 	
-	var _WelcomeMessage2 = __webpack_require__(437);
+	var _WelcomeMessage2 = __webpack_require__(452);
 	
 	var _WelcomeMessage3 = _interopRequireDefault(_WelcomeMessage2);
 	
@@ -23746,7 +23806,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 437:
+/***/ 452:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23772,7 +23832,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 438:
+/***/ 453:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23782,7 +23842,7 @@ webpackJsonp([1],{
 	});
 	exports.Search = undefined;
 	
-	var _Search2 = __webpack_require__(439);
+	var _Search2 = __webpack_require__(454);
 	
 	var _Search3 = _interopRequireDefault(_Search2);
 	
@@ -23792,7 +23852,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 439:
+/***/ 454:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23818,7 +23878,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 440:
+/***/ 455:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23828,7 +23888,7 @@ webpackJsonp([1],{
 	});
 	exports.Breadcrumb = undefined;
 	
-	var _Breadcrumb2 = __webpack_require__(441);
+	var _Breadcrumb2 = __webpack_require__(456);
 	
 	var _Breadcrumb3 = _interopRequireDefault(_Breadcrumb2);
 	
@@ -23838,7 +23898,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 441:
+/***/ 456:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23864,7 +23924,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 442:
+/***/ 457:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23874,7 +23934,7 @@ webpackJsonp([1],{
 	});
 	exports.Currency = undefined;
 	
-	var _Currency2 = __webpack_require__(443);
+	var _Currency2 = __webpack_require__(458);
 	
 	var _Currency3 = _interopRequireDefault(_Currency2);
 	
@@ -23884,7 +23944,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 443:
+/***/ 458:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23910,7 +23970,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 444:
+/***/ 459:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23920,7 +23980,7 @@ webpackJsonp([1],{
 	});
 	exports.Language = undefined;
 	
-	var _Language2 = __webpack_require__(445);
+	var _Language2 = __webpack_require__(460);
 	
 	var _Language3 = _interopRequireDefault(_Language2);
 	
@@ -23930,7 +23990,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 445:
+/***/ 460:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23956,7 +24016,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 446:
+/***/ 461:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23966,7 +24026,7 @@ webpackJsonp([1],{
 	});
 	exports.SocialIcons = undefined;
 	
-	var _SocialIcons2 = __webpack_require__(447);
+	var _SocialIcons2 = __webpack_require__(462);
 	
 	var _SocialIcons3 = _interopRequireDefault(_SocialIcons2);
 	
@@ -23976,7 +24036,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 447:
+/***/ 462:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24002,7 +24062,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 448:
+/***/ 463:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24011,7 +24071,7 @@ webpackJsonp([1],{
 	  value: true
 	});
 	
-	var _CustomLink = __webpack_require__(449);
+	var _CustomLink = __webpack_require__(464);
 	
 	Object.defineProperty(exports, 'CustomLink1', {
 	  enumerable: true,
@@ -24040,7 +24100,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 449:
+/***/ 464:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24072,7 +24132,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 450:
+/***/ 465:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24097,6 +24157,26 @@ webpackJsonp([1],{
 	}
 	
 	Footer.displayName = 'Footer';
+
+/***/ },
+
+/***/ 768:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _Header = __webpack_require__(279);
+	
+	Object.defineProperty(exports, 'Header', {
+	  enumerable: true,
+	  get: function get() {
+	    return _Header.Header;
+	  }
+	});
 
 /***/ }
 

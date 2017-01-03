@@ -314,7 +314,7 @@
 
 .CloseButton__closeButton___NwXk9:focus {
   outline: 1px solid darkblue;
-}.Modal__background___2JWGA {
+}.Modal__background___jZZTW {
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
   z-index: 999;
@@ -325,7 +325,7 @@
   left: 0;
 }
 
-.Modal__base___2FSkR {
+.Modal__base___20cod {
   background: white;
   padding: 0 0 20px;
   position: relative;
@@ -338,7 +338,7 @@
           user-select: none;
 }
 
-.Modal__base___2FSkR * {
+.Modal__base___20cod * {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -346,7 +346,7 @@
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 }
 
-.Modal__h1___4pazQ {
+.Modal__h1___1USDd {
   font-size: 24px;
   font-weight: bold;
   padding: 20px;
@@ -354,16 +354,16 @@
   margin: 0;
 }
 
-.Modal__tabs___18BnF {
+.Modal__tabs___NaFJu {
   padding: 20px;
 }
 
-.Modal__tabs___18BnF > ul[role=tablist] {
+.Modal__tabs___NaFJu > ul[role=tablist] {
   border-bottom: 1px solid #e4e4e4;
   margin-bottom: 20px;
 }
 
-.Modal__tabs___18BnF > ul > li[role=tab] {
+.Modal__tabs___NaFJu > ul > li[role=tab] {
   margin-left: 5px;
   border-radius: 5px 5px 0 0;
   padding: 10px 12px;
@@ -371,20 +371,20 @@
   text-transform: capitalize;
 }
 
-.Modal__tabs___18BnF > ul > li[role=tab]:hover {
+.Modal__tabs___NaFJu > ul > li[role=tab]:hover {
   border-color: #eceeef #eceeef #ddd;
 }
 
-.Modal__tabs___18BnF > ul > li[role=tab][aria-selected=true] {
+.Modal__tabs___NaFJu > ul > li[role=tab][aria-selected=true] {
   color: #555;
   border-color: #e4e4e4;
 }
 
-.Modal__tabs___18BnF > ul > li[role=tab][aria-selected=true]:hover {
+.Modal__tabs___NaFJu > ul > li[role=tab][aria-selected=true]:hover {
   border-color: #e4e4e4;
 }
 
-.Modal__h2___5_qlx {
+.Modal__h2___M_x8f {
   background: #2F5A59;
   color: white;
   padding: 5px 10px;
@@ -393,23 +393,23 @@
   display: inline-block;
 }
 
-.Modal__componentsContainer___24VpM {
+.Modal__componentsContainer___31DLk {
   height: 150px;
   border: 1px solid #E1E1E1;
 }
 
-.Modal__componentsContainer___24VpM > div {
+.Modal__componentsContainer___31DLk > div {
   height: 100%;
 }
 
-.Modal__componentsContainer___24VpM ul {
+.Modal__componentsContainer___31DLk ul {
   list-style: none;
   height: 100%;
   overflow: auto;
   padding: 10px;
 }
 
-.Modal__componentsContainer___24VpM li {
+.Modal__componentsContainer___31DLk li {
   display: inline-block;
   font-size: 14px;
   color: white;
@@ -424,24 +424,24 @@
   transition: background .4s;
 }
 
-.Modal__componentsContainer___24VpM li .Modal__close___37Ze2 {
+.Modal__componentsContainer___31DLk li .Modal__close___38YSZ {
   display: none;
 }
 
-.Modal__container___2FlML {
+.Modal__container___1oMzL {
   margin-top: 30px;
   width: 100%;
   clear: both;
   float: left;
 }
 
-.Modal__container___2FlML p {
+.Modal__container___1oMzL p {
   color: #6C6C6C;
   font-size: 12px;
   line-height: 17px;
 }
 
-.Modal__header___3gCET {
+.Modal__header___3_pgU {
   float: left;
   width: 100%;
   border: 1px solid #E1E1E1;
