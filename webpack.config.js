@@ -8,7 +8,6 @@ const GLOBALS = {
 };
 
 module.exports = {
-
     devtool: 'source-map',
 
     entry: {
@@ -20,7 +19,17 @@ module.exports = {
 
     output: {
         path: path.resolve(__dirname, 'theme/assets'),
+        publicPath: '/theme/assets/',
         filename: '[name].js'
+    },
+
+    devServer: {
+        inline: true,
+        hot: true,
+        noInfo: true,
+        compress: true,
+        port: 8081,
+        open: true
     },
 
     resolve: {
@@ -39,6 +48,7 @@ module.exports = {
 
     plugins: [
         new webpack.DefinePlugin(GLOBALS),
+        new webpack.HotModuleReplacementPlugin(),
         new webpack.optimize.CommonsChunkPlugin({name: 'vendors', filename: 'vendors.js'}),
         new webpack.ProvidePlugin({
             $: 'jquery',
