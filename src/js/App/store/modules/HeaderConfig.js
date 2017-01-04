@@ -32,7 +32,7 @@ export default (state = getInitialState(), action) => {
                 return defaultState.get('HeaderConfig').mergeDeep(state);
             }
             catch (e) {
-                console.warn(e);
+                console.warn(e); // eslint-disable-line
                 return defaultState.get('HeaderConfig');
             }
         }

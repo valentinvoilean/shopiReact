@@ -16,7 +16,7 @@ export default function getInitialState() {
         });
     }
     catch (err) {
-        console.warn('Data not valid ! The default settings will be used instead ');
+        console.warn('Data not valid ! The default settings will be used instead '); // eslint-disable-line
         currentSettings = defaultState.get('HeaderConfig');
     }
 
