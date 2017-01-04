@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-//const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     devtool: 'source-map',
@@ -39,8 +39,8 @@ module.exports = {
             {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?limit=10000&mimetype=application/octet-stream'},
             {test: /\.(jpe?g|png|gif)$/i, loader: 'file-loader?name=[name].[ext]'},
             {test: /\.ico$/, loader: 'file-loader?name=[name].[ext]'},
-            {test: /\.scss$/, loader: 'style-loader!css-loader?modules&importLoaders=2&sourceMap&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer-loader!resolve-url-loader!sass-loader?outputStyle=expanded&sourceMap'},
-            {test: /\.css$/, loader: 'style-loader!css-loader'}
+            {test: /\.scss$/, loader: ExtractTextPlugin.extract({fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer-loader!resolve-url-loader!sass-loader'})},
+            {test: /\.css$/, loader: ExtractTextPlugin.extract({fallbackLoader: 'style-loader', loader: 'css-loader'})}
         ]
     },
     resolve: {
@@ -63,10 +63,10 @@ module.exports = {
             $: 'jquery',
             jQuery: 'jquery'
         }),
-        /*new ExtractTextPlugin({
-         filename: 'helpers.css',
-         allChunks: false
-         }),*/
+        new ExtractTextPlugin({
+            filename: 'helpers.css',
+            allChunks: false
+        }),
         new webpack.LoaderOptionsPlugin({
             test: /\.jsx/, // may apply this only for some modules
             options: {
