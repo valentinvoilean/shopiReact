@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm-run-all --parallel js:watch sass:watch",
     "build": "npm-run-all --parallel js:build sass:build",
-    "js:build": "webpack",
+    "js:build": "webpack --config webpack.config.prod.js",
     "js:watch": "webpack-dev-server",
     "sass:build": "node tools/sass",
     "sass:watch": "node tools/sass -watch",
