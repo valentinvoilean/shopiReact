@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+//const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const GLOBALS = {
     'process.env.NODE_ENV': JSON.stringify('development'),
@@ -48,16 +48,17 @@ module.exports = {
 
     plugins: [
         new webpack.DefinePlugin(GLOBALS),
+        new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.optimize.CommonsChunkPlugin({name: 'vendors', filename: 'vendors.js'}),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery'
         }),
-        new ExtractTextPlugin({
+        /*new ExtractTextPlugin({
             filename: 'helpers.css',
             allChunks: false
-        }),
+        }),*/
         new webpack.LoaderOptionsPlugin({
             test: /\.jsx/, // may apply this only for some modules
             options: {
@@ -110,7 +111,22 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract({
+                loader: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        query: {
+                            sourceMap: true,
+                            modules: true,
+                            importLoaders: true,
+                            localIdentName: '[name]__[local]___[hash:base64:5]'
+                        }
+                    },
+                    'autoprefixer-loader',
+                    'resolve-url-loader',
+                    'sass-loader'
+                ]
+                /*loader: ExtractTextPlugin.extract({
                     fallbackLoader: 'style-loader',
                     loader: [
                         {
@@ -126,14 +142,15 @@ module.exports = {
                         'resolve-url-loader',
                         'sass-loader'
                     ]
-                })
+                })*/
             },
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract({
+                loader: ['style-loader', 'css-loader']
+                /*loader: ExtractTextPlugin.extract({
                     fallbackLoader: 'style-loader',
                     loader: 'css-loader'
-                })
+                })*/
             }
         ]
     },
