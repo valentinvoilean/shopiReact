@@ -2,10 +2,8 @@ require('colors');
 const concat = require('serial-concat-files');
 const watch = require('node-watch');
 
-console.log('Watching SCSS files..'.green);
-
-const styles = '../src/styles';
-const assets = '../theme/assets';
+const styles = './src/styles';
+const assets = './theme/assets';
 
 let concatFiles = () => {
   concat([
@@ -62,10 +60,13 @@ let concatFiles = () => {
   });
 };
 
-watch(styles, { recursive: true }, function (filename) {
+if (process.argv[2]) {
+    console.log('Watching SCSS files..'.green);
+    watch(styles, {recursive: true}, function (path) {
 
-  console.log(`${filename} changed`.blue);
-  concatFiles();
-});
+        console.log(`File ${path} has been changed`.blue);
+        concatFiles();
+    });
+}
 
 concatFiles();
