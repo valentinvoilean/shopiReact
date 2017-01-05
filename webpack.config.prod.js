@@ -23,9 +23,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'theme/assets'),
         publicPath: '/theme/assets/',
-        filename: '[name].js',
-        chunkFilename: '[name].js',
-        sourceMapFilename: '[file].map'
+        filename: '[name].js'
     },
     module: {
         noParse: /jquery|backbone/,
@@ -75,6 +73,16 @@ module.exports = {
                     failOnError: false
                 }
             }
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendors',
+            filename: 'vendors.js'
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            },
+            sourceMap: true
         })
     ],
     target: 'web'
