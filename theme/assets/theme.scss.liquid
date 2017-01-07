@@ -1554,88 +1554,95 @@ $header-bottom-top-info-background: #343434;.headerTop {
       transition: all .3s ease-in-out;
     }
   }
-}.wishList {
-  @include flexbox;
-  @include align-items(center);
-  text-transform: uppercase;
-  cursor: pointer;
-
-  .wishList__link {
-    color: $header-link-color;
-    padding-right: 10px;
+}.wishlist {
+    @include flexbox;
+    @include align-items(center);
+    text-transform: uppercase;
+    text-align: left;
+    text-decoration: none;
+    text-indent: 0;
     cursor: pointer;
-    float: left;
-    white-space: nowrap;
-    overflow: hidden;
-    text-transform: capitalize;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: none;
 
-    &.is-active {
-      color: $header-link-color--active;
+    .wishlist__link {
+        color: $header-link-color;
+        padding-right: 10px;
+        cursor: pointer;
+        float: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-transform: capitalize;
+
+        &.is-active {
+            color: $header-link-color--active;
+        }
+
+        &.is-animated {
+            transition: all .3s ease-in-out;
+        }
     }
 
-    &.is-animated {
-      transition: all .3s ease-in-out;
+    .wishlist__icon {
+        transition: fill 0.3s ease-in-out;
+        height: $headerTopTabletIcon-height;
+        width: $headerTopTabletIcon-height + 2;
+        fill: $header-icon-color;
+        overflow: visible;
+
+        &:last-child {
+            display: none;
+        }
+
+        @include breakpoint($screen-lg) {
+            height: $headerTopDesktopIcon-height;
+            width: $headerTopDesktopIcon-height + 2;
+        }
     }
-  }
 
-  .wishList__icon {
-    transition: fill 0.3s ease-in-out;
-    height: $headerTopTabletIcon-height;
-    width: $headerTopTabletIcon-height + 2;
-    fill: $header-icon-color;
-    overflow: visible;
-
-    &:last-child {
-      display: none;
+    .wishlist__counter {
+        font-size: 10px;
+        line-height: 10px;
+        float: right;
+        color: $header-link-color;
+        margin-left: 2px;
+        display: none;
     }
 
-    @include breakpoint($screen-lg) {
-      height: $headerTopDesktopIcon-height;
-      width: $headerTopDesktopIcon-height + 2;
-    }
-  }
-
-  .wishList__counter {
-    font-size: 10px;
-    line-height: 10px;
-    float: right;
-    color: $header-link-color;
-    margin-left: 2px;
-    display: none;
-  }
-
-  .wishList__img {
-    display: block;
-    position: relative;
-    height: $headerTopTabletIcon-height;
-
-    @include breakpoint($screen-lg) {
-      height: $headerTopDesktopIcon-height;
-    }
-  }
-
-  .wishList__img.is-active {
-    .wishList__icon {
-      display: none;
-
-      &:last-child {
+    .wishlist__img {
         display: block;
-      }
+        position: relative;
+        height: $headerTopTabletIcon-height;
+
+        @include breakpoint($screen-lg) {
+            height: $headerTopDesktopIcon-height;
+        }
     }
 
-    .wishList__counter {
-      display: block;
-    }
-  }
+    .wishlist__img.is-active {
+        .wishlist__icon {
+            display: none;
 
-  &:hover,
-  &.is-active {
-    .wishList__icon {
-      fill: $header-icon-color--active;
+            &:last-child {
+                display: block;
+            }
+        }
+
+        .wishlist__counter {
+            display: block;
+        }
     }
 
-    .wishList__counter {
-      color: $header-link-color--active;
+    &:hover,
+    &.is-active {
+        .wishlist__icon {
+            fill: $header-icon-color--active;
+        }
+
+        .wishlist__counter {
+            color: $header-link-color--active;
+        }
     }
-  }
 }

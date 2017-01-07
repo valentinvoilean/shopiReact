@@ -1,5 +1,4 @@
 import 'jquery';
-import 'modernizr';
 
 import SVGSprite from 'jQuery/SVGSprite/SVGSprite';
 
