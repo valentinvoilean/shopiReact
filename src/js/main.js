@@ -1,7 +1,7 @@
 import 'jquery';
 import Modernizr from 'modernizr';
 
-alert(Modernizr.touchevents); //eslint-disable-line
+alert(Modernizr.touchevents || Modernizr.pointerevents); //eslint-disable-line
 
 import SVGSprite from 'jQuery/SVGSprite/SVGSprite';
 
