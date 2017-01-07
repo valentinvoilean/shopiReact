@@ -1,8 +1,6 @@
 import 'jquery';
-import Modernizr from 'modernizr';
 
-alert(Modernizr.touchevents || Modernizr.pointerevents); //eslint-disable-line
-
+// Generate SVG Sprite
 import SVGSprite from 'jQuery/SVGSprite/SVGSprite';
 
 // Import React App
