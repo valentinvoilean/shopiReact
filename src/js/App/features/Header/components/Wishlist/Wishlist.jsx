@@ -54,12 +54,12 @@ export default class Wishlist extends Component {
     }
 
     preventClickFirstTime(e) {
-        if (this.$el.hasClass(SHARED_CLASSES.active)) {
+        if ($(this.$el).hasClass(SHARED_CLASSES.active)) {
             return true;
         }
         else {
             e.preventDefault();
-            this.$el.addClass(SHARED_CLASSES.active);
+            $(this.$el).addClass(SHARED_CLASSES.active);
             this.slideInLink();
         }
     }

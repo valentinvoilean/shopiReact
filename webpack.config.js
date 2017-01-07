@@ -78,7 +78,8 @@ module.exports = {
         inline: true,
         hot: true,
         compress: true,
-        port: 1234,
+        host: '0.0.0.0',
+        port: 8089,
         open: true
     },
     target: 'web',
