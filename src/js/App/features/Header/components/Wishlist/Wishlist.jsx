@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {SHARED_CLASSES} from 'common/constants/classes';
-import modernizr from 'modernizr';
+import Modernizr from 'modernizr';
+
+alert(Modernizr.touchevents); //eslint-disable-line
 
 export default class Wishlist extends Component {
     constructor() {
@@ -20,7 +22,6 @@ export default class Wishlist extends Component {
 
     componentDidUpdate() {
         this.calculateWidths();
-        this.addEventHandlers();
     }
 
     calculateWidths() {
@@ -36,7 +37,7 @@ export default class Wishlist extends Component {
     }
 
     activateItem(e) {
-        if (modernizr.touchevents) {
+        if (Modernizr.touchevents) {
             this.preventClickFirstTime(e);
         } else {
             this.slideInLink();
@@ -44,7 +45,7 @@ export default class Wishlist extends Component {
     }
 
     deactivateItem(e) {
-        if (modernizr.touchevents) {
+        if (Modernizr.touchevents) {
             if (!this.$el.is(e.target) // if the target of the click isn't the container...
                 && this.$el.has(e.target).length === 0) // ... nor a descendant of the container
             {
