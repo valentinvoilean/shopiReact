@@ -1,5 +1,3 @@
-import 'jquery';
-
 // Generate SVG Sprite
 import SVGSprite from 'jQuery/SVGSprite/SVGSprite';
 

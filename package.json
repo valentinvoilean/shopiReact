@@ -73,7 +73,6 @@
     "json-loader": "0.5.4",
     "less": "2.7.1",
     "less-loader": "2.2.3",
-    "modernizr-loader": "1.0.0",
     "node-normalize-scss": "1.4.0",
     "node-sass": "4.1.1",
     "node-watch": "0.4.1",
@@ -93,7 +92,8 @@
     "svg-sprite-loader": "0.1.2",
     "url-loader": "0.5.7",
     "webpack": "2.2.0-rc.3",
-    "webpack-dev-server": "2.2.0-rc.0"
+    "webpack-dev-server": "2.2.0-rc.0",
+    "webpack-modernizr-loader": "1.0.1"
   },
   "dependencies": {
     "immutable": "3.8.1",
