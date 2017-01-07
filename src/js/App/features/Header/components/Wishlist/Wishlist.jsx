@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import {SHARED_CLASSES} from 'common/constants/classes';
 import Modernizr from 'modernizr';
 
-alert(Modernizr.touchevents); //eslint-disable-line
-
 export default class Wishlist extends Component {
     constructor() {
         super();
