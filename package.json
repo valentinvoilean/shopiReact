@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "npm-run-all --parallel js:watch sass:watch",
-    "build": "npm-run-all --parallel js:build sass:build",
+    "build": "npm-run-all --parallel theme:watch js:build sass:build",
+    "theme:watch": ". ./themeWatch.sh",
     "js:build": "webpack --config webpack.config.prod.js",
     "js:watch": "webpack-dev-server",
     "sass:build": "node tools/sass",

@@ -17,8 +17,8 @@ module.exports = {
             'redux',
             'jquery'
         ],
-        config: 'App/features/HeaderConfig/index.jsx',
-        main: 'App/index.js'
+        headerConfig: 'App/features/HeaderConfig/index.jsx',
+        main: 'main.js'
     },
     output: {
         path: path.resolve(__dirname, 'theme/assets'),
@@ -48,6 +48,7 @@ module.exports = {
             'node_modules'
         ],
         alias: {
+            svg: path.resolve(__dirname, 'src/svg'),
             jquery: 'jquery/dist/jquery.min.js',
             modernizr$: path.resolve(__dirname, '.modernizrrc')
         }
