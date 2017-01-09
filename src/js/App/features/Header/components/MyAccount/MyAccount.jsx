@@ -1,9 +1,7 @@
 import React from 'react';
 import {MatchMedia} from 'react-match-media';
 
-import MyAccountMobile from './MyAccountMobile';
-import MyAccountTablet from './MyAccountTablet';
-import MyAccountDesktop from './MyAccountDesktop';
+import {MyAccountMobile, MyAccountTablet, MyAccountDesktop} from './';
 
 import {mediaQueries} from 'common/constants/mediaQueries';
 
