@@ -6,10 +6,20 @@ import {SHARED_CLASSES} from 'common/constants/classes';
 
 const propTypes = {
     shop: PropTypes.object.isRequired,
+
     isHiddenSideCollapsed: PropTypes.bool.isRequired,
     isHiddenSideOutsideViewport: PropTypes.bool.isRequired,
+    isHiddenSideAnimated: PropTypes.bool.isRequired,
     hiddenSideWidth: PropTypes.number,
-    updateHiddenSideRef: PropTypes.func.isRequired
+
+    updateHiddenSideRef: PropTypes.func.isRequired,
+    updateEl: PropTypes.func.isRequired,
+
+    isElActive: PropTypes.bool.isRequired,
+
+    activateItem: PropTypes.func.isRequired,
+    activateItemByKeyboard: PropTypes.func.isRequired,
+    deactivateItem: PropTypes.func.isRequired
 };
 
 export default function MyAccountDesktopLoggedOut(props) {
@@ -18,16 +28,35 @@ export default function MyAccountDesktopLoggedOut(props) {
         isHiddenSideCollapsed,
         isHiddenSideOutsideViewport,
         hiddenSideWidth,
-        updateHiddenSideRef
+        updateHiddenSideRef,
+        updateEl,
+        isElActive,
+        isHiddenSideAnimated,
+        activateItem,
+        deactivateItem,
+        activateItemByKeyboard
     } = props;
 
     const hiddenSideClasses = classnames('myAccount__hiddenSide', {
         [`${SHARED_CLASSES.outsideViewport}`]: isHiddenSideOutsideViewport,
-        [`${SHARED_CLASSES.collapsed}`]: isHiddenSideCollapsed
+        [`${SHARED_CLASSES.collapsed}`]: isHiddenSideCollapsed,
+        [`${SHARED_CLASSES.animate}`]: isHiddenSideAnimated
+    });
+
+    const elClasses = classnames('myAccount', {
+        [`${SHARED_CLASSES.active}`]: isElActive
     });
 
     return (
-        <div className="myAccount">
+        <div className={elClasses}
+             ref={updateEl}
+             onMouseOver={activateItem}
+             onMouseOut={deactivateItem}
+             onFocus={activateItem}
+             onBlur={deactivateItem}
+             onTouchEnd={activateItem}
+             onKeyDown={activateItemByKeyboard}
+        >
             <div className={hiddenSideClasses}
                  ref={updateHiddenSideRef}
                  style={{ width: hiddenSideWidth }}
