@@ -22,10 +22,19 @@ export default class Wishlist extends Component {
 
     componentDidMount() {
         this.calculateWidths();
+        if (window.Modernizr.touchevents) {
+            window.addEventListener('click', this.deactivateItem, false);
+        }
     }
 
     shouldComponentUpdate() {
         return true;
+    }
+
+    componentWillUnmount() {
+        if (window.Modernizr.touchevents) {
+            window.removeEventListener('click', this.deactivateItem);
+        }
     }
 
     calculateWidths() {
@@ -43,6 +52,8 @@ export default class Wishlist extends Component {
     }
 
     activateItem(e) {
+        e.stopPropagation();
+
         if (window.Modernizr.touchevents) {
             this.preventClickFirstTime(e);
         } else {
@@ -52,8 +63,8 @@ export default class Wishlist extends Component {
 
     deactivateItem(e) {
         if (window.Modernizr.touchevents) {
-            if (!this.wishlistEl.is(e.target) // if the target of the click isn't the container...
-                && this.wishlistEl.has(e.target).length === 0) // ... nor a descendant of the container
+            if (e.target !== this.wishlistEl // if the target of the click isn't the container...
+                && !this.wishlistEl.contains(e.target)) // ... nor a descendant of the container
             {
                 this.slideOutLink();
             }
