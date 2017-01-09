@@ -4,6 +4,7 @@ import {MatchMedia} from 'react-match-media';
 import uuid from 'uuid';
 
 import * as HeaderComponents from 'App/features/Header/components';
+import {mediaQueries} from 'common/constants/mediaQueries';
 
 const propTypes = {
     globalState: PropTypes.object.isRequired
@@ -29,7 +30,7 @@ export function PureHeader({globalState}) {
         <div className="header">
             <div className="headerTop">
                 <div className="container">
-                    <MatchMedia mediaQuery={'(max-width: 767px)'}>
+                    <MatchMedia mediaQuery={mediaQueries.mobile}>
                         <div className="headerTop__items">
                             {returnComponents(globalState.getIn(['data', 'mobile', 'TopLeft']))}
                         </div>
@@ -40,7 +41,7 @@ export function PureHeader({globalState}) {
                             {returnComponents(globalState.getIn(['data', 'mobile', 'TopRight']))}
                         </div>
                     </MatchMedia>
-                    <MatchMedia mediaQuery={'(min-width: 768px) and (max-width: 1023px)'}>
+                    <MatchMedia mediaQuery={mediaQueries.tablet}>
                         <div className="headerTop__items">
                             {returnComponents(globalState.getIn(['data', 'tablet', 'TopLeft']))}
                         </div>
@@ -51,7 +52,7 @@ export function PureHeader({globalState}) {
                             {returnComponents(globalState.getIn(['data', 'tablet', 'TopRight']))}
                         </div>
                     </MatchMedia>
-                    <MatchMedia mediaQuery={'(min-width: 1024px)'}>
+                    <MatchMedia mediaQuery={mediaQueries.desktop}>
                         <div className="headerTop__items">
                             {returnComponents(globalState.getIn(['data', 'desktop', 'TopLeft']))}
                         </div>
@@ -67,12 +68,12 @@ export function PureHeader({globalState}) {
 
             <div className="headerMain">
                 <div className="container">
-                    <MatchMedia mediaQuery={'(max-width: 767px)'}>
+                    <MatchMedia mediaQuery={mediaQueries.mobile}>
                         <div className="headerMain__items">
                             {returnComponents(globalState.getIn(['data', 'mobile', 'Main']))}
                         </div>
                     </MatchMedia>
-                    <MatchMedia mediaQuery={'(min-width: 768px) and (max-width: 1023px)'}>
+                    <MatchMedia mediaQuery={mediaQueries.tablet}>
                         <div className="headerMain__items">
                             {returnComponents(globalState.getIn(['data', 'tablet', 'MainLeft']))}
                         </div>
@@ -83,7 +84,7 @@ export function PureHeader({globalState}) {
                             {returnComponents(globalState.getIn(['data', 'tablet', 'MainRight']))}
                         </div>
                     </MatchMedia>
-                    <MatchMedia mediaQuery={'(min-width: 1024px)'}>
+                    <MatchMedia mediaQuery={mediaQueries.desktop}>
                         <div className="headerMain__items">
                             {returnComponents(globalState.getIn(['data', 'desktop', 'MainLeft']))}
                         </div>
@@ -99,12 +100,12 @@ export function PureHeader({globalState}) {
 
             <div className="headerBottom">
                 <div className="container">
-                    <MatchMedia mediaQuery={'(max-width: 767px)'}>
+                    <MatchMedia mediaQuery={mediaQueries.mobile}>
                         <div className="headerBottom__items">
                             {returnComponents(globalState.getIn(['data', 'mobile', 'Bottom']))}
                         </div>
                     </MatchMedia>
-                    <MatchMedia mediaQuery={'(min-width: 768px) and (max-width: 1023px)'}>
+                    <MatchMedia mediaQuery={mediaQueries.tablet}>
                         <div className="headerBottom__items">
                             {returnComponents(globalState.getIn(['data', 'tablet', 'BottomLeft']))}
                         </div>
@@ -115,7 +116,7 @@ export function PureHeader({globalState}) {
                             {returnComponents(globalState.getIn(['data', 'tablet', 'BottomRight']))}
                         </div>
                     </MatchMedia>
-                    <MatchMedia mediaQuery={'(min-width: 1024px)'}>
+                    <MatchMedia mediaQuery={mediaQueries.desktop}>
                         <div className="headerBottom__items">
                             {returnComponents(globalState.getIn(['data', 'desktop', 'BottomLeft']))}
                         </div>

@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 import uuid from 'uuid';
 
-import {mediaQueries} from 'common/constants/mediaQueries';
+import {mediaQueryNames} from 'common/constants/mediaQueries';
 
 import {Row, Cell, CodeBox} from 'App/features/HeaderConfig/components';
 import styles from './Modal.scss';
@@ -36,9 +36,9 @@ export class HeaderConfigPureModal extends Component {
                     {/* eslint-disable react/forbid-component-props  */}
                     <Tabs className={styles.tabs}>
                         <TabList>
-                            {mediaQueries.map((mediaQuery) => (<Tab key={uuid.v4()}>{mediaQuery}</Tab>))}
+                            {mediaQueryNames.map((mediaQuery) => (<Tab key={uuid.v4()}>{mediaQuery}</Tab>))}
                         </TabList>
-                        { mediaQueries.map((mediaQuery) => (
+                        { mediaQueryNames.map((mediaQuery) => (
                             <TabPanel key={uuid.v4()}>
                                 <div className="col-md-6">
                                     <h2 className={styles.h2}>1. Available components to drag & drop</h2>
