@@ -1,9 +1,20 @@
 import React, {Component} from 'react';
+import classnames from 'classnames';
+
 import {SHARED_CLASSES} from 'common/constants/classes';
 
 export default class Wishlist extends Component {
     constructor() {
         super();
+
+        this.state = {
+            isLinkOutsideViewport: true,
+            isLinkCollapsed: false,
+            isLinkAnimated: false,
+            isLinkActive: false,
+            isElActive: false,
+            linkWidth: ''
+        };
 
         this.activateItem = this.activateItem.bind(this);
         this.deactivateItem = this.deactivateItem.bind(this);
@@ -17,14 +28,12 @@ export default class Wishlist extends Component {
         return true;
     }
 
-    componentDidUpdate() {
-        this.calculateWidths();
-    }
-
     calculateWidths() {
-        $(this.$link).attr('data-width', $(this.$link).outerWidth());
-        $(this.$link).addClass(SHARED_CLASSES.collapsed)
-            .removeClass(SHARED_CLASSES.outsideViewport);
+        this.setState({
+            linkWidth: this.wishlistLink.offsetWidth,
+            isLinkCollapsed: true,
+            isLinkOutsideViewport: false
+        });
     }
 
     activateItemByKeyboard(e) {
@@ -43,8 +52,8 @@ export default class Wishlist extends Component {
 
     deactivateItem(e) {
         if (window.Modernizr.touchevents) {
-            if (!this.$el.is(e.target) // if the target of the click isn't the container...
-                && this.$el.has(e.target).length === 0) // ... nor a descendant of the container
+            if (!this.wishlistEl.is(e.target) // if the target of the click isn't the container...
+                && this.wishlistEl.has(e.target).length === 0) // ... nor a descendant of the container
             {
                 this.slideOutLink();
             }
@@ -54,31 +63,46 @@ export default class Wishlist extends Component {
     }
 
     preventClickFirstTime(e) {
-        if ($(this.$el).hasClass(SHARED_CLASSES.active)) {
+        if (this.state.isElActive) {
             return true;
         }
-        else {
-            e.preventDefault();
-            $(this.$el).addClass(SHARED_CLASSES.active);
-            this.slideInLink();
-        }
+
+        e.preventDefault();
+        this.slideInLink();
     }
 
     slideInLink() {
-        $(this.$link).addClass(SHARED_CLASSES.animate);
-        $(this.$link).innerWidth($(this.$link).data('width')).removeClass(SHARED_CLASSES.collapsed);
-        $(this.$link).addClass(SHARED_CLASSES.active);
+        this.setState({
+            isLinkAnimated: true,
+            isLinkActive: true,
+            isElActive: true,
+            isLinkCollapsed: false
+        });
     }
 
     slideOutLink() {
-        $(this.$el).add($(this.$link)).removeClass(SHARED_CLASSES.active);
-        $(this.$link).addClass(SHARED_CLASSES.collapsed);
+        this.setState({
+            isLinkActive: false,
+            isElActive: false,
+            isLinkCollapsed: true
+        });
     }
 
     render() {
+        const linkClasses = classnames('wishlist__link', {
+            [`${SHARED_CLASSES.outsideViewport}`]: this.state.isLinkOutsideViewport,
+            [`${SHARED_CLASSES.collapsed}`]: this.state.isLinkCollapsed,
+            [`${SHARED_CLASSES.animate}`]: this.state.isLinkAnimated,
+            [`${SHARED_CLASSES.active}`]: this.state.isLinkActive
+        });
+
+        const elClasses = classnames('wishlist', {
+            [`${SHARED_CLASSES.active}`]: this.state.isElActive
+        });
+
         return (
-            <button className="wishlist"
-                    ref={(c) => this.$el = c}
+            <button className={elClasses}
+                    ref={(c) => this.wishlistEl = c}
                     onMouseOver={this.activateItem}
                     onMouseOut={this.deactivateItem}
                     onFocus={this.activateItem}
@@ -87,8 +111,9 @@ export default class Wishlist extends Component {
                     onKeyDown={this.activateItemByKeyboard}
             >
                 <a href="{% unless settings.wishlist_page == '' %}/pages/{{ settings.wishlist_page }}{% endunless %}"
-                   className={`wishlist__link ${SHARED_CLASSES.outsideViewport}`}
-                   ref={(c) => this.$link = c}
+                   className={linkClasses}
+                   ref={(c) => this.wishlistLink = c}
+                   style={{ width: this.state.linkWidth }}
                 >My Wishlist</a>
 
                 <a href="{% unless settings.wishlist_page == '' %}/pages/{{ settings.wishlist_page }}{% endunless %}"
