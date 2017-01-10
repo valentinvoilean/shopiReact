@@ -11,7 +11,7 @@ const propTypes = {
 
     updateHiddenSideRef: PropTypes.func.isRequired,
 
-    children: PropTypes.element.isRequired
+    children: PropTypes.array.isRequired
 };
 
 export default function MyAccountHiddenSide(props) {

@@ -7,9 +7,9 @@ const propTypes = {
     activateItem: PropTypes.func.isRequired,
     deactivateItem: PropTypes.func.isRequired,
     activateItemByKeyboard: PropTypes.func.isRequired,
-    ref: PropTypes.func.isRequired,
+    updateEl: PropTypes.func.isRequired,
 
-    children: PropTypes.element.isRequired,
+    children: PropTypes.array.isRequired,
 
     isElActive: PropTypes.bool.isRequired
 };
@@ -19,7 +19,7 @@ export default function MyAccountWrapper(props) {
         activateItem,
         deactivateItem,
         activateItemByKeyboard,
-        ref,
+        updateEl,
         children,
         isElActive
     } = props;
@@ -30,7 +30,7 @@ export default function MyAccountWrapper(props) {
 
     return (
         <button className={elClasses}
-             ref={ref}
+             ref={updateEl}
              onMouseOver={activateItem}
              onMouseOut={deactivateItem}
              onFocus={activateItem}

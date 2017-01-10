@@ -7,6 +7,7 @@ import {SHARED_CLASSES} from 'common/constants/classes';
 import MyAccountVisibleSide from './MyAccountVisibleSide';
 import MyAccountHiddenSide from './MyAccountHiddenSide';
 import MyAccountWrapper from './MyAccountWrapper';
+import MyAccountLink from './MyAccountLink';
 
 export default class MyAccountDesktop extends Component {
 
@@ -59,11 +60,6 @@ export default class MyAccountDesktop extends Component {
             isHiddenSideCollapsed: true,
             isHiddenSideOutsideViewport: false
         });
-    }
-
-    activateLink() {
-        /*$(this).addClass(SHARED_CLASSES.active);
-        $(this).siblings().removeClass(SHARED_CLASSES.active);*/
     }
 
     activateItemByKeyboard(e) {
@@ -142,7 +138,7 @@ export default class MyAccountDesktop extends Component {
             activateItem: this.activateItem,
             deactivateItem: this.deactivateItem,
             activateItemByKeyboard: this.activateItemByKeyboard,
-            ref: this.updateEl
+            updateEl: this.updateEl
         };
 
         const hiddenSideProps = {
@@ -183,15 +179,13 @@ export default class MyAccountDesktop extends Component {
         return (
             <MyAccountWrapper {...wrapperProps} {...this.state}>
                 <MyAccountHiddenSide {...hiddenSideProps}>
-                    <a className="myAccount__link" href="/account/login">Log in</a>
+                    <MyAccountLink link="/account/login"><span>Log In</span></MyAccountLink>
                     {this.state.shop.customer_accounts_optional ?
-                        (
-                            <span>
-                                <span className="myAccount__separator"> - </span>
-                                <a className="myAccount__link is-active" href="/account/register">Register</a>
-                            </span>
-
-                        ) : ''
+                        <span>
+                            <span className="myAccount__separator"> - </span>
+                            <MyAccountLink link={'/account/register'} active><span>Register</span></MyAccountLink>
+                        </span>
+                        : ''
                     }
                 </MyAccountHiddenSide>
                 <MyAccountVisibleSide>
