@@ -99,20 +99,8 @@
     overflow: hidden;
     white-space: nowrap;
 
-    @include breakpoint($screen-sm) {
-        @if '{{ settings.my_account_link_style_tablet }}' == 'slide' {
-            display: block;
-        } @else {
-            display: #{'{{ settings.my_account_link_style_tablet }}'}
-        }
-    }
-
-    @include breakpoint($screen-md-min) {
-        @if '{{ settings.my_account_link_style_desktop }}' == 'slide' {
-            display: block;
-        } @else {
-            display: #{'{{ settings.my_account_link_style_desktop }}'}
-        }
+    @include breakpoint($screen-sm-min) {
+        display: block;
     }
 
     &.is-animated {
