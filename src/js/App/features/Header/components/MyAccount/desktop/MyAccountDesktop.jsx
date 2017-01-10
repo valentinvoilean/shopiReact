@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
+import classnames from 'classnames';
+import md5 from 'md5';
 
-import MyAccountDesktopLoggedIn from './MyAccountDesktopLoggedIn';
-import MyAccountDesktopLoggedOut from './MyAccountDesktopLoggedOut';
+import {SHARED_CLASSES} from 'common/constants/classes';
+
+import MyAccountVisibleSide from './MyAccountVisibleSide';
+import MyAccountHiddenSide from './MyAccountHiddenSide';
 
 export default class MyAccountDesktop extends Component {
 
@@ -17,7 +21,7 @@ export default class MyAccountDesktop extends Component {
                 customer_accounts_optional: true // eslint-disable-line
             },
 
-            loggedIn: true,
+            loggedIn: false,
 
             isHiddenSideCollapsed: false,
             isHiddenSideOutsideViewport: true,
@@ -128,29 +132,76 @@ export default class MyAccountDesktop extends Component {
     }
 
     render() {
-        if (this.state.loggedIn) {
-            return (
-                <MyAccountDesktopLoggedIn {...this.state}
-                                          updateHiddenSideRef={this.updateHiddenSideRef}
-                                          updateWelcomeMessageRef={this.updateWelcomeMessageRef}
-                                          updateEl={this.updateEl}
+        const elClasses = classnames('myAccount', {
+            [`${SHARED_CLASSES.active}`]: this.state.isElActive
+        });
 
-                                          activateItem={this.activateItem}
-                                          deactivateItem={this.deactivateItem}
-                                          activateItemByKeyboard={this.activateItemByKeyboard}
-                />
-            );
-        }
+        const welcomeMessageClasses = classnames('myAccount__link', 'is-active', {
+            [`${SHARED_CLASSES.collapsed}`]: this.state.isWelcomeMessageCollapsed,
+            [`${SHARED_CLASSES.animate}`]: this.state.isWelcomeMessageAnimated
+        });
 
         return (
-            <MyAccountDesktopLoggedOut {...this.state}
-                                       updateHiddenSideRef={this.updateHiddenSideRef}
-                                       updateEl={this.updateEl}
+            <div className={elClasses}
+                 ref={this.updateEl}
+                 onMouseOver={this.activateItem}
+                 onMouseOut={this.deactivateItem}
+                 onFocus={this.activateItem}
+                 onBlur={this.deactivateItem}
+                 onTouchEnd={this.activateItem}
+                 onKeyDown={this.activateItemByKeyboard}
+            >
+                {this.state.loggedIn ?
+                    <MyAccountHiddenSide {...this.state} updateHiddenSideRef={this.updateHiddenSideRef}>
+                        <a className="myAccount__link" href="/account/logout">Log out</a>
+                        <span className="myAccount__separator">-</span>
+                        <a className="myAccount__link is-active" href="/account">My Account</a>
+                    </MyAccountHiddenSide>
+                    :
+                    <MyAccountHiddenSide {...this.state} updateHiddenSideRef={this.updateHiddenSideRef}>
+                        <a className="myAccount__link" href="/account/login">Log in</a>
+                        {this.state.shop.customer_accounts_optional ?
+                            (
+                                <span>
+                            <span className="myAccount__separator"> - </span>
+                            <a className="myAccount__link is-active" href="/account/register">Register</a>
+                        </span>
 
-                                       activateItem={this.activateItem}
-                                       deactivateItem={this.deactivateItem}
-                                       activateItemByKeyboard={this.activateItemByKeyboard}
-            />
+                            ) : ''
+                        }
+                    </MyAccountHiddenSide>
+                }
+
+                {this.state.loggedIn ?
+                    <MyAccountVisibleSide>
+                        <a href="/account" className="myAccount__img">
+                            <div className="myAccount__gravatar">
+                                <img alt="avatar"
+                                     src={`//gravatar.com/avatar/${md5(this.state.customer.email)}?s=40&d=blank`}
+                                />
+                            </div>
+                            <svg className="myAccount__icon">
+                                <use xlinkHref="#user-2" />
+                            </svg>
+                        </a>
+
+                        <a className={welcomeMessageClasses}
+                           ref={this.updateWelcomeMessageRef}
+                           style={{width: this.state.welcomeMessageWidth}}
+                           href="/account"
+                        > Hi, {this.state.customer.first_name} !</a>
+                    </MyAccountVisibleSide>
+                    :
+                    <MyAccountVisibleSide>
+                        <a href="/account/register" className="myAccount__img">
+                            <svg className="myAccount__icon">
+                                <use xlinkHref="#user-1" />
+                            </svg>
+                        </a>
+                    </MyAccountVisibleSide>
+                }
+
+            </div>
         );
     }
 }
