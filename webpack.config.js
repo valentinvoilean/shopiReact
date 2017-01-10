@@ -18,7 +18,8 @@ module.exports = {
             'jquery'
         ],
         headerConfig: 'App/features/HeaderConfig/index.jsx',
-        main: 'main.js'
+        main: 'main.js',
+        styles: './src/styles/theme.scss'
     },
     output: {
         path: path.resolve(__dirname, 'theme/assets'),
@@ -38,7 +39,7 @@ module.exports = {
             {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?limit=10000&mimetype=application/octet-stream'},
             {test: /\.(jpe?g|png|gif)$/i, loader: 'file-loader?name=[name].[ext]'},
             {test: /\.ico$/, loader: 'file-loader?name=[name].[ext]'},
-            {test: /\.scss$/, loader: 'style-loader!css-loader?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer-loader!resolve-url-loader!sass-loader'},
+            {test: /\.scss$/, loader: 'style-loader!css-loader?sourceMap!autoprefixer-loader!resolve-url-loader!sass-loader?sourceMap'},
             {test: /\.css$/, loader: 'style-loader!css-loader'}
         ]
     },

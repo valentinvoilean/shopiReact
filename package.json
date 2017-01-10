@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all --parallel js:watch sass-dev:watch",
+    "start": "webpack-dev-server",
     "build": "npm-run-all --parallel theme:watch js:build sass-prod:build",
     "theme:watch": ". ./themeWatch.sh",
     "js:build": "webpack --config webpack.config.prod.js",
-    "js:watch": "webpack-dev-server",
     "sass-prod:build": "node tools/sass-prod",
     "sass-prod:watch": "node tools/sass-prod -watch",
     "sass-dev:watch": "node tools/sass-dev -watch",
@@ -74,9 +73,9 @@
     "json-loader": "0.5.4",
     "less": "2.7.1",
     "less-loader": "2.2.3",
-    "md5": "^2.2.1",
+    "md5": "2.2.1",
     "node-normalize-scss": "1.4.0",
-    "node-sass": "^4.1.1",
+    "node-sass": "4.1.1",
     "node-watch": "0.4.1",
     "npm-run-all": "4.0.0",
     "picturefill": "3.0.2",
@@ -98,7 +97,7 @@
     "webpack-modernizr-loader": "1.0.1"
   },
   "dependencies": {
-    "classnames": "^2.2.5",
+    "classnames": "2.2.5",
     "immutable": "3.8.1",
     "jquery": "3.1.1",
     "lodash": "4.17.4",
