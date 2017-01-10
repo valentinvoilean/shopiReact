@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
 import {SHARED_CLASSES} from 'common/constants/classes';
 
@@ -24,7 +24,7 @@ export default function MyAccountHiddenSide(props) {
         children
     } = props;
 
-    const hiddenSideClasses = classnames('myAccount__hiddenSide', {
+    const hiddenSideClasses = classNames('myAccount__hiddenSide', {
         [`${SHARED_CLASSES.outsideViewport}`]: isHiddenSideOutsideViewport,
         [`${SHARED_CLASSES.collapsed}`]: isHiddenSideCollapsed,
         [`${SHARED_CLASSES.animate}`]: isHiddenSideAnimated

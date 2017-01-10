@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 import md5 from 'md5';
 
 import {SHARED_CLASSES} from 'common/constants/classes';
@@ -133,7 +133,7 @@ export default class MyAccountDesktop extends Component {
     }
 
     render() {
-        const welcomeMessageClasses = classnames('myAccount__link', 'is-active', {
+        const welcomeMessageClasses = classNames('myAccount__link', 'is-active', {
             [`${SHARED_CLASSES.collapsed}`]: this.state.isWelcomeMessageCollapsed,
             [`${SHARED_CLASSES.animate}`]: this.state.isWelcomeMessageAnimated
         });

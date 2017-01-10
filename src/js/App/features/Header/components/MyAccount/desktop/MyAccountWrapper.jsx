@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
 import {SHARED_CLASSES} from 'common/constants/classes';
 
@@ -24,12 +24,12 @@ export default function MyAccountWrapper(props) {
         isElActive
     } = props;
 
-    const elClasses = classnames('myAccount', {
+    const elClasses = classNames('myAccount', {
         [`${SHARED_CLASSES.active}`]: isElActive
     });
 
     return (
-        <div className={elClasses}
+        <button className={elClasses}
              ref={ref}
              onMouseOver={activateItem}
              onMouseOut={deactivateItem}
@@ -39,7 +39,7 @@ export default function MyAccountWrapper(props) {
              onKeyDown={activateItemByKeyboard}
         >
             {children}
-        </div>
+        </button>
     );
 }
 

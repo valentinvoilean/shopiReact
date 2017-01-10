@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
 import {SHARED_CLASSES} from 'common/constants/classes';
 
@@ -100,14 +100,14 @@ export default class Wishlist extends Component {
     }
 
     render() {
-        const linkClasses = classnames('wishlist__link', {
+        const linkClasses = classNames('wishlist__link', {
             [`${SHARED_CLASSES.outsideViewport}`]: this.state.isLinkOutsideViewport,
             [`${SHARED_CLASSES.collapsed}`]: this.state.isLinkCollapsed,
             [`${SHARED_CLASSES.animate}`]: this.state.isLinkAnimated,
             [`${SHARED_CLASSES.active}`]: this.state.isLinkActive
         });
 
-        const elClasses = classnames('wishlist', {
+        const elClasses = classNames('wishlist', {
             [`${SHARED_CLASSES.active}`]: this.state.isElActive
         });
 
