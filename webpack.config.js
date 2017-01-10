@@ -14,7 +14,7 @@ module.exports = {
             'react-match-media',
             'react-redux',
             'redux',
-            'classNames',
+            'classnames',
             'jquery'
         ],
         headerConfig: 'App/features/HeaderConfig/index.jsx',

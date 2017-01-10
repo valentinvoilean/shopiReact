@@ -1,7 +1,7 @@
 import React from 'react';
 import {MatchMedia} from 'react-match-media';
 
-import {MyAccountMobile, MyAccountTablet, MyAccountDesktop} from './';
+import {MyAccountMobile, MyAccountDesktop} from './';
 
 import {mediaQueries} from 'common/constants/mediaQueries';
 
@@ -13,7 +13,7 @@ export default function MyAccount() {
             </MatchMedia>
 
             <MatchMedia mediaQuery={mediaQueries.tablet}>
-                <MyAccountTablet />
+                <MyAccountDesktop />
             </MatchMedia>
 
             <MatchMedia mediaQuery={mediaQueries.desktop}>
