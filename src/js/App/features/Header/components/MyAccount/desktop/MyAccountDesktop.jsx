@@ -6,6 +6,7 @@ import {SHARED_CLASSES} from 'common/constants/classes';
 
 import MyAccountVisibleSide from './MyAccountVisibleSide';
 import MyAccountHiddenSide from './MyAccountHiddenSide';
+import MyAccountWrapper from './MyAccountWrapper';
 
 export default class MyAccountDesktop extends Component {
 
@@ -132,47 +133,31 @@ export default class MyAccountDesktop extends Component {
     }
 
     render() {
-        const elClasses = classnames('myAccount', {
-            [`${SHARED_CLASSES.active}`]: this.state.isElActive
-        });
-
         const welcomeMessageClasses = classnames('myAccount__link', 'is-active', {
             [`${SHARED_CLASSES.collapsed}`]: this.state.isWelcomeMessageCollapsed,
             [`${SHARED_CLASSES.animate}`]: this.state.isWelcomeMessageAnimated
         });
 
-        return (
-            <div className={elClasses}
-                 ref={this.updateEl}
-                 onMouseOver={this.activateItem}
-                 onMouseOut={this.deactivateItem}
-                 onFocus={this.activateItem}
-                 onBlur={this.deactivateItem}
-                 onTouchEnd={this.activateItem}
-                 onKeyDown={this.activateItemByKeyboard}
-            >
-                {this.state.loggedIn ?
-                    <MyAccountHiddenSide {...this.state} updateHiddenSideRef={this.updateHiddenSideRef}>
+        const wrapperProps = {
+            activateItem: this.activateItem,
+            deactivateItem: this.deactivateItem,
+            activateItemByKeyboard: this.activateItemByKeyboard,
+            ref: this.updateEl
+        };
+
+        const hiddenSideProps = {
+            ...this.state,
+            updateHiddenSideRef: this.updateHiddenSideRef
+        };
+
+        if (this.state.loggedIn) {
+            return (
+                <MyAccountWrapper {...wrapperProps} {...this.state}>
+                    <MyAccountHiddenSide {...hiddenSideProps}>
                         <a className="myAccount__link" href="/account/logout">Log out</a>
                         <span className="myAccount__separator">-</span>
                         <a className="myAccount__link is-active" href="/account">My Account</a>
                     </MyAccountHiddenSide>
-                    :
-                    <MyAccountHiddenSide {...this.state} updateHiddenSideRef={this.updateHiddenSideRef}>
-                        <a className="myAccount__link" href="/account/login">Log in</a>
-                        {this.state.shop.customer_accounts_optional ?
-                            (
-                                <span>
-                            <span className="myAccount__separator"> - </span>
-                            <a className="myAccount__link is-active" href="/account/register">Register</a>
-                        </span>
-
-                            ) : ''
-                        }
-                    </MyAccountHiddenSide>
-                }
-
-                {this.state.loggedIn ?
                     <MyAccountVisibleSide>
                         <a href="/account" className="myAccount__img">
                             <div className="myAccount__gravatar">
@@ -191,17 +176,32 @@ export default class MyAccountDesktop extends Component {
                            href="/account"
                         > Hi, {this.state.customer.first_name} !</a>
                     </MyAccountVisibleSide>
-                    :
-                    <MyAccountVisibleSide>
-                        <a href="/account/register" className="myAccount__img">
-                            <svg className="myAccount__icon">
-                                <use xlinkHref="#user-1" />
-                            </svg>
-                        </a>
-                    </MyAccountVisibleSide>
-                }
+                </MyAccountWrapper>
+            );
+        }
 
-            </div>
+        return (
+            <MyAccountWrapper {...wrapperProps} {...this.state}>
+                <MyAccountHiddenSide {...hiddenSideProps}>
+                    <a className="myAccount__link" href="/account/login">Log in</a>
+                    {this.state.shop.customer_accounts_optional ?
+                        (
+                            <span>
+                                <span className="myAccount__separator"> - </span>
+                                <a className="myAccount__link is-active" href="/account/register">Register</a>
+                            </span>
+
+                        ) : ''
+                    }
+                </MyAccountHiddenSide>
+                <MyAccountVisibleSide>
+                    <a href="/account/register" className="myAccount__img">
+                        <svg className="myAccount__icon">
+                            <use xlinkHref="#user-1" />
+                        </svg>
+                    </a>
+                </MyAccountVisibleSide>
+            </MyAccountWrapper>
         );
     }
 }
