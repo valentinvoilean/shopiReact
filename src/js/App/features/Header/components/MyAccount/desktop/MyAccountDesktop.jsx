@@ -179,11 +179,19 @@ export default class MyAccountDesktop extends Component {
         return (
             <MyAccountWrapper {...wrapperProps} {...this.state}>
                 <MyAccountHiddenSide {...hiddenSideProps}>
-                    <MyAccountLink link="/account/login"><span>Log In</span></MyAccountLink>
+                    <MyAccountLink name="LogIn"
+                                   link="/account/login"
+                    >
+                        <span>Log In</span>
+                    </MyAccountLink>
                     {this.state.shop.customer_accounts_optional ?
                         <span>
                             <span className="myAccount__separator"> - </span>
-                            <MyAccountLink link={'/account/register'} active><span>Register</span></MyAccountLink>
+                            <MyAccountLink link={'/account/register'}
+                                           name="Register"
+                            >
+                                <span>Register</span>
+                            </MyAccountLink>
                         </span>
                         : ''
                     }

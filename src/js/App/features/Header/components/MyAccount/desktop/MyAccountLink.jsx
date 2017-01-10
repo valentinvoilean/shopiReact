@@ -1,26 +1,27 @@
 import React, {PropTypes, Component} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import classNames from 'classnames';
 
 import {SHARED_CLASSES} from 'common/constants/classes';
 
+import * as actions from 'App/store/modules/MyAccount';
+
 const propTypes = {
     children: PropTypes.element.isRequired,
     link: PropTypes.string.isRequired,
-    active: PropTypes.bool
+    name: PropTypes.string.isRequired,
+    myAccountState: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired
 };
 
-export default class MyAccountLink extends Component {
+export class MyAccountLinkPure extends Component {
 
     constructor(props) {
         super(props);
 
-        this.state = {
-            isActive: props.active || false
-        };
-
         this.updateLinkRef = this.updateLinkRef.bind(this);
         this.activateItem = this.activateItem.bind(this);
-        this.deactivateItem = this.deactivateItem.bind(this);
         this.activateItemByKeyboard = this.activateItemByKeyboard.bind(this);
     }
 
@@ -35,15 +36,9 @@ export default class MyAccountLink extends Component {
     }
 
     activateItem() {
-        this.setState({isActive: true});
-
-        //$(this).siblings().removeClass(SHARED_CLASSES.active);
-    }
-
-    deactivateItem() {
-        this.setState({isActive: false});
-        //$(this).addClass(SHARED_CLASSES.active);
-        //$(this).siblings().removeClass(SHARED_CLASSES.active);
+        this.props.actions.activateLink({
+            activeLink: this.props.name
+        });
     }
 
     updateLinkRef(c) {
@@ -51,23 +46,30 @@ export default class MyAccountLink extends Component {
     }
 
     render() {
+        const {link, children, name, myAccountState} = this.props;
+
         const linkClasses = classNames('myAccount__link', {
-            [`${SHARED_CLASSES.active}`]: this.state.isActive
+            [`${SHARED_CLASSES.active}`]: myAccountState.get('activeLink') === name
         });
 
         return (
             <a className={linkClasses}
-               href={this.props.link}
+               href={link}
                ref={this.updateLinkRef}
                onMouseOver={this.activateItem}
                onFocus={this.activateItem}
                onTouchEnd={this.activateItem}
                onKeyDown={this.activateItemByKeyboard}
             >
-                {this.props.children}
+                {children}
             </a>
         );
     }
 }
 
-MyAccountLink.propTypes = propTypes;
+MyAccountLinkPure.propTypes = propTypes;
+
+export default connect(
+    state => ({myAccountState: state.myAccount}),
+    dispatch => ({actions: bindActionCreators(actions, dispatch)})
+)(MyAccountLinkPure);
