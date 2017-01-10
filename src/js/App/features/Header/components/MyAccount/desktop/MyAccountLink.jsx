@@ -10,6 +10,7 @@ import * as actions from 'App/store/modules/MyAccount';
 const propTypes = {
     children: PropTypes.element.isRequired,
     link: PropTypes.string.isRequired,
+    loggedIn: PropTypes.bool,
     name: PropTypes.string.isRequired,
     myAccountState: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired
@@ -37,7 +38,8 @@ export class MyAccountLinkPure extends Component {
 
     activateItem() {
         this.props.actions.activateLink({
-            activeLink: this.props.name
+            activeLink: this.props.name,
+            loggedIn: this.props.loggedIn || false
         });
     }
 
@@ -46,10 +48,11 @@ export class MyAccountLinkPure extends Component {
     }
 
     render() {
-        const {link, children, name, myAccountState} = this.props;
+        const {link, children, name, myAccountState, loggedIn} = this.props;
 
         const linkClasses = classNames('myAccount__link', {
-            [`${SHARED_CLASSES.active}`]: myAccountState.get('activeLink') === name
+            [`${SHARED_CLASSES.active}`]: myAccountState
+                .getIn(['activeLink', loggedIn ? 'loggedIn' : 'loggedOut']) === name
         });
 
         return (

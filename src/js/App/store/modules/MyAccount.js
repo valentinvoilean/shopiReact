@@ -2,7 +2,10 @@ import {fromJS} from 'immutable';
 
 export const defaultState = fromJS({
     MyAccount: {
-        activeLink: 'Register'
+        activeLink: {
+            loggedOut: 'Register',
+            loggedIn: 'MyAccount'
+        }
     }
 });
 
@@ -12,9 +15,8 @@ const MY_ACCOUNT_ACTIVATE_LINK = 'MY_ACCOUNT_ACTIVATE_LINK';
 export default (state = defaultState, action) => {
     switch (action.type) {
         case MY_ACCOUNT_ACTIVATE_LINK: {
-            const {activeLink} = action;
-
-            return state.set('activeLink', activeLink);
+            const {activeLink, loggedIn} = action;
+            return state.setIn(['activeLink', loggedIn ? 'loggedIn' : 'loggedOut'], activeLink);
         }
 
         default: {

@@ -23,7 +23,7 @@ export default class MyAccountDesktop extends Component {
                 customer_accounts_optional: true // eslint-disable-line
             },
 
-            loggedIn: false,
+            loggedIn: true,
 
             isHiddenSideCollapsed: false,
             isHiddenSideOutsideViewport: true,
@@ -150,9 +150,13 @@ export default class MyAccountDesktop extends Component {
             return (
                 <MyAccountWrapper {...wrapperProps} {...this.state}>
                     <MyAccountHiddenSide {...hiddenSideProps}>
-                        <a className="myAccount__link" href="/account/logout">Log out</a>
+                        <MyAccountLink name="LogOut" link="/account/logout" loggedIn>
+                            <span>Log Out</span>
+                        </MyAccountLink>
                         <span className="myAccount__separator">-</span>
-                        <a className="myAccount__link is-active" href="/account">My Account</a>
+                        <MyAccountLink name="MyAccount" link="/account" loggedIn>
+                            <span>My Account</span>
+                        </MyAccountLink>
                     </MyAccountHiddenSide>
                     <MyAccountVisibleSide>
                         <a href="/account" className="myAccount__img">
@@ -179,17 +183,13 @@ export default class MyAccountDesktop extends Component {
         return (
             <MyAccountWrapper {...wrapperProps} {...this.state}>
                 <MyAccountHiddenSide {...hiddenSideProps}>
-                    <MyAccountLink name="LogIn"
-                                   link="/account/login"
-                    >
+                    <MyAccountLink name="LogIn" link="/account/login">
                         <span>Log In</span>
                     </MyAccountLink>
                     {this.state.shop.customer_accounts_optional ?
                         <span>
                             <span className="myAccount__separator"> - </span>
-                            <MyAccountLink link={'/account/register'}
-                                           name="Register"
-                            >
+                            <MyAccountLink link={'/account/register'} name="Register">
                                 <span>Register</span>
                             </MyAccountLink>
                         </span>

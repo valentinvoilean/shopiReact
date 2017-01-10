@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 
 const propTypes = {
-    children: PropTypes.element.isRequired
+    children: PropTypes.array.isRequired
 };
 
 export default function MyAccountVisibleSide({children}) {
