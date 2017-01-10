@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
-import {HeaderConfigPureModal} from './Modal';
+import {HeaderConfigPureModal} from './HeaderConfig';
 
 describe('Modal', () => {
     it('renders without any problem', () => {

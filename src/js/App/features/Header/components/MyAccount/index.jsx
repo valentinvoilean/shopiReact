@@ -1,3 +1,3 @@
 export MyAccount from './MyAccount';
-export MyAccountDesktop from './desktop/MyAccountDesktop';
-export MyAccountMobile from './mobile/MyAccountMobile';
+export MyAccountDesktop from './features/desktop/MyAccountDesktop';
+export MyAccountMobile from './features/mobile/MyAccountMobile';

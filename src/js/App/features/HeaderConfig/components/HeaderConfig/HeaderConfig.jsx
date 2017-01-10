@@ -7,7 +7,7 @@ import uuid from 'uuid';
 import {mediaQueryNames} from 'common/constants/mediaQueries';
 
 import {Row, Cell, CodeBox} from 'App/features/HeaderConfig/components';
-import styles from './Modal.scss';
+import styles from './HeaderConfig.scss';
 
 import * as actions from 'App/store/modules/HeaderConfig';
 

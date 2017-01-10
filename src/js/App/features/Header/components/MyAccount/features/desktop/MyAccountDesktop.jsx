@@ -4,10 +4,10 @@ import md5 from 'md5';
 
 import {SHARED_CLASSES} from 'common/constants/classes';
 
-import MyAccountVisibleSide from './MyAccountVisibleSide';
-import MyAccountHiddenSide from './MyAccountHiddenSide';
-import MyAccountWrapper from './MyAccountWrapper';
-import MyAccountLink from './MyAccountLink';
+import VisibleSide from './components/VisibleSide';
+import HiddenSide from './components/HiddenSide';
+import Wrapper from './components/Wrapper';
+import Link from './components/Link';
 
 export default class MyAccountDesktop extends Component {
 
@@ -148,17 +148,17 @@ export default class MyAccountDesktop extends Component {
 
         if (this.state.loggedIn) {
             return (
-                <MyAccountWrapper {...wrapperProps} {...this.state}>
-                    <MyAccountHiddenSide {...hiddenSideProps}>
-                        <MyAccountLink name="LogOut" link="/account/logout" loggedIn>
+                <Wrapper {...wrapperProps} {...this.state}>
+                    <HiddenSide {...hiddenSideProps}>
+                        <Link name="LogOut" link="/account/logout" loggedIn>
                             <span>Log Out</span>
-                        </MyAccountLink>
+                        </Link>
                         <span className="myAccount__separator">-</span>
-                        <MyAccountLink name="MyAccount" link="/account" loggedIn>
+                        <Link name="MyAccount" link="/account" loggedIn>
                             <span>My Account</span>
-                        </MyAccountLink>
-                    </MyAccountHiddenSide>
-                    <MyAccountVisibleSide>
+                        </Link>
+                    </HiddenSide>
+                    <VisibleSide>
                         <a href="/account" className="myAccount__img">
                             <div className="myAccount__gravatar">
                                 <img alt="avatar"
@@ -175,35 +175,35 @@ export default class MyAccountDesktop extends Component {
                            style={{width: this.state.welcomeMessageWidth}}
                            href="/account"
                         > Hi, {this.state.customer.first_name} !</a>
-                    </MyAccountVisibleSide>
-                </MyAccountWrapper>
+                    </VisibleSide>
+                </Wrapper>
             );
         }
 
         return (
-            <MyAccountWrapper {...wrapperProps} {...this.state}>
-                <MyAccountHiddenSide {...hiddenSideProps}>
-                    <MyAccountLink name="LogIn" link="/account/login">
+            <Wrapper {...wrapperProps} {...this.state}>
+                <HiddenSide {...hiddenSideProps}>
+                    <Link name="LogIn" link="/account/login">
                         <span>Log In</span>
-                    </MyAccountLink>
+                    </Link>
                     {this.state.shop.customer_accounts_optional ?
                         <span>
                             <span className="myAccount__separator"> - </span>
-                            <MyAccountLink link={'/account/register'} name="Register">
+                            <Link link={'/account/register'} name="Register">
                                 <span>Register</span>
-                            </MyAccountLink>
+                            </Link>
                         </span>
                         : ''
                     }
-                </MyAccountHiddenSide>
-                <MyAccountVisibleSide>
+                </HiddenSide>
+                <VisibleSide>
                     <a href="/account/register" className="myAccount__img">
                         <svg className="myAccount__icon">
                             <use xlinkHref="#user-1" />
                         </svg>
                     </a>
-                </MyAccountVisibleSide>
-            </MyAccountWrapper>
+                </VisibleSide>
+            </Wrapper>
         );
     }
 }
