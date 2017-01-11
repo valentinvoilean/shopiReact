@@ -1,6 +1,15 @@
 .myAccount {
-    @include flexbox;
-    @include align-items(center);
+    display: inline-block;
+    vertical-align: top;
+    height: $headerTopTablet-height;
+
+    @include breakpoint($screen-lg) {
+        height: $headerTopDesktop-height;
+    }
+}
+
+.myAccount__base {
+    display: inline-block;
     text-transform: uppercase;
     padding: 0;
     margin: 0;
@@ -44,7 +53,8 @@
 
 .myAccount__img {
     position: relative;
-    float: right;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .headerTop .myAccount__img {
@@ -100,7 +110,7 @@
     white-space: nowrap;
 
     @include breakpoint($screen-sm-min) {
-        display: block;
+        display: inline-block;
     }
 
     &.is-animated {
@@ -123,9 +133,11 @@
 .myAccount__visibleSide {
     overflow: hidden;
     cursor: pointer;
+    display: inline-block;
 
     .myAccount__link {
-        float: right;
+        display: inline-block;
+        vertical-align: top;
         white-space: nowrap;
         overflow: hidden;
         text-transform: capitalize;

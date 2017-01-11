@@ -24,7 +24,7 @@ export default function MyAccountWrapper(props) {
         isElActive
     } = props;
 
-    const elClasses = classNames('myAccount', {
+    const elClasses = classNames('myAccount__base', {
         [`${SHARED_CLASSES.active}`]: isElActive
     });
 

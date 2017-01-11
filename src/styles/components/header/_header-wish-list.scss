@@ -1,6 +1,6 @@
 .wishlist {
-    @include flexbox;
-    @include align-items(center);
+    display: inline-block;
+    vertical-align: top;
     text-transform: uppercase;
     text-align: left;
     text-decoration: none;
@@ -15,10 +15,11 @@
         color: $header-link-color;
         padding-right: 10px;
         cursor: pointer;
-        float: left;
+        display: inline-block;
         white-space: nowrap;
         overflow: hidden;
         text-transform: capitalize;
+        vertical-align: top;
 
         &.is-active {
             color: $header-link-color--active;
@@ -56,8 +57,9 @@
     }
 
     .wishlist__img {
-        display: block;
+        display: inline-block;
         position: relative;
+        vertical-align: middle;
         height: $headerTopTabletIcon-height;
 
         @include breakpoint($screen-lg) {

@@ -159,6 +159,11 @@ export default class MyAccountDesktop extends Component {
                         </Link>
                     </HiddenSide>
                     <VisibleSide>
+                        <a className={welcomeMessageClasses}
+                           ref={this.updateWelcomeMessageRef}
+                           style={{width: this.state.welcomeMessageWidth}}
+                           href="/account"
+                        > Hi, {this.state.customer.first_name} !</a>
                         <a href="/account" className="myAccount__img">
                             <div className="myAccount__gravatar">
                                 <img alt="avatar"
@@ -169,12 +174,6 @@ export default class MyAccountDesktop extends Component {
                                 <use xlinkHref="#user-2" />
                             </svg>
                         </a>
-
-                        <a className={welcomeMessageClasses}
-                           ref={this.updateWelcomeMessageRef}
-                           style={{width: this.state.welcomeMessageWidth}}
-                           href="/account"
-                        > Hi, {this.state.customer.first_name} !</a>
                     </VisibleSide>
                 </Wrapper>
             );

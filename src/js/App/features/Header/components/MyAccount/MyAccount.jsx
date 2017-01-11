@@ -7,7 +7,7 @@ import {mediaQueries} from 'common/constants/mediaQueries';
 
 export default function MyAccount() {
     return (
-        <div>
+        <div className="myAccount">
             <MatchMedia mediaQuery={mediaQueries.mobile}>
                 <MyAccountMobile />
             </MatchMedia>
