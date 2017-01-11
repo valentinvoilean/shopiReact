@@ -1112,9 +1112,13 @@
       {
         "type":      "textarea",
         "id":        "header_configurator_settings",
-        "label":     "Text",
-        "info":      "Please copy and paste the resulted code into the following textarea.",
-        "placeholder": "Please copy and paste the resulted code into the following textarea."
+        "label":     "Header Settings",
+        "info":      "Don't forget to uncheck the checkbox after you've finished configuring the header.",
+        "placeholder": "Paste the generated code here."
+      },
+      {
+        "type": "paragraph",
+        "content": "Press the Save button to activate the changes."
       }
     ]
   },

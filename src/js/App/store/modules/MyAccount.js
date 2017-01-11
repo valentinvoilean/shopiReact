@@ -20,7 +20,7 @@ export default (state = defaultState, action) => {
         }
 
         default: {
-            return state.get('MyAccount');
+            return state;
         }
     }
 };
