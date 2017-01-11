@@ -6,22 +6,6 @@ const webpackConfigCommon = require('./webpack.config.common');
 
 module.exports = merge(webpackConfigCommon, {
     devtool: 'source-map',
-    entry: {
-        vendors: [
-            'babel-polyfill',
-            'modernizr',
-            'picturefill',
-            'react',
-            'react-dom',
-            'react-match-media',
-            'react-redux',
-            'redux',
-            'classnames',
-            'jquery'
-        ],
-        headerConfig: 'App/features/HeaderConfig/index.jsx',
-        main: 'main.js'
-    },
     module: {
         rules: [
             {test: /\.scss$/, loader: ExtractTextPlugin.extract({fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer-loader!resolve-url-loader!sass-loader'})},

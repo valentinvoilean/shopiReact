@@ -28,22 +28,6 @@ const webpackCommonDevSettings = {
 
 module.exports = [
     merge(webpackConfigCommon, webpackCommonDevSettings, {
-        entry: {
-            vendors: [
-                'babel-polyfill',
-                'modernizr',
-                'picturefill',
-                'react',
-                'react-dom',
-                'react-match-media',
-                'react-redux',
-                'redux',
-                'classnames',
-                'jquery'
-            ],
-            headerConfig: 'App/features/HeaderConfig/index.jsx',
-            main: 'main.js'
-        },
         module: {
             rules: [
                 {test: /\.scss$/, loader: 'style-loader!css-loader?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer-loader!resolve-url-loader!sass-loader'},
@@ -51,7 +35,7 @@ module.exports = [
             ]
         }
     }),
-    merge(webpackConfigCommon, webpackCommonDevSettings, {
+    merge.smartStrategy({entry: 'replace'})(webpackConfigCommon, webpackCommonDevSettings, {
         entry: { styles: './src/styles/theme.scss' },
         module: {
             rules: [

@@ -3,6 +3,22 @@ const webpack = require('webpack');
 
 module.exports = {
     context: path.resolve(__dirname, '.'),
+    entry: {
+        vendors: [
+            'babel-polyfill',
+            'modernizr',
+            'picturefill',
+            'react',
+            'react-dom',
+            'react-match-media',
+            'react-redux',
+            'redux',
+            'classnames',
+            'jquery'
+        ],
+        headerConfig: 'App/features/HeaderConfig/index.jsx',
+        main: 'main.js'
+    },
     output: {
         path: path.resolve(__dirname, 'theme/assets'),
         publicPath: '/theme/assets/',
