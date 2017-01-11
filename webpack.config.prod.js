@@ -23,7 +23,6 @@ module.exports = merge(webpackConfigCommon, {
         main: 'main.js'
     },
     module: {
-        noParse: /jquery|backbone/,
         rules: [
             {test: /\.scss$/, loader: ExtractTextPlugin.extract({fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer-loader!resolve-url-loader!sass-loader'})},
             {test: /\.css$/, loader: ExtractTextPlugin.extract({fallbackLoader: 'style-loader', loader: 'css-loader'})}
