@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 
-const webpackConfigCommon = require('./webpack.config.common');
+const webpackCommonSettings = require('./webpack.config.common');
 
 const webpackCommonDevSettings = {
     devtool: 'inline-source-map',
@@ -27,7 +27,7 @@ const webpackCommonDevSettings = {
 };
 
 module.exports = [
-    merge(webpackConfigCommon, webpackCommonDevSettings, {
+    merge(webpackCommonSettings, webpackCommonDevSettings, {
         module: {
             rules: [
                 {test: /\.scss$/, loader: 'style-loader!css-loader?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer-loader!resolve-url-loader!sass-loader'},
@@ -35,7 +35,7 @@ module.exports = [
             ]
         }
     }),
-    merge.smartStrategy({entry: 'replace'})(webpackConfigCommon, webpackCommonDevSettings, {
+    merge.smartStrategy({entry: 'replace'})(webpackCommonSettings, webpackCommonDevSettings, {
         entry: { styles: './src/styles/theme.scss' },
         module: {
             rules: [
