@@ -19,15 +19,21 @@
 }
 
 .headerTop .match-media {
-    @include flexbox;
-    @include justify-content(space-between);
+    display: table;
+    width: 100%;
     height: inherit;
 }
 
 .headerTop__items {
-    display: block;
+    display: table-cell;
+    vertical-align: middle;
     overflow: hidden;
     height: $headerTopTablet-height;
+    width: calc(100% / 3);
+
+    &:last-child {
+        text-align: right;
+    }
 
     @include breakpoint($screen-lg) {
         height: $headerTopDesktop-height;
