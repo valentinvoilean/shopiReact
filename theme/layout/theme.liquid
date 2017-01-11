@@ -43,8 +43,7 @@
     console.log(shopSettings);
   </script>
 
-  <script src="{{ 'vendors.js' | asset_url }}" defer></script>
-  <script src="{{ 'main.js' | asset_url }}" defer></script>
+
 </head>
 
 <body id="{{ page_title | handle }}"
@@ -60,5 +59,11 @@
   </main>
 
   <footer role="contentinfo"></footer>
+
+  {{ 'vendors.js' | asset_url | script_tag }}
+  {{ 'main.js' | asset_url | script_tag }}
+  {% if settings.header_configurator_enable %}
+      {{ 'headerConfig.js' | asset_url | script_tag }}
+  {% endif %}
 </body>
 </html>

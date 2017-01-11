@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "npm-run-all --parallel theme:watch js:build sass-prod:build",
     "theme:watch": ". ./themeWatch.sh",
-    "js:build": "webpack --config webpack.config.prod.js",
-    "sass-prod:build": "node tools/sass-prod",
-    "sass-prod:watch": "node tools/sass-prod -watch",
-    "sass-dev:watch": "node tools/sass-dev -watch",
+
+    "watch:prod": "npm-run-all --parallel theme:watch watch:prod:js watch:prod:sass",
+    "watch:prod:js": "webpack --config webpack.config.prod.js --watch",
+    "watch:prod:sass": "node tools/sass-prod -watch",
+
     "lint": "eslint ./src/js/** ./tests/**",
     "test": "jest"
   },
