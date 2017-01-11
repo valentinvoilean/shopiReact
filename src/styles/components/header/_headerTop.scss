@@ -40,6 +40,18 @@
     }
 }
 
+.headerTop__items {
+    margin: 0 5px;
+
+    &:first-child > * {
+        margin: 0 5px 0 0;
+    }
+
+    &:last-child > * {
+        margin: 0 0 0 5px;
+    }
+}
+
 .headerTop__separator {
     height: $headerTop-separatorHeight;
     width: 1px;
