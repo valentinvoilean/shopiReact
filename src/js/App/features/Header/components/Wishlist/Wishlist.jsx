@@ -111,8 +111,9 @@ export default class Wishlist extends Component {
             [`${SHARED_CLASSES.active}`]: this.state.isElActive
         });
 
+        /* eslint-disable jsx-a11y/no-static-element-interactions */
         return (
-            <button className={elClasses}
+            <div className={elClasses}
                     ref={(c) => this.wishlistEl = c}
                     onMouseOver={this.activateItem}
                     onMouseOut={this.deactivateItem}
@@ -138,7 +139,8 @@ export default class Wishlist extends Component {
                         <use xlinkHref="#wish-list-2"></use>
                     </svg>
                 </a>
-            </button>
+            </div>
         );
+        /* eslint-enable */
     }
 }

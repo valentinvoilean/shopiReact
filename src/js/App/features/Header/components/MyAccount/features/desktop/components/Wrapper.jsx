@@ -28,8 +28,9 @@ export default function MyAccountWrapper(props) {
         [`${SHARED_CLASSES.active}`]: isElActive
     });
 
+    /* eslint-disable jsx-a11y/no-static-element-interactions */
     return (
-        <button className={elClasses}
+        <div className={elClasses}
              ref={updateEl}
              onMouseOver={activateItem}
              onMouseOut={deactivateItem}
@@ -37,10 +38,12 @@ export default function MyAccountWrapper(props) {
              onBlur={deactivateItem}
              onTouchEnd={activateItem}
              onKeyDown={activateItemByKeyboard}
+             tabIndex="0"
         >
             {children}
-        </button>
+        </div>
     );
+    /* eslint-enable */
 }
 
 MyAccountWrapper.propTypes = propTypes;
