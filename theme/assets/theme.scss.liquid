@@ -1213,106 +1213,126 @@ $header-top-separator-color: #E5E5E5;
 $header-main-cart-color: #9A9A9A;
 $header-bottom-top-info-color: #FFF;
 $header-bottom-top-info-background: #343434;.headerTop {
-  background: $header-top-background-color;
-  font-size: 12px;
-  line-height: $headerTopTablet-height;
-  font-weight: 400;
+    background: $header-top-background-color;
+    font-size: 12px;
+    line-height: $headerTopTablet-height;
+    font-weight: 400;
+    height: $headerTopTablet-height;
+    border-bottom: 1px solid $mobile-border-color;
+    overflow: hidden;
 
-  height: $headerTopTablet-height;
-  border-bottom: 1px solid $mobile-border-color;
-  overflow: hidden;
+    @include breakpoint($screen-md) {
+        border-color: $tablet-border-color;
+    }
 
-  @include breakpoint($screen-md) {
-    border-color: $tablet-border-color;
-  }
-
-  @include breakpoint($screen-lg) {
-    border-color: $desktop-border-color;
-    line-height: $headerTopDesktop-height;
-    height: $headerTopDesktop-height;
-  }
+    @include breakpoint($screen-lg) {
+        border-color: $desktop-border-color;
+        line-height: $headerTopDesktop-height;
+        height: $headerTopDesktop-height;
+    }
 }
 
 .headerTop .match-media {
-  @include flexbox;
-  @include justify-content(space-between);
-  height: inherit;
+    display: table;
+    width: 100%;
+    height: inherit;
 }
 
 .headerTop__items {
-  @include flexbox;
-  @include align-items(center);
-  overflow: hidden;
-  height: inherit;
+    display: table-cell;
+    vertical-align: middle;
+    overflow: hidden;
+    height: $headerTopTablet-height;
+    width: calc(100% / 3);
+
+    &:last-child {
+        text-align: right;
+    }
+
+    @include breakpoint($screen-lg) {
+        height: $headerTopDesktop-height;
+    }
+}
+
+.headerTop__items {
+    margin: 0 5px;
+
+    &:first-child > * {
+        margin: 0 5px 0 0;
+    }
+
+    &:last-child > * {
+        margin: 0 0 0 5px;
+    }
 }
 
 .headerTop__separator {
-  height: $headerTop-separatorHeight;
-  width: 1px;
-  background: $header-top-separator-color;
-  margin-left: 10px;
-  margin-right: 10px;
-  cursor: default;
+    height: $headerTop-separatorHeight;
+    width: 1px;
+    background: $header-top-separator-color;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: default;
 
-  &:last-child { display: none; }
+    &:last-child { display: none; }
 }
 
 .currency,
 .language {
-  margin-right: 20px;
+    margin-right: 20px;
 
-  &:hover {
-    .currency__img,
-    .language__img {
-      transform: rotate(0deg);
-      fill: $header-icon-color--active;
-    }
+    &:hover {
+        .currency__img,
+        .language__img {
+            transform: rotate(0deg);
+            fill: $header-icon-color--active;
+        }
 
-    .currency__option,
-    .language__option {
-      max-width: 200px;
-      margin-right: 10px;
+        .currency__option,
+        .language__option {
+            max-width: 200px;
+            margin-right: 10px;
+        }
     }
-  }
 }
 
 .currency__img,
 .language__img {
-  height: 8px;
-  width: 8px;
-  margin-top: 16px;
-  margin-right: 5px;
-  fill: $header-icon-color;
-  float: left;
-  transform: rotate(90deg);
-  cursor: pointer;
-  transition: transform .3s ease-in-out, fill .3s linear;
+    height: 8px;
+    width: 8px;
+    margin-top: 16px;
+    margin-right: 5px;
+    fill: $header-icon-color;
+    float: left;
+    transform: rotate(90deg);
+    cursor: pointer;
+    transition: transform .3s ease-in-out, fill .3s linear;
 
-  @include breakpoint($screen-lg) {
-    margin-top: 10px;
-  }
+    @include breakpoint($screen-lg) {
+        margin-top: 10px;
+    }
 }
 
 .currency__select,
 .language__select {
-  list-style: none;
-  float: left;
-  text-transform: uppercase;
+    list-style: none;
+    float: left;
+    text-transform: uppercase;
 }
 
 .currency__option,
 .language__option {
-  float: left;
-  max-width: 0;
-  overflow: hidden;
-  transition: all .3s linear;
-  color: $header-top-dropdown-option;
+    float: left;
+    max-width: 0;
+    overflow: hidden;
+    transition: all .3s linear;
+    color: $header-top-dropdown-option;
 
-  &:hover,
-  &.active {
-    max-width: 200px;
-    color: $header-top-dropdown-option--active;
-  }
+    &:hover,
+    &.active {
+        max-width: 200px;
+        color: $header-top-dropdown-option--active;
+    }
 }
 
 .headerMain {
@@ -1409,13 +1429,18 @@ $header-bottom-top-info-background: #343434;.headerTop {
   }
 }
 .myAccount {
-    @include flexbox;
-    @include align-items(center);
+    display: inline-block;
+    vertical-align: top;
+    height: $headerTopTablet-height;
+
+    @include breakpoint($screen-lg) {
+        height: $headerTopDesktop-height;
+    }
+}
+
+.myAccount__base {
+    display: inline-block;
     text-transform: uppercase;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    background: none;
 
     &:hover,
     &.is-active {
@@ -1454,7 +1479,8 @@ $header-bottom-top-info-background: #343434;.headerTop {
 
 .myAccount__img {
     position: relative;
-    float: right;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .headerTop .myAccount__img {
@@ -1510,7 +1536,7 @@ $header-bottom-top-info-background: #343434;.headerTop {
     white-space: nowrap;
 
     @include breakpoint($screen-sm-min) {
-        display: block;
+        display: inline-block;
     }
 
     &.is-animated {
@@ -1533,9 +1559,11 @@ $header-bottom-top-info-background: #343434;.headerTop {
 .myAccount__visibleSide {
     overflow: hidden;
     cursor: pointer;
+    display: inline-block;
 
     .myAccount__link {
-        float: right;
+        display: inline-block;
+        vertical-align: top;
         white-space: nowrap;
         overflow: hidden;
         text-transform: capitalize;
@@ -1545,26 +1573,23 @@ $header-bottom-top-info-background: #343434;.headerTop {
         }
     }
 }.wishlist {
-    @include flexbox;
-    @include align-items(center);
+    display: inline-block;
+    vertical-align: top;
     text-transform: uppercase;
     text-align: left;
     text-decoration: none;
     text-indent: 0;
     cursor: pointer;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    background: none;
 
     .wishlist__link {
         color: $header-link-color;
         padding-right: 10px;
         cursor: pointer;
-        float: left;
+        display: inline-block;
         white-space: nowrap;
         overflow: hidden;
         text-transform: capitalize;
+        vertical-align: top;
 
         &.is-active {
             color: $header-link-color--active;
@@ -1602,8 +1627,9 @@ $header-bottom-top-info-background: #343434;.headerTop {
     }
 
     .wishlist__img {
-        display: block;
+        display: inline-block;
         position: relative;
+        vertical-align: middle;
         height: $headerTopTabletIcon-height;
 
         @include breakpoint($screen-lg) {

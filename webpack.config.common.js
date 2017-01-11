@@ -22,8 +22,8 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'theme/assets'),
         publicPath: '/theme/assets/',
-        filename: '[name].js',
-        chunkFilename: '[name].js'
+        filename: '[name].js.liquid',
+        chunkFilename: '[name].js.liquid'
     },
     module: {
         noParse: /jquery|backbone/,
