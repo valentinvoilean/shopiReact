@@ -1,5 +1,5 @@
 import React from 'react';
 
-export function Language() {
+export default function Language() {
     return <span> Language </span>;
 }
