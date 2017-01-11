@@ -1,10 +1,11 @@
 const webpack = require('webpack');
+const merge = require('webpack-merge');
+
 const webpackConfigCommon = require('./webpack.config.common');
 
 const webpackCommonDevSettings = {
     devtool: 'inline-source-map',
     plugins: [
-        ...webpackConfigCommon.plugins,
         new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('development'),
@@ -27,7 +28,7 @@ const webpackCommonDevSettings = {
 };
 
 module.exports = [
-    Object.assign({}, webpackConfigCommon, webpackCommonDevSettings, {
+    merge(webpackConfigCommon, webpackCommonDevSettings, {
         entry: {
             vendors: [
                 'babel-polyfill',
@@ -47,13 +48,12 @@ module.exports = [
         module: {
             noParse: /jquery|backbone/,
             rules: [
-                ...webpackConfigCommon.module.rules,
                 {test: /\.scss$/, loader: 'style-loader!css-loader?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer-loader!resolve-url-loader!sass-loader'},
                 {test: /\.css$/, loader: 'style-loader!css-loader'}
             ]
         }
     }),
-    Object.assign({}, webpackConfigCommon, webpackCommonDevSettings, {
+    merge(webpackConfigCommon, webpackCommonDevSettings, {
         entry: { styles: './src/styles/theme.scss' },
         module: {
             rules: [
