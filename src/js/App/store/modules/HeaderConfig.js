@@ -29,7 +29,7 @@ export default (state = getInitialState(), action) => {
         default: {
             try {
                 validateState(state);
-                return defaultState.get('HeaderConfig').mergeDeep(state);
+                return state;
             }
             catch (e) {
                 console.warn(e); // eslint-disable-line
