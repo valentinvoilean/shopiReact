@@ -21,7 +21,6 @@ const webpackCommonDevSettings = {
         port: 8089,
         open: true
     },
-
     performance: {
         hints: false
     }
