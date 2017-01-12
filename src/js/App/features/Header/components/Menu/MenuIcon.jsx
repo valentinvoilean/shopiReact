@@ -1,4 +1,4 @@
-import React, {PropTypes, Component} from 'react';
+import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import classNames from 'classnames';
@@ -12,44 +12,27 @@ const propTypes = {
     actions: PropTypes.object.isRequired
 };
 
-export class MenuIconPure extends Component {
-    constructor(props) {
-        super(props);
-
-        this.toggleByKeboard = this.toggleByKeboard.bind(this);
-        this.toggleMenu = this.toggleMenu.bind(this);
-    }
-
-    shouldComponentUpdate() {
-        return true;
-    }
-
-    toggleByKeboard(e) {
+export function MenuIconPure({mainMenuState, actions}) {
+    const toggleByKeboard = (e) => {
         if (e.key === 'Enter') {
-            this.toggleMenu();
+            actions.toggleMenu();
         }
-    }
+    };
 
-    toggleMenu() {
-        this.props.actions.toggleMenu();
-    }
+    const elClasses = classNames('menuIcon', 'menuIcon--x', {
+        [`${SHARED_CLASSES.active}`]: mainMenuState.getIn(['menuIcon', 'active'])
+    });
 
-    render() {
-        const elClasses = classNames('menuIcon', 'menuIcon--x', {
-            [`${SHARED_CLASSES.active}`]: this.props.mainMenuState.getIn(['menuIcon', 'active'])
-        });
-
-        return (
-            <a className={elClasses}
-               onClick={this.toggleMenu}
-               onKeyDown={this.toggleByKeboard}
-               tabIndex="0"
-               role="button"
-            >
-                <span>toggle menu</span>
-            </a>
-        );
-    }
+    return (
+        <a className={elClasses}
+           onClick={actions.toggleMenu}
+           onKeyDown={toggleByKeboard}
+           tabIndex="0"
+           role="button"
+        >
+            <span>toggle menu</span>
+        </a>
+    );
 }
 
 MenuIconPure.propTypes = propTypes;

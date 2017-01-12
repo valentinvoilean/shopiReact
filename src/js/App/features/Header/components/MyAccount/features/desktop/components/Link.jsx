@@ -1,4 +1,4 @@
-import React, {PropTypes, Component} from 'react';
+import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import classNames from 'classnames';
@@ -16,58 +16,38 @@ const propTypes = {
     actions: PropTypes.object.isRequired
 };
 
-export class MyAccountLinkPure extends Component {
+export function MyAccountLinkPure(props) {
+    const {children, link, loggedIn, name, myAccountState, actions} = props;
 
-    constructor(props) {
-        super(props);
+    const activateItem = () => {
+        actions.activateLink({
+            activeLink: name,
+            loggedIn: loggedIn || false
+        });
+    };
 
-        this.updateLinkRef = this.updateLinkRef.bind(this);
-        this.activateItem = this.activateItem.bind(this);
-        this.activateItemByKeyboard = this.activateItemByKeyboard.bind(this);
-    }
-
-    shouldComponentUpdate() {
-        return true;
-    }
-
-    activateItemByKeyboard(e) {
+    const activateItemByKeyboard = (e) => {
         if (e.key === 'Enter') {
-            this.activateItem();
+            activateItem();
         }
-    }
+    };
 
-    activateItem() {
-        this.props.actions.activateLink({
-            activeLink: this.props.name,
-            loggedIn: this.props.loggedIn || false
-        });
-    }
+    const linkClasses = classNames('myAccount__link', {
+        [`${SHARED_CLASSES.active}`]: myAccountState
+            .getIn(['activeLink', loggedIn ? 'loggedIn' : 'loggedOut']) === name
+    });
 
-    updateLinkRef(c) {
-        this.link = c;
-    }
-
-    render() {
-        const {link, children, name, myAccountState, loggedIn} = this.props;
-
-        const linkClasses = classNames('myAccount__link', {
-            [`${SHARED_CLASSES.active}`]: myAccountState
-                .getIn(['activeLink', loggedIn ? 'loggedIn' : 'loggedOut']) === name
-        });
-
-        return (
-            <a className={linkClasses}
-               href={link}
-               ref={this.updateLinkRef}
-               onMouseOver={this.activateItem}
-               onFocus={this.activateItem}
-               onTouchEnd={this.activateItem}
-               onKeyDown={this.activateItemByKeyboard}
-            >
-                {children}
-            </a>
-        );
-    }
+    return (
+        <a className={linkClasses}
+           href={link}
+           onMouseOver={activateItem}
+           onFocus={activateItem}
+           onTouchEnd={activateItem}
+           onKeyDown={activateItemByKeyboard}
+        >
+            {children}
+        </a>
+    );
 }
 
 MyAccountLinkPure.propTypes = propTypes;
