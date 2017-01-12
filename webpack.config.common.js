@@ -33,10 +33,7 @@ module.exports = {
             {test: /\.svg$/, loader: 'svg-sprite-loader'},
             {test: /\.modernizrrc$/, loader: 'webpack-modernizr-loader'},
             {test: /\.(jpe?g|png|gif)$/i, loader: 'file-loader?name=[name].[ext]'},
-            {test: /\.woff$/, loader: 'url-loader?limit=65000&mimetype=application/font-woff&name=[name].[ext]'},
-            {test: /\.woff2$/, loader: 'url-loader?limit=65000&mimetype=application/font-woff2&name=[name].[ext]'},
-            {test: /\.[ot]tf$/, loader: 'url-loader?limit=65000&mimetype=application/octet-stream&name=[name].[ext]'},
-            {test: /\.eot$/, loader: 'url-loader?limit=65000&mimetype=application/vnd.ms-fontobject&name=[name].[ext]'}
+            {test: /\.(woff|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'base64-font-loader'}
         ]
     },
     resolve: {
