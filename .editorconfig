@@ -10,7 +10,7 @@ insert_final_newline = true
 
 # Use 2 spaces for indentation in HTML, JavaScript, SCSS, and XML
 
-[*.{scss}]
+[*.{scss, liquid}]
 indent_size = 2
 
 [*.scss]
@@ -18,5 +18,5 @@ insert_final_newline = false
 
 # Use 4 spaces for indentation in Markdown files
 
-[*.{md, html, jsx, js, liquid}]
+[*.{md, html, jsx, js}]
 indent_size = 4

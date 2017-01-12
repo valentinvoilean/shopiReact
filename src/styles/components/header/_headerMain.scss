@@ -2,13 +2,13 @@
   padding-top: 10px;
   padding-bottom: 10px;
 
-    .match-media {
-        display: table;
-        width: 100%;
-        height: inherit;
-    }
+  .match-media {
+    display: table;
+    width: 100%;
+    height: inherit;
+  }
 
-        @include breakpoint($screen-md) {
+  @include breakpoint($screen-md) {
     padding-top: 15px;
     padding-bottom: 15px;
   }
@@ -19,9 +19,9 @@
   }
 
   .headerMain__items {
-      display: table-cell;
-      vertical-align: middle;
-      width: 33.33%;
+    display: table-cell;
+    vertical-align: middle;
+    width: 33.33%;
 
     &:last-child {
       text-align: right;
@@ -71,9 +71,9 @@
     }
   }
 
-    .search {
-        fill: $header-icon-color;
-        width: 25px;
-        height: 25px;
-    }
+  .search {
+    fill: $header-icon-color;
+    width: 25px;
+    height: 25px;
+  }
 }
