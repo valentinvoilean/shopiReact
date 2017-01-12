@@ -31,49 +31,4 @@
   &.center .headerMain__items {
     width: 100%;
   }
-
-  .menuIcon {
-    margin-right: auto;
-  }
-
-  .logo {
-    display: block;
-    margin-left: 20px;
-    margin-right: 20px;
-
-    @include breakpoint($screen-sm-min) {
-      margin-left: 0;
-      margin-right: 0;
-    }
-  }
-
-  .logo__img {
-    max-width: $logoWidthMobile;
-    display: block;
-
-    @include breakpoint($screen-sm-min) {
-      max-width: $logoWidthTablet;
-    }
-
-    @include breakpoint($screen-lg) {
-      max-width: $logoWidthDesktop;
-    }
-  }
-
-  .cart {
-    width: 25px;
-    height: 25px;
-    fill: $header-main-cart-color;
-
-    @include breakpoint($screen-sm-min) {
-      width: 30px;
-      height: 30px;
-    }
-  }
-
-  .search {
-    fill: $header-icon-color;
-    width: 25px;
-    height: 25px;
-  }
 }

@@ -18,6 +18,7 @@ export default class Wishlist extends Component {
 
         this.activateItem = this.activateItem.bind(this);
         this.deactivateItem = this.deactivateItem.bind(this);
+        this.updateWishlistRef = this.updateWishlistRef.bind(this);
     }
 
     componentDidMount() {
@@ -99,6 +100,10 @@ export default class Wishlist extends Component {
         });
     }
 
+    updateWishlistRef(c) {
+      this.wishlistEl = c;
+    }
+
     render() {
         const linkClasses = classNames('wishlist__link', {
             [`${SHARED_CLASSES.outsideViewport}`]: this.state.isLinkOutsideViewport,
@@ -114,7 +119,7 @@ export default class Wishlist extends Component {
         /* eslint-disable jsx-a11y/no-static-element-interactions */
         return (
             <div className={elClasses}
-                    ref={(c) => this.wishlistEl = c}
+                    ref={this.updateWishlistRef}
                     onMouseOver={this.activateItem}
                     onMouseOut={this.deactivateItem}
                     onFocus={this.activateItem}

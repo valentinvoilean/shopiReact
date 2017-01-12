@@ -54,7 +54,11 @@ let concatFiles = () => {
     `${styles}/components/header/_headerMain.scss`,
     `${styles}/components/header/_headerBottom.scss`,
     `${styles}/components/header/_header-my-account.scss`,
-    `${styles}/components/header/_header-wish-list.scss`
+    `${styles}/components/header/_header-wish-list.scss`,
+    `${styles}/components/header/_header-cart.scss`,
+    `${styles}/components/header/_header-search.scss`,
+    `${styles}/components/header/_header-menu.scss`,
+    `${styles}/components/header/_header-logo.scss`
   ], `${assets}/theme.scss.liquid`, function() {
     console.log('Finished SASS concatenation.'.green);
   });

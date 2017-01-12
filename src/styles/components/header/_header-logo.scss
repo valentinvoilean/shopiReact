@@ -1,0 +1,23 @@
+.logo {
+  display: block;
+  margin-left: 20px;
+  margin-right: 20px;
+
+  @include breakpoint($screen-sm-min) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.logo__img {
+  max-width: $logoWidthMobile;
+  display: block;
+
+  @include breakpoint($screen-sm-min) {
+    max-width: $logoWidthTablet;
+  }
+
+  @include breakpoint($screen-lg) {
+    max-width: $logoWidthDesktop;
+  }
+}
