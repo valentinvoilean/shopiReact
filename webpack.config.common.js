@@ -66,5 +66,14 @@ module.exports = {
             }
         })
     ],
-    target: 'web'
+    target: 'web',
+    performance: {
+        hints: false
+    },
+    stats: {
+        version: false,
+        hash: false,
+        children: false,
+        chunks: false
+    }
 };

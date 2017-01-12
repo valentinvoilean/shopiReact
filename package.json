@@ -4,15 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
-    "theme:watch": ". ./themeWatch.sh",
-
-    "watch:prod": "npm-run-all --parallel theme:watch watch:prod:js watch:prod:sass",
+    "start": "npm run dev",
+    "lint": "eslint ./src/js/** ./tests/**",
+    "test": "jest",
+    "dev": "webpack-dev-server",
+    "compile": "npm-run-all --parallel compile:js compile:sass",
+    "compile:js": "webpack --config webpack.config.prod.js",
+    "compile:sass": "node tools/sass-prod",
+    "watch:theme": ". ./themeWatch.sh",
     "watch:prod:js": "webpack --config webpack.config.prod.js --watch",
     "watch:prod:sass": "node tools/sass-prod -watch",
-
-    "lint": "eslint ./src/js/** ./tests/**",
-    "test": "jest"
+    "deploy": "npm-run-all --parallel watch:theme watch:prod:sass watch:prod:js"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/node_modules/jest-enzyme/lib/index.js",
