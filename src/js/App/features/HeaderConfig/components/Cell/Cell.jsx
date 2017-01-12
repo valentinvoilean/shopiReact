@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import uuid from 'uuid';
 import Sortable from 'sortablejs';
+import '@blueprintjs/core/src/blueprint.scss';
 
 import {CloseButton} from '../';
 import styles from './Cell.scss';

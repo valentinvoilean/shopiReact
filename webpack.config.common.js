@@ -32,11 +32,11 @@ module.exports = {
             {test: /\.jsx?$/, include: `${__dirname}/src/js`, loader: 'babel-loader'},
             {test: /\.svg$/, loader: 'svg-sprite-loader'},
             {test: /\.modernizrrc$/, loader: 'webpack-modernizr-loader'},
-            {test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file-loader'},
-            {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff'},
-            {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?limit=10000&mimetype=application/octet-stream'},
             {test: /\.(jpe?g|png|gif)$/i, loader: 'file-loader?name=[name].[ext]'},
-            {test: /\.ico$/, loader: 'file-loader?name=[name].[ext]'}
+            {test: /\.woff$/, loader: 'url-loader?limit=65000&mimetype=application/font-woff&name=[name].[ext]'},
+            {test: /\.woff2$/, loader: 'url-loader?limit=65000&mimetype=application/font-woff2&name=[name].[ext]'},
+            {test: /\.[ot]tf$/, loader: 'url-loader?limit=65000&mimetype=application/octet-stream&name=[name].[ext]'},
+            {test: /\.eot$/, loader: 'url-loader?limit=65000&mimetype=application/vnd.ms-fontobject&name=[name].[ext]'}
         ]
     },
     resolve: {
