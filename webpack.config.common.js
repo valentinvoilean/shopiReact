@@ -55,15 +55,6 @@ module.exports = {
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery'
-        }),
-        new webpack.LoaderOptionsPlugin({
-            test: /\.jsx/, // may apply this only for some modules
-            options: {
-                context: __dirname,
-                eslint: {
-                    failOnError: false
-                }
-            }
         })
     ],
     target: 'web',
@@ -73,7 +64,6 @@ module.exports = {
     stats: {
         version: false,
         hash: false,
-        children: false,
         chunks: false
     }
 };

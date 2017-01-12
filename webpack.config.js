@@ -19,7 +19,12 @@ const webpackCommonDevSettings = {
         compress: true,
         host: '0.0.0.0',
         port: 8089,
-        open: true
+        open: true,
+        stats: {
+            hash: false,
+            version: false,
+            chunks: false
+        }
     }
 };
 
