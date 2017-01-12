@@ -1336,13 +1336,16 @@ $header-bottom-top-info-background: #343434;.headerTop {
 }
 
 .headerMain {
-  @include flexbox;
-  @include align-items(flex-start);
-  @include justify-content(space-between);
   padding-top: 10px;
   padding-bottom: 10px;
 
-  @include breakpoint($screen-md) {
+    .match-media {
+        display: table;
+        width: 100%;
+        height: inherit;
+    }
+
+        @include breakpoint($screen-md) {
     padding-top: 15px;
     padding-bottom: 15px;
   }
@@ -1353,15 +1356,12 @@ $header-bottom-top-info-background: #343434;.headerTop {
   }
 
   .headerMain__items {
-    display: flex;
-    justify-content: center;
-
-    &:first-child {
-      justify-content: flex-start;
-    }
+      display: table-cell;
+      vertical-align: middle;
+      width: 33.33%;
 
     &:last-child {
-      justify-content: flex-end;
+      text-align: right;
     }
   }
 
@@ -1407,6 +1407,12 @@ $header-bottom-top-info-background: #343434;.headerTop {
       height: 30px;
     }
   }
+
+    .search {
+        fill: $header-icon-color;
+        width: 25px;
+        height: 25px;
+    }
 }
 .headerBottom {
   overflow: hidden;
