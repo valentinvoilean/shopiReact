@@ -1339,13 +1339,13 @@ $header-bottom-top-info-background: #343434;.headerTop {
   padding-top: 10px;
   padding-bottom: 10px;
 
-    .match-media {
-        display: table;
-        width: 100%;
-        height: inherit;
-    }
+  .match-media {
+    display: table;
+    width: 100%;
+    height: inherit;
+  }
 
-        @include breakpoint($screen-md) {
+  @include breakpoint($screen-md) {
     padding-top: 15px;
     padding-bottom: 15px;
   }
@@ -1356,9 +1356,9 @@ $header-bottom-top-info-background: #343434;.headerTop {
   }
 
   .headerMain__items {
-      display: table-cell;
-      vertical-align: middle;
-      width: 33.33%;
+    display: table-cell;
+    vertical-align: middle;
+    width: 33.33%;
 
     &:last-child {
       text-align: right;
@@ -1368,51 +1368,6 @@ $header-bottom-top-info-background: #343434;.headerTop {
   &.center .headerMain__items {
     width: 100%;
   }
-
-  .menuIcon {
-    margin-right: auto;
-  }
-
-  .logo {
-    display: block;
-    margin-left: 20px;
-    margin-right: 20px;
-
-    @include breakpoint($screen-sm-min) {
-      margin-left: 0;
-      margin-right: 0;
-    }
-  }
-
-  .logo__img {
-    max-width: $logoWidthMobile;
-    display: block;
-
-    @include breakpoint($screen-sm-min) {
-      max-width: $logoWidthTablet;
-    }
-
-    @include breakpoint($screen-lg) {
-      max-width: $logoWidthDesktop;
-    }
-  }
-
-  .cart {
-    width: 25px;
-    height: 25px;
-    fill: $header-main-cart-color;
-
-    @include breakpoint($screen-sm-min) {
-      width: 30px;
-      height: 30px;
-    }
-  }
-
-    .search {
-        fill: $header-icon-color;
-        width: 25px;
-        height: 25px;
-    }
 }
 .headerBottom {
   overflow: hidden;
@@ -1667,4 +1622,41 @@ $header-bottom-top-info-background: #343434;.headerTop {
             color: $header-link-color--active;
         }
     }
+}.cart {
+  width: 25px;
+  height: 25px;
+  fill: $header-main-cart-color;
+
+  @include breakpoint($screen-sm-min) {
+    width: 30px;
+    height: 30px;
+  }
+}.search {
+  fill: $header-icon-color;
+  width: 25px;
+  height: 25px;
+}.menuIcon {
+  margin-right: auto;
+}.logo {
+  display: block;
+  margin-left: 20px;
+  margin-right: 20px;
+
+  @include breakpoint($screen-sm-min) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.logo__img {
+  max-width: $logoWidthMobile;
+  display: block;
+
+  @include breakpoint($screen-sm-min) {
+    max-width: $logoWidthTablet;
+  }
+
+  @include breakpoint($screen-lg) {
+    max-width: $logoWidthDesktop;
+  }
 }

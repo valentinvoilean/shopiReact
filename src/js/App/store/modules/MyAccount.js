@@ -1,11 +1,9 @@
 import {fromJS} from 'immutable';
 
 export const defaultState = fromJS({
-    MyAccount: {
-        activeLink: {
-            loggedOut: 'Register',
-            loggedIn: 'MyAccount'
-        }
+    activeLink: {
+        loggedOut: 'Register',
+        loggedIn: 'MyAccount'
     }
 });
 

@@ -1,16 +1,20 @@
-import React, {Component} from 'react';
+import React, {PropTypes, Component} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import classNames from 'classnames';
 
 import {SHARED_CLASSES} from 'common/constants/classes';
 
-export default class MenuIcon extends Component {
+import * as actions from 'App/store/modules/MainMenu';
 
-    constructor() {
-        super();
+const propTypes = {
+    mainMenuState: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired
+};
 
-        this.state = {
-            isMenuActive: false
-        };
+export class MenuIconPure extends Component {
+    constructor(props) {
+        super(props);
 
         this.toggleByKeboard = this.toggleByKeboard.bind(this);
         this.toggleMenu = this.toggleMenu.bind(this);
@@ -27,14 +31,12 @@ export default class MenuIcon extends Component {
     }
 
     toggleMenu() {
-        this.setState({
-            isMenuActive: !this.state.isMenuActive
-        });
+        this.props.actions.toggleMenu();
     }
 
     render() {
         const elClasses = classNames('menuIcon', 'menuIcon--x', {
-            [`${SHARED_CLASSES.active}`]: this.state.isMenuActive
+            [`${SHARED_CLASSES.active}`]: this.props.mainMenuState.getIn(['menuIcon', 'active'])
         });
 
         return (
@@ -49,3 +51,10 @@ export default class MenuIcon extends Component {
         );
     }
 }
+
+MenuIconPure.propTypes = propTypes;
+
+export default connect(
+    state => ({mainMenuState: state.mainMenu}),
+    dispatch => ({actions: bindActionCreators(actions, dispatch)})
+)(MenuIconPure);
