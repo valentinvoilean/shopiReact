@@ -1,9 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 import uuid from 'uuid';
 import Sortable from 'sortablejs';
-import '@blueprintjs/core/src/blueprint.scss';
+import bluePrintStyles from '@blueprintjs/core/src/blueprint.scss';
 
-import {CloseButton} from '../';
 import styles from './Cell.scss';
 
 import {validateState} from 'App/utils/header';
@@ -96,13 +95,9 @@ class Cell extends Component {
         const currentCell = globalState.getIn(['data', mediaQuery, name]);
 
         const itemsHTML = currentCell && currentCell.toJS().length ? currentCell.toJS().map((item) => (
-            <li key={uuid.v4()} data-id={item}><span>{item}</span>
-                <CloseButton cellName={name}
-                             item={item}
-                             onClick={this.handleCloseButton}
-                             mediaQuery={mediaQuery}
-                />
-            </li>)
+            <span className={`${bluePrintStyles['pt-tag']} ${bluePrintStyles['pt-intent-primary']} ${bluePrintStyles['pt-tag-removable']}`} key={uuid.v4()} data-id={item}><span>{item}</span>
+                <button className={bluePrintStyles['pt-tag-remove']} onClick={this.handleCloseButton} />
+            </span>)
         ) : '';
 
         return (
