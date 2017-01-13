@@ -57,7 +57,6 @@
     "no-var": "error",
     "semi": ["error","always"],
     // React
-    "react/forbid-component-props": "error",
     "react/forbid-prop-types": ["error", { "forbid": ["any"] }],
     "react/no-children-prop": "error",
     "react/no-danger": "error",

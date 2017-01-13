@@ -70,3 +70,115 @@
         border-top-color: #C0312E;
     }
 }
+
+.cellTags {
+  display: block;
+  height: inherit;
+}
+
+.cellTag {
+  display: inline-block;
+  cursor: move;
+  margin: 0 5px 5px 0;
+  font-weight: normal;
+
+  button {
+    cursor: pointer;
+    transition: transform .5s;
+
+    &:hover {
+      transform: rotate(1turn);
+    }
+
+    &:focus {
+      outline: 1px solid darkblue;
+    }
+  }
+}
+
+[data-mq="mobile"] > div {
+  &:first-child {
+    .cellTags {
+      &:first-child:before {
+        content: 'TOP LEFT';
+      }
+
+      &:nth-child(2):before {
+        content: 'TOP CENTER';
+      }
+
+      &:nth-child(3):before {
+        content: 'TOP RIGHT';
+      }
+    }
+  }
+
+  &:nth-child(2) {
+    .cellTags {
+      text-align: center;
+      &:before {
+        content: 'MAIN';
+      }
+    }
+  }
+
+  &:last-child {
+    .cellTags {
+      text-align: center;
+      &:before {
+        content: 'BOTTOM';
+      }
+    }
+  }
+}
+
+[data-mq="tablet"] > div,
+[data-mq="desktop"] > div {
+  &:first-child {
+    .cellTags {
+      &:first-child:before {
+        content: 'TOP LEFT';
+      }
+
+      &:nth-child(2):before {
+        content: 'TOP CENTER';
+      }
+
+      &:nth-child(3):before {
+        content: 'TOP RIGHT';
+      }
+    }
+  }
+
+  &:nth-child(2) {
+    .cellTags {
+      &:first-child:before {
+        content: 'MAIN LEFT';
+      }
+
+      &:nth-child(2):before {
+        content: 'MAIN CENTER';
+      }
+
+      &:nth-child(3):before {
+        content: 'MAIN RIGHT';
+      }
+    }
+  }
+
+  &:last-child {
+    .cellTags {
+      &:first-child:before {
+        content: 'BOTTOM LEFT';
+      }
+
+      &:nth-child(2):before {
+        content: 'BOTTOM CENTER';
+      }
+
+      &:nth-child(3):before {
+        content: 'BOTTOM RIGHT';
+      }
+    }
+  }
+}

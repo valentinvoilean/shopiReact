@@ -1,9 +1,12 @@
 import React, {Component, PropTypes} from 'react';
 import uuid from 'uuid';
 import Sortable from 'sortablejs';
-import { Intent, Tag } from '@blueprintjs/core';
+import {Intent, Tag} from '@blueprintjs/core';
+import {includes} from 'lodash';
+
 
 import styles from './Cell.scss';
+import {validStates} from 'App/constants/headerSettings';
 
 import {validateState} from 'App/utils/header';
 
@@ -87,13 +90,21 @@ class Cell extends Component {
 
         if (currentCell && currentCell.toJS().length) {
             itemsHTML = currentCell.toJS().map((item) => (
-                <Tag key={uuid.v4()} intent={Intent.PRIMARY} onRemove={() => this.handleCloseButton(item)}>{item}</Tag>
+                <Tag key={uuid.v4()}
+                     data-id={item}
+                     className={styles.cellTag}
+                     intent={Intent.PRIMARY}
+                     onRemove={includes(validStates.get(mediaQuery).Hidden, item) && name !== 'Hidden' ?
+                             () => this.handleCloseButton(item) : null}
+                >
+                    {item}
+                </Tag>
             ));
         }
 
         return (
         <div className={styles.cell}>
-            <span ref={(c) => this.cellRef = c} data-id={name}>
+            <span className={styles.cellTags} ref={(c) => this.cellRef = c} data-id={name}>
                 {itemsHTML}
             </span>
             <div ref={(c) => this.tooltipRef = c} className={styles.validationTooltip}></div>
