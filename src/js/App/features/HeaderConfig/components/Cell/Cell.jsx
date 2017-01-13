@@ -29,6 +29,7 @@ class Cell extends Component {
         super(props);
 
         this.handleCloseButton = this.handleCloseButton.bind(this);
+        this.checkIfRemovable = this.checkIfRemovable.bind(this);
     }
 
     componentDidMount() {
@@ -83,6 +84,16 @@ class Cell extends Component {
         this.tooltipRef.dataset.message = message;
     }
 
+    checkIfRemovable(item) {
+        const {name, mediaQuery} = this.props;
+
+        if (includes(validStates.get(mediaQuery).Hidden, item) && name !== 'Hidden') {
+            return () => this.handleCloseButton(item);
+        }
+
+        return null;
+    }
+
     render() {
         const {globalState, name, mediaQuery} = this.props;
         const currentCell = globalState.getIn(['data', mediaQuery, name]);
@@ -94,8 +105,7 @@ class Cell extends Component {
                      data-id={item}
                      className={styles.cellTag}
                      intent={Intent.PRIMARY}
-                     onRemove={includes(validStates.get(mediaQuery).Hidden, item) && name !== 'Hidden' ?
-                             () => this.handleCloseButton(item) : null}
+                     onRemove={this.checkIfRemovable(item)}
                 >
                     {item}
                 </Tag>
