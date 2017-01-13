@@ -1,8 +1,9 @@
 import React, {Component, PropTypes} from 'react';
 import uuid from 'uuid';
 import Sortable from 'sortablejs';
-import {Intent, Tag} from '@blueprintjs/core';
 import {includes} from 'lodash';
+import classNames from 'classnames';
+import {Tag, Classes} from '@blueprintjs/core';
 
 
 import styles from './Cell.scss';
@@ -98,13 +99,13 @@ class Cell extends Component {
         const {globalState, name, mediaQuery} = this.props;
         const currentCell = globalState.getIn(['data', mediaQuery, name]);
         let itemsHTML = null;
+        const tagClasses = classNames(styles.cellTag, Classes.LARGE);
 
         if (currentCell && currentCell.toJS().length) {
             itemsHTML = currentCell.toJS().map((item) => (
                 <Tag key={uuid.v4()}
                      data-id={item}
-                     className={styles.cellTag}
-                     intent={Intent.PRIMARY}
+                     className={tagClasses}
                      onRemove={this.checkIfRemovable(item)}
                 >
                     {item}
