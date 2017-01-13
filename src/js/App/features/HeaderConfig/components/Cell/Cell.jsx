@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import uuid from 'uuid';
 import Sortable from 'sortablejs';
-import bluePrintStyles from '@blueprintjs/core/src/blueprint.scss';
+import { Intent, Tag } from '@blueprintjs/core';
 
 import styles from './Cell.scss';
 
@@ -26,8 +26,6 @@ class Cell extends Component {
         super(props);
 
         this.handleCloseButton = this.handleCloseButton.bind(this);
-        this.handleCellRef = this.handleCellRef.bind(this);
-        this.handleTooltipRef = this.handleTooltipRef.bind(this);
     }
 
     componentDidMount() {
@@ -78,14 +76,6 @@ class Cell extends Component {
         this.props.actions.remove({item, from: this.sortable.el.dataset.id, mediaQuery: this.props.mediaQuery});
     }
 
-    handleCellRef(cellRef) {
-        this.cellRef = cellRef;
-    }
-
-    handleTooltipRef(tooltipRef) {
-        this.tooltipRef = tooltipRef;
-    }
-
     updateValidationMessage(message) {
         this.tooltipRef.dataset.message = message;
     }
@@ -93,19 +83,20 @@ class Cell extends Component {
     render() {
         const {globalState, name, mediaQuery} = this.props;
         const currentCell = globalState.getIn(['data', mediaQuery, name]);
+        let itemsHTML = null;
 
-        const itemsHTML = currentCell && currentCell.toJS().length ? currentCell.toJS().map((item) => (
-            <span className={`${bluePrintStyles['pt-tag']} ${bluePrintStyles['pt-intent-primary']} ${bluePrintStyles['pt-tag-removable']}`} key={uuid.v4()} data-id={item}><span>{item}</span>
-                <button className={bluePrintStyles['pt-tag-remove']} onClick={this.handleCloseButton} />
-            </span>)
-        ) : '';
+        if (currentCell && currentCell.toJS().length) {
+            itemsHTML = currentCell.toJS().map((item) => (
+                <Tag key={uuid.v4()} intent={Intent.PRIMARY} onRemove={() => this.handleCloseButton(item)}>{item}</Tag>
+            ));
+        }
 
         return (
         <div className={styles.cell}>
-            <ul ref={this.handleCellRef} data-id={name}>
+            <span ref={(c) => this.cellRef = c} data-id={name}>
                 {itemsHTML}
-            </ul>
-            <div ref={this.handleTooltipRef} className={styles.validationTooltip}></div>
+            </span>
+            <div ref={(c) => this.tooltipRef = c} className={styles.validationTooltip}></div>
         </div>
         );
     }

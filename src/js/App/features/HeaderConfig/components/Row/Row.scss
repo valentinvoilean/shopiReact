@@ -1,83 +1,103 @@
 .headerArea {
-    display: flex;
+  display: flex;
 
-    ul {
-        background: #F5F5F5;
-        border: 2px dashed #E0E0E0;
-        padding: 10px;
-        min-height: 60px;
-        font-weight: bold;
-        color: #BBBDC1;
-        position: relative;
-        list-style: none;
-        width: 100%;
-        z-index: 1;
-        height: 100%;
+  & > div > span {
+    display: block;
+    background: #F5F5F5;
+    border: 2px dashed #E0E0E0;
+    padding: 10px;
+    min-height: 60px;
+    font-weight: bold;
+    color: #BBBDC1;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    height: 100%;
 
+    &:before {
+      position: absolute;
+      z-index: -1;
+      text-align: center;
+      width: 100%;
+      left: 0;
+      top: calc(50% - 7px);
+    }
+
+    & > span {
+      display: inline-block;
+      cursor: move;
+      margin: 0 5px 5px 0;
+    }
+  }
+
+  [data-mq="mobile"] > & {
+    &:first-child {
+      & > div:first-child > span:before {
+        content: 'TOP LEFT';
+      }
+      & > div:nth-child(2) > span:before {
+        content: 'TOP CENTER';
+      }
+      & > div:last-child > span:before {
+        content: 'TOP RIGHT';
+      }
+    }
+
+    &:nth-child(2) {
+      & > span {
+        text-align: center;
         &:before {
-            position: absolute;
-            z-index: -1;
-            text-align: center;
-            width: 100%;
-            left: 0;
-            top: calc(50% - 7px);
+          content: 'MAIN';
         }
+      }
     }
 
-    li {
-        display: inline-block;
-        font-size: 12px;
-        font-weight: normal;
-        color: white;
-        background: #1FADD6;
-        border-radius: 2px;
-        line-height: 25px;
-        height: 25px;
-        padding: 0 10px;
-        margin: 0 5px 5px 0;
-        cursor: move;
+    &:last-child {
+      & > span {
+        text-align: center;
+        &:before {
+          content: 'BOTTOM';
+        }
+      }
+    }
+  }
+
+  [data-mq="tablet"] > &,
+  [data-mq="desktop"] > & {
+    &:first-child {
+      & > div:first-child > span:before {
+        content: 'TOP LEFT';
+      }
+      & > div:nth-child(2) > span:before {
+        content: 'TOP CENTER';
+      }
+      & > div:last-child > span:before {
+        content: 'TOP RIGHT';
+      }
     }
 
-    [data-mq="mobile"] > & {
-        &:first-child {
-            & > div:first-child ul:before { content: 'TOP LEFT'; }
-            & > div:nth-child(2) ul:before { content: 'TOP CENTER'; }
-            & > div:last-child ul:before { content: 'TOP RIGHT'; }
-        }
-
-        &:nth-child(2) {
-            ul {
-                text-align: center;
-                &:before { content: 'MAIN'; }
-            }
-        }
-
-        &:last-child {
-            ul {
-                text-align: center;
-                &:before { content: 'BOTTOM'; }
-            }
-        }
+    &:nth-child(2) {
+      & > div:first-child > span:before {
+        content: 'MAIN LEFT';
+      }
+      & > div:nth-child(2) > span:before {
+        content: 'MAIN CENTER';
+      }
+      & > div:last-child > span:before {
+        content: 'MAIN RIGHT';
+      }
     }
 
-    [data-mq="tablet"] > &,
-    [data-mq="desktop"] > & {
-        &:first-child {
-            & > div:first-child ul:before { content: 'TOP LEFT'; }
-            & > div:nth-child(2) ul:before { content: 'TOP CENTER'; }
-            & > div:last-child ul:before { content: 'TOP RIGHT'; }
-        }
-
-        &:nth-child(2) {
-            & > div:first-child ul:before { content: 'MAIN LEFT'; }
-            & > div:nth-child(2) ul:before { content: 'MAIN CENTER'; }
-            & > div:last-child ul:before { content: 'MAIN RIGHT'; }
-        }
-
-        &:last-child {
-            & > div:first-child ul:before { content: 'BOTTOM LEFT'; }
-            & > div:nth-child(2) ul:before { content: 'BOTTOM CENTER'; }
-            & > div:last-child ul:before { content: 'BOTTOM RIGHT'; }
-        }
+    &:last-child {
+      & > div:first-child > span:before {
+        content: 'BOTTOM LEFT';
+      }
+      & > div:nth-child(2) > span:before {
+        content: 'BOTTOM CENTER';
+      }
+      & > div:last-child > span:before {
+        content: 'BOTTOM RIGHT';
+      }
     }
+  }
 }

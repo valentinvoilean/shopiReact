@@ -84,7 +84,6 @@
     "react/jsx-equals-spacing": "error",
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"]}],
     "react/jsx-key": "error",
-    "react/jsx-no-bind": ["error", { "ignoreRefs": true }],
     "react/jsx-no-comment-textnodes": "error",
     "react/jsx-no-target-blank": "error",
     "react/jsx-pascal-case": "error",
