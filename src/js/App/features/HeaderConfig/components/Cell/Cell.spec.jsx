@@ -24,7 +24,7 @@ describe('Cell', () => {
         props = {
             globalState: {
                 getIn: () => ({
-                    toJS: () => ['Logo', 'Menu']
+                    toJS: () => ['Menu', 'Logo']
                 }),
                 updateIn: jest.fn(() => null)
             },
@@ -44,13 +44,12 @@ describe('Cell', () => {
 
     it('should render', () => {
         wrapper = shallow(<Cell {...props} />);
-        expect(wrapper.find('ul')).toBePresent();
-        expect(wrapper.find('CloseButton')).toHaveLength(2);
+        expect(wrapper.find('Tag')).toBePresent();
     });
 
     it('should call the remove action', () => {
         wrapper = mount(<Cell {...props} />);
-        wrapper.find('CloseButton').nodes[0].props.onClick();
+        wrapper.find('Tag').nodes[0].props.onRemove();
         expect(props.actions.remove).toHaveBeenCalled();
     });
 
