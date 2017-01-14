@@ -5,65 +5,61 @@
 <!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-  <meta charset="utf-8" />
-  <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' /><![endif]-->
+    <meta charset="utf-8"/>
+    <!--[if IE]>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/><![endif]-->
+    <title>
+        {{ page_title }}{% if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif %}{% if current_page != 1 %} &ndash; Page {{ current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+    </title>
+    {% if page_description %}
+        <meta name="description" content="{{ page_description | escape }}"/>
+    {% endif %}
+    <link rel="canonical" href="{{ canonical_url }}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    {{ content_for_header }}
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic'
+          rel='stylesheet' type='text/css'>
+    {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+    {{ 'blueprint.css' | asset_url | stylesheet_tag }}
+    {{ 'helpers.css' | asset_url | stylesheet_tag }}
 
-  <title>
-  {{ page_title }}{% if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif %}{% if current_page != 1 %} &ndash; Page {{ current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
-  </title>
+    {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+    {% if template contains 'customers' %}
+        {{ 'customer_area.js'  | shopify_asset_url | script_tag }}
+    {% endif %}
+    <!-- Additional Shopify helpers that will likely be added to the global shopify_common.js some day soon. -->
+    {{ 'shopify_common.js'  | asset_url | script_tag }}
+    {{ 'option_selection.js' | shopify_asset_url | script_tag }}
 
-  {% if page_description %}
-  <meta name="description" content="{{ page_description | escape }}" />
-  {% endif %}
+    <script>
+        var shopSettings = {
+            loggedIn: "{{ customer }}",
+            registrationEnabled: "{{ shop.customer_accounts_optional }}",
+            customerEmail: "{{ customer.email }}",
+            customerName: "{{ customer.first_name }}"
+        };
 
-  <link rel="canonical" href="{{ canonical_url }}" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  {{ content_for_header }}
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic' rel='stylesheet' type='text/css'>
-  {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
-  {{ 'helpers.css' | asset_url | stylesheet_tag }}
-
-  {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
-  {% if template contains 'customers' %}
-  {{ 'customer_area.js'  | shopify_asset_url | script_tag }}
-  {% endif %}
-  <!-- Additional Shopify helpers that will likely be added to the global shopify_common.js some day soon. -->
-  {{ 'shopify_common.js'  | asset_url | script_tag }}
-  {{ 'option_selection.js' | shopify_asset_url | script_tag }}
-
-  <script>
-    var shopSettings = {
-      loggedIn: "{{ customer }}",
-      registrationEnabled: "{{ shop.customer_accounts_optional }}",
-      customerEmail: "{{ customer.email }}",
-      customerName: "{{ customer.first_name }}"
-    };
-
-    console.log(shopSettings);
-  </script>
-
-
+        console.log(shopSettings);
+    </script>
 </head>
 
 <body id="{{ page_title | handle }}"
       class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
 
-  <header></header>
+    <header></header>
 
-  <main role="main">
-    <div id="configContainer"></div>
+    <main role="main">
+        <div id="configContainer"></div>
+        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+        {{ content_for_layout }}
+    </main>
 
-    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-    {{ content_for_layout }}
-  </main>
+    <footer role="contentinfo"></footer>
 
-  <footer role="contentinfo"></footer>
-
-  {{ 'vendors.js' | asset_url | script_tag }}
-  {{ 'main.js' | asset_url | script_tag }}
-  {% if settings.header_configurator_enable %}
-  {{ 'headerConfig.js' | asset_url | script_tag }}
-  {% endif %}
+    {{ 'vendors.js' | asset_url | script_tag }}
+    {{ 'main.js' | asset_url | script_tag }}
+    {% if settings.header_configurator_enable %}
+        {{ 'headerConfig.js' | asset_url | script_tag }}
+    {% endif %}
 </body>
 </html>
