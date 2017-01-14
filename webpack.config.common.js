@@ -12,6 +12,7 @@ module.exports = {
             'react-dom',
             'react-match-media',
             'react-redux',
+            'react-modal',
             'redux',
             'classnames',
             'jquery'
