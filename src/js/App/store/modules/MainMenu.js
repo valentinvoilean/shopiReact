@@ -1,8 +1,11 @@
 import {fromJS} from 'immutable';
 
 export const defaultState = fromJS({
-    menuIcon: {
-        active: false
+    sidebar: {
+        active: false,
+        position: 'left',
+        enableModal: true,
+        effect: 'none'
     }
 });
 
@@ -12,7 +15,7 @@ const MAIN_MENU_TOGGLE = 'MAIN_MENU_TOGGLE';
 export default (state = defaultState, action) => {
     switch (action.type) {
         case MAIN_MENU_TOGGLE: {
-            return state.setIn(['menuIcon', 'active'], !state.getIn(['menuIcon', 'active']));
+            return state.setIn(['sidebar', 'active'], !state.getIn(['sidebar', 'active']));
         }
 
         default: {

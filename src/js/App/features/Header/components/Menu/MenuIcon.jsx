@@ -20,7 +20,7 @@ export function MenuIconPure({mainMenuState, actions}) {
     };
 
     const elClasses = classNames('menuIcon', 'menuIcon--x', {
-        [`${SHARED_CLASSES.active}`]: mainMenuState.getIn(['menuIcon', 'active'])
+        [`${SHARED_CLASSES.active}`]: mainMenuState.getIn(['sidebar', 'active'])
     });
 
     return (

@@ -6,8 +6,15 @@ import configureStore from 'App/store/configureStore';
 
 import {Header} from './features/Header';
 import Footer from './features/Footer';
+import {MenuSidebar} from './features/MenuSidebar';
 
 const store = configureStore();
+
+ReactDOM.render(
+    <Provider store={store}>
+        <MenuSidebar />
+    </Provider>
+    , document.getElementsByTagName('aside')[0]);
 
 ReactDOM.render(
     <Provider store={store}>
