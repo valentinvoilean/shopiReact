@@ -47,7 +47,7 @@ let concatFiles = () => {
          * Base
          */
         `${styles}/components/core/_base.scss`,
-        `${styles}/components/modal/_modal.scss`,
+        `${styles}/components/modal/modal.scss`,
 
         /**
          * Header
