@@ -2,8 +2,8 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import classNames from 'classnames';
-import Modal from 'react-modal';
 
+import {Modal} from 'App/components';
 //import {SHARED_CLASSES} from 'common/constants/classes';
 import styles from './MenuSidebar.scss';
 
@@ -15,24 +15,13 @@ const propTypes = {
 };
 
 export function MenuSidebar({mainMenuState, actions}) {
-
     const menuClasses = classNames(styles.menu);
-    const modalStyles = {
-        overlay : {
-          background: 'rgba(0, 0, 0, 0.75)'
-        },
-        content: {
-            display: 'none'
-        }
-    };
 
     return (
         <div>
             <div className={menuClasses}></div>
             <Modal isOpen={mainMenuState.getIn(['sidebar', 'active'])}
-                   contentLabel="Modal"
-                   onRequestClose={actions.toggleMenu}
-                   style={modalStyles}
+                   onClick={actions.toggleMenu}
             />
         </div>
     );
