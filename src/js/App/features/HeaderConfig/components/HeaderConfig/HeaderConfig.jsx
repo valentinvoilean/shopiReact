@@ -31,7 +31,7 @@ export class HeaderConfigPureModal extends Component {
 
     render() {
         const {globalState} = this.props;
-        const modalClassNames = classNames('container', styles.base, Classes.CARD);
+        const modalClassNames = classNames(styles.base, Classes.CARD);
 
         return (
             <Overlay isOpen autoFocus canEscapeKeyClose={false} canOutsideClickClose={false}>
@@ -43,7 +43,7 @@ export class HeaderConfigPureModal extends Component {
                         </TabList>
                         { mediaQueryNames.map((mediaQuery) => (
                             <TabPanel key={uuid.v4()}>
-                                <div className="col-md-6">
+                                <div className="col-sm-6">
                                     <h2 className={styles.h2}>1. Available components to drag & drop</h2>
                                     <div className={styles.componentsContainer}>
                                         <Cell key={uuid.v4()}
@@ -55,7 +55,7 @@ export class HeaderConfigPureModal extends Component {
                                     </div>
                                 </div>
 
-                                <div className="col-md-6">
+                                <div className="col-sm-6">
                                     <h2 className={styles.h2}>3. Generated code to be copied</h2>
                                     <CodeBox text={JSON.stringify(globalState.get('data'))} />
                                 </div>

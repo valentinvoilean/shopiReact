@@ -3,7 +3,7 @@ import uuid from 'uuid';
 import Sortable from 'sortablejs';
 import {includes} from 'lodash';
 import classNames from 'classnames';
-import {Tag, Classes} from '@blueprintjs/core';
+import {Tag} from '@blueprintjs/core';
 
 
 import styles from './Cell.scss';
@@ -99,7 +99,7 @@ class Cell extends Component {
         const {globalState, name, mediaQuery} = this.props;
         const currentCell = globalState.getIn(['data', mediaQuery, name]);
         let itemsHTML = null;
-        const tagClasses = classNames(styles.cellTag, Classes.LARGE);
+        const tagClasses = classNames(styles.cellTag);
 
         if (currentCell && currentCell.toJS().length) {
             itemsHTML = currentCell.toJS().map((item) => (
