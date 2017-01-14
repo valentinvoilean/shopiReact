@@ -2,10 +2,13 @@ import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import uuid from 'uuid';
-import classNames from 'classnames';
 
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
-import {Overlay, Classes} from '@blueprintjs/core';
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Dialog from 'material-ui/Dialog';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 
 import {mediaQueryNames} from 'common/constants/mediaQueries';
 
@@ -31,12 +34,12 @@ export class HeaderConfigPureModal extends Component {
 
     render() {
         const {globalState} = this.props;
-        const modalClassNames = classNames('container', styles.base, Classes.CARD);
 
         return (
-            <Overlay isOpen autoFocus canEscapeKeyClose={false} canOutsideClickClose={false}>
-                <div className={modalClassNames}>
-                    <h1 className={styles.h1}>Header Configurator</h1>
+            <MuiThemeProvider>
+            <Dialog modal open autoDetectWindowHeight autoScrollBodyContent
+                    title="Header Configurator"
+            >
                     <Tabs className={styles.tabs}>
                         <TabList>
                             {mediaQueryNames.map((mediaQuery) => (<Tab key={uuid.v4()}>{mediaQuery}</Tab>))}
@@ -76,8 +79,8 @@ export class HeaderConfigPureModal extends Component {
                             </TabPanel>
                         ))}
                     </Tabs>
-                </div>
-            </Overlay>
+            </Dialog>
+            </MuiThemeProvider>
         );
     }
 }
