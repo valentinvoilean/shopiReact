@@ -1,11 +1,8 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import classNames from 'classnames';
 
-import {Modal} from 'App/components';
-//import {SHARED_CLASSES} from 'common/constants/classes';
-import styles from './MenuSidebar.scss';
+import * as SidebarStyles from 'App/features/MenuSidebar/components';
 
 import * as actions from 'App/store/modules/MainMenu';
 
@@ -15,16 +12,11 @@ const propTypes = {
 };
 
 export function MenuSidebar({mainMenuState, actions}) {
-    const menuClasses = classNames(styles.menu);
+    const sidebarEffect = mainMenuState.getIn(['sidebar', 'effect']);
 
-    return (
-        <div>
-            <div className={menuClasses}></div>
-            <Modal isOpen={mainMenuState.getIn(['sidebar', 'active'])}
-                   onClick={actions.toggleMenu}
-            />
-        </div>
-    );
+    return React.createElement(SidebarStyles[sidebarEffect], {
+        mainMenuState, actions
+    });
 }
 
 MenuSidebar.propTypes = propTypes;

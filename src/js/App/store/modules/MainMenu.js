@@ -3,9 +3,9 @@ import {fromJS} from 'immutable';
 export const defaultState = fromJS({
     sidebar: {
         active: false,
+        effect: 'Overlay', // Slider, ElasticSlider, BubbleSlider, PushSlider, RevealSlider, Overlay
         position: 'left',
-        enableModal: true,
-        effect: 'none'
+        overlayColor: '#fff'
     }
 });
 
