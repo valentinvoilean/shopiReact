@@ -1,6 +1,9 @@
-import React, {PropTypes} from 'react';
-import styles from './Modal.scss';
+import React, {PropTypes, Component} from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import classNames from 'classnames';
+import uuid from 'uuid';
+
+import styles from './Modal.scss';
 
 const propTypes = {
     isLight: PropTypes.bool,
@@ -24,19 +27,43 @@ const defaultProps = {
     className: ''
 };
 
-export default function Modal({isLight, isOpen, onClick, children, className, overlayClassName}) {
-    const overlayClasses = classNames(styles.modal, {
-        [`${styles.modalLight}`]: isLight
-    }, overlayClassName);
+class Modal extends Component {
 
-    if (!isOpen) { return null; }
+    shouldComponentUpdate() {
+        return true;
+    }
 
-    /* eslint-disable */
-    return (<div tabIndex="0" className={overlayClasses} onClick={onClick}>
-        {children === null ? null : <div className={className}>{children}</div>}
-    </div>);
-    /* eslint-enable */
+    render() {
+        const {isLight, isOpen, onClick, children, className, overlayClassName} = this.props;
+        const overlayClasses = classNames(styles.modal, {
+            [`${styles.modalLight}`]: isLight
+        }, overlayClassName);
+
+        if (!isOpen) { return null; }
+
+        /* eslint-disable */
+        return (
+            <ReactCSSTransitionGroup
+                transitionName="fade"
+                transitionAppear={true}
+                transitionAppearTimeout={500}
+                transitionEnter={false}
+                transitionLeave={true}
+            >
+                <div tabIndex="0"
+                     className={overlayClasses}
+                     onClick={onClick}
+                     key={uuid.v4()}
+                >
+                    {children === null ? null : <div className={className}>{children}</div>}
+                </div>
+            </ReactCSSTransitionGroup>
+        );
+        /* eslint-enable */
+    }
 }
 
 Modal.propTypes = propTypes;
 Modal.defaultProps = defaultProps;
+
+export default Modal;

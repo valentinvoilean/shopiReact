@@ -106,6 +106,7 @@
     "lodash": "4.17.4",
     "modernizr": "3.3.1",
     "react": "15.4.2",
+    "react-addons-css-transition-group": "15.4.2",
     "react-copy-to-clipboard": "4.2.3",
     "react-dom": "15.4.2",
     "react-redux": "5.0.2",

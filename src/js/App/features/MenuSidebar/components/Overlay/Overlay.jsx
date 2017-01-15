@@ -1,5 +1,8 @@
 import React, {PropTypes} from 'react';
+
 import {Modal} from 'App/components';
+
+import styles from './Overlay.scss';
 
 const propTypes = {
     mainMenuState: PropTypes.object.isRequired
@@ -16,7 +19,11 @@ export default function Overlay({mainMenuState}) {
 
     return (
         <Modal isOpen={isSidebarActive} isLight>
-            test
+            <ul className={styles.menu}>
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
         </Modal>
     );
 }

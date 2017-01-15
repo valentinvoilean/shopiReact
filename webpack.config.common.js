@@ -9,10 +9,9 @@ module.exports = {
             'modernizr',
             'picturefill',
             'react',
-            'react-dom',
             'react-match-media',
             'react-redux',
-            'react-modal',
+            'react-addons-css-transition-group',
             'redux',
             'classnames',
             'jquery'
