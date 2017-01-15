@@ -10,7 +10,8 @@ const propTypes = {
     overlayClassName: PropTypes.string,
     children: PropTypes.oneOfType([
         PropTypes.object,
-        PropTypes.array
+        PropTypes.array,
+        PropTypes.string
     ])
 };
 
