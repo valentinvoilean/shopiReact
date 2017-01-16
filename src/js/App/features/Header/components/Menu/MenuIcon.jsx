@@ -1,7 +1,10 @@
-import React, {PropTypes} from 'react';
-import {connect} from 'react-redux';
+import React, {PropTypes, Component} from 'react';
+import ReactDOM from 'react-dom';
+import {Provider, connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import classNames from 'classnames';
+
+import {MenuSidebar} from 'App/features/MenuSidebar';
 
 import {SHARED_CLASSES} from 'common/constants/classes';
 
@@ -12,30 +15,65 @@ const propTypes = {
     actions: PropTypes.object.isRequired
 };
 
-export function MenuIconPure({mainMenuState, actions}) {
-    const toggleByKeboard = (e) => {
-        if (e.key === 'Enter') {
-            actions.toggleMenu();
-        }
-    };
+export class MenuIconPure extends Component {
+    componentDidMount() {
+        this.sidebar = document.createElement('aside');
 
-    const elClasses = classNames('menuIcon', 'menuIcon--x', {
-        [`${SHARED_CLASSES.active}`]: mainMenuState.getIn(['sidebar', 'active'])
-    });
+        this.main = document.getElementsByTagName('main')[0];
+        this.section = this.main.getElementsByTagName('section')[0];
 
-    return (
-        <a className={elClasses}
-           onClick={actions.toggleMenu}
-           onKeyDown={toggleByKeboard}
-           tabIndex="0"
-           role="button"
-        >
-            <span>toggle menu</span>
-        </a>
-    );
+        this.main.insertBefore(this.sidebar, this.section);
+
+        this.componentDidUpdate();
+    }
+
+    shouldComponentUpdate() {
+        return true;
+    }
+
+    componentDidUpdate() {
+        ReactDOM.render(
+            <Provider store={this.context.store}>
+                <MenuSidebar />
+            </Provider>
+            , this.sidebar);
+    }
+
+    componentWillUnmount() {
+        ReactDOM.unmountComponentAtNode(this.sidebar);
+        this.main.removeChild(this.sidebar);
+    }
+
+    render() {
+        const {mainMenuState, actions} = this.props;
+
+        const toggleByKeboard = (e) => {
+            if (e.key === 'Enter') {
+                actions.toggleMenu();
+            }
+        };
+
+        const elClasses = classNames('menuIcon', 'menuIcon--x', {
+            [`${SHARED_CLASSES.active}`]: mainMenuState.getIn(['sidebar', 'active'])
+        });
+
+        return (
+            <a className={elClasses}
+               onClick={actions.toggleMenu}
+               onKeyDown={toggleByKeboard}
+               tabIndex="0"
+               role="button"
+            >
+                <span>toggle menu</span>
+            </a>
+        );
+    }
 }
 
 MenuIconPure.propTypes = propTypes;
+MenuIconPure.contextTypes = {
+    store: React.PropTypes.object
+};
 
 export default connect(
     state => ({mainMenuState: state.mainMenu}),
