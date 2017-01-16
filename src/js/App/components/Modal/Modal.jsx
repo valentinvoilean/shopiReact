@@ -1,5 +1,4 @@
 import React, {PropTypes, Component} from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import classNames from 'classnames';
 import uuid from 'uuid';
 
@@ -43,21 +42,13 @@ class Modal extends Component {
 
         /* eslint-disable */
         return (
-            <ReactCSSTransitionGroup
-                transitionName="fade"
-                transitionAppear={true}
-                transitionAppearTimeout={500}
-                transitionEnter={false}
-                transitionLeave={true}
+            <div tabIndex="0"
+                 className={overlayClasses}
+                 onClick={onClick}
+                 key={uuid.v4()}
             >
-                <div tabIndex="0"
-                     className={overlayClasses}
-                     onClick={onClick}
-                     key={uuid.v4()}
-                >
-                    {children === null ? null : <div className={className}>{children}</div>}
-                </div>
-            </ReactCSSTransitionGroup>
+                {children === null ? null : <div className={className}>{children}</div>}
+            </div>
         );
         /* eslint-enable */
     }
