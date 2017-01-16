@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 
 module.exports = {
     context: path.resolve(__dirname, '.'),
@@ -25,11 +24,13 @@ module.exports = {
         chunkFilename: '[name].js.liquid'
     },
     module: {
-        rules: [
-            {enforce: 'pre', test: /\.jsx?$/, include: `${__dirname}/src/js`, loader: 'eslint-loader'},
+        preLoaders: [
+            {test: /\.jsx?$/, include: `${__dirname}/src/js`, loaders: ['eslint']}
+        ],
+        loaders: [
             {test: /\.jsx?$/, include: `${__dirname}/src/js`, loader: 'babel-loader'},
             {test: /\.svg$/, loader: 'svg-sprite-loader'},
-            {test: /\.modernizrrc$/, loader: 'webpack-modernizr-loader'},
+            {test: /\.modernizrrc$/, loader: 'modernizr-loader!json-loader'},
             {test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file-loader'},
             {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff'},
             {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?limit=10000&mimetype=application/octet-stream'},
@@ -38,8 +39,8 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.svg'],
-        modules: [
+        extensions: ['', '.js', '.jsx', '.svg'],
+        modulesDirectories: [
             path.join(__dirname, 'src/js'),
             'node_modules'
         ],

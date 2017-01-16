@@ -31,7 +31,7 @@ const webpackCommonDevSettings = {
 module.exports = [
     merge(webpackCommonSettings, webpackCommonDevSettings, {
         module: {
-            rules: [
+            loaders: [
                 {test: /\.scss$/, loader: 'style-loader!css-loader?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer-loader!resolve-url-loader!sass-loader'},
                 {test: /\.css$/, loader: 'style-loader!css-loader'}
             ]
@@ -40,7 +40,7 @@ module.exports = [
     merge.smartStrategy({entry: 'replace'})(webpackCommonSettings, webpackCommonDevSettings, {
         entry: { styles: './src/styles/theme.scss' },
         module: {
-            rules: [
+            loaders: [
                 {test: /\.scss$/, loader: 'style-loader!css-loader?sourceMap!autoprefixer-loader!resolve-url-loader!sass-loader?sourceMap'}
             ]
         }
