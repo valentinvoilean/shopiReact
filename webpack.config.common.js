@@ -16,8 +16,8 @@ module.exports = {
             'classnames',
             'jquery'
         ],
-        headerConfig: 'App/features/HeaderConfig/index.jsx',
-        main: 'main.js'
+        headerConfig: 'features/HeaderConfig/index.jsx',
+        main: 'index.jsx'
     },
     output: {
         path: path.resolve(__dirname, 'theme/assets'),

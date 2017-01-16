@@ -1,0 +1,1 @@
+export SVGSprite from './SVGSprite';
