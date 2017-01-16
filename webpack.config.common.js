@@ -19,10 +19,10 @@ module.exports = {
         main: 'index.jsx'
     },
     output: {
-        path: path.resolve(__dirname, 'theme/assets'),
-        publicPath: '/theme/assets/',
-        filename: '[name].js.liquid',
-        chunkFilename: '[name].js.liquid'
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '/dist',
+        filename: '[name].js',
+        chunkFilename: '[name].js'
     },
     module: {
         rules: [

@@ -23,7 +23,7 @@ module.exports = merge(webpackConfigCommon, {
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendors',
-            filename: 'vendors.js.liquid'
+            filename: 'vendors.js'
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
