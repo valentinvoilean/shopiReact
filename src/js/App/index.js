@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
+import {MatchMedia} from 'react-match-media';
 
+import {mediaQueries} from 'common/constants/mediaQueries';
 import configureStore from 'App/store/configureStore';
 
 import {Header} from './features/Header';
@@ -12,7 +14,9 @@ const store = configureStore();
 
 ReactDOM.render(
     <Provider store={store}>
-        <MenuSidebar />
+        <MatchMedia mediaQuery={mediaQueries.mobile}>
+            <MenuSidebar />
+        </MatchMedia>
     </Provider>
     , document.getElementsByTagName('aside')[0]);
 
