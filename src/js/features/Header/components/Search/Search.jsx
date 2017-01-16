@@ -1,9 +1,10 @@
 import React from 'react';
 
+import {Icon} from 'components';
+import search from 'svg/search.svg';
+
 export default function Search() {
     return (
-        <svg className="search">
-            <use xlinkHref="#search"></use>
-        </svg>
+        <Icon glyph={search} className="search" />
     );
 }

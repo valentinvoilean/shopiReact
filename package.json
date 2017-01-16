@@ -102,7 +102,6 @@
   "dependencies": {
     "classnames": "2.2.5",
     "immutable": "3.8.1",
-    "jquery": "3.1.1",
     "lodash": "4.17.4",
     "modernizr": "3.3.1",
     "react": "15.4.2",

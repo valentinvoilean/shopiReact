@@ -13,8 +13,7 @@ module.exports = {
             'react-redux',
             'react-addons-css-transition-group',
             'redux',
-            'classnames',
-            'jquery'
+            'classnames'
         ],
         headerConfig: 'features/HeaderConfig/index.jsx',
         main: 'index.jsx'
@@ -26,7 +25,6 @@ module.exports = {
         chunkFilename: '[name].js.liquid'
     },
     module: {
-        noParse: /jquery|backbone/,
         rules: [
             {enforce: 'pre', test: /\.jsx?$/, include: `${__dirname}/src/js`, loader: 'eslint-loader'},
             {test: /\.jsx?$/, include: `${__dirname}/src/js`, loader: 'babel-loader'},
@@ -47,16 +45,9 @@ module.exports = {
         ],
         alias: {
             svg: path.resolve(__dirname, 'src/svg'),
-            jquery: 'jquery/dist/jquery.min.js',
             modernizr$: path.resolve(__dirname, '.modernizrrc')
         }
     },
-    plugins: [
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery'
-        })
-    ],
     target: 'web',
     performance: {
         hints: false

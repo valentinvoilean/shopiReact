@@ -2,17 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './App';
-import {SVGSprite} from 'components';
-// Generate SVG Sprite
 
-let svgSprite;
-
-$(window).on('load', () => {
+window.onload = function() {
     ReactDOM.render(<App />, document.getElementById('app'));
-    svgSprite = new SVGSprite();
-});
+};
 
-$(window).on('destroy', () => {
-    svgSprite.destroy();
+window.addEventListener('destroy', () => {
     ReactDOM.unmountComponentAtNode(document.getElementById('app'));
 });

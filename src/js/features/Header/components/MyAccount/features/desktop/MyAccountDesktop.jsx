@@ -9,6 +9,10 @@ import HiddenSide from './components/HiddenSide';
 import Wrapper from './components/Wrapper';
 import Link from './components/Link';
 
+import {Icon} from 'components';
+import user1 from 'svg/user-1.svg';
+import user2 from 'svg/user-2.svg';
+
 export default class MyAccountDesktop extends Component {
 
     constructor() {
@@ -170,9 +174,7 @@ export default class MyAccountDesktop extends Component {
                                      src={`//gravatar.com/avatar/${md5(this.state.customer.email)}?s=40&d=blank`}
                                 />
                             </div>
-                            <svg className="myAccount__icon">
-                                <use xlinkHref="#user-2" />
-                            </svg>
+                            <Icon glyph={user2} className="myAccount__icon" />
                         </a>
                     </VisibleSide>
                 </Wrapper>
@@ -197,9 +199,7 @@ export default class MyAccountDesktop extends Component {
                 </HiddenSide>
                 <VisibleSide>
                     <a href="/account/register" className="myAccount__img">
-                        <svg className="myAccount__icon">
-                            <use xlinkHref="#user-1" />
-                        </svg>
+                        <Icon glyph={user1} className="myAccount__icon" />
                     </a>
                 </VisibleSide>
             </Wrapper>

@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import classNames from 'classnames';
 
+import {Icon} from 'components';
+import wishlist1 from 'svg/wish-list-1.svg';
+import wishlist2 from 'svg/wish-list-2.svg';
+
 import {SHARED_CLASSES} from 'constants/classes';
 
 export default class Wishlist extends Component {
@@ -137,12 +141,8 @@ export default class Wishlist extends Component {
                    className="wishlist__img {% if wish_list_active %}is-active{% endif %}"
                 >
                     <div className="wishlist__counter">{'{{ wish_list_length }}'}</div>
-                    <svg className="wishlist__icon">
-                        <use xlinkHref="#wish-list-1"></use>
-                    </svg>
-                    <svg className="wishlist__icon">
-                        <use xlinkHref="#wish-list-2"></use>
-                    </svg>
+                    <Icon glyph={wishlist1} className="wishlist__icon" />
+                    <Icon glyph={wishlist2} className="wishlist__icon" />
                 </a>
             </div>
         );
