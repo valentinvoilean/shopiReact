@@ -13,6 +13,11 @@ const propTypes = {
     actions: PropTypes.object.isRequired
 };
 
+const defaultProps = {
+    mainMenuState: {getIn: () => {}},
+    actions: {}
+};
+
 export class Overlay extends Component {
 
     shouldComponentUpdate() {
@@ -40,9 +45,11 @@ export class Overlay extends Component {
     }
 
     render() {
+        const transitionName = this.props.mainMenuState.getIn(['sidebar', 'effect']).split('-')[1];
+
         return (
             <ReactCSSTransitionGroup
-                transitionName="fade"
+                transitionName={transitionName}
                 transitionEnterTimeout={500}
                 transitionLeaveTimeout={500}
             >
@@ -53,6 +60,7 @@ export class Overlay extends Component {
 }
 
 Overlay.propTypes = propTypes;
+Overlay.defaultProps = defaultProps;
 
 export default connect(
     state => ({mainMenuState: state.mainMenu}),

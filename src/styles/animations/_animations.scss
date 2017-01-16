@@ -1,3 +1,8 @@
+////////////////////////
+// Overlay animations //
+////////////////////////
+
+// FADE
 .fade-appear,
 .fade-enter {
     opacity: 0.01;
@@ -16,4 +21,76 @@
 .fade-leave.fade-leave-active {
     opacity: 0.01;
     transition: opacity 300ms ease-in;
+}
+
+// SLIDE DOWN
+.slideDown-appear,
+.slideDown-enter,
+.slideDown-leave.slideDown-leave-active {
+    visibility: hidden;
+    transform: translateY(-100%);
+    transition: transform 0.4s ease-in-out, visibility 0s 0.4s;
+}
+
+.slideDown-enter.slideDown-enter-active,
+.slideDown-appear.slideDown-appear-active,
+.slideDown-leave {
+    visibility: visible;
+    transform: translateY(0%);
+    transition: transform 0.4s ease-in-out;
+}
+
+// SIMPLE GENIE
+.genie-appear,
+.genie-enter,
+.genie-leave.genie-leave-active {
+    visibility: hidden;
+    transform: translateY(60%) scale(0);
+    transition: transform 0.4s, visibility 0s 0.4s;
+}
+
+.genie-enter.genie-enter-active,
+.genie-appear.genie-appear-active,
+.genie-leave {
+    visibility: visible;
+    transform: translateY(0%) scale(1);
+    transition: transform 0.4s;
+}
+
+// Scale
+.scale-appear,
+.scale-enter,
+.scale-leave.scale-leave-active {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
+}
+
+.scale-enter.scale-enter-active,
+.scale-appear.scale-appear-active,
+.scale-leave {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+    transition: transform 0.4s, opacity 0.4s;
+}
+
+// Corner
+.corner-appear,
+.corner-enter,
+.corner-leave.corner-leave-active {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-50px) translateX(-50px);
+    transition: opacity 0.5s, transform 0.5s, visibility 0s 0.5s;
+}
+
+.corner-enter.corner-enter-active,
+.corner-appear.corner-appear-active,
+.corner-leave {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0%);
+    transition: opacity 0.5s, transform 0.5s;
 }

@@ -13,7 +13,7 @@ export class MenuSidebar extends Component {
     }
 
     render() {
-        const sidebarEffect = this.props.mainMenuState.getIn(['sidebar', 'effect']);
+        const sidebarEffect = this.props.mainMenuState.getIn(['sidebar', 'effect']).split('-')[0];
         return React.createElement(SidebarStyles[sidebarEffect]);
     }
 }
