@@ -11,8 +11,8 @@
     "compile": "npm-run-all --parallel compile:js compile:sass",
     "compile:js": "node tools/webpack",
     "compile:sass": "node tools/sass-prod",
-    "watch:theme": ". ./themeWatch.sh",
-    "watch:prod:js": "webpack --config webpack.config.prod.js --watch",
+    "watch:theme": "node tools/theme",
+    "watch:prod:js": "node tools/webpack -watch",
     "watch:prod:sass": "node tools/sass-prod -watch",
     "deploy": "npm-run-all --parallel watch:theme watch:prod:sass watch:prod:js"
   },
@@ -42,6 +42,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@shopify/themekit": "0.6.3",
     "autoprefixer": "6.6.1",
     "autoprefixer-loader": "3.2.0",
     "babel-cli": "6.18.0",

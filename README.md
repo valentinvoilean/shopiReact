@@ -2,19 +2,19 @@ Install and Run the Watchers
 ============================
 
 1. `npm install`
-2. Configure `/config/shopifyApiConfiguration.js`
-3. `gulp`
+2. Configure `config.yml`
 
 
-EXTRA
-=====
+RUN
+===
 Steps to deploy using bash:
 
-1. Install Theme-Kit: http://themekit.cat/
+1. Run in Dev Mode
 
 ```shell
-    curl https://raw.githubusercontent.com/Shopify/themekit/installers/install | python
+    npm start
 ```
-2. Configure **./theme/config.yml**
-
-3. Open terminal and run `./themeWatch.sh`
+2. Theme deploy & watch
+```shell
+    npm run deploy
+```

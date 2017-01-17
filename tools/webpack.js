@@ -8,6 +8,7 @@ const oldDir = './dist';
 const newDir = './theme/assets';
 
 const webpackProdConfig = require('../webpack.config.prod');
+const compiler = webpack(webpackProdConfig);
 
 function moveFilesToAssets() {
     glob(`${oldDir}/**/*.*`, (err, files) => {
@@ -35,7 +36,7 @@ function handleWarnings(err) {
     console.log('WARNING: '.green, err.green);
 }
 
-webpack(webpackProdConfig, function(err, stats) {
+function compilerStatus(err, stats) {
     if (err) {
         return handleFatalError(err);
     }
@@ -59,4 +60,15 @@ webpack(webpackProdConfig, function(err, stats) {
     }));
 
     moveFilesToAssets();
-});
+}
+
+if (process.argv[2]) {
+    console.log('Webpack: Watching files..'.green);
+
+    compiler.watch({
+        aggregateTimeout: 300,
+        poll: true
+    }, compilerStatus);
+} else {
+    compiler.run(compilerStatus);
+}
