@@ -20,6 +20,9 @@ const webpackCommonDevSettings = {
         host: '0.0.0.0',
         port: 8089,
         open: true,
+        historyApiFallback: {
+            index: '/dist/index.html'
+        },
         stats: {
             hash: false,
             version: false,

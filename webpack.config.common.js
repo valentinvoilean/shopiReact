@@ -18,8 +18,8 @@ module.exports = {
         main: 'index.jsx'
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        publicPath: '/dist',
+        path: path.resolve(__dirname, 'dist/assets'),
+        publicPath: '/dist/assets',
         filename: '[name].js',
         chunkFilename: '[name].js'
     },

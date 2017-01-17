@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 require('colors');
 
-const oldDir = './dist';
+const oldDir = './dist/assets';
 const newDir = './theme/assets';
 
 const webpackProdConfig = require('../webpack.config.prod');
