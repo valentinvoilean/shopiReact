@@ -5,7 +5,7 @@ const merge = require('webpack-merge');
 const webpackConfigCommon = require('./webpack.config.common');
 
 module.exports = merge(webpackConfigCommon, {
-    devtool: 'source-map',
+    //devtool: 'inline-source-map',
     module: {
         rules: [
             {test: /\.scss$/, loader: ExtractTextPlugin.extract({fallbackLoader: 'style-loader', loader: 'css-loader?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer-loader!resolve-url-loader!sass-loader'})},

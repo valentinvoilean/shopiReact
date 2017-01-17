@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 
 module.exports = {
     context: path.resolve(__dirname, '.'),
@@ -55,6 +54,7 @@ module.exports = {
     stats: {
         version: false,
         hash: false,
-        chunks: false
+        chunks: false,
+        children: false
     }
 };
