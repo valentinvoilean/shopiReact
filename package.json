@@ -39,7 +39,7 @@
       "html"
     ]
   },
-  "author": "",
+  "author": "Valentin Voilean <vali.voilean@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "@shopify/themekit": "0.6.3",
@@ -110,14 +110,15 @@
     "react-addons-css-transition-group": "15.4.2",
     "react-copy-to-clipboard": "4.2.3",
     "react-dom": "15.4.2",
-    "react-match-media": "2.0.0",
+    "react-match-media": "2.0.1",
     "react-redux": "5.0.2",
     "react-tabs": "0.8.2",
     "redux": "3.6.0",
     "redux-immutable-state-invariant": "1.2.4",
-    "redux-thunk": "2.1.0",
+    "redux-thunk": "2.2.0",
     "sortablejs": "github:valentinvoilean/Sortable",
     "toggle-selection": "1.0.5",
     "uuid": "3.0.1"
-  }
+  },
+  "repository": "git@bitbucket:vvm88/shopireact.git"
 }
