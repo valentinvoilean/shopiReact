@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run dev",
-    "lint": "eslint ./src/js/** ./tests/**",
+    "lint": "eslint --ext .js --ext .jsx ./src/js/** ./tests/**",
     "test": "jest",
     "dev": "webpack-dev-server",
     "compile": "npm-run-all --parallel compile:js compile:sass",
