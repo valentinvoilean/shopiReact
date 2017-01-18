@@ -12,6 +12,8 @@ module.exports = {
             'react-redux',
             'react-addons-css-transition-group',
             'redux',
+            'redux-thunk',
+            'axios',
             'classnames'
         ],
         headerConfig: 'features/HeaderConfig/index.jsx',
