@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
-import {HeaderConfigPureModal} from './HeaderConfig';
+import {PureHeaderConfig} from './HeaderConfig';
 
 describe('Modal', () => {
     it('renders without any problem', () => {
@@ -9,7 +9,7 @@ describe('Modal', () => {
             globalState: {get: jest.fn(()=> false)},
             actions: {}
         };
-        const wrapper = shallow(<HeaderConfigPureModal {...props} />);
+        const wrapper = shallow(<PureHeaderConfig {...props} />);
 
         expect(wrapper.find('Tabs')).toHaveLength(1);
     });
@@ -23,7 +23,7 @@ describe('Modal', () => {
             globalState: {get: jest.fn(()=> true)},
             actions: {}
         };
-        const wrapper = shallow(<HeaderConfigPureModal {...props} />);
+        const wrapper = shallow(<PureHeaderConfig {...props} />);
 
         wrapper.setProps(nextProps);
 

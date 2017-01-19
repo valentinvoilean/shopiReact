@@ -39,7 +39,8 @@ export const defaultState = fromJS({
                 BottomRight: ['SocialIcons', 'WelcomeMessage']
             }
         },
-        shouldComponentUpdate: false
+        shouldComponentUpdate: false,
+        selectedTabIndex: 0
     }
 });
 

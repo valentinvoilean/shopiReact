@@ -23,9 +23,19 @@ const defaultProps = {
     actions: {}
 };
 
-export class HeaderConfigPureModal extends Component {
+export class PureHeaderConfig extends Component {
+    constructor(props) {
+        super(props);
+
+        this.handleSelect = this.handleSelect.bind(this);
+    }
+
     shouldComponentUpdate(nextProps) {
         return nextProps.globalState.get('shouldComponentUpdate');
+    }
+
+    handleSelect(index) {
+        this.props.actions.activateTab({selectedTabIndex: index});
     }
 
     render() {
@@ -35,7 +45,10 @@ export class HeaderConfigPureModal extends Component {
         return (
             <Modal isOpen className={modalClasses}>
                 <h1 className={styles.h1}>Header Configuration</h1>
-                <Tabs className={styles.tabs}>
+                <Tabs className={styles.tabs}
+                      onSelect={this.handleSelect}
+                      selectedIndex={globalState.get('selectedTabIndex')}
+                >
                     <TabList>
                         {mediaQueryNames.map((mediaQuery) => (<Tab key={uuid.v4()}>{mediaQuery}</Tab>))}
                     </TabList>
@@ -79,10 +92,10 @@ export class HeaderConfigPureModal extends Component {
     }
 }
 
-HeaderConfigPureModal.propTypes = propTypes;
-HeaderConfigPureModal.defaultProps = defaultProps;
+PureHeaderConfig.propTypes = propTypes;
+PureHeaderConfig.defaultProps = defaultProps;
 
 export default connect(
     state => ({globalState: state.headerConfig}),
     dispatch => ({actions: bindActionCreators(actions, dispatch)})
-)(HeaderConfigPureModal);
+)(PureHeaderConfig);

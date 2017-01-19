@@ -12,7 +12,8 @@ export default function getInitialState() {
     try {
         currentSettings = fromJS({
             data: JSON.parse(headerSettings),
-            shouldComponentUpdate: false
+            shouldComponentUpdate: false,
+            selectedTabIndex: 0
         });
     }
     catch (err) {
