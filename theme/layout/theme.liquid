@@ -49,16 +49,15 @@
 <body id="{{ page_title | handle }}"
       class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
 
-  <header></header>
-
   <main role="main">
-    <div id="configContainer"></div>
-
-    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-    {{ content_for_layout }}
+      <section>
+          <article>
+              <div id="app"></div>
+              <div id="configContainer"></div>
+              {{ content_for_layout }}
+          </article>
+      </section>
   </main>
-
-  <footer role="contentinfo"></footer>
 
   {{ 'vendors.js' | asset_url | script_tag }}
   {{ 'main.js' | asset_url | script_tag }}

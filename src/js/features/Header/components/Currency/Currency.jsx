@@ -16,7 +16,7 @@ const defaultProps = {
 
 export class PureCurrency extends Component {
     componentDidMount() {
-        this.props.actions.itemsFetchData('http://api.fixer.io/latest');
+        this.props.actions.itemsFetchData('https://api.fixer.io/latest');
     }
 
     shouldComponentUpdate() {

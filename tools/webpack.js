@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const glob = require('glob');
 const path = require('path');
 const fs = require('fs');
 require('colors');
@@ -8,47 +7,38 @@ const oldDir = './dist/assets';
 const newDir = './theme/assets';
 
 const webpackProdConfig = require('../webpack.config.prod');
+const watch = require('node-watch');
 const compiler = webpack(webpackProdConfig);
 
-function moveFilesToAssets() {
-    glob(`${oldDir}/**/*.*`, (err, files) => {
-        let processed = 0;
+const filter = function(pattern, fn) {
+    return function(filename) {
+        if (pattern.test(filename)) {
+            fn(filename);
+        }
+    };
+};
 
-        files.forEach(function(file) {
-            let filename = path.basename(file);
-            fs.createReadStream(file).pipe(fs.createWriteStream(`${newDir}/${filename.toLowerCase()}.liquid`));
-            processed++;
-        });
+function moveFileToAssetsFolder(file) {
+    let filename = path.basename(file);
+    fs.createReadStream(file).pipe(fs.createWriteStream(`${newDir}/${filename}.liquid`));
 
-        console.log(`${processed} files moved to Assets folder.`.blue);
-    });
+    console.log(`The file ${file}.liquid has been moved to Assets folder.`.yellow);
 }
 
-function handleFatalError(err) {
-    console.log('FATAL ERROR: '.red, err.red);
-}
-
-function handleSoftErrors(err) {
-    console.log('ERROR: '.red, err.red);
-}
-
-function handleWarnings(err) {
-    console.log('WARNING: '.green, err.green);
-}
 
 function compilerStatus(err, stats) {
     if (err) {
-        return handleFatalError(err);
+        return console.log('FATAL ERROR: '.red, err.red);
     }
 
     const jsonStats = stats.toJson();
 
     if (jsonStats.errors.length > 0) {
-        return handleSoftErrors(jsonStats.errors);
+        return console.log('ERROR: '.red, err.red);
     }
 
     if (jsonStats.warnings.length > 0) {
-        handleWarnings(jsonStats.warnings);
+        console.log('WARNING: '.green, err.green);
     }
 
     console.log(stats.toString({
@@ -58,17 +48,22 @@ function compilerStatus(err, stats) {
         chunks: false,
         children: false
     }));
-
-    moveFilesToAssets();
 }
 
-if (process.argv[2]) {
-    console.log('Webpack: Watching files..'.green);
-
-    compiler.watch({
-        aggregateTimeout: 300,
-        poll: true
-    }, compilerStatus);
-} else {
-    compiler.run(compilerStatus);
+function watchJS() {
+    console.log('Webpack: Watching JS chunks..'.green);
+    watch(oldDir, {recursive: true}, filter(/\.js$/, function(filename) {
+        console.log(`The file ${filename} has been changed`.blue);
+        moveFileToAssetsFolder(filename);
+    }));
 }
+
+console.log('Webpack: Watching files..'.green);
+
+setTimeout(watchJS, 0);
+
+compiler.watch({
+    aggregateTimeout: 300,
+    poll: true
+}, compilerStatus);
+
