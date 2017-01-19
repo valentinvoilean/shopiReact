@@ -14,7 +14,7 @@ const defaultProps = {
     actions: {}
 };
 
-export class HeaderConfigPureModal extends Component {
+export class PureCurrency extends Component {
     componentDidMount() {
         this.props.actions.itemsFetchData('http://api.fixer.io/latest');
     }
@@ -38,10 +38,10 @@ export class HeaderConfigPureModal extends Component {
     }
 }
 
-HeaderConfigPureModal.propTypes = propTypes;
-HeaderConfigPureModal.defaultProps = defaultProps;
+PureCurrency.propTypes = propTypes;
+PureCurrency.defaultProps = defaultProps;
 
 export default connect(
     state => ({globalState: state.currency}),
     dispatch => ({actions: bindActionCreators(actions, dispatch)})
-)(HeaderConfigPureModal);
+)(PureCurrency);
