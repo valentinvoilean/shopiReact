@@ -3,6 +3,10 @@
   outline: none;
 }
 
+html, body, main {
+    height: 100%;
+}
+
 body {
   background: $mobile-page-background-color;
   color: $mobile-page-text-color;

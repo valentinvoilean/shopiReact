@@ -1,13 +1,5 @@
 {
-  "presets": [
-    [
-      "es2015",
-      {
-        "modules": false
-      }
-    ],
-    "react"
-  ],
+  "presets": [["es2015", {"modules": false}], "react"],
   "plugins": [
     "transform-decorators-legacy",
     "transform-class-properties",

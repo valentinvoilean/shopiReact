@@ -1,10 +1,8 @@
 import React, {PropTypes, Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import uuid from 'uuid';
 import BurgerMenu from 'react-burger-menu';
 
-import styles from './Slider.scss';
 import * as actions from 'store/modules/MainMenu';
 
 const propTypes = {
@@ -55,13 +53,9 @@ export class Overlay extends Component {
                   right={isRightSide}
                   onStateChange={this.handleMenuState}
             >
-                <div className={styles.slider} key={uuid.v4()}>
-                    <ul className={styles.menu}>
-                        <li>Home</li>
-                        <li>About</li>
-                        <li>Contact</li>
-                    </ul>
-                </div>
+                <a id="home" className="menu-item" href="/">Home</a>
+                <a id="about" className="menu-item" href="/about">About</a>
+                <a id="contact" className="menu-item" href="/contact">Contact</a>
             </Menu>
         );
     }

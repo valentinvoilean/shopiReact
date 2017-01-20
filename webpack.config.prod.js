@@ -64,6 +64,10 @@ module.exports = merge(webpackConfigCommon, {
                 quote_style: 3
             }
             //sourceMap: true
+        }),
+        new webpack.LoaderOptionsPlugin({
+            minimize: true,
+            debug: false
         })
     ]
 });
