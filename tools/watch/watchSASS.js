@@ -1,11 +1,11 @@
-require('colors');
-const concat = require('serial-concat-files');
 const watch = require('node-watch');
+const concat = require('serial-concat-files');
+require('colors');
 
 const styles = './src/styles';
 const assets = './theme/assets';
 
-let concatFiles = () => {
+function buildCSS () {
     console.log('Starting SASS concatenation...'.green);
     console.time('SASS CONCATENATION');
 
@@ -67,13 +67,14 @@ let concatFiles = () => {
         console.log('Finished SASS concatenation '.green);
         console.timeEnd('SASS CONCATENATION');
     });
+}
+
+module.exports = function() {
+    console.log('Watching SCSS files..'.green);
+    watch(styles, {recursive: true}, function (path) {
+
+        console.log(`File ${path} has been changed`.blue);
+        buildCSS();
+    });
+    buildCSS();
 };
-
-console.log('Watching SCSS files..'.green);
-watch(styles, {recursive: true}, function (path) {
-
-    console.log(`File ${path} has been changed`.blue);
-    concatFiles();
-});
-
-concatFiles();
