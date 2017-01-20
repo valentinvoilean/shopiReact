@@ -16,8 +16,8 @@ module.exports = {
             'axios',
             'classnames'
         ],
-        headerConfig: 'features/HeaderConfig/index.jsx',
-        main: 'index.jsx'
+        main: 'index.jsx',
+        headerConfig: 'features/HeaderConfig/index.jsx'
     },
     output: {
         path: path.resolve(__dirname, 'dist/assets'),

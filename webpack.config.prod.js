@@ -3,7 +3,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const merge = require('webpack-merge');
 
 const webpackConfigCommon = require('./webpack.config.common');
-const path = require('path');
 
 module.exports = merge(webpackConfigCommon, {
     //devtool: 'inline-source-map',
@@ -19,7 +18,8 @@ module.exports = merge(webpackConfigCommon, {
                             query: {
                                 sourceMap: false,
                                 modules: true,
-                                importLoaders: true,
+                                importLoaders: 1,
+                                minimize: true,
                                 localIdentName: '[name]__[local]___[hash:base64:5]'
                             }
                         },
@@ -52,14 +52,17 @@ module.exports = merge(webpackConfigCommon, {
             allChunks: true
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendors',
-            filename: 'vendors.js'
+            names: ['main', 'vendors'],
+            filename: '[name].js'
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false
             },
-            sourceMap: false
+            sourceMap: false,
+            output: {
+                quote_style: 3
+            }
             //sourceMap: true
         })
     ]
