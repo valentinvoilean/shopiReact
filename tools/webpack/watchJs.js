@@ -2,14 +2,7 @@ const watch = require('node-watch');
 
 const oldDir = './dist/assets';
 const moveFileToAssetsFolder = require('./moveFileToAssetsFolder');
-
-const filter = function(pattern, fn) {
-    return function(filename) {
-        if (pattern.test(filename)) {
-            fn(filename);
-        }
-    };
-};
+const filter = require('./filter');
 
 module.exports = function watchJS() {
     console.log('Webpack: Watching JS chunks..'.green);

@@ -8,13 +8,10 @@
     "lint": "eslint --ext .js --ext .jsx ./src/js/** ./tests/**",
     "test": "jest",
     "dev": "webpack-dev-server",
-    "compile": "npm-run-all --parallel compile:js compile:sass",
-    "compile:js": "node tools/webpack",
-    "compile:sass": "node tools/sass-prod",
-    "watch:theme": "node tools/theme",
-    "watch:prod:js": "node tools/webpack -watch",
-    "watch:prod:sass": "node tools/sass-prod -watch",
-    "deploy": "npm-run-all --parallel watch:theme watch:prod:sass watch:prod:js"
+    "build": "npm-run-all --parallel watch:theme build:js build:sass",
+    "build:js": "node tools/webpack",
+    "build:sass": "node tools/sass-prod",
+    "watch:theme": "node tools/theme"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/node_modules/jest-enzyme/lib/index.js",

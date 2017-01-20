@@ -69,13 +69,11 @@ let concatFiles = () => {
     });
 };
 
-if (process.argv[2]) {
-    console.log('Watching SCSS files..'.green);
-    watch(styles, {recursive: true}, function (path) {
+console.log('Watching SCSS files..'.green);
+watch(styles, {recursive: true}, function (path) {
 
-        console.log(`File ${path} has been changed`.blue);
-        concatFiles();
-    });
-}
+    console.log(`File ${path} has been changed`.blue);
+    concatFiles();
+});
 
 concatFiles();

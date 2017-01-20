@@ -48,7 +48,7 @@ module.exports = merge(webpackConfigCommon, {
             __DEV__: false
         }),
         new ExtractTextPlugin({
-            filename: '[name].css',
+            filename: '../../theme/assets/[name].css',
             allChunks: true
         }),
         new webpack.optimize.CommonsChunkPlugin({
