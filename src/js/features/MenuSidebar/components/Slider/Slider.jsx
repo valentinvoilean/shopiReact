@@ -1,9 +1,19 @@
 import React, {PropTypes, Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import BurgerMenu from 'react-burger-menu';
+import fallDown from 'react-burger-menu/lib/menus/fallDown';
+import push from 'react-burger-menu/lib/menus/push';
+import pushRotate from 'react-burger-menu/lib/menus/pushRotate';
+import scaleDown from 'react-burger-menu/lib/menus/scaleDown';
+import scaleRotate from 'react-burger-menu/lib/menus/scaleRotate';
+import slide from 'react-burger-menu/lib/menus/slide';
+import stack from 'react-burger-menu/lib/menus/stack';
 
 import * as actions from 'store/modules/MainMenu';
+
+const menus = {
+    fallDown, push, pushRotate, scaleDown, scaleRotate, slide, stack
+};
 
 const propTypes = {
     effect: PropTypes.string.isRequired,
@@ -44,7 +54,7 @@ export class Overlay extends Component {
     render() {
         const {effect, isRightSide, active} = this.props;
         const transitionName = effect.split('-')[1];
-        const Menu = BurgerMenu[transitionName];
+        const Menu = menus[transitionName];
 
         return (
             <Menu pageWrapId="page-wrap"

@@ -52,8 +52,8 @@
 <body id="{{ page_title | handle }}"
       class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
 
-  <main role="main">
-      <section>
+  <main id="outer-container" role="main">
+      <section id="page-wrap">
           <article>
               <div id="app"></div>
               <div id="configContainer"></div>

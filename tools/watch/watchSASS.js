@@ -44,6 +44,11 @@ function buildCSS () {
         `${styles}/components/core/_responsive-utilities.scss`,
 
         /**
+         * Animations
+         */
+        `${styles}/animations/_animations.scss`,
+
+        /**
          * Base
          */
         `${styles}/components/core/_base.scss`,
