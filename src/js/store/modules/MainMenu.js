@@ -1,12 +1,12 @@
 import {fromJS} from 'immutable';
 
-// Slider, Slider-elastic, Slider-bubble, Slider-push, Slider-reveal
+// Slider-slide, Slider-stack, Slider-bubble, Slider-push, Slider-reveal
 // Overlay-fade, Overlay-scale, Overlay-slideDown, Overlay-genie, Overlay-corner
 export const defaultState = fromJS({
     sidebar: {
         active: false,
-        effect: 'Slider-simple',
-        position: 'right',
+        effect: 'Slider-slide',
+        isRightSide: false,
         overlayColor: '#fff'
     }
 });

@@ -1,9 +1,8 @@
 import React, {PropTypes, Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import uuid from 'uuid';
-import classNames from 'classnames';
+import BurgerMenu from 'react-burger-menu';
 
 import styles from './Slider.scss';
 import * as actions from 'store/modules/MainMenu';
@@ -11,18 +10,24 @@ import * as actions from 'store/modules/MainMenu';
 const propTypes = {
     effect: PropTypes.string.isRequired,
     active: PropTypes.bool.isRequired,
-    position: PropTypes.string.isRequired,
+    isRightSide: PropTypes.bool.isRequired,
     deactivateMenu: PropTypes.func.isRequired
 };
 
 const defaultProps = {
     effect: 'simple',
     active: false,
-    position: 'left',
+    isRightSide: false,
     deactivateMenu: () => {}
 };
 
 export class Overlay extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.handleMenuState = this.handleMenuState.bind(this);
+    }
 
     shouldComponentUpdate() {
         return true;
@@ -32,39 +37,32 @@ export class Overlay extends Component {
         this.props.deactivateMenu();
     }
 
-    returnMenuContent() {
-        if (!this.props.active) {
-            return null;
+    handleMenuState(state) {
+        if (!state.isOpen) {
+            this.props.deactivateMenu();
         }
-
-        const menuClasses = classNames(styles.slider, {
-            [`${styles.sliderRightSide}`] : this.props.position === 'right'
-        });
-
-        return (
-            <div className={menuClasses} key={uuid.v4()}>
-                <ul className={styles.menu}>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact</li>
-                </ul>
-            </div>
-        );
     }
 
     render() {
-        const {effect, position} = this.props;
-
-        let transitionName = `${effect.split('-')[1]}--${position}`;
+        const {effect, isRightSide, active} = this.props;
+        const transitionName = effect.split('-')[1];
+        const Menu = BurgerMenu[transitionName];
 
         return (
-            <ReactCSSTransitionGroup
-                transitionName={transitionName}
-                transitionEnterTimeout={500}
-                transitionLeaveTimeout={500}
+            <Menu pageWrapId="page-wrap"
+                  outerContainerId="outer-container"
+                  isOpen={active}
+                  right={isRightSide}
+                  onStateChange={this.handleMenuState}
             >
-                {this.returnMenuContent()}
-            </ReactCSSTransitionGroup>
+                <div className={styles.slider} key={uuid.v4()}>
+                    <ul className={styles.menu}>
+                        <li>Home</li>
+                        <li>About</li>
+                        <li>Contact</li>
+                    </ul>
+                </div>
+            </Menu>
         );
     }
 }

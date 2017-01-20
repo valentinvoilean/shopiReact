@@ -104,6 +104,7 @@
     "modernizr": "3.3.1",
     "react": "15.4.2",
     "react-addons-css-transition-group": "15.4.2",
+    "react-burger-menu": "1.10.10",
     "react-copy-to-clipboard": "4.2.3",
     "react-dom": "15.4.2",
     "react-match-media": "2.0.1",
