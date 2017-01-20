@@ -1,1 +1,0 @@
-export RevealSlider from './RevealSlider';

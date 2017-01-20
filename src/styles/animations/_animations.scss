@@ -94,3 +94,35 @@
     transform: translateY(0%);
     transition: opacity 0.5s, transform 0.5s;
 }
+
+////////////////////////
+// Slide animations //
+////////////////////////
+
+// Default - Left
+.simple--left-appear,
+.simple--left-enter,
+.simple--left-leave.simple--left-leave-active {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-out;
+}
+
+.simple--left-enter.simple--left-enter-active,
+.simple--left-appear.simple--left-appear-active,
+.simple--left-leave {
+    transform: translateX(0%);
+}
+
+// Default - Right
+.simple--right-appear,
+.simple--right-enter,
+.simple--right-leave.simple--right-leave-active {
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out;
+}
+
+.simple--right-enter.simple--right-enter-active,
+.simple--right-appear.simple--right-appear-active,
+.simple--right-leave {
+    transform: translateX(0%);
+}

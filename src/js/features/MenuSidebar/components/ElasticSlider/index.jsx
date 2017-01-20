@@ -1,1 +1,0 @@
-export ElasticSlider from './ElasticSlider';
