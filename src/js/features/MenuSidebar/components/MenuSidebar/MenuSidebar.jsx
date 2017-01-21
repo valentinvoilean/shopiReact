@@ -15,18 +15,22 @@ const propTypes = {
 };
 
 export class MenuSidebar extends Component {
+    constructor(props) {
+        super(props);
+
+        this.outerContainer = document.getElementById('outer-container');
+    }
+
     shouldComponentUpdate() {
         return true;
     }
 
     componentDidUpdate() {
-        const outerContainer = document.getElementById('outer-container');
-        elementClass(outerContainer).toggle('activateMenu', this.props.active);
+        elementClass(this.outerContainer).toggle('activateMenu', this.props.active);
     }
 
     componentWillUnmount() {
-        const outerContainer = document.getElementById('outer-container');
-        elementClass(outerContainer).remove('activateMenu');
+        elementClass(this.outerContainer).remove('activateMenu');
     }
 
     render() {
