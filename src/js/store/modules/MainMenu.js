@@ -7,7 +7,7 @@ export const defaultState = fromJS({
         active: false,
         isLight: false,
         effect: 'MenuSlider-slide',
-        position: 'Right'
+        position: 'Left'
     }
 });
 

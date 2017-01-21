@@ -2,21 +2,22 @@ import React, {PropTypes, Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import classNames from 'classnames';
+import elementClass from 'element-class';
 
 import styles from './MenuSlider.scss';
 import * as actions from 'store/modules/MainMenu';
 
 
 const propTypes = {
-    effect: PropTypes.string.isRequired,
     active: PropTypes.bool.isRequired,
+    effect: PropTypes.string.isRequired,
     position: PropTypes.string.isRequired,
     deactivateMenu: PropTypes.func.isRequired
 };
 
 const defaultProps = {
-    effect: 'simple',
     active: false,
+    effect: 'simple',
     position: 'Left',
     deactivateMenu: () => {}
 };
@@ -27,14 +28,27 @@ export class MenuSlider extends Component {
         super(props);
 
         this.handleMenuState = this.handleMenuState.bind(this);
+        this.pageWrap = document.getElementById('page-wrap');
+    }
+
+    componentDidMount() {
+        const transitionName = this.props.effect.split('-')[1];
+        elementClass(this.pageWrap).add(`pageWrap-${transitionName}`);
     }
 
     shouldComponentUpdate() {
         return true;
     }
 
+    componentDidUpdate() {
+        const {position, active, effect} = this.props;
+        const transitionName = effect.split('-')[1];
+        elementClass(this.pageWrap).toggle(`pageWrap-${transitionName}${position}`, active);
+    }
+
     componentWillUnmount() {
-        //this.props.deactivateMenu();
+        const transitionName = this.props.effect.split('-')[1];
+        elementClass(this.pageWrap).remove(`pageWrap-${transitionName}`);
     }
 
     handleMenuState(state) {
@@ -44,12 +58,12 @@ export class MenuSlider extends Component {
     }
 
     render() {
-        const {effect, position, active} = this.props;
+        const {effect, position} = this.props;
         const transitionName = effect.split('-')[1];
-        const sliderClasses = classNames(styles.slider, styles[`slider${position}`]);
+        const sliderClasses = classNames(styles.slider, `menu-${transitionName}${position}`);
 
         return (
-            <div className={sliderClasses} transitionName={transitionName} position={position} active={active}>
+            <div className={sliderClasses}>
                 <ul className={styles.menu}>
                     <li>Home</li>
                     <li>About</li>

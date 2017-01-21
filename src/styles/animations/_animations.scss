@@ -111,8 +111,28 @@
 ////////////////////////
 // Slide animations //
 ////////////////////////
+$sliderWidth: 300px;
 
-.activateMenu [class^='MenuSlider__'],
-.activateMenu [class^='MenuOverlay__'] {
-    transform: initial;
+.menu-slideLeft {
+    left: 0;
+    width: $sliderWidth;
+    transform: translateX(-$sliderWidth);
+    transition: transform .4s;
+}
+
+.menu-slideRight {
+    right: 0;
+    width: $sliderWidth;
+    transform: translateX($sliderWidth);
+    transition: transform .4s;
+}
+
+.pageWrap-slide {transition: transform .4s;}
+
+.activateMenu {
+    .menu-slideLeft,
+    .menu-slideRight { transform: initial; }
+
+    .pageWrap-slideLeft { transform: translateX($sliderWidth); }
+    .pageWrap-slideRight { transform: translateX(-$sliderWidth); }
 }
