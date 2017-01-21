@@ -1,3 +1,3 @@
-export * from './Overlay';
-export * from './Slider';
+export * from './MenuOverlay';
+export * from './MenuSlider';
 export * from './MenuSidebar';

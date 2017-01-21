@@ -5,7 +5,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import uuid from 'uuid';
 import {Modal} from 'components';
 
-import styles from './Overlay.scss';
+import styles from './MenuOverlay.scss';
 import * as actions from 'store/modules/MainMenu';
 
 const propTypes = {
@@ -18,7 +18,7 @@ const defaultProps = {
     actions: {}
 };
 
-export class Overlay extends Component {
+export class MenuOverlay extends Component {
 
     shouldComponentUpdate() {
         return true;
@@ -59,10 +59,10 @@ export class Overlay extends Component {
     }
 }
 
-Overlay.propTypes = propTypes;
-Overlay.defaultProps = defaultProps;
+MenuOverlay.propTypes = propTypes;
+MenuOverlay.defaultProps = defaultProps;
 
 export default connect(
     state => ({mainMenuState: state.mainMenu}),
     dispatch => ({actions: bindActionCreators(actions, dispatch)})
-)(Overlay);
+)(MenuOverlay);

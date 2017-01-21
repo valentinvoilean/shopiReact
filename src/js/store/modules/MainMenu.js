@@ -1,11 +1,11 @@
 import {fromJS} from 'immutable';
 
-// Slider-slide, Slider-stack, Slider-push, Slider-pushRotate, Slider-scaleDown, Slider-scaleRotate, Slider-fallDown
-// Overlay-fade, Overlay-scale, Overlay-slideDown, Overlay-genie, Overlay-corner
+// MenuSlider-slide, MenuSlider-stack, MenuSlider-push, MenuSlider-pushRotate, MenuSlider-scaleDown, MenuSlider-scaleRotate, MenuSlider-fallDown
+// MenuOverlay-fade, MenuOverlay-scale, MenuOverlay-slideDown, MenuOverlay-genie, MenuOverlay-corner
 export const defaultState = fromJS({
     sidebar: {
         active: false,
-        effect: 'Slider-fallDown',
+        effect: 'MenuSlider-slide',
         isRightSide: false,
         overlayColor: '#fff'
     }

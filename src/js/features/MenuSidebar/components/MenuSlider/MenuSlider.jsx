@@ -29,7 +29,7 @@ const defaultProps = {
     deactivateMenu: () => {}
 };
 
-export class Overlay extends Component {
+export class MenuSlider extends Component {
 
     constructor(props) {
         super(props);
@@ -71,10 +71,10 @@ export class Overlay extends Component {
     }
 }
 
-Overlay.propTypes = propTypes;
-Overlay.defaultProps = defaultProps;
+MenuSlider.propTypes = propTypes;
+MenuSlider.defaultProps = defaultProps;
 
 export default connect(
     state => ({...state.mainMenu.toJS().sidebar}),
     dispatch => ({...bindActionCreators(actions, dispatch)})
-)(Overlay);
+)(MenuSlider);
