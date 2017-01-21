@@ -113,26 +113,38 @@
 ////////////////////////
 $sliderWidth: 300px;
 
-.menu-slideLeft {
+.menu-slideLeft,
+.menu-pushLeft {
     left: 0;
     width: $sliderWidth;
     transform: translateX(-$sliderWidth);
     transition: transform .4s;
 }
 
-.menu-slideRight {
+.menu-slideRight,
+.menu-pushRight {
     right: 0;
     width: $sliderWidth;
     transform: translateX($sliderWidth);
     transition: transform .4s;
 }
 
-.pageWrap-slide {transition: transform .4s;}
+.pageWrap-push {
+    transition: transform .4s;
+}
 
 .activateMenu {
     .menu-slideLeft,
-    .menu-slideRight { transform: initial; }
+    .menu-slideRight,
+    .menu-pushLeft,
+    .menu-pushRight {
+        transform: initial;
+    }
 
-    .pageWrap-slideLeft { transform: translateX($sliderWidth); }
-    .pageWrap-slideRight { transform: translateX(-$sliderWidth); }
+    .pageWrap-pushLeft {
+        transform: translateX($sliderWidth);
+    }
+    .pageWrap-pushRight {
+        transform: translateX(-$sliderWidth);
+    }
 }

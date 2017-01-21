@@ -1,13 +1,13 @@
 import {fromJS} from 'immutable';
 
-// MenuSlider-slide, MenuSlider-stack, MenuSlider-push, MenuSlider-pushRotate, MenuSlider-scaleDown, MenuSlider-scaleRotate, MenuSlider-fallDown
+// MenuSlider-slide, MenuSlider-push,
 // MenuOverlay-fade, MenuOverlay-scale, MenuOverlay-slideDown, MenuOverlay-genie, MenuOverlay-corner
 export const defaultState = fromJS({
     sidebar: {
         active: false,
         isLight: false,
-        effect: 'MenuSlider-slide',
-        position: 'Left'
+        effect: 'MenuSlider-push',
+        position: 'Right'
     }
 });
 
