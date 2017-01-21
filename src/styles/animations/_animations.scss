@@ -3,6 +3,18 @@
 ////////////////////////
 
 // FADE
+.menu-fade {
+    opacity: 0.01;
+    height: 0;
+    transition: opacity 250ms ease-in;
+}
+
+.activateMenu .menu-fade {
+    height: 100%;
+    opacity: 1;
+}
+
+
 .fade-appear,
 .fade-enter {
     opacity: 0.01;
@@ -101,6 +113,6 @@
 ////////////////////////
 
 .activateMenu [class^='MenuSlider__'],
-.activateMenu [class^='MenuOverlay__'], {
+.activateMenu [class^='MenuOverlay__'] {
     transform: initial;
 }

@@ -5,9 +5,9 @@ import {fromJS} from 'immutable';
 export const defaultState = fromJS({
     sidebar: {
         active: false,
+        isLight: false,
         effect: 'MenuSlider-slide',
-        position: 'Right',
-        overlayColor: '#fff'
+        position: 'Right'
     }
 });
 

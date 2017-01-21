@@ -6,7 +6,6 @@ import styles from './Modal.scss';
 
 const propTypes = {
     isLight: PropTypes.bool,
-    isOpen: PropTypes.bool,
     onClick: PropTypes.func,
     className: PropTypes.string,
     overlayClassName: PropTypes.string,
@@ -19,7 +18,6 @@ const propTypes = {
 
 const defaultProps = {
     isLight: false,
-    isOpen: false,
     onClick: () => {},
     children: null,
     overlayClassName: '',
@@ -33,12 +31,10 @@ class Modal extends Component {
     }
 
     render() {
-        const {isLight, isOpen, onClick, children, className, overlayClassName} = this.props;
+        const {isLight, onClick, children, className, overlayClassName} = this.props;
         const overlayClasses = classNames(styles.modal, {
             [`${styles.modalLight}`]: isLight
         }, overlayClassName);
-
-        if (!isOpen) { return null; }
 
         /* eslint-disable */
         return (

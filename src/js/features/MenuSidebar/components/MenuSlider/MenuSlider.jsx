@@ -34,7 +34,7 @@ export class MenuSlider extends Component {
     }
 
     componentWillUnmount() {
-        this.props.deactivateMenu();
+        //this.props.deactivateMenu();
     }
 
     handleMenuState(state) {
