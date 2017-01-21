@@ -5,7 +5,6 @@ import {defaultState} from 'constants/headerSettings';
 
 const SAVE_HEADER_SETTINGS = 'SAVE_HEADER_SETTINGS';
 const REMOVE_HEADER_ITEM = 'REMOVE_HEADER_ITEM';
-const ACTIVATE_HEADER_TAB = 'ACTIVATE_HEADER_TAB';
 
 // Reducer
 export default (state = getInitialState(), action) => {
@@ -25,10 +24,6 @@ export default (state = getInitialState(), action) => {
                 .updateIn(['data', mediaQuery, 'Hidden'], arr => arr.push(item))
                 .updateIn(['data', mediaQuery, from], arr => arr.filter(arrayItem => arrayItem !== item))
                 .set('shouldComponentUpdate', true);
-        }
-
-        case ACTIVATE_HEADER_TAB: {
-            return state.set('selectedTabIndex', action.selectedTabIndex);
         }
 
         default: {
@@ -51,8 +46,4 @@ export const save = (payload) => ({
 
 export const remove = (payload) => ({
     type: REMOVE_HEADER_ITEM, ...payload
-});
-
-export const activateTab = (payload) => ({
-    type: ACTIVATE_HEADER_TAB, ...payload
 });

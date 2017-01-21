@@ -24,18 +24,8 @@ const defaultProps = {
 };
 
 export class PureHeaderConfig extends Component {
-    constructor(props) {
-        super(props);
-
-        this.handleSelect = this.handleSelect.bind(this);
-    }
-
     shouldComponentUpdate(nextProps) {
         return nextProps.globalState.get('shouldComponentUpdate');
-    }
-
-    handleSelect(index) {
-        this.props.actions.activateTab({selectedTabIndex: index});
     }
 
     render() {
@@ -45,10 +35,7 @@ export class PureHeaderConfig extends Component {
         return (
             <Modal isOpen className={modalClasses}>
                 <h1 className={styles.h1}>Header Configuration</h1>
-                <Tabs className={styles.tabs}
-                      onSelect={this.handleSelect}
-                      selectedIndex={globalState.get('selectedTabIndex')}
-                >
+                <Tabs className={styles.tabs}>
                     <TabList>
                         {mediaQueryNames.map((mediaQuery) => (<Tab key={uuid.v4()}>{mediaQuery}</Tab>))}
                     </TabList>
