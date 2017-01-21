@@ -20,10 +20,8 @@ export class MenuSidebar extends Component {
     }
 
     componentDidUpdate() {
-        setTimeout(() => {
-            const outerContainer = document.getElementById('outer-container');
-            elementClass(outerContainer).toggle('activateMenu', this.props.active);
-        }, 100);
+        const outerContainer = document.getElementById('outer-container');
+        elementClass(outerContainer).toggle('activateMenu', this.props.active);
     }
 
     componentWillUnmount() {
