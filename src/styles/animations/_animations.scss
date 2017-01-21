@@ -4,13 +4,13 @@
 
 // FADE
 .menu-fade {
-    opacity: 0.01;
-    height: 0;
-    transition: opacity 250ms ease-in;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity .4s linear;
 }
 
 .activateMenu .menu-fade {
-    height: 100%;
+    visibility: visible;
     opacity: 1;
 }
 

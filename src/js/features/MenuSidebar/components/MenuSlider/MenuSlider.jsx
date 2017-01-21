@@ -59,8 +59,7 @@ export class MenuSlider extends Component {
 
     render() {
         const {effect, position} = this.props;
-        const transitionName = effect.split('-')[1];
-        const sliderClasses = classNames(styles.slider, `menu-${transitionName}${position}`);
+        const sliderClasses = classNames(styles.slider, `menu-${effect.split('-')[1]}${position}`);
 
         return (
             <div className={sliderClasses}>

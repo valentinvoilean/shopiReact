@@ -1,6 +1,5 @@
 import React, {PropTypes, Component} from 'react';
 import classNames from 'classnames';
-import uuid from 'uuid';
 
 import styles from './Modal.scss';
 
@@ -41,7 +40,6 @@ class Modal extends Component {
             <div tabIndex="0"
                  className={overlayClasses}
                  onClick={onClick}
-                 key={uuid.v4()}
             >
                 {children === null ? null : <div className={className}>{children}</div>}
             </div>
