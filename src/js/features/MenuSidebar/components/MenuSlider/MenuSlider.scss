@@ -7,9 +7,24 @@
     list-style: none;
 }
 
+$sliderWidth: 300px;
+
 .slider {
     background: #b1e8ff;
     z-index: 2;
     height: 100%;
     overflow: auto;
+    width: $sliderWidth;
+    position: fixed;
+    transition: transform .4s;
+}
+
+.sliderLeft {
+    left: 0;
+    transform: translateX(-$sliderWidth);
+}
+
+.sliderRight {
+    right: 0;
+    transform: translateX($sliderWidth);
 }

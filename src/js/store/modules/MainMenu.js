@@ -6,7 +6,7 @@ export const defaultState = fromJS({
     sidebar: {
         active: false,
         effect: 'MenuSlider-slide',
-        isRightSide: false,
+        position: 'Right',
         overlayColor: '#fff'
     }
 });

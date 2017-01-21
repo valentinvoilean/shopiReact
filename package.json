@@ -99,6 +99,7 @@
   "dependencies": {
     "axios": "0.15.3",
     "classnames": "2.2.5",
+    "element-class": "github:valentinvoilean/element-class",
     "immutable": "3.8.1",
     "lodash": "4.17.4",
     "modernizr": "3.3.1",
