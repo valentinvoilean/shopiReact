@@ -8,7 +8,6 @@ import elementClass from 'element-class';
 import {Modal} from 'components';
 import styles from './MenuSlider.scss';
 import * as actions from 'store/modules/MainMenu';
-
 import {SHARED_CLASSES} from 'constants/classes';
 
 const propTypes = {
@@ -34,6 +33,7 @@ export class MenuSlider extends Component {
 
         this.pageWrap = document.getElementById('page-wrap');
         this.modal = document.createElement('div');
+        this.transitionName = this.props.effect.split('-')[1];
     }
 
     componentWillMount() {
@@ -48,14 +48,13 @@ export class MenuSlider extends Component {
     }
 
     componentDidUpdate() {
-        const {position, active, effect} = this.props;
-        const transitionName = effect.split('-')[1];
-        elementClass(this.pageWrap).toggle(`pageWrap-${transitionName}${position}`, active);
+        const {position, active} = this.props;
+        elementClass(this.pageWrap).toggle(`pageWrap-${this.transitionName}${position}`, active);
     }
 
     componentWillUnmount() {
-        const transitionName = this.props.effect.split('-')[1];
-        elementClass(this.pageWrap).remove(`pageWrap-${transitionName}`);
+        elementClass(this.pageWrap).remove(`pageWrap-${this.transitionName}${this.props.position}`);
+        elementClass(this.pageWrap).remove(`pageWrap-${this.transitionName}`);
         this.destroyModal();
     }
 
