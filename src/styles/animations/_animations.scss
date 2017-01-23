@@ -114,7 +114,29 @@
 ////////////////////////
 $sliderWidth: 300px;
 
-.menu-slideLeft,
+// Slide
+.menu-slideLeft {
+    left: 0;
+    width: $sliderWidth;
+    transform: translateX(-$sliderWidth);
+    transition: transform .4s;
+}
+
+.menu-slideRight {
+    right: 0;
+    width: $sliderWidth;
+    transform: translateX($sliderWidth);
+    transition: transform .4s;
+}
+
+.activateMenu {
+    .menu-slideLeft,
+    .menu-slideRight {
+        transform: initial;
+    }
+}
+
+// Push
 .menu-pushLeft {
     left: 0;
     width: $sliderWidth;
@@ -122,7 +144,6 @@ $sliderWidth: 300px;
     transition: transform .4s;
 }
 
-.menu-slideRight,
 .menu-pushRight {
     right: 0;
     width: $sliderWidth;
@@ -135,8 +156,6 @@ $sliderWidth: 300px;
 }
 
 .activateMenu {
-    .menu-slideLeft,
-    .menu-slideRight,
     .menu-pushLeft,
     .menu-pushRight {
         transform: initial;
@@ -146,6 +165,27 @@ $sliderWidth: 300px;
         transform: translateX($sliderWidth);
     }
     .pageWrap-pushRight {
+        transform: translateX(-$sliderWidth);
+    }
+}
+
+// Reveal
+.menu-revealLeft,
+.menu-revealRight {
+    width: $sliderWidth;
+}
+
+.pageWrap-reveal {
+    transition: transform .4s;
+    z-index: 2;
+}
+
+.activateMenu {
+    .pageWrap-revealLeft {
+        transform: translateX($sliderWidth);
+    }
+
+    .pageWrap-revealRight {
         transform: translateX(-$sliderWidth);
     }
 }
