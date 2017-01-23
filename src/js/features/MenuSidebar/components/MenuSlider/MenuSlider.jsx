@@ -4,12 +4,14 @@ import {bindActionCreators} from 'redux';
 import classNames from 'classnames';
 import elementClass from 'element-class';
 
+import {Modal} from 'components';
 import styles from './MenuSlider.scss';
 import * as actions from 'store/modules/MainMenu';
 
 
 const propTypes = {
     active: PropTypes.bool.isRequired,
+    isLight: PropTypes.bool.isRequired,
     effect: PropTypes.string.isRequired,
     position: PropTypes.string.isRequired,
     deactivateMenu: PropTypes.func.isRequired
@@ -17,6 +19,7 @@ const propTypes = {
 
 const defaultProps = {
     active: false,
+    isLight: false,
     effect: 'simple',
     position: 'Left',
     deactivateMenu: () => {}
@@ -27,7 +30,6 @@ export class MenuSlider extends Component {
     constructor(props) {
         super(props);
 
-        this.handleMenuState = this.handleMenuState.bind(this);
         this.pageWrap = document.getElementById('page-wrap');
     }
 
@@ -51,24 +53,20 @@ export class MenuSlider extends Component {
         elementClass(this.pageWrap).remove(`pageWrap-${transitionName}`);
     }
 
-    handleMenuState(state) {
-        if (!state.isOpen) {
-            this.props.deactivateMenu();
-        }
-    }
-
     render() {
-        const {effect, position} = this.props;
+        const {effect, position, isLight, deactivateMenu} = this.props;
         const sliderClasses = classNames(styles.slider, `menu-${effect.split('-')[1]}${position}`);
 
         return (
-            <div className={sliderClasses}>
-                <ul className={styles.menu}>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact</li>
-                </ul>
-            </div>
+            <Modal overlayClassName="menu-fade" isLight={isLight} onClick={deactivateMenu}>
+                <div className={sliderClasses}>
+                    <ul className={styles.menu}>
+                        <li>Home</li>
+                        <li>About</li>
+                        <li>Contact</li>
+                    </ul>
+                </div>
+            </Modal>
         );
     }
 }
