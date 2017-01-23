@@ -175,6 +175,10 @@ $sliderWidth: 300px;
     width: $sliderWidth;
 }
 
+.menu-revealRight {
+    right: 0;
+}
+
 .pageWrap-reveal {
     transition: transform .4s;
     z-index: 2;
