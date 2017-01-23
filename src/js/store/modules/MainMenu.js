@@ -6,7 +6,7 @@ export const defaultState = fromJS({
     sidebar: {
         active: false,
         isLight: false,
-        effect: 'MenuSlider-push',
+        effect: 'MenuSlider-slide',
         position: 'Left'
     }
 });

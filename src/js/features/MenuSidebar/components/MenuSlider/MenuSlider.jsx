@@ -33,7 +33,7 @@ export class MenuSlider extends Component {
         this.pageWrap = document.getElementById('page-wrap');
     }
 
-    componentDidMount() {
+    componentWillMount() {
         const transitionName = this.props.effect.split('-')[1];
         elementClass(this.pageWrap).add(`pageWrap-${transitionName}`);
     }
@@ -58,15 +58,16 @@ export class MenuSlider extends Component {
         const sliderClasses = classNames(styles.slider, `menu-${effect.split('-')[1]}${position}`);
 
         return (
-            <Modal overlayClassName="menu-fade" isLight={isLight} onClick={deactivateMenu}>
-                <div className={sliderClasses}>
-                    <ul className={styles.menu}>
-                        <li>Home</li>
-                        <li>About</li>
-                        <li>Contact</li>
-                    </ul>
-                </div>
-            </Modal>
+            <div>
+            <div className={sliderClasses}>
+                <ul className={styles.menu}>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <Modal overlayClassName="menu-fade" isLight={isLight} onClick={deactivateMenu} />
+            </div>
         );
     }
 }
