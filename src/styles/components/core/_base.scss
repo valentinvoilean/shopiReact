@@ -120,17 +120,13 @@ a {
 
 ul { margin:0; padding: 0;}
 
-.main {
-  height: 100vh;
+body > main {
+    background: #343434;
+    height: 100vh;
 
-  & > * {
-    height: 100%;
-  }
+    & > section {
+        height: 100%;
+        background: white;
+        position: relative;
+    }
 }
-
-#page-wrap {
-    background: white;
-    height: 100%;
-    position: relative;
-}
-

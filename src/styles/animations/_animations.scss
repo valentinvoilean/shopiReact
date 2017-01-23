@@ -173,6 +173,7 @@ $sliderWidth: 300px;
 .menu-revealLeft,
 .menu-revealRight {
     width: $sliderWidth;
+    z-index: 2 !important;
 }
 
 .menu-revealRight {
@@ -191,5 +192,46 @@ $sliderWidth: 300px;
 
     .pageWrap-revealRight {
         transform: translateX(-$sliderWidth);
+    }
+}
+
+// FallDown
+.menu-fallDownLeft,
+.menu-fallDownRight {
+    width: $sliderWidth;
+    transform: translate3d(0, -100%, 0);
+    transition: transform .3s ease-in-out;
+    transition-delay: 0s;
+}
+
+.menu-fallDownRight {
+    right: 0;
+}
+
+.pageWrap-fallDown {
+    transition: transform .3s;
+    transition-delay: .3s;
+    perspective: 1000px;
+    z-index: 2;
+}
+
+.activateMenu {
+    .menu-fallDownLeft,
+    .menu-fallDownRight {
+        transform: translate3d(0, 0, 0);
+        transition: transform .5s ease-in-out;
+    }
+
+    .pageWrap-fallDownLeft,
+    .pageWrap-fallDownRight {
+        transition-delay: 0s;
+    }
+
+    .pageWrap-fallDownLeft {
+        transform: translateX(-$sliderWidth);
+    }
+
+    .pageWrap-fallDownLeft {
+        transform: translateX($sliderWidth);
     }
 }
