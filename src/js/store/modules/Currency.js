@@ -4,7 +4,7 @@ import axios from 'axios';
 export const defaultState = fromJS({
     data: {},
     hasError: false,
-    isLoading: false
+    isLoading: false,
 });
 
 const CURRENCY_HAS_ERROR = 'CURRENCY_HAS_ERROR';
@@ -39,21 +39,21 @@ export default (state = defaultState, action) => {
 export function itemsHasErrored(hasError) {
     return {
         type: CURRENCY_HAS_ERROR,
-        hasError
+        hasError,
     };
 }
 
 export function itemsIsLoading(isLoading) {
     return {
         type: CURRENCY_IS_LOADING,
-        isLoading
+        isLoading,
     };
 }
 
 export function itemsFetchDataSuccess(items) {
     return {
         type: CURRENCY_FETCH_DATA_SUCCESS,
-        items
+        items,
     };
 }
 

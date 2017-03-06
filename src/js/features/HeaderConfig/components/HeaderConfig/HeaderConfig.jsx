@@ -15,12 +15,12 @@ import * as actions from 'store/modules/HeaderConfig';
 
 const propTypes = {
     globalState: PropTypes.object.isRequired,
-    actions: PropTypes.object.isRequired
+    actions: PropTypes.object.isRequired,
 };
 
 const defaultProps = {
     globalState: {},
-    actions: {}
+    actions: {},
 };
 
 @connect(

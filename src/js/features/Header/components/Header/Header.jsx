@@ -7,11 +7,11 @@ import * as HeaderComponents from 'features/Header/components';
 import {mediaQueries} from 'constants/mediaQueries';
 
 const propTypes = {
-    globalState: PropTypes.object.isRequired
+    globalState: PropTypes.object.isRequired,
 };
 
 const defaultProps = {
-    globalState: {}
+    globalState: {},
 };
 
 export function PureHeader({globalState}) {

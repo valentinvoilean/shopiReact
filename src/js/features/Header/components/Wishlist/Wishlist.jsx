@@ -17,7 +17,7 @@ export default class Wishlist extends Component {
             isLinkAnimated: false,
             isLinkActive: false,
             isElActive: false,
-            linkWidth: ''
+            linkWidth: '',
         };
 
         this.activateItem = this.activateItem.bind(this);
@@ -46,7 +46,7 @@ export default class Wishlist extends Component {
         this.setState({
             linkWidth: this.wishlistLink.offsetWidth,
             isLinkCollapsed: true,
-            isLinkOutsideViewport: false
+            isLinkOutsideViewport: false,
         });
     }
 
@@ -92,7 +92,7 @@ export default class Wishlist extends Component {
             isLinkAnimated: true,
             isLinkActive: true,
             isElActive: true,
-            isLinkCollapsed: false
+            isLinkCollapsed: false,
         });
     }
 
@@ -100,7 +100,7 @@ export default class Wishlist extends Component {
         this.setState({
             isLinkActive: false,
             isElActive: false,
-            isLinkCollapsed: true
+            isLinkCollapsed: true,
         });
     }
 
@@ -113,11 +113,11 @@ export default class Wishlist extends Component {
             [`${SHARED_CLASSES.outsideViewport}`]: this.state.isLinkOutsideViewport,
             [`${SHARED_CLASSES.collapsed}`]: this.state.isLinkCollapsed,
             [`${SHARED_CLASSES.animate}`]: this.state.isLinkAnimated,
-            [`${SHARED_CLASSES.active}`]: this.state.isLinkActive
+            [`${SHARED_CLASSES.active}`]: this.state.isLinkActive,
         });
 
         const elClasses = classNames('wishlist', {
-            [`${SHARED_CLASSES.active}`]: this.state.isElActive
+            [`${SHARED_CLASSES.active}`]: this.state.isElActive,
         });
 
         /* eslint-disable jsx-a11y/no-static-element-interactions */

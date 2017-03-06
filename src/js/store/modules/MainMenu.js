@@ -7,8 +7,8 @@ export const defaultState = fromJS({
         active: false,
         isLight: false,
         effect: 'MenuSlider-push',
-        position: 'Left'
-    }
+        position: 'Left',
+    },
 });
 
 const MAIN_MENU_TOGGLE = 'MAIN_MENU_TOGGLE';
@@ -33,9 +33,9 @@ export default (state = defaultState, action) => {
 
 // Action Creators
 export const toggleMenu = () => ({
-    type: MAIN_MENU_TOGGLE
+    type: MAIN_MENU_TOGGLE,
 });
 
 export const deactivateMenu = () => ({
-    type: MAIN_MENU_DEACTIVATE
+    type: MAIN_MENU_DEACTIVATE,
 });

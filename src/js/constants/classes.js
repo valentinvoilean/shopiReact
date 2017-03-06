@@ -5,5 +5,5 @@ export const SHARED_CLASSES = {
     visible: 'is-visible',
     collapsed: 'is-collapsed',
     outsideViewport: 'is-outside-viewport',
-    defaultMenuOverlayEffect: 'menu-fade'
+    defaultMenuOverlayEffect: 'menu-fade',
 };

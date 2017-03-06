@@ -12,7 +12,7 @@ export default function getInitialState() {
     try {
         currentSettings = fromJS({
             data: JSON.parse(headerSettings),
-            shouldComponentUpdate: false
+            shouldComponentUpdate: false,
         });
     }
     catch (err) {

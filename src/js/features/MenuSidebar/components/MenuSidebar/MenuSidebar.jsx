@@ -9,13 +9,13 @@ import * as actions from 'store/modules/MainMenu';
 const propTypes = {
     deactivateMenu: PropTypes.func.isRequired,
     active: PropTypes.bool.isRequired,
-    effect: PropTypes.string.isRequired
+    effect: PropTypes.string.isRequired,
 };
 
 const defaultProps = {
     deactivateMenu: () => {},
     active: false,
-    effect: ''
+    effect: '',
 };
 
 export class MenuSidebar extends Component {
@@ -50,7 +50,7 @@ MenuSidebar.defaultProps = defaultProps;
 export default connect(
     state => ({
         active: state.mainMenu.getIn(['sidebar', 'active']),
-        effect: state.mainMenu.getIn(['sidebar', 'effect']).split('-')[0]
+        effect: state.mainMenu.getIn(['sidebar', 'effect']).split('-')[0],
     }),
     dispatch => ({...bindActionCreators(actions, dispatch)})
 )(MenuSidebar);

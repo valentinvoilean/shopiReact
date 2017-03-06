@@ -15,7 +15,7 @@ const propTypes = {
     isLight: PropTypes.bool.isRequired,
     effect: PropTypes.string.isRequired,
     position: PropTypes.string.isRequired,
-    deactivateMenu: PropTypes.func.isRequired
+    deactivateMenu: PropTypes.func.isRequired,
 };
 
 const defaultProps = {
@@ -23,7 +23,7 @@ const defaultProps = {
     isLight: false,
     effect: 'simple',
     position: 'Left',
-    deactivateMenu: () => {}
+    deactivateMenu: () => {},
 };
 
 export class MenuSlider extends Component {

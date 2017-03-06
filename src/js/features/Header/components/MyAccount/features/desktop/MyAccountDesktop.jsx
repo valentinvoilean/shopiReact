@@ -21,7 +21,7 @@ export default class MyAccountDesktop extends Component {
         this.state = {
             customer: {
                 first_name : 'Vali', // eslint-disable-line
-                email: 'vali.voilean@gmail.com'
+                email: 'vali.voilean@gmail.com',
             },
             shop: {
                 customer_accounts_optional: true // eslint-disable-line
@@ -38,7 +38,7 @@ export default class MyAccountDesktop extends Component {
             isWelcomeMessageCollapsed: false,
             welcomeMessageWidth: null,
 
-            isElActive: false
+            isElActive: false,
         };
 
         this.updateHiddenSideRef = this.updateHiddenSideRef.bind(this);
@@ -62,7 +62,7 @@ export default class MyAccountDesktop extends Component {
             hiddenSideWidth: this.hiddenSide.offsetWidth,
             welcomeMessageWidth: this.state.loggedIn ? this.welcomeMessage.offsetWidth : null,
             isHiddenSideCollapsed: true,
-            isHiddenSideOutsideViewport: false
+            isHiddenSideOutsideViewport: false,
         });
     }
 
@@ -108,7 +108,7 @@ export default class MyAccountDesktop extends Component {
             isHiddenSideAnimated: true,
             isHiddenSideCollapsed: false,
             isWelcomeMessageAnimated: true,
-            isWelcomeMessageCollapsed: true
+            isWelcomeMessageCollapsed: true,
         });
     }
 
@@ -116,7 +116,7 @@ export default class MyAccountDesktop extends Component {
         this.setState({
             isElActive: false,
             isHiddenSideCollapsed: true,
-            isWelcomeMessageCollapsed: false
+            isWelcomeMessageCollapsed: false,
         });
     }
 
@@ -135,19 +135,19 @@ export default class MyAccountDesktop extends Component {
     render() {
         const welcomeMessageClasses = classNames('myAccount__link', 'is-active', {
             [`${SHARED_CLASSES.collapsed}`]: this.state.isWelcomeMessageCollapsed,
-            [`${SHARED_CLASSES.animate}`]: this.state.isWelcomeMessageAnimated
+            [`${SHARED_CLASSES.animate}`]: this.state.isWelcomeMessageAnimated,
         });
 
         const wrapperProps = {
             activateItem: this.activateItem,
             deactivateItem: this.deactivateItem,
             activateItemByKeyboard: this.activateItemByKeyboard,
-            updateEl: this.updateEl
+            updateEl: this.updateEl,
         };
 
         const hiddenSideProps = {
             ...this.state,
-            updateHiddenSideRef: this.updateHiddenSideRef
+            updateHiddenSideRef: this.updateHiddenSideRef,
         };
 
         if (this.state.loggedIn) {

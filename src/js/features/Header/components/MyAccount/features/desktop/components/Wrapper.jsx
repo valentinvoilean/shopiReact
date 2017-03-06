@@ -11,7 +11,7 @@ const propTypes = {
 
     children: PropTypes.array.isRequired,
 
-    isElActive: PropTypes.bool.isRequired
+    isElActive: PropTypes.bool.isRequired,
 };
 
 export default function MyAccountWrapper(props) {
@@ -21,11 +21,11 @@ export default function MyAccountWrapper(props) {
         activateItemByKeyboard,
         updateEl,
         children,
-        isElActive
+        isElActive,
     } = props;
 
     const elClasses = classNames('myAccount__base', {
-        [`${SHARED_CLASSES.active}`]: isElActive
+        [`${SHARED_CLASSES.active}`]: isElActive,
     });
 
     /* eslint-disable jsx-a11y/no-static-element-interactions */

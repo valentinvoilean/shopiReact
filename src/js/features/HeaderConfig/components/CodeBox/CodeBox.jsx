@@ -4,11 +4,11 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import styles from './CodeBox.scss';
 
 const propTypes = {
-    text: React.PropTypes.string.isRequired
+    text: React.PropTypes.string.isRequired,
 };
 
 const defaultProps = {
-    text: ''
+    text: '',
 };
 
 class CodeBox extends React.Component {

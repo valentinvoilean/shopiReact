@@ -1,8 +1,12 @@
 import React, {PropTypes} from 'react';
 
 const propTypes = {
-    glyph: PropTypes.string,
-    className: PropTypes.string
+    glyph: PropTypes.string.isRequired,
+    className: PropTypes.string,
+};
+
+const defaultProps = {
+    className: '',
 };
 
 export default function Icon({glyph, className = 'icon'}) {
@@ -14,3 +18,4 @@ export default function Icon({glyph, className = 'icon'}) {
 }
 
 Icon.propTypes = propTypes;
+Icon.defaultProps = defaultProps;

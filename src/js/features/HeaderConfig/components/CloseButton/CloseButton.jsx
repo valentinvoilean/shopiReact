@@ -8,14 +8,14 @@ const propTypes = {
     item: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
     mediaQuery: PropTypes.string.isRequired,
-    cellName: PropTypes.string.isRequired
+    cellName: PropTypes.string.isRequired,
 };
 
 const defaultProps = {
     item: '',
     onClick: function () {},
     mediaQuery: '',
-    cellName: ''
+    cellName: '',
 };
 
 function CloseButton({onClick, item, mediaQuery, cellName}) {

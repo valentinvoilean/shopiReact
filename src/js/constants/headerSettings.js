@@ -12,7 +12,7 @@ export const defaultState = fromJS({
                 TopCenter: ['Logo'],
                 TopRight: ['Cart', 'Wishlist'],
                 Main: ['Menu'],
-                Bottom: ['WelcomeMessage']
+                Bottom: ['WelcomeMessage'],
             },
             tablet: {
                 Hidden: ['CustomLink3', 'CustomLink4'],
@@ -24,7 +24,7 @@ export const defaultState = fromJS({
                 MainRight: ['Cart', 'Search'],
                 BottomLeft: ['Breadcrumb'],
                 BottomCenter: [],
-                BottomRight: ['SocialIcons', 'WelcomeMessage']
+                BottomRight: ['SocialIcons', 'WelcomeMessage'],
             },
             desktop: {
                 Hidden: ['CustomLink3', 'CustomLink4'],
@@ -36,11 +36,11 @@ export const defaultState = fromJS({
                 MainRight: ['Cart', 'Search'],
                 BottomLeft: ['Breadcrumb'],
                 BottomCenter: [],
-                BottomRight: ['SocialIcons', 'WelcomeMessage']
-            }
+                BottomRight: ['SocialIcons', 'WelcomeMessage'],
+            },
         },
-        shouldComponentUpdate: false
-    }
+        shouldComponentUpdate: false,
+    },
 });
 
 export let validStates = Map({
@@ -52,51 +52,51 @@ export let validStates = Map({
                     name: 'MenuIcon',
                     required: {
                         name: 'Logo',
-                        position: ['TopCenter', 'TopLeft']
-                    }
+                        position: ['TopCenter', 'TopLeft'],
+                    },
                 },
                 {
                     name: 'Logo',
                     required: {
                         name: 'MenuIcon',
-                        position: 'TopLeft'
-                    }
-                }
+                        position: 'TopLeft',
+                    },
+                },
             ],
-            max: 2
+            max: 2,
         },
         TopCenter: ['Logo'],
         TopRight: {
             items: [
                 {
-                    name: 'MyAccount'
+                    name: 'MyAccount',
                 },
                 {
-                    name: 'Wishlist'
+                    name: 'Wishlist',
                 },
                 {
-                    name: 'Cart'
+                    name: 'Cart',
                 },
                 {
-                    name: 'Search'
+                    name: 'Search',
                 },
                 {
                     name: 'MenuIcon',
                     required: {
                         name: 'Logo',
-                        position: 'TopCenter'
-                    }
-                }
-            ]
+                        position: 'TopCenter',
+                    },
+                },
+            ],
         },
         Main: {
             items: ['Menu', 'WelcomeMessage'],
-            max: 1
+            max: 1,
         },
         Bottom: {
             items: ['Menu', 'WelcomeMessage'],
-            max: 1
-        }
+            max: 1,
+        },
     },
     tablet: {
         Hidden: ['MyAccount', 'Wishlist', 'Currency', 'Language', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
@@ -106,12 +106,12 @@ export let validStates = Map({
         MainLeft: ['MyAccount', 'Wishlist', 'Logo', 'Search', 'SocialIcons', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
         MainCenter: {
             items: ['Logo', 'Menu'],
-            max: 1
+            max: 1,
         },
         MainRight: ['MyAccount', 'Wishlist', 'Search', 'Cart', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
         BottomLeft: ['MyAccount', 'Wishlist', 'Search', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb'],
         BottomCenter: ['Menu', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
-        BottomRight: ['MyAccount', 'Wishlist', 'Search', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4']
+        BottomRight: ['MyAccount', 'Wishlist', 'Search', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
     },
     desktop: {
         Hidden: ['MyAccount', 'Wishlist', 'Currency', 'Language', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
@@ -121,11 +121,11 @@ export let validStates = Map({
         MainLeft: ['MyAccount', 'Wishlist', 'Logo', 'Search', 'SocialIcons', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
         MainCenter: {
             items: ['Logo', 'Menu'],
-            max: 1
+            max: 1,
         },
         MainRight: ['MyAccount', 'Wishlist', 'Search', 'Cart', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
         BottomLeft: ['MyAccount', 'Wishlist', 'Search', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4', 'Breadcrumb'],
         BottomCenter: ['Menu', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
-        BottomRight: ['MyAccount', 'Wishlist', 'Search', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4']
-    }
+        BottomRight: ['MyAccount', 'Wishlist', 'Search', 'SocialIcons', 'WelcomeMessage', 'CustomLink1', 'CustomLink2', 'CustomLink3', 'CustomLink4'],
+    },
 });

@@ -13,7 +13,11 @@ const propTypes = {
     loggedIn: PropTypes.bool,
     name: PropTypes.string.isRequired,
     myAccountState: PropTypes.object.isRequired,
-    actions: PropTypes.object.isRequired
+    actions: PropTypes.object.isRequired,
+};
+
+const defaultProps = {
+    loggedIn: false,
 };
 
 export function MyAccountLinkPure(props) {
@@ -22,7 +26,7 @@ export function MyAccountLinkPure(props) {
     const activateItem = () => {
         actions.activateLink({
             activeLink: name,
-            loggedIn: loggedIn || false
+            loggedIn: loggedIn,
         });
     };
 
@@ -34,7 +38,7 @@ export function MyAccountLinkPure(props) {
 
     const linkClasses = classNames('myAccount__link', {
         [`${SHARED_CLASSES.active}`]: myAccountState
-            .getIn(['activeLink', loggedIn ? 'loggedIn' : 'loggedOut']) === name
+            .getIn(['activeLink', loggedIn ? 'loggedIn' : 'loggedOut']) === name,
     });
 
     return (
@@ -51,6 +55,7 @@ export function MyAccountLinkPure(props) {
 }
 
 MyAccountLinkPure.propTypes = propTypes;
+MyAccountLinkPure.defaultProps = defaultProps;
 
 export default connect(
     state => ({myAccountState: state.myAccount}),

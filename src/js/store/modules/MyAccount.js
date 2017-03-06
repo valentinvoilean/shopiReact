@@ -3,8 +3,8 @@ import {fromJS} from 'immutable';
 export const defaultState = fromJS({
     activeLink: {
         loggedOut: 'Register',
-        loggedIn: 'MyAccount'
-    }
+        loggedIn: 'MyAccount',
+    },
 });
 
 const MY_ACCOUNT_ACTIVATE_LINK = 'MY_ACCOUNT_ACTIVATE_LINK';
@@ -25,5 +25,5 @@ export default (state = defaultState, action) => {
 
 // Action Creators
 export const activateLink = (payload) => ({
-    type: MY_ACCOUNT_ACTIVATE_LINK, ...payload
+    type: MY_ACCOUNT_ACTIVATE_LINK, ...payload,
 });

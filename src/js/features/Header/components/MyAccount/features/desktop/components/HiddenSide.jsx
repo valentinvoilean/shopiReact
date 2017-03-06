@@ -7,11 +7,11 @@ const propTypes = {
     isHiddenSideCollapsed: PropTypes.bool.isRequired,
     isHiddenSideOutsideViewport: PropTypes.bool.isRequired,
     isHiddenSideAnimated: PropTypes.bool.isRequired,
-    hiddenSideWidth: PropTypes.number,
+    hiddenSideWidth: PropTypes.number.isRequired,
 
     updateHiddenSideRef: PropTypes.func.isRequired,
 
-    children: PropTypes.array.isRequired
+    children: PropTypes.array.isRequired,
 };
 
 export default function MyAccountHiddenSide(props) {
@@ -21,13 +21,13 @@ export default function MyAccountHiddenSide(props) {
         isHiddenSideAnimated,
         hiddenSideWidth,
         updateHiddenSideRef,
-        children
+        children,
     } = props;
 
     const hiddenSideClasses = classNames('myAccount__hiddenSide', {
         [`${SHARED_CLASSES.outsideViewport}`]: isHiddenSideOutsideViewport,
         [`${SHARED_CLASSES.collapsed}`]: isHiddenSideCollapsed,
-        [`${SHARED_CLASSES.animate}`]: isHiddenSideAnimated
+        [`${SHARED_CLASSES.animate}`]: isHiddenSideAnimated,
     });
 
     return (

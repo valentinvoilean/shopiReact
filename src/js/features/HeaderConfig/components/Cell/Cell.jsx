@@ -11,14 +11,14 @@ const propTypes = {
     globalState: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired,
     name: PropTypes.string.isRequired,
-    mediaQuery: PropTypes.string.isRequired
+    mediaQuery: PropTypes.string.isRequired,
 };
 
 const defaultProps = {
     globalState: {},
     actions: {},
     name: '',
-    mediaQuery: ''
+    mediaQuery: '',
 };
 
 class Cell extends Component {
@@ -48,7 +48,7 @@ class Cell extends Component {
         ghostClass: styles.sortableGhost,
         validGroupClass: styles.cellValid,
         invalidGroupClass: styles.cellInvalid,
-        onSort: this.handleSort.bind(this)
+        onSort: this.handleSort.bind(this),
     };
 
     validateItem(to, from, dragged) {
@@ -70,7 +70,7 @@ class Cell extends Component {
             to: to.dataset.id,
             children: [...to.children].map(item => item.dataset.id),
             mediaQuery: this.props.mediaQuery,
-            shouldComponentUpdate: to.dataset.id === from.dataset.id
+            shouldComponentUpdate: to.dataset.id === from.dataset.id,
         });
     }
 

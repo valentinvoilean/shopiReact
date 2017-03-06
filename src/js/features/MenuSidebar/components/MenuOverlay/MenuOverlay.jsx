@@ -10,12 +10,12 @@ import * as actions from 'store/modules/MainMenu';
 
 const propTypes = {
     mainMenuState: PropTypes.object.isRequired,
-    actions: PropTypes.object.isRequired
+    actions: PropTypes.object.isRequired,
 };
 
 const defaultProps = {
     mainMenuState: {getIn: () => {}},
-    actions: {}
+    actions: {},
 };
 
 export class MenuOverlay extends Component {

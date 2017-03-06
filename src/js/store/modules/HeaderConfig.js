@@ -41,9 +41,9 @@ export default (state = getInitialState(), action) => {
 
 // Action Creators
 export const save = (payload) => ({
-    type: SAVE_HEADER_SETTINGS, ...payload
+    type: SAVE_HEADER_SETTINGS, ...payload,
 });
 
 export const remove = (payload) => ({
-    type: REMOVE_HEADER_ITEM, ...payload
+    type: REMOVE_HEADER_ITEM, ...payload,
 });

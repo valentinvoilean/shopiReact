@@ -11,8 +11,8 @@ const propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.object,
         PropTypes.array,
-        PropTypes.string
-    ])
+        PropTypes.string,
+    ]),
 };
 
 const defaultProps = {
@@ -20,7 +20,7 @@ const defaultProps = {
     onClick: () => {},
     children: null,
     overlayClassName: '',
-    className: ''
+    className: '',
 };
 
 class Modal extends Component {
@@ -32,7 +32,7 @@ class Modal extends Component {
     render() {
         const {isLight, onClick, children, className, overlayClassName} = this.props;
         const overlayClasses = classNames(styles.modal, {
-            [`${styles.modalLight}`]: isLight
+            [`${styles.modalLight}`]: isLight,
         }, overlayClassName);
 
         /* eslint-disable */

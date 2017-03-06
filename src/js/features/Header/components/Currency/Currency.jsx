@@ -6,12 +6,12 @@ import * as actions from 'store/modules/Currency';
 
 const propTypes = {
     globalState: PropTypes.object.isRequired,
-    actions: PropTypes.object.isRequired
+    actions: PropTypes.object.isRequired,
 };
 
 const defaultProps = {
     globalState: {},
-    actions: {}
+    actions: {},
 };
 
 export class PureCurrency extends Component {

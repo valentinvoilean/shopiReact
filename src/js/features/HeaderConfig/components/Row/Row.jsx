@@ -8,14 +8,14 @@ const propTypes = {
     globalState: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired,
     mediaQuery: PropTypes.string.isRequired,
-    pos: PropTypes.number
+    pos: PropTypes.number,
 };
 
 const defaultProps = {
     globalState: {},
     actions: {},
     mediaQuery: '',
-    pos: 0
+    pos: 0,
 };
 
 function Row(props) {

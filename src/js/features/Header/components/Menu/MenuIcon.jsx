@@ -12,7 +12,7 @@ import * as actions from 'store/modules/MainMenu';
 
 const propTypes = {
     mainMenuState: PropTypes.object.isRequired,
-    actions: PropTypes.object.isRequired
+    actions: PropTypes.object.isRequired,
 };
 
 export class MenuIconPure extends Component {
@@ -54,7 +54,7 @@ export class MenuIconPure extends Component {
         };
 
         const elClasses = classNames('menuIcon', 'menuIcon--x', {
-            [`${SHARED_CLASSES.active}`]: mainMenuState.getIn(['sidebar', 'active'])
+            [`${SHARED_CLASSES.active}`]: mainMenuState.getIn(['sidebar', 'active']),
         });
 
         return (
@@ -72,7 +72,7 @@ export class MenuIconPure extends Component {
 
 MenuIconPure.propTypes = propTypes;
 MenuIconPure.contextTypes = {
-    store: React.PropTypes.object
+    store: React.PropTypes.object,
 };
 
 export default connect(
