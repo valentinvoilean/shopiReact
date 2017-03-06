@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 
 import configureStore from 'store/configureStore';
-import {HeaderConfig} from './components';
+import HeaderConfig from './HeaderConfig';
 
 const store = configureStore();
 

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import configureStore from 'store/configureStore';
@@ -6,7 +6,7 @@ import configureStore from 'store/configureStore';
 import {Header} from './features/Header';
 import Footer from './features/Footer';
 
-export default class App extends Component {
+export default class App extends React.PureComponent {
     componentDidMount() {
         this.header = document.createElement('header');
         this.footer = document.createElement('footer');
@@ -19,10 +19,6 @@ export default class App extends Component {
         this.section.insertBefore(this.header, this.article);
 
         this.componentDidUpdate();
-    }
-
-    shouldComponentUpdate() {
-        return true;
     }
 
     componentDidUpdate() {

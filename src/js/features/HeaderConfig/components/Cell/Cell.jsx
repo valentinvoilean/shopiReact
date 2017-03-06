@@ -1,34 +1,19 @@
-import React, {Component, PropTypes} from 'react';
+import React, {PropTypes} from 'react';
 import uuid from 'uuid';
 import Sortable from 'sortablejs';
 
-import {CloseButton} from '../';
+import {CloseButton} from './components';
 import styles from './Cell.scss';
 
 import {validateState} from 'utils/header';
 
-const propTypes = {
-    globalState: PropTypes.object.isRequired,
-    actions: PropTypes.object.isRequired,
-    name: PropTypes.string.isRequired,
-    mediaQuery: PropTypes.string.isRequired,
-};
-
-const defaultProps = {
-    globalState: {},
-    actions: {},
-    name: '',
-    mediaQuery: '',
-};
-
-class Cell extends Component {
-    constructor(props) {
-        super(props);
-
-        this.handleCloseButton = this.handleCloseButton.bind(this);
-        this.handleCellRef = this.handleCellRef.bind(this);
-        this.handleTooltipRef = this.handleTooltipRef.bind(this);
-    }
+export default class Cell extends React.PureComponent {
+    static propTypes = {
+        globalState: PropTypes.object.isRequired,
+        actions: PropTypes.object.isRequired,
+        name: PropTypes.string.isRequired,
+        mediaQuery: PropTypes.string.isRequired,
+    };
 
     componentDidMount() {
         this.sortable = Sortable.create(this.cellRef, {...this.sortableOptions});
@@ -43,12 +28,12 @@ class Cell extends Component {
     sortable = null; // sortable instance
 
     sortableOptions = {
-        group: {name: 'headerConfig', put: this.validateItem.bind(this)},
+        group: {name: 'headerConfig', put: ::this.validateItem},
         animation: 150,
         ghostClass: styles.sortableGhost,
         validGroupClass: styles.cellValid,
         invalidGroupClass: styles.cellInvalid,
-        onSort: this.handleSort.bind(this),
+        onSort: ::this.handleSort,
     };
 
     validateItem(to, from, dragged) {
@@ -78,14 +63,6 @@ class Cell extends Component {
         this.props.actions.remove({item, from: this.sortable.el.dataset.id, mediaQuery: this.props.mediaQuery});
     }
 
-    handleCellRef(cellRef) {
-        this.cellRef = cellRef;
-    }
-
-    handleTooltipRef(tooltipRef) {
-        this.tooltipRef = tooltipRef;
-    }
-
     updateValidationMessage(message) {
         this.tooltipRef.dataset.message = message;
     }
@@ -98,7 +75,7 @@ class Cell extends Component {
             <li key={uuid.v4()} data-id={item}><span>{item}</span>
                 <CloseButton cellName={name}
                              item={item}
-                             onClick={this.handleCloseButton}
+                             onClick={::this.handleCloseButton}
                              mediaQuery={mediaQuery}
                 />
             </li>)
@@ -106,16 +83,11 @@ class Cell extends Component {
 
         return (
         <div className={styles.cell}>
-            <ul ref={this.handleCellRef} data-id={name}>
+            <ul ref={c => this.cellRef = c} data-id={name}>
                 {itemsHTML}
             </ul>
-            <div ref={this.handleTooltipRef} className={styles.validationTooltip}></div>
+            <div ref={c => this.tooltipRef = c} className={styles.validationTooltip}></div>
         </div>
         );
     }
 }
-
-Cell.propTypes = propTypes;
-Cell.defaultProps = defaultProps;
-
-export default Cell;

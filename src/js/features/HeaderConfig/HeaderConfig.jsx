@@ -8,26 +8,26 @@ import classNames from 'classnames';
 
 import {mediaQueryNames} from 'constants/mediaQueries';
 
-import {Row, Cell, CodeBox} from 'features/HeaderConfig/components';
+import {Row, CodeBox, Cell} from './components';
 import styles from './HeaderConfig.scss';
 
 import * as actions from 'store/modules/HeaderConfig';
-
-const propTypes = {
-    globalState: PropTypes.object.isRequired,
-    actions: PropTypes.object.isRequired,
-};
-
-const defaultProps = {
-    globalState: {},
-    actions: {},
-};
 
 @connect(
     state => ({globalState: state.headerConfig}),
     dispatch => ({actions: bindActionCreators(actions, dispatch)})
 )
 export default class HeaderConfig extends Component {
+    static propTypes = {
+        globalState: PropTypes.object.isRequired,
+        actions: PropTypes.object.isRequired,
+    };
+
+    static defaultProps = {
+        globalState: {},
+        actions: {},
+    };
+
     shouldComponentUpdate(nextProps) {
         return nextProps.globalState.get('shouldComponentUpdate');
     }
@@ -82,6 +82,3 @@ export default class HeaderConfig extends Component {
         );
     }
 }
-
-HeaderConfig.propTypes = propTypes;
-HeaderConfig.defaultProps = defaultProps;
