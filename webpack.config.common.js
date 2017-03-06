@@ -1,4 +1,5 @@
 const path = require('path');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 module.exports = {
     context: path.resolve(__dirname, '.'),
@@ -14,16 +15,16 @@ module.exports = {
             'redux',
             'redux-thunk',
             'axios',
-            'classnames'
+            'classnames',
         ],
         main: 'index.jsx',
-        headerConfig: 'features/HeaderConfig/index.jsx'
+        headerConfig: 'features/HeaderConfig/index.jsx',
     },
     output: {
         path: path.resolve(__dirname, 'dist/assets'),
         publicPath: '/dist/assets',
         filename: '[name].js',
-        chunkFilename: '[name].js'
+        chunkFilename: '[name].js',
     },
     module: {
         rules: [
@@ -35,28 +36,31 @@ module.exports = {
             {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff'},
             {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?limit=10000&mimetype=application/octet-stream'},
             {test: /\.(jpe?g|png|gif)$/i, loader: 'file-loader?name=[name].[ext]'},
-            {test: /\.ico$/, loader: 'file-loader?name=[name].[ext]'}
-        ]
+            {test: /\.ico$/, loader: 'file-loader?name=[name].[ext]'},
+        ],
     },
     resolve: {
         extensions: ['.js', '.jsx', '.svg'],
         modules: [
             path.join(__dirname, 'src/js'),
-            'node_modules'
+            'node_modules',
         ],
         alias: {
             svg: path.resolve(__dirname, 'src/svg'),
-            modernizr$: path.resolve(__dirname, '.modernizrrc')
-        }
+            modernizr$: path.resolve(__dirname, '.modernizrrc'),
+        },
     },
     target: 'web',
     performance: {
-        hints: false
+        hints: false,
     },
     stats: {
         version: false,
         hash: false,
         chunks: false,
-        children: false
-    }
+        children: false,
+    },
+    plugins: [
+        new ProgressBarPlugin(),
+    ],
 };
