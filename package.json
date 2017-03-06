@@ -10,10 +10,10 @@
     "start": "npm run dev",
     "lint": "eslint --fix --ext .jsx,.js ./src/js",
     "test": "jest",
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server --config ./webpack.config.dev.js",
     "build": "npm-run-all --parallel watch watch:js",
     "watch": "node tools/watch",
-    "watch:js": "webpack --watch --config webpack.config.prod.js"
+    "watch:js": "webpack --watch --config ./webpack.config.prod.js"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/node_modules/jest-enzyme/lib/index.js",
