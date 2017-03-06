@@ -1,7 +1,10 @@
 import React from 'react';
 import {shallow} from 'enzyme';
+import configureStore from 'store/configureStore';
 
-import {PureHeaderConfig} from './HeaderConfig';
+const store = configureStore();
+
+import HeaderConfig from './HeaderConfig';
 
 describe('Modal', () => {
     it('renders without any problem', () => {
@@ -9,7 +12,7 @@ describe('Modal', () => {
             globalState: {get: jest.fn(()=> false)},
             actions: {}
         };
-        const wrapper = shallow(<PureHeaderConfig {...props} />);
+        const wrapper = shallow((<HeaderConfig {...props} />), {context: {store}}).dive();
 
         expect(wrapper.find('Tabs')).toHaveLength(1);
     });
@@ -23,7 +26,7 @@ describe('Modal', () => {
             globalState: {get: jest.fn(()=> true)},
             actions: {}
         };
-        const wrapper = shallow(<PureHeaderConfig {...props} />);
+        const wrapper = shallow((<HeaderConfig {...props} />), {context: {store}}).dive();
 
         wrapper.setProps(nextProps);
 

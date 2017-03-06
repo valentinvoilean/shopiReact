@@ -23,7 +23,11 @@ const defaultProps = {
     actions: {}
 };
 
-export class PureHeaderConfig extends Component {
+@connect(
+    state => ({globalState: state.headerConfig}),
+    dispatch => ({actions: bindActionCreators(actions, dispatch)})
+)
+export default class HeaderConfig extends Component {
     shouldComponentUpdate(nextProps) {
         return nextProps.globalState.get('shouldComponentUpdate');
     }
@@ -79,10 +83,5 @@ export class PureHeaderConfig extends Component {
     }
 }
 
-PureHeaderConfig.propTypes = propTypes;
-PureHeaderConfig.defaultProps = defaultProps;
-
-export default connect(
-    state => ({globalState: state.headerConfig}),
-    dispatch => ({actions: bindActionCreators(actions, dispatch)})
-)(PureHeaderConfig);
+HeaderConfig.propTypes = propTypes;
+HeaderConfig.defaultProps = defaultProps;
