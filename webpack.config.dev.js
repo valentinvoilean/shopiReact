@@ -9,9 +9,9 @@ const webpackCommonDevSettings = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('development'),
-            __DEV__: true
+            __DEV__: true,
         }),
-        new webpack.NamedModulesPlugin()
+        new webpack.NamedModulesPlugin(),
     ],
     devServer: {
         inline: true,
@@ -21,14 +21,14 @@ const webpackCommonDevSettings = {
         port: 8089,
         open: true,
         historyApiFallback: {
-            index: '/dist/index.html'
+            index: '/dist/index.html',
         },
         stats: {
             hash: false,
             version: false,
-            chunks: false
-        }
-    }
+            chunks: false,
+        },
+    },
 };
 
 module.exports = [
@@ -36,16 +36,16 @@ module.exports = [
         module: {
             rules: [
                 {test: /\.scss$/, loader: 'style-loader!css-loader?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer-loader!resolve-url-loader!sass-loader'},
-                {test: /\.css$/, loader: 'style-loader!css-loader'}
-            ]
-        }
+                {test: /\.css$/, loader: 'style-loader!css-loader'},
+            ],
+        },
     }),
     merge.smartStrategy({entry: 'replace'})(webpackCommonSettings, webpackCommonDevSettings, {
-        entry: { styles: './src/styles/theme.scss' },
+        entry: { styles: 'styles/theme.scss' },
         module: {
             rules: [
-                {test: /\.scss$/, loader: 'style-loader!css-loader?sourceMap!autoprefixer-loader!resolve-url-loader!sass-loader?sourceMap'}
-            ]
-        }
-    })
+                {test: /\.scss$/, loader: 'style-loader!css-loader?sourceMap!autoprefixer-loader!resolve-url-loader!sass-loader?sourceMap'},
+            ],
+        },
+    }),
 ];

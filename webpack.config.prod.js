@@ -20,14 +20,14 @@ module.exports = merge(webpackConfigCommon, {
                                 modules: true,
                                 importLoaders: 1,
                                 minimize: true,
-                                localIdentName: '[name]__[local]___[hash:base64:5]'
-                            }
+                                localIdentName: '[name]__[local]___[hash:base64:5]',
+                            },
                         },
                         'autoprefixer-loader',
                         'resolve-url-loader',
-                        'sass-loader'
-                    ]
-                })
+                        'sass-loader',
+                    ],
+                }),
             },
             {
                 test: /\.css$/,
@@ -35,39 +35,39 @@ module.exports = merge(webpackConfigCommon, {
                     fallbackLoader: 'style-loader',
                     loader: [
                         {
-                            loader: 'css-loader'
-                        }
-                    ]
-                })
-            }
-        ]
+                            loader: 'css-loader',
+                        },
+                    ],
+                }),
+            },
+        ],
     },
     plugins: [
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production'),
-            __DEV__: false
+            __DEV__: false,
         }),
         new ExtractTextPlugin({
             filename: '../../theme/assets/[name].css',
-            allChunks: true
+            allChunks: true,
         }),
         new webpack.optimize.CommonsChunkPlugin({
             names: ['main', 'vendors'],
-            filename: '[name].js'
+            filename: '[name].js',
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
-                warnings: false
+                warnings: false,
             },
             sourceMap: false,
             output: {
-                quote_style: 3
-            }
+                quote_style: 3,
+            },
             //sourceMap: true
         }),
         new webpack.LoaderOptionsPlugin({
             minimize: true,
-            debug: false
-        })
-    ]
+            debug: false,
+        }),
+    ],
 });

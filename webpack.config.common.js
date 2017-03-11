@@ -28,8 +28,8 @@ module.exports = {
     },
     module: {
         rules: [
-            {enforce: 'pre', test: /\.jsx?$/, include: `${__dirname}/src/js`, loader: 'eslint-loader'},
-            {test: /\.jsx?$/, include: `${__dirname}/src/js`, loader: 'babel-loader'},
+            {enforce: 'pre', test: /\.jsx?$/, include: `${__dirname}/src`, loader: 'eslint-loader'},
+            {test: /\.jsx?$/, include: `${__dirname}/src`, loader: 'babel-loader'},
             {test: /\.svg$/, loader: 'svg-sprite-loader'},
             {test: /\.modernizrrc$/, loader: 'webpack-modernizr-loader'},
             {test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file-loader'},
@@ -42,11 +42,12 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx', '.svg'],
         modules: [
-            path.join(__dirname, 'src/js'),
+            path.join(__dirname, 'src'),
             'node_modules',
         ],
         alias: {
-            svg: path.resolve(__dirname, 'src/svg'),
+            svg: path.resolve(__dirname, 'src/static/svg'),
+            styles: path.resolve(__dirname, 'src/static/styles'),
             modernizr$: path.resolve(__dirname, '.modernizrrc'),
         },
     },

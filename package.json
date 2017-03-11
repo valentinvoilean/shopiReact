@@ -8,7 +8,7 @@
   "repository": "git@bitbucket:vvm88/shopireact.git",
   "scripts": {
     "start": "npm run dev",
-    "lint": "eslint --fix --ext .jsx,.js ./src/js",
+    "lint": "eslint --fix --ext .jsx,.js ./src",
     "test": "jest",
     "dev": "webpack-dev-server --config ./webpack.config.dev.js",
     "build": "npm-run-all --parallel watch watch:js",
@@ -18,7 +18,7 @@
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/node_modules/jest-enzyme/lib/index.js",
     "roots": [
-      "src/js"
+      "src"
     ],
     "moduleFileExtensions": [
       "js",
@@ -26,11 +26,14 @@
     ],
     "moduleDirectories": [
       "node_modules",
-      "src/js"
+      "src"
     ],
     "moduleNameMapper": {
-      "\\.(css|scss|less)$": "<rootDir>/src/js/__mocks__/styleMock.js",
-      "\\.(gif|ttf|eot|svg)$": "<rootDir>/src/js/__mocks__/fileMock.js"
+      "\\.(css|scss|less)$": "<rootDir>/src/__mocks__/styleMock.js",
+      "\\.(gif|ttf|eot|svg)$": "<rootDir>/src/__mocks__/fileMock.js",
+      "^styles(.*)$": "<rootDir>/src/static/styles$1",
+      "^svg(.*)$": "<rootDir>/src/static/svg$1",
+      "^modernizr$": "<rootDir>/.modernizrrc"
     },
     "collectCoverage": true,
     "coverageReporters": [
