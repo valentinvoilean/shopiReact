@@ -18,7 +18,7 @@ module.exports = {
             'classnames',
         ],
         main: 'index.jsx',
-        headerConfig: 'screens/App/screens/HeaderConfig/index.jsx',
+        headerConfig: 'screens/HeaderConfig/index.jsx',
     },
     output: {
         path: path.resolve('./dist/assets'),

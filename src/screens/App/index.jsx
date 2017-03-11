@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import configureStore from 'config/store/configureStore';
 
-import {Header} from './components/Header';
-import Footer from './components/Footer';
+import {Header, Footer} from './components';
 
 export default class App extends React.PureComponent {
     componentDidMount() {

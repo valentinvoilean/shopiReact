@@ -1,1 +1,10 @@
-export {CustomLink1, CustomLink2, CustomLink3, CustomLink4} from './CustomLink';
+import React from 'react';
+
+export function CustomLink() {
+    return <span> CustomLink </span>;
+}
+
+export const CustomLink1 = CustomLink;
+export const CustomLink2 = CustomLink;
+export const CustomLink3 = CustomLink;
+export const CustomLink4 = CustomLink;

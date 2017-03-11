@@ -1,2 +1,5 @@
-export Menu from './Menu';
-export MenuIcon from './MenuIcon';
+import React from 'react';
+
+export default function Menu() {
+    return <span> Menu </span>;
+}
