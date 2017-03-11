@@ -2,7 +2,7 @@ const path = require('path');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 module.exports = {
-    context: path.resolve(__dirname, '.'),
+    context: path.resolve('.'),
     entry: {
         vendors: [
             'babel-polyfill',
@@ -21,15 +21,15 @@ module.exports = {
         headerConfig: 'features/HeaderConfig/index.jsx',
     },
     output: {
-        path: path.resolve(__dirname, 'dist/assets'),
+        path: path.resolve('./dist/assets'),
         publicPath: '/dist/assets',
         filename: '[name].js',
         chunkFilename: '[name].js',
     },
     module: {
         rules: [
-            {enforce: 'pre', test: /\.jsx?$/, include: `${__dirname}/src`, loader: 'eslint-loader'},
-            {test: /\.jsx?$/, include: `${__dirname}/src`, loader: 'babel-loader'},
+            {enforce: 'pre', test: /\.jsx?$/, include: path.resolve('./src'), loader: 'eslint-loader'},
+            {test: /\.jsx?$/, include: path.resolve('./src'), loader: 'babel-loader'},
             {test: /\.svg$/, loader: 'svg-sprite-loader'},
             {test: /\.modernizrrc$/, loader: 'webpack-modernizr-loader'},
             {test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file-loader'},
@@ -42,13 +42,13 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx', '.svg'],
         modules: [
-            path.join(__dirname, 'src'),
+            path.resolve('./src'),
             'node_modules',
         ],
         alias: {
-            svg: path.resolve(__dirname, 'src/static/svg'),
-            styles: path.resolve(__dirname, 'src/static/styles'),
-            modernizr$: path.resolve(__dirname, '.modernizrrc'),
+            svg: path.resolve('./src/static/svg'),
+            styles: path.resolve('./src/static/styles'),
+            modernizr$: path.resolve('./.modernizrrc'),
         },
     },
     target: 'web',
