@@ -18,7 +18,7 @@ module.exports = {
             'classnames',
         ],
         main: 'index.jsx',
-        headerConfig: 'features/HeaderConfig/index.jsx',
+        headerConfig: 'screens/App/screens/HeaderConfig/index.jsx',
     },
     output: {
         path: path.resolve('./dist/assets'),
@@ -46,7 +46,6 @@ module.exports = {
             'node_modules',
         ],
         alias: {
-            svg: path.resolve('./src/static/svg'),
             styles: path.resolve('./src/static/styles'),
             modernizr$: path.resolve('./.modernizrrc'),
         },

@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './App';
+import App from './screens/App';
 
 window.onload = function() {
-    ReactDOM.render(<App />, document.getElementById('app'));
+    ReactDOM.render(<App />, document.querySelector('#app'));
 };
 
 window.addEventListener('destroy', () => {
-    ReactDOM.unmountComponentAtNode(document.getElementById('app'));
+    ReactDOM.unmountComponentAtNode(document.querySelector('#app'));
 });
