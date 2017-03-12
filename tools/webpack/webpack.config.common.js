@@ -17,7 +17,7 @@ module.exports = {
             'axios',
             'classnames',
         ],
-        main: 'index.jsx',
+        main: 'screens/App/index.jsx',
         headerConfig: 'screens/HeaderConfig/index.jsx',
     },
     output: {

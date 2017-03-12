@@ -1,2 +1,2 @@
-export MyAccountDesktop from './MyAccountDesktop';
-export MyAccountMobile from './MyAccountMobile';
+export MyAccountDesktop from './MyAccountDesktop/MyAccountDesktop';
+export MyAccountMobile from './MyAccountMobile/MyAccountMobile';

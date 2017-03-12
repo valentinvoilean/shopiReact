@@ -1,3 +1,2 @@
-export Footer from './Footer';
-export Header from './Header';
-export MenuSidebar from './MenuSidebar';
+export Footer from './Footer/Footer';
+export Header from './Header/Header';
