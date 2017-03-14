@@ -8,7 +8,7 @@ export default class CodeBox extends React.PureComponent {
         text: React.PropTypes.string.isRequired,
     };
 
-    state = { copied: false };
+    state = {copied: false};
 
     handleCopy() {
         this.setState({copied: true});

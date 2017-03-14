@@ -16,21 +16,18 @@ export default class Row extends React.PureComponent {
 
     render() {
         const {mediaQuery, pos} = this.props;
-        const multiCells = mediaQuery !== 'mobile' || pos === 0;
 
-        if (multiCells) {
+        if (mediaQuery !== 'mobile' || pos === 0) {
             return (
                 <div className={styles.headerArea}>
-                    {
-                        horizontalPositions.map(
-                            (hPos) => (
-                                <Cell key={uuid.v4()}
-                                      {...this.props}
-                                      name={`${verticalPositions[pos]}${hPos}`}
-                                      mediaQuery={mediaQuery}
-                                />
-                            )
-                        )
+                    {horizontalPositions.map(
+                        (hPos) => (
+                            <Cell key={uuid.v4()}
+                                  {...this.props}
+                                  name={`${verticalPositions[pos]}${hPos}`}
+                                  mediaQuery={mediaQuery}
+                            />
+                        ))
                     }
                 </div>
             );
