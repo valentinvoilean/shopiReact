@@ -106,11 +106,11 @@ export default function validateState(state) {
     // Go trough each media query
 
     validStates.keySeq().forEach(mediaQuery => {
-        if (!state.get('data').has(mediaQuery)) {
+        if (!state.has(mediaQuery)) {
             throw `The media query ${mediaQuery} does not exist in the settings provided.`;
         }
 
-        cells = state.getIn(['data', mediaQuery]).toJS();
+        cells = state.get(mediaQuery).toJS();
         validAreas = validStates.get(mediaQuery);
 
         _parseEachHeaderArea(mediaQuery);

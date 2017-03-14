@@ -6,8 +6,6 @@ import styles from './Row.scss';
 
 export default class Row extends React.PureComponent {
     static propTypes = {
-        globalState: PropTypes.object.isRequired,
-        actions: PropTypes.object.isRequired,
         mediaQuery: PropTypes.string.isRequired,
         pos: PropTypes.number,
     };
@@ -17,7 +15,7 @@ export default class Row extends React.PureComponent {
     };
 
     render() {
-        const {mediaQuery, globalState, pos, actions} = this.props;
+        const {mediaQuery, pos} = this.props;
         const multiCells = mediaQuery !== 'mobile' || pos === 0;
 
         if (multiCells) {
@@ -27,10 +25,9 @@ export default class Row extends React.PureComponent {
                         horizontalPositions.map(
                             (hPos) => (
                                 <Cell key={uuid.v4()}
+                                      {...this.props}
                                       name={`${verticalPositions[pos]}${hPos}`}
-                                      globalState={globalState}
                                       mediaQuery={mediaQuery}
-                                      actions={actions}
                                 />
                             )
                         )
@@ -42,10 +39,9 @@ export default class Row extends React.PureComponent {
         return (
             <div className={styles.headerArea}>
                 <Cell key={uuid.v4()}
+                      {...this.props}
                       name={verticalPositions[pos]}
-                      globalState={globalState}
                       mediaQuery={mediaQuery}
-                      actions={actions}
                 />
             </div>
         );

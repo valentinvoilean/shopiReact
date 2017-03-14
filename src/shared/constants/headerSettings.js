@@ -4,43 +4,41 @@ import {fromJS, Map} from 'immutable';
 export const headerSettings = window.env === 'development' ? '{"mobile":{"Hidden":["Breadcrumb","Search","MyAccount"],"TopLeft":["MenuIcon"],"TopCenter":["Logo"],"TopRight":["Cart","Wishlist"],"Main":["Menu"],"Bottom":["WelcomeMessage"]},"tablet":{"MainLeft":["Logo"],"BottomCenter":[],"MainRight":["Cart","Search"],"TopRight":["MyAccount","Wishlist"],"Hidden":["CustomLink3","CustomLink4"],"TopCenter":[],"MainCenter":["Menu"],"BottomRight":["SocialIcons","WelcomeMessage"],"BottomLeft":["Breadcrumb"],"TopLeft":["Currency","Language","CustomLink1","CustomLink2"]},"desktop":{"MainLeft":["Logo"],"BottomCenter":[],"MainRight":["Cart","Search"],"TopRight":["MyAccount","Wishlist"],"Hidden":["CustomLink3","CustomLink4"],"TopCenter":[],"MainCenter":["Menu"],"BottomRight":["SocialIcons","WelcomeMessage"],"BottomLeft":["Breadcrumb"],"TopLeft":["Currency","Language","CustomLink1","CustomLink2"]}}' : '{{ settings.header_configurator_settings }}';
 
 export const defaultState = fromJS({
-    HeaderConfig: {
-        data: {
-            mobile: {
-                Hidden: ['Breadcrumb', 'Search', 'MyAccount'],
-                TopLeft: ['MenuIcon'],
-                TopCenter: ['Logo'],
-                TopRight: ['Cart', 'Wishlist'],
-                Main: ['Menu'],
-                Bottom: ['WelcomeMessage'],
-            },
-            tablet: {
-                Hidden: ['CustomLink3', 'CustomLink4'],
-                TopLeft: ['Currency', 'Language', 'CustomLink1', 'CustomLink2'],
-                TopCenter: [],
-                TopRight: ['MyAccount', 'Wishlist'],
-                MainLeft: ['Logo'],
-                MainCenter: ['Menu'],
-                MainRight: ['Cart', 'Search'],
-                BottomLeft: ['Breadcrumb'],
-                BottomCenter: [],
-                BottomRight: ['SocialIcons', 'WelcomeMessage'],
-            },
-            desktop: {
-                Hidden: ['CustomLink3', 'CustomLink4'],
-                TopLeft: ['Currency', 'Language', 'CustomLink1', 'CustomLink2'],
-                TopCenter: [],
-                TopRight: ['MyAccount', 'Wishlist'],
-                MainLeft: ['Logo'],
-                MainCenter: ['Menu'],
-                MainRight: ['Cart', 'Search'],
-                BottomLeft: ['Breadcrumb'],
-                BottomCenter: [],
-                BottomRight: ['SocialIcons', 'WelcomeMessage'],
-            },
+    data: {
+        mobile: {
+            Hidden: ['Breadcrumb', 'Search', 'MyAccount'],
+            TopLeft: ['MenuIcon'],
+            TopCenter: ['Logo'],
+            TopRight: ['Cart', 'Wishlist'],
+            Main: ['Menu'],
+            Bottom: ['WelcomeMessage'],
         },
-        shouldComponentUpdate: false,
+        tablet: {
+            Hidden: ['CustomLink3', 'CustomLink4'],
+            TopLeft: ['Currency', 'Language', 'CustomLink1', 'CustomLink2'],
+            TopCenter: [],
+            TopRight: ['MyAccount', 'Wishlist'],
+            MainLeft: ['Logo'],
+            MainCenter: ['Menu'],
+            MainRight: ['Cart', 'Search'],
+            BottomLeft: ['Breadcrumb'],
+            BottomCenter: [],
+            BottomRight: ['SocialIcons', 'WelcomeMessage'],
+        },
+        desktop: {
+            Hidden: ['CustomLink3', 'CustomLink4'],
+            TopLeft: ['Currency', 'Language', 'CustomLink1', 'CustomLink2'],
+            TopCenter: [],
+            TopRight: ['MyAccount', 'Wishlist'],
+            MainLeft: ['Logo'],
+            MainCenter: ['Menu'],
+            MainRight: ['Cart', 'Search'],
+            BottomLeft: ['Breadcrumb'],
+            BottomCenter: [],
+            BottomRight: ['SocialIcons', 'WelcomeMessage'],
+        },
     },
+    shouldComponentUpdate: false,
 });
 
 export let validStates = Map({

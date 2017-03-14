@@ -3,13 +3,13 @@ import {List} from 'immutable';
 import {getInitialState, validateState} from 'shared/utils/header';
 import {defaultState} from 'shared/constants/headerSettings';
 
-const SAVE_HEADER_SETTINGS = 'SAVE_HEADER_SETTINGS';
-const REMOVE_HEADER_ITEM = 'REMOVE_HEADER_ITEM';
+const HEADER_CONFIG_UPDATE = 'HEADER_CONFIG_UPDATE';
+const HEADER_CONFIG_ITEM_REMOVE = 'HEADER_CONFIG::ITEM_REMOVE';
 
 // Reducer
 export default (state = getInitialState(), action) => {
     switch (action.type) {
-        case SAVE_HEADER_SETTINGS: {
+        case HEADER_CONFIG_UPDATE: {
             const {to, children, shouldComponentUpdate, mediaQuery} = action;
 
             return state
@@ -17,7 +17,7 @@ export default (state = getInitialState(), action) => {
                 .setIn(['data', mediaQuery, to], List(children));
         }
 
-        case REMOVE_HEADER_ITEM: {
+        case HEADER_CONFIG_ITEM_REMOVE: {
             const {item, from, mediaQuery} = action;
 
             return state
@@ -28,12 +28,12 @@ export default (state = getInitialState(), action) => {
 
         default: {
             try {
-                validateState(state);
+                validateState(state.get('data'));
                 return state;
             }
             catch (e) {
                 console.warn(e); // eslint-disable-line
-                return defaultState.get('HeaderConfig');
+                return defaultState;
             }
         }
     }
@@ -41,9 +41,9 @@ export default (state = getInitialState(), action) => {
 
 // Action Creators
 export const save = (payload) => ({
-    type: SAVE_HEADER_SETTINGS, ...payload,
+    type: HEADER_CONFIG_UPDATE, ...payload,
 });
 
 export const remove = (payload) => ({
-    type: REMOVE_HEADER_ITEM, ...payload,
+    type: HEADER_CONFIG_ITEM_REMOVE, ...payload,
 });

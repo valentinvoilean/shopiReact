@@ -14,25 +14,29 @@ import styles from './HeaderConfig.scss';
 import * as actions from './HeaderConfig.duck';
 
 @connect(
-    state => ({globalState: state.headerConfig}),
-    dispatch => ({actions: bindActionCreators(actions, dispatch)})
+    state => ({...state.headerConfig.toJS()}),
+    dispatch => ({...bindActionCreators(actions, dispatch)})
 )
 export default class HeaderConfig extends Component {
     static propTypes = {
-        globalState: PropTypes.object.isRequired,
-        actions: PropTypes.object.isRequired,
+        // Store Props
+        data: PropTypes.object.isRequired,
     };
 
+    constructor(props) {
+        super(props);
+
+        this.modalClasses = classNames('container', styles.base);
+
+    }
+
     shouldComponentUpdate(nextProps) {
-        return nextProps.globalState.get('shouldComponentUpdate');
+        return nextProps.shouldComponentUpdate;
     }
 
     render() {
-        const {globalState} = this.props;
-        const modalClasses = classNames('container', styles.base);
-
         return (
-            <Modal isOpen className={modalClasses}>
+            <Modal isOpen className={this.modalClasses}>
                 <h1 className={styles.h1}>Header Configuration</h1>
                 <Tabs className={styles.tabs}>
                     <TabList>
@@ -44,17 +48,16 @@ export default class HeaderConfig extends Component {
                                 <h2 className={styles.h2}>1. Available components to drag & drop</h2>
                                 <div className={styles.componentsContainer}>
                                     <Cell key={uuid.v4()}
+                                          {...this.props}
                                           name="Hidden"
-                                          globalState={globalState}
                                           mediaQuery={mediaQuery}
-                                          actions={this.props.actions}
                                     />
                                 </div>
                             </div>
 
                             <div className="col-sm-6">
                                 <h2 className={styles.h2}>3. Generated code to be copied</h2>
-                                <CodeBox text={JSON.stringify(globalState.get('data'))} />
+                                <CodeBox text={JSON.stringify(this.props.data)} />
                             </div>
 
                             <div className={styles.container}>
@@ -65,9 +68,9 @@ export default class HeaderConfig extends Component {
                                     boxes.</p>
 
                                 <div data-mq={mediaQuery} className={styles.header}>
-                                    <Row {...this.props} pos={0} mediaQuery={mediaQuery} />
-                                    <Row {...this.props} pos={1} mediaQuery={mediaQuery} />
-                                    <Row {...this.props} pos={2} mediaQuery={mediaQuery} />
+                                    {[0, 1, 2].map(pos =>
+                                        <Row key={`row${pos}`} {...this.props} pos={pos} mediaQuery={mediaQuery} />)
+                                    }
                                 </div>
                             </div>
                         </TabPanel>

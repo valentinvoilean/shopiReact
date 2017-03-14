@@ -10,10 +10,10 @@ import * as actions from './Link.duck';
 const propTypes = {
     children: PropTypes.element.isRequired,
     link: PropTypes.string.isRequired,
-    loggedIn: PropTypes.bool,
     name: PropTypes.string.isRequired,
     myAccountState: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired,
+    loggedIn: PropTypes.bool,
 };
 
 const defaultProps = {
