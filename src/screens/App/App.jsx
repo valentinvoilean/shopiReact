@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import configureStore from 'config/store/configureStore';
@@ -48,4 +49,4 @@ export default class App extends React.PureComponent {
     }
 }
 
-App.contextTypes = { store: React.PropTypes.object };
+App.contextTypes = { store: PropTypes.object };

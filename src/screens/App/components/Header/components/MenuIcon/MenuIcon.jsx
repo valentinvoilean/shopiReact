@@ -1,4 +1,5 @@
-import React, {PropTypes, Component} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import {Provider, connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -72,7 +73,7 @@ export class MenuIconPure extends Component {
 
 MenuIconPure.propTypes = propTypes;
 MenuIconPure.contextTypes = {
-    store: React.PropTypes.object,
+    store: PropTypes.object,
 };
 
 export default connect(

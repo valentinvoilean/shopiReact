@@ -1,0 +1,1 @@
+export bindMethod from './bindMethod';

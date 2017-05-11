@@ -1,8 +1,10 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {includes} from 'lodash';
 
 import styles from './CloseButton.scss';
 import {validStates} from 'shared/constants/headerSettings';
+import {bindMethod} from 'shared/utils';
 
 export default class CloseButton extends React.PureComponent {
     static propTypes = {
@@ -11,6 +13,11 @@ export default class CloseButton extends React.PureComponent {
         mediaQuery: PropTypes.string.isRequired,
         cellName: PropTypes.string.isRequired,
     };
+
+    constructor(props) {
+      super(props);
+      bindMethod(this);
+    }
 
     handleClick() {
         const {onClick, item} = this.props;
@@ -26,7 +33,7 @@ export default class CloseButton extends React.PureComponent {
         }
 
         if (includes(validStates.get(mediaQuery).Hidden, item)) {
-            return (<button className={styles.closeButton} onClick={::this.handleClick}>&#10005;</button>);
+            return (<button className={styles.closeButton} onClick={this.handleClick}>&#10005;</button>);
         }
         else {
             return null;

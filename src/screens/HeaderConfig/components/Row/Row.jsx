@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import uuid from 'uuid';
 import {Cell} from 'screens/HeaderConfig/components';
 import {horizontalPositions, verticalPositions} from './constants/positions';

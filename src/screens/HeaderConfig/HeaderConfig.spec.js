@@ -1,5 +1,5 @@
-import {save, remove} from './HeaderConfig';
-import reducer from './HeaderConfig';
+import {save, remove} from './HeaderConfig.duck';
+import reducer from './HeaderConfig.duck';
 
 import {defaultState} from 'shared/constants/headerSettings';
 
