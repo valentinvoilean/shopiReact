@@ -7,11 +7,12 @@ import {Modal} from 'shared/components';
 import uuid from 'uuid';
 import classNames from 'classnames';
 
-import {mediaQueryNames} from 'shared/constants/mediaQueries';
-
 import {Row, CodeBox, Cell} from './components';
+
+import 'react-tabs/style/react-tabs.css';
 import styles from './HeaderConfig.scss';
 
+import {mediaQueryNames} from 'shared/constants/mediaQueries';
 import * as actions from './HeaderConfig.duck';
 
 @connect(
