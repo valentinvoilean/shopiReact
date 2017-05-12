@@ -9,7 +9,7 @@
   "scripts": {
     "start": "npm run dev",
     "lint": "eslint --fix --ext .jsx,.js ./src",
-    "test": "jest",
+    "test": "jest --watchAll",
     "dev": "webpack-dev-server --config ./tools/webpack/webpack.config.dev.js",
     "build": "npm-run-all --parallel watch watch:js",
     "watch": "node tools/watch",

@@ -1,12 +1,14 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+
 import {mount, shallow} from 'enzyme';
 
 import Cell from './Cell';
 
 jest.mock('sortablejs');
-jest.mock('utils/header');
+jest.mock('shared/utils/header');
 
-const utils = require('utils/header');
+const utils = require('shared/utils/header');
 const Sortable = require('sortablejs');
 
 utils.validateState = jest.fn(() => null);
@@ -29,11 +31,15 @@ describe('Cell', () => {
                 updateIn: jest.fn(() => null)
             },
             name: 'test',
-            actions: {
-                remove: jest.fn(),
-                save: jest.fn()
+            mediaQuery: 'mobile',
+            data: {
+              mobile: {
+                test: ['a','b']
+              }
             },
-            mediaQuery: 'mobile'
+          remove: jest.fn(),
+          save: jest.fn()
+
         };
     });
 
@@ -51,7 +57,7 @@ describe('Cell', () => {
     it('should call the remove action', () => {
         wrapper = mount(<Cell {...props} />);
         wrapper.find('CloseButton').nodes[0].props.onClick();
-        expect(props.actions.remove).toHaveBeenCalled();
+        expect(props.remove).toHaveBeenCalled();
     });
 
     it('should destroy the sortable when componentWillUnmount method called', () => {
@@ -64,20 +70,13 @@ describe('Cell', () => {
         expect(wrapper.instance().sortable.destroy).toHaveBeenCalled();
     });
 
-    it('should call the componentWillUnmoint method called', () => {
-        wrapper = mount(<Cell {...props} />);
-        Cell.prototype.componentWillUnmount = jest.fn();
-        wrapper.unmount();
-        expect(Cell.prototype.componentWillUnmount).toHaveBeenCalled();
-    });
-
     it('should call the save action method on sort', () => {
         wrapper = mount(<Cell {...props} />);
         wrapper.instance().handleSort({
             to: {dataset: {id: ''}, children:[{dataset: {id: ''}}]},
             from: {dataset: {id: ''}}
         });
-        expect(props.actions.save).toHaveBeenCalled();
+        expect(props.save).toHaveBeenCalled();
     });
 
     describe('_validateItem method', () => {
