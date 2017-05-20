@@ -2,7 +2,7 @@ const watch = require('node-watch');
 const concat = require('serial-concat-files');
 require('colors');
 
-const styles = './src/styles';
+const styles = './src/static/styles';
 const assets = './theme/assets';
 
 function buildCSS () {
