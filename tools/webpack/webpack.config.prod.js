@@ -52,7 +52,7 @@ module.exports = merge(webpackConfigCommon, {
             allChunks: true,
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            names: ['main', 'vendors'],
+            names: ['vendors'],
             filename: '[name].js',
         }),
         new webpack.optimize.UglifyJsPlugin({

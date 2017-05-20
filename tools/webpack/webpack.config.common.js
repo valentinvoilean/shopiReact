@@ -4,19 +4,6 @@ const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 module.exports = {
     context: path.resolve('.'),
     entry: {
-        vendors: [
-            'babel-polyfill',
-            'modernizr',
-            'picturefill',
-            'react',
-            'react-match-media',
-            'react-redux',
-            'react-addons-css-transition-group',
-            'redux',
-            'redux-thunk',
-            'axios',
-            'classnames',
-        ],
         main: 'screens/App/index.jsx',
         headerConfig: 'screens/HeaderConfig/index.jsx',
     },
